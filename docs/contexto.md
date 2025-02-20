@@ -97,7 +97,18 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
 
 # Catálogo de Serviços
 
-Descreva aqui todos os serviços que serão disponibilizados pelo seu projeto, detalhando suas características e funcionalidades.
+Cadastro de Usuários: O usuário poderá se cadastrar na plataforma inserindo seu e-mail, CPF e senha, sendo necessário confirmar esta última. Esse processo enviará uma requisição do tipo POST para a API REST, 
+que encaminhará os dados ao backend para que sejam registrados no banco de dados POSTGRE SQL.
+
+Cadastro de Pets: O usuário poderá cadastrar pets na plataforma. Para isso, deverá preencher um formulário com a raça, o nome, a cor e, opcionalmente, observações. 
+Esse cadastro enviará uma requisição do tipo POST para a API REST, que encaminhará os dados ao backend para que sejam registrados no banco de dados POSTGRE SQL.
+
+Edição de Pets: O usuário poderá editar os pets na plataforma. Para isso, deverá preencher um formulário com a raça, o nome, a cor e, opcionalmente, observações. 
+Esse cadastro enviará uma requisição do tipo PATCH para a API REST, que encaminhará os dados ao backend para que sejam atualizados no banco de dados POSTGRE SQL.
+
+Autenticação: Ao submeter o formulário de login, a plataforma enviará uma requisição POST para a API REST, que verificará as credenciais no backend. Se estiverem corretas, o sistema gerará um token de autenticação (como um Json Web Token), 
+permitindo o acesso seguro às funcionalidades da plataforma. O token será usado em requisições futuras para autenticar o usuário até expirar ou o usuário realizar o logout. Caso as credenciais estejam incorretas, o acesso será negado e o usuário notificado.
+
 
 # Arquitetura da Solução
 
