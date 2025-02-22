@@ -1,4 +1,4 @@
-# Gestão Pet Shop PET MANIA – Sistema distribuído para gerenciamento de clientes, serviços e agendamentos de banho e tosa.
+# Gestão de Pet Shop PET MANIA
 
 `CURSO: Sistemas de Informação`
 
