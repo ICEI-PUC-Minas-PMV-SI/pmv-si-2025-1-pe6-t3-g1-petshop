@@ -59,13 +59,17 @@ O desenvolvimento de um sistema de gestão para um pet shop de pequeno porte sur
 
 O uso de ferramentas de Design Thinking permitirá uma análise completa do problema, identificando as necessidades dos usuários e criando soluções inovadoras e centradas no usuário. A metodologia inclui as seguintes etapas: 
 
-Empatia: Entendimento profundo das necessidades e problemas dos usuários. 
+## Empatia: 
+Entendimento profundo das necessidades e problemas dos usuários. 
 
-Definição: Definição clara dos problemas a serem solucionados. 
+## Definição: 
+Definição clara dos problemas a serem solucionados. 
 
-Ideação: Geração de ideias inovadoras para resolver os problemas identificados. 
+## Ideação: 
+Geração de ideias inovadoras para resolver os problemas identificados. 
 
-Prototipagem: Criação de protótipos do sistema para testar as soluções propostas. 
+## Prototipagem: 
+Criação de protótipos do sistema para testar as soluções propostas. 
 
 Testes: Avaliação dos protótipos com os usuários e ajustes conforme necessário. 
 
