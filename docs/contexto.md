@@ -113,7 +113,7 @@ Alguns pet shops mantêm relações com fornecedores de rações, medicamentos, 
 
 # Mapa de Stakeholders:
 
-![Mapa de Stakeholders](docs/img/Mapa%20de%20Stakeholders.png)
+![Mapa de Stakeholders](docs/img/MapaStakeholders.png)
 
 Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
 
