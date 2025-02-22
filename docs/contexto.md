@@ -109,7 +109,9 @@ Os clientes são parte essencial do nosso sistema, pois, mesmo que não o utiliz
 
 Alguns pet shops mantêm relações com fornecedores de rações, medicamentos, acessórios e outros produtos. Um módulo de gestão de fornecedor, pedidos e faturamento pode facilitar a administração do estoque e garantir um fluxo de suprimentos eficiente.
 
+# Diagrama de Personas:
 
+# Mapa de Stakeholders:
 
 Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
 
