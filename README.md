@@ -6,7 +6,9 @@
 
 `SEMESTRE: 6º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O projeto em desenvolvimento é um sistema distribuído para o gerenciamento de clientes, serviços e agendamentos de banho e tosa em pet shops. O sistema será utilizado exclusivamente pelos funcionários do estabelecimento, proporcionando uma solução prática e acessível diretamente pelo smartphone ou tablet. Através da aplicação, será possível cadastrar clientes e pets, agendar serviços, gerenciar o estoque de produtos e acompanhar o status dos atendimentos.
+O principal objetivo do sistema é facilitar a operação do pet shop, permitindo que funcionários e gestores acessem as informações de qualquer lugar, sem depender de um computador fixo. Com a digitalização dos processos, o sistema trará mais agilidade no atendimento, melhor organização das demandas e otimização do controle de estoque, garantindo que os serviços sejam prestados de forma eficiente. A interface mobile oferecerá uma experiência de uso fluida, tornando o dia a dia dos funcionários mais produtivo e melhorando a gestão geral do pet shop.
+
 
 ## Integrantes
 
