@@ -1,4 +1,4 @@
-# TÍTULO DO PROJETO
+# Gestão Pet Shop PET MANIA – Sistema distribuído para gerenciamento de clientes, serviços e agendamentos de banho e tosa.
 
 `CURSO: Sistemas de Informação`
 
