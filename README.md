@@ -1,4 +1,4 @@
-# Gestão de Pet Shop PET MANIA
+# Gestão de Pet Shop (PET MANIA)
 
 `CURSO: Sistemas de Informação`
 
