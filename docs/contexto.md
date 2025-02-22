@@ -80,6 +80,15 @@ Avaliação dos protótipos com os usuários e ajustes conforme necessário.
 
 O público-alvo do nosso sistema de gestão para pet shops são os funcionários e gestores do estabelecimento, que utilizam a plataforma para otimizar os serviços e melhorar a organização interna.
 
+## Perfis de usuários:
+
+| Usuário                 | Conhecimentos Prévios                                                                 | Relação com a Tecnologia                                                                                     | Relações Hierárquicas                                    |
+|-------------------------|--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| Proprietários de Pet Shop | Geralmente possuem conhecimento sobre o funcionamento do negócio e as necessidades dos clientes, mas podem ter pouca familiaridade com tecnologias avançadas. | Podem estar acostumados a usar sistemas simples ou até mesmo métodos manuais de gestão. A implementação de um sistema distribuído requer um aprendizado inicial, mas pode trazer grandes benefícios em termos de eficiência. | Geralmente ocupam cargos de gestão e tomada de decisão dentro do pet shop. |
+| Funcionários de Pet Shop | Possuem conhecimento operacional sobre o atendimento ao cliente, manutenção do estoque e prestação de serviços. Podem ter variação no nível de familiaridade com tecnologias, dependendo de suas funções. | Alguns funcionários podem estar habituados a utilizar caixas registradoras e sistemas de ponto de venda (PDV), enquanto outros podem ter pouca experiência com sistemas mais complexos. | Podem incluir atendentes, auxiliares de serviços e gerentes de loja, todos necessitando de acesso a diferentes funcionalidades do sistema. |
+| Prestadores de Serviços | São profissionais que têm conhecimentos técnicos e práticos sobre os cuidados com os animais, além de habilidades específicas relacionadas ao manuseio e higiene dos pets. | Possuem um nível de conforto variado com tecnologias, podendo estar habituados a sistemas de agendamento e prontuários eletrônicos. | Podem atuar como colaboradores internos ou prestadores de serviços externos. |
+
+
 ## 1. Proprietário de Pet Shop 
 
 O dono do pet shop precisa de um sistema que otimize a operação do negócio, fornecendo funcionalidades como controle de estoque, agendamentos de serviços e relatórios. Ele busca soluções intuitivas, que facilitem a tomada de decisões e aumentem a eficiência do atendimento.
