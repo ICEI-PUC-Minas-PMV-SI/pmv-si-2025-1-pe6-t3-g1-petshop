@@ -26,20 +26,23 @@ Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thin
 > - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
 > - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
 
-## Objetivos
+# Objetivos
 
-# Objetivo Geral: 
+## Objetivo Geral: 
 
 Desenvolver um sistema de gestão de pet shop que permita aos prestadores de serviços gerenciar os estoques dos produtos e agendar banhos e tosas, otimizando a eficiência operacional e melhorando a experiência do cliente. 
 
-# Objetivos Específicos: 
+## Objetivos Específicos: 
 
 
-1. Automatização do controle de estoque: implementar um sistema que permita o monitoramento em tempo real dos produtos, alertando sobre a necessidade de reposição e evitando excessos. 
+## 1. Automatização do controle de estoque: 
+Implementar um sistema que permita o monitoramento em tempo real dos produtos, alertando sobre a necessidade de reposição e evitando excessos. 
 
-2. Otimização do Agendamento de Serviços: introduzir um sistema digital de agendamento para organizar os horários de forma eficiente, minimizando conflitos e atrasos. 
+## 2. Otimização do Agendamento de Serviços: 
+Introduzir um sistema digital de agendamento para organizar os horários de forma eficiente, minimizando conflitos e atrasos. 
 
-3. Gestão Eficaz de Clientes: desenvolver uma plataforma para acompanhar o histórico de compras e serviços, entender as preferências dos clientes e fornecer um atendimento personalizado. 
+## 3. Gestão Eficaz de Clientes: 
+Desenvolver uma plataforma para acompanhar o histórico de compras e serviços, entender as preferências dos clientes e fornecer um atendimento personalizado. 
  
 > **Links Úteis**:
 > - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
