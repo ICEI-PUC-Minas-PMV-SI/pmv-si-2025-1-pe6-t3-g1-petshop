@@ -111,6 +111,16 @@ Alguns pet shops mantêm relações com fornecedores de rações, medicamentos, 
 
 # Diagrama de Personas:
 
+![Diagrama de Personas](img/persona1.png)
+
+![Diagrama de Personas](img/persona2.png)
+
+![Diagrama de Personas](img/persona3.png)
+
+![Diagrama de Personas](img/persona4.png)
+
+![Diagrama de Personas](img/persona5.png)
+
 # Mapa de Stakeholders:
 
 ![Mapa de Stakeholders](img/MapaStakeholders.png)
