@@ -1,11 +1,23 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+O mercado pet no Brasil tem mostrado um crescimento significativo nos últimos anos. A demanda por serviços de qualidade, incluindo banho e tosa, aumentou consideravelmente, exigindo dos estabelecimentos um gerenciamento mais preciso e organizado. Além disso, a gestão eficiente de estoque é crucial para evitar perdas, otimizar recursos e garantir a disponibilidade dos produtos necessários para os cuidados dos animais. 
+
+Este projeto tem como objetivo desenvolver um sistema de gestão integrado para pet shops, que abranja funcionalidades essenciais como controle de estoque, agendamento de serviços de banho e tosa e gestão de clientes. A implementação deste sistema visa aumentar a eficiência operacional, reduzir erros e retrabalho e oferecer uma plataforma centralizada e intuitiva. 
+
+## Contexto 
+
+Este projeto será desenvolvido para um pet shop de médio porte, localizado em um centro urbano e que oferece produtos e serviços para animais de estimação. Dentre esses produtos e serviços estão incluídos venda de rações, acessórios, medicamentos e serviços de banho e tosa. Atualmente, o pet shop utiliza métodos manuais e sistemas pouco integrados para gerenciar suas operações, o que resulta em ineficiências, erros e dificuldades na administração do negócio. A introdução de um sistema de gestão visa melhorar a eficiência operacional e proporcionar uma melhor experiência tanto para os funcionários quanto para os clientes. 
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
+A gestão de um pet shop envolve diversos problemas operacionais e administrativos que podem impactar negativamente a eficiência do negócio e a satisfação dos clientes. Entre os principais desafios enfrentados por pet shops estão: 
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+Controle de Estoque Ineficiente: a falta de um sistema eficiente de controle de estoque pode levar a rupturas de produtos essenciais, excesso de itens menos demandados e dificuldades na reposição de produtos. Esse cenário não apenas leva à perda de vendas, mas também gera insatisfação entre os clientes que não encontram os produtos que precisam. 
+
+ Agendamento de Serviços Conflitantes: o agendamento manual de serviços de banho e tosa frequentemente resulta em conflitos de horário, atrasos e sobrecarga da equipe. Essa falta de organização compromete a qualidade do atendimento e a experiência dos clientes, que enfrentam esperas e serviços mal coordenados. 
+
+ Falta de Integração entre Setores: a ausência de um sistema integrado dificulta a comunicação e a coordenação entre os diferentes setores do pet shop, como vendas, serviços e atendimento ao cliente. Isso pode levar a inconsistências operacionais, tais como falta de produtos, agendamentos conflitantes e perda de dados importantes de clientes. Essa desorganização impacta negativamente a eficiência interna e o desempenho geral do negócio. 
+
+Dificuldade na Gestão de Clientes: sem um sistema adequado de gestão de clientes, torna-se difícil acompanhar o histórico de compras e serviços, entender as preferências dos clientes e fornecer um atendimento personalizado. Essa falta de informações valiosas prejudica a fidelização dos clientes e impede a criação de estratégias de marketing eficazes. 
 
 Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
 
@@ -16,26 +28,68 @@ Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thin
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+# Objetivo Geral: 
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
+Desenvolver um sistema de gestão de pet shop que permita aos prestadores de serviços gerenciar os estoques dos produtos e agendar banhos e tosas, otimizando a eficiência operacional e melhorando a experiência do cliente. 
+
+# Objetivos Específicos: 
+
+
+1. Automatização do controle de estoque: implementar um sistema que permita o monitoramento em tempo real dos produtos, alertando sobre a necessidade de reposição e evitando excessos. 
+
+2. Otimização do Agendamento de Serviços: introduzir um sistema digital de agendamento para organizar os horários de forma eficiente, minimizando conflitos e atrasos. 
+
+3. Gestão Eficaz de Clientes: desenvolver uma plataforma para acompanhar o histórico de compras e serviços, entender as preferências dos clientes e fornecer um atendimento personalizado. 
  
 > **Links Úteis**:
 > - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+O desenvolvimento de um sistema de gestão para um pet shop de pequeno porte surge da necessidade  de modernizar e otimizar as operações diárias do negócio. Esta inovação busca proporcionar uma experiência aprimorada para os clientes, ao mesmo tempo em que aumenta a eficiência operacional da empresa. A implementação de um sistema integrado de gestão pode trazer inúmeros benefícios, incluindo melhor controle de estoque, agendamento eficiente de serviços e excelência no atendimento aos clientes. 
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
+## Metodologia 
+
+O uso de ferramentas de Design Thinking permitirá uma análise completa do problema, identificando as necessidades dos usuários e criando soluções inovadoras e centradas no usuário. A metodologia inclui as seguintes etapas: 
+
+Empatia: Entendimento profundo das necessidades e problemas dos usuários. 
+
+Definição: Definição clara dos problemas a serem solucionados. 
+
+Ideação: Geração de ideias inovadoras para resolver os problemas identificados. 
+
+Prototipagem: Criação de protótipos do sistema para testar as soluções propostas. 
+
+Testes: Avaliação dos protótipos com os usuários e ajustes conforme necessário. 
 
 > **Links Úteis**:
 > - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
+O público-alvo do nosso sistema de gestão para pet shops são os funcionários e gestores do estabelecimento, que utilizam a plataforma para otimizar os serviços e melhorar a organização interna.
+
+Proprietário de Pet Shop 
+
+O dono do pet shop precisa de um sistema que otimize a operação do negócio, fornecendo funcionalidades como controle de estoque, agendamentos de serviços e relatórios. Ele busca soluções intuitivas, que facilitem a tomada de decisões e aumentem a eficiência do atendimento.
+
+Técnico de tosa
+
+Os profissional responsável por banho e tosa precisa de um sistema que facilite o agendamento de serviços, a organização da fila de atendimento e a personalização dos procedimentos para cada animal. Funcionalidades como alertas e lembretes de atendimento ajudam a melhorar a produtividade e evitar falhas no serviço.
+
+Atendente
+
+O atendente utiliza o sistema para realizar cadastros de clientes e pets, agendar serviços, registrar vendas de produtos e processar pagamentos. Para esse público, um sistema ágil, intuitivo e de fácil navegação é fundamental para otimizar o tempo de trabalho e melhorar a experiência do cliente.
+
+Clientes
+
+Os clientes são parte essencial do nosso sistema, pois, mesmo que não o utilizem diretamente, são o foco dos serviços prestados pelos funcionários do pet shop. A eficiência no agendamento de banho e tosa, a organização do cadastro e o controle preciso do estoque contribuem para um atendimento mais ágil e de qualidade. Com a otimização dos processos e uma experiência mais fluida, o sistema ajudará a aumentar o engajamento e a fidelização dos clientes ao pet shop, garantindo que retornem com frequência e confiem nos serviços oferecidos.
+
+Fornecedor de produto
+
+Alguns pet shops mantêm relações com fornecedores de rações, medicamentos, acessórios e outros produtos. Um módulo de gestão de fornecedor, pedidos e faturamento pode facilitar a administração do estoque e garantir um fluxo de suprimentos eficiente.
+
+
 
 Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
 
