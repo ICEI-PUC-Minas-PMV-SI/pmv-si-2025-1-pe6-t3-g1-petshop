@@ -20,7 +20,7 @@ A falta de um sistema eficiente de controle de estoque pode levar a rupturas de 
 - Falta de Integração entre Setores: 
  A ausência de um sistema integrado dificulta a comunicação e a coordenação entre os diferentes setores do pet shop, como vendas, serviços e atendimento ao cliente. Isso pode levar a inconsistências operacionais, tais como falta de produtos, agendamentos conflitantes e perda de dados importantes de clientes. Essa desorganização impacta negativamente a eficiência interna e o desempenho geral do negócio. 
 
-## 4. Dificuldade na Gestão de Clientes: 
+- Dificuldade na Gestão de Clientes: 
 Sem um sistema adequado de gestão de clientes, torna-se difícil acompanhar o histórico de compras e serviços, entender as preferências dos clientes e fornecer um atendimento personalizado. Essa falta de informações valiosas prejudica a fidelização dos clientes e impede a criação de estratégias de marketing eficazes. 
 
 Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
@@ -89,21 +89,23 @@ O público-alvo do nosso sistema de gestão para pet shops são os funcionários
 | Prestadores de Serviços | São profissionais que têm conhecimentos técnicos e práticos sobre os cuidados com os animais, além de habilidades específicas relacionadas ao manuseio e higiene dos pets. | Possuem um nível de conforto variado com tecnologias, podendo estar habituados a sistemas de agendamento e prontuários eletrônicos. | Podem atuar como colaboradores internos ou prestadores de serviços externos. |
 
 
-## 1. Proprietários de Pet Shop 
+- Proprietários de Pet Shop 
 
 O dono do pet shop precisa de um sistema que otimize a operação do negócio, fornecendo funcionalidades como controle de estoque, agendamentos de serviços e relatórios. Ele busca soluções intuitivas, que facilitem a tomada de decisões e aumentem a eficiência do atendimento.
 
-## 2. Funcionários (Técnico de Tosa/ Atendente)
+- Funcionários (Técnico de Tosa/ Atendente)
 
 Os profissional responsável por banho e tosa precisa de um sistema que facilite o agendamento de serviços, a organização da fila de atendimento e a personalização dos procedimentos para cada animal. Funcionalidades como alertas e lembretes de atendimento ajudam a melhorar a produtividade e evitar falhas no serviço.
 
 O atendente utiliza o sistema para realizar cadastros de clientes e pets, agendar serviços, registrar vendas de produtos e processar pagamentos. Para esse público, um sistema ágil, intuitivo e de fácil navegação é fundamental para otimizar o tempo de trabalho e melhorar a experiência do cliente.
 
-## 3. Fornecedores de produto
+- Fornecedores de produto
 
 Alguns pet shops mantêm relações com fornecedores de rações, medicamentos, acessórios e outros produtos. Um módulo de gestão de fornecedor, pedidos e faturamento pode facilitar a administração do estoque e garantir um fluxo de suprimentos eficiente.
 
 # Diagrama de Personas:
+
+O Diagrama de Personas a seguir apresenta informações detalhadas sobre cada perfil de usuário em cards individuais, destacando suas necessidades e expectativas. 
 
 ![Diagrama de Personas](img/persona1.png)
 
@@ -117,9 +119,18 @@ Alguns pet shops mantêm relações com fornecedores de rações, medicamentos, 
 
 # Mapa de Stakeholders:
 
+O Mapa de Stakeholders apresenta os diferentes grupos envolvidos no sistema de gestão do pet shop, organizando-os com base em seu nível de influência e interesse na plataforma.
+
+- Os proprietários do pet shop possuem alta influência e alto interesse, pois buscam otimizar a administração, melhorar a eficiência das operações e maximizar os lucros. Dessa forma, devem ser priorizados no desenvolvimento do sistema.
+
+- Os funcionários do pet shop possuem alta influência e médio interesse, pois são responsáveis pelo atendimento e execução dos serviços. Para garantir o sucesso da implementação, é essencial treiná-los e envolvê-los no desenvolvimento da plataforma.
+
+- Os prestadores de serviço possuem média influência e alto interesse, pois se beneficiam de um sistema integrado para organização dos agendamentos e informações dos animais. Eles devem ser mantidos informados e engajados no funcionamento da solução.
+
+- Os clientes do pet shop têm baixo interesse e baixa influência, pois utilizam indiretamente o sistema por meio dos serviços prestados. Seu foco está na experiência ágil e eficiente, sem participação ativa no gerenciamento da plataforma.
+
 ![Mapa de Stakeholders](img/MapaStakeholders.png)
 
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
 
 > **Links Úteis**:
 > - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
@@ -210,7 +221,7 @@ Apresente também uma figura explicando como as tecnologias estão relacionadas 
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
+Inicialmente, a hospedagem do sistema será feita em servidores locais, permitindo um ambiente de desenvolvimento e testes controlado, onde ajustes poderão ser realizados antes da implementação definitiva. Durante essa fase, serão analisados o desempenho, a usabilidade e a estabilidade do sistema. Após essa etapa, a plataforma será migrada para a AWS, utilizando a infraestrutura oferecida pelo curso de Sistemas de Informação da PucMinas, que disponibiliza acesso à nuvem para os estudantes. A migração para a AWS trará benefícios como escalabilidade, disponibilidade e segurança.
 
 > **Links Úteis**:
 >
