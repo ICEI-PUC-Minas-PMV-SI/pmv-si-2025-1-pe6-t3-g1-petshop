@@ -121,13 +121,13 @@ O Diagrama de Personas a seguir apresenta informações detalhadas sobre cada pe
 
 O Mapa de Stakeholders apresenta os diferentes grupos envolvidos no sistema de gestão do pet shop, organizando-os com base em seu nível de influência e interesse na plataforma.
 
-- Os proprietários do pet shop possuem alta influência e alto interesse, pois buscam otimizar a administração, melhorar a eficiência das operações e maximizar os lucros. Dessa forma, devem ser priorizados no desenvolvimento do sistema.
+- O proprietário do pet shop possui alta influência e alto interesse, pois busca otimizar a administração, melhorar a eficiência das operações e maximizar os lucros.  
 
-- Os funcionários do pet shop possuem alta influência e médio interesse, pois são responsáveis pelo atendimento e execução dos serviços. Para garantir o sucesso da implementação, é essencial treiná-los e envolvê-los no desenvolvimento da plataforma.
+- Os funcionários do pet shop possuem alta influência e alto interesse, pois são os maiores usuários do sistema e responsáveis pelo atendimento e execução dos serviços. Para garantir o sucesso da implementação, é essencial treiná-los e mantê-los informados e engajados na execução do sistema. 
 
-- Os prestadores de serviço possuem média influência e alto interesse, pois se beneficiam de um sistema integrado para organização dos agendamentos e informações dos animais. Eles devem ser mantidos informados e engajados no funcionamento da solução.
+- Os clientes do pet shop têm baixo interesse e média influência, pois algumas decisões são embasadas em sua nescessidade e comportamento. Utilizam indiretamente o sistema por meio do uso dos serviços.
 
-- Os clientes do pet shop têm baixo interesse e baixa influência, pois utilizam indiretamente o sistema por meio dos serviços prestados. Seu foco está na experiência ágil e eficiente, sem participação ativa no gerenciamento da plataforma.
+- Os fornecedores têm baixo interesse e baixa influência porque seu envolvimento com o sistema é limitado. Eles apenas receberão relatórios para repor estoques de produtos e insumos para o pet shop, sem interação direta com a plataforma. Seu impacto não tem influência ativa sobre o funcionamento da gestão interna do pet shop.
 
 ![Mapa de Stakeholders](img/mapastakeholder.png)
 
