@@ -38,13 +38,13 @@ Desenvolver um sistema de gestão de pet shop que permita aos prestadores de ser
 
 ## Objetivos Específicos: 
 
-### - Automatização do controle de estoque: 
+- Automatização do controle de estoque: 
 Implementar um sistema que permita o monitoramento em tempo real dos produtos, alertando sobre a necessidade de reposição e evitando excessos. 
 
-### - Otimização do Agendamento de Serviços: 
+- Otimização do Agendamento de Serviços: 
 Introduzir um sistema digital de agendamento para organizar os horários de forma eficiente, minimizando conflitos e atrasos. 
 
-### - Gestão Eficaz de Clientes: 
+- Gestão Eficaz de Clientes: 
 Desenvolver uma plataforma para acompanhar o histórico de compras e serviços, entender as preferências dos clientes e fornecer um atendimento personalizado. 
  
 > **Links Úteis**:
@@ -58,19 +58,19 @@ O desenvolvimento de um sistema de gestão para um pet shop de médio porte surg
 
 O uso de ferramentas de Design Thinking permitirá uma análise completa do problema, identificando as necessidades dos usuários e criando soluções inovadoras e centradas no usuário. A metodologia inclui as seguintes etapas: 
 
-## Empatia: 
+- Empatia: 
 Entendimento profundo das necessidades e problemas dos usuários. 
 
-## Definição: 
+- Definição: 
 Definição clara dos problemas a serem solucionados. 
 
-## Ideação: 
+- Ideação: 
 Geração de ideias inovadoras para resolver os problemas identificados. 
 
-## Prototipagem: 
+- Prototipagem: 
 Criação de protótipos do sistema para testar as soluções propostas. 
 
-## Testes:
+- Testes:
 Avaliação dos protótipos com os usuários e ajustes conforme necessário. 
 
 > **Links Úteis**:
