@@ -89,7 +89,7 @@ O público-alvo do nosso sistema de gestão para pet shops são os funcionários
 | Prestadores de Serviços | São profissionais que têm conhecimentos técnicos e práticos sobre os cuidados com os animais, além de habilidades específicas relacionadas ao manuseio e higiene dos pets. | Possuem um nível de conforto variado com tecnologias, podendo estar habituados a sistemas de agendamento e prontuários eletrônicos. | Podem atuar como colaboradores internos ou prestadores de serviços externos. |
 
 
-## 1. Proprietário de Pet Shop 
+## 1. Proprietários de Pet Shop 
 
 O dono do pet shop precisa de um sistema que otimize a operação do negócio, fornecendo funcionalidades como controle de estoque, agendamentos de serviços e relatórios. Ele busca soluções intuitivas, que facilitem a tomada de decisões e aumentem a eficiência do atendimento.
 
@@ -99,7 +99,7 @@ Os profissional responsável por banho e tosa precisa de um sistema que facilite
 
 O atendente utiliza o sistema para realizar cadastros de clientes e pets, agendar serviços, registrar vendas de produtos e processar pagamentos. Para esse público, um sistema ágil, intuitivo e de fácil navegação é fundamental para otimizar o tempo de trabalho e melhorar a experiência do cliente.
 
-## 3. Fornecedor de produto
+## 3. Fornecedores de produto
 
 Alguns pet shops mantêm relações com fornecedores de rações, medicamentos, acessórios e outros produtos. Um módulo de gestão de fornecedor, pedidos e faturamento pode facilitar a administração do estoque e garantir um fluxo de suprimentos eficiente.
 
