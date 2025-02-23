@@ -38,13 +38,13 @@ Desenvolver um sistema de gestão de pet shop que permita aos prestadores de ser
 
 ## Objetivos Específicos: 
 
-## - Automatização do controle de estoque: 
+# - Automatização do controle de estoque: 
 Implementar um sistema que permita o monitoramento em tempo real dos produtos, alertando sobre a necessidade de reposição e evitando excessos. 
 
-## - Otimização do Agendamento de Serviços: 
+# - Otimização do Agendamento de Serviços: 
 Introduzir um sistema digital de agendamento para organizar os horários de forma eficiente, minimizando conflitos e atrasos. 
 
-## - Gestão Eficaz de Clientes: 
+# - Gestão Eficaz de Clientes: 
 Desenvolver uma plataforma para acompanhar o histórico de compras e serviços, entender as preferências dos clientes e fornecer um atendimento personalizado. 
  
 > **Links Úteis**:
