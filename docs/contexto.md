@@ -11,13 +11,13 @@ Este projeto será desenvolvido para um pet shop de médio porte, localizado em 
 # Problema
 A gestão de um pet shop envolve diversos problemas operacionais e administrativos que podem impactar negativamente a eficiência do negócio e a satisfação dos clientes. Entre os principais desafios enfrentados por pet shops estão: 
 
-> - Controle de Estoque Ineficiente: 
+- Controle de Estoque Ineficiente: 
 A falta de um sistema eficiente de controle de estoque pode levar a rupturas de produtos essenciais, excesso de itens menos demandados e dificuldades na reposição de produtos. Esse cenário não apenas leva à perda de vendas, mas também gera insatisfação entre os clientes que não encontram os produtos que precisam. 
 
-> - Agendamento de Serviços Conflitantes: 
+- Agendamento de Serviços Conflitantes: 
  O agendamento manual de serviços de banho e tosa frequentemente resulta em conflitos de horário, atrasos e sobrecarga da equipe. Essa falta de organização compromete a qualidade do atendimento e a experiência dos clientes, que enfrentam esperas e serviços mal coordenados. 
 
-> - Falta de Integração entre Setores: 
+- Falta de Integração entre Setores: 
  A ausência de um sistema integrado dificulta a comunicação e a coordenação entre os diferentes setores do pet shop, como vendas, serviços e atendimento ao cliente. Isso pode levar a inconsistências operacionais, tais como falta de produtos, agendamentos conflitantes e perda de dados importantes de clientes. Essa desorganização impacta negativamente a eficiência interna e o desempenho geral do negócio. 
 
 ## 4. Dificuldade na Gestão de Clientes: 
