@@ -129,7 +129,7 @@ O Mapa de Stakeholders apresenta os diferentes grupos envolvidos no sistema de g
 
 - Os clientes do pet shop têm baixo interesse e baixa influência, pois utilizam indiretamente o sistema por meio dos serviços prestados. Seu foco está na experiência ágil e eficiente, sem participação ativa no gerenciamento da plataforma.
 
-![Mapa de Stakeholders](img/MapaStakeholders.png)
+![Mapa de Stakeholders](img/MapaStakeholdersv1.png)
 
 
 > **Links Úteis**:
