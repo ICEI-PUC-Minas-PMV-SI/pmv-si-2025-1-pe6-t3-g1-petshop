@@ -78,7 +78,11 @@ Avaliação dos protótipos com os usuários e ajustes conforme necessário.
 
 # Público-Alvo
 
-O público-alvo do nosso sistema de gestão para pet shops são os funcionários e gestores do estabelecimento, que utilizam a plataforma para otimizar os serviços e melhorar a organização interna.
+O sistema de gestão de serviços para pet shops tem como público-alvo os funcionários e gestores desses estabelecimentos, que necessitam de um sistema eficiente para otimizar a organização interna e melhorar a prestação de serviços. Os principais usuários do sistema são os proprietários de pet shops, os funcionários (atendentes e os técnicos de banho e tosa).
+
+Os proprietários de pet shops, geralmente entre 30 e 55 anos, possuem experiência na administração do negócio e amplo conhecimento sobre as necessidades dos clientes, mas podem ter pouca familiaridade com tecnologias avançadas. Muitos ainda utilizam métodos manuais ou sistemas simples para a gestão de agendamentos, controle de estoque e atendimento ao cliente. Para esse grupo, o sistema oferece uma solução intuitiva, que permite a automatização de processos e a obtenção de relatórios detalhados para embasar a tomada de decisões estratégicas.
+
+Os funcionários do pet shop, que incluem atendentes e técnicos de banho e tosa, têm idades variando entre 18 e 40 anos e diferentes níveis de familiaridade com tecnologia. Os atendentes são responsáveis pelo cadastro de clientes e pets, agendamento de serviços, processamento de pagamentos e venda de produtos. Para esse público, um sistema intuitivo e de fácil navegação é essencial para otimizar o tempo de trabalho e melhorar a experiência do cliente. Já os técnicos de tosa necessitam de funcionalidades que facilitem a organização da fila de atendimento, o agendamento dos serviços e a personalização dos procedimentos para cada animal. O uso de alertas e lembretes automatizados auxilia na execução eficiente das tarefas, minimizando erros operacionais.
 
 ## Perfis de usuários:
 
@@ -86,8 +90,6 @@ O público-alvo do nosso sistema de gestão para pet shops são os funcionários
 |-------------------------|--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
 | Proprietários de Pet Shop | Geralmente possuem conhecimento sobre o funcionamento do negócio e as necessidades dos clientes, mas podem ter pouca familiaridade com tecnologias avançadas. | Podem estar acostumados a usar sistemas simples ou até mesmo métodos manuais de gestão. A implementação de um sistema distribuído requer um aprendizado inicial, mas pode trazer grandes benefícios em termos de eficiência. | Geralmente ocupam cargos de gestão e tomada de decisão dentro do pet shop. |
 | Funcionários de Pet Shop | Possuem conhecimento operacional sobre o atendimento ao cliente, manutenção do estoque e prestação de serviços. Podem ter variação no nível de familiaridade com tecnologias, dependendo de suas funções. | Alguns funcionários podem estar habituados a utilizar caixas registradoras e sistemas de ponto de venda (PDV), enquanto outros podem ter pouca experiência com sistemas mais complexos. | Podem incluir atendentes, auxiliares de serviços e gerentes de loja, todos necessitando de acesso a diferentes funcionalidades do sistema. |
-
-
 
 - Proprietários de Pet Shop 
 
