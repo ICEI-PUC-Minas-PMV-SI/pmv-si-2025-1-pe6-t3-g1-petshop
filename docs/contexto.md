@@ -99,7 +99,7 @@ Os profissional responsável por banho e tosa precisa de um sistema que facilite
 
 O atendente utiliza o sistema para realizar cadastros de clientes e pets, agendar serviços, registrar vendas de produtos e processar pagamentos. Para esse público, um sistema ágil, intuitivo e de fácil navegação é fundamental para otimizar o tempo de trabalho e melhorar a experiência do cliente.
 
-- Fornecedores de produto
+- Fornecedores
 
 Alguns pet shops mantêm relações com fornecedores de rações, medicamentos, acessórios e outros produtos. Um módulo de gestão de fornecedor, pedidos e faturamento pode facilitar a administração do estoque e garantir um fluxo de suprimentos eficiente.
 
@@ -129,7 +129,7 @@ O Mapa de Stakeholders apresenta os diferentes grupos envolvidos no sistema de g
 
 - Os clientes do pet shop têm baixo interesse e baixa influência, pois utilizam indiretamente o sistema por meio dos serviços prestados. Seu foco está na experiência ágil e eficiente, sem participação ativa no gerenciamento da plataforma.
 
-![Mapa de Stakeholders](img/MapaStakeholdersv1.png)
+![Mapa de Stakeholders](img/mapastakeholder.png)
 
 
 > **Links Úteis**:
