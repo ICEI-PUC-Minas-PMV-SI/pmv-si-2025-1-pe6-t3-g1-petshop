@@ -116,6 +116,8 @@ O Diagrama de Personas a seguir apresenta informações detalhadas sobre cada pe
 
 ![Diagrama de Personas](img/persona5.png)
 
+![Diagrama de Personas](img/persona6.png)
+
 # Mapa de Stakeholders:
 
 O Mapa de Stakeholders apresenta os diferentes grupos envolvidos no sistema de gestão do pet shop, organizando-os com base em seu nível de influência e interesse na plataforma.
