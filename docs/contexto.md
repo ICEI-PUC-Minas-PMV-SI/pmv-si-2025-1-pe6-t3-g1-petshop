@@ -200,6 +200,7 @@ PostgreSQL: Sistema de gerenciamento de banco de dados relacional para armazenar
 
 Ferramentas de Desenvolvimento e Colaboração:
 GitHub: Controle de versão e colaboração em código fonte.
+
 Visual Studio Code (VSCode): IDE de desenvolvimento para escrita e depuração de código.
 
 Serviços Web:
