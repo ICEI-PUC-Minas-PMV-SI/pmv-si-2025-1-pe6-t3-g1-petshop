@@ -182,6 +182,7 @@ Definição de como o software é estruturado em termos dos componentes que faze
 Para implementar a solução de gestão integrada para pet shops, vamos utilizar um conjunto de tecnologias que abrangem tanto o front-end quanto o back-end, além de serviços de hospedagem e ferramentas de desenvolvimento. Aqui está a lista detalhada das tecnologias envolvidas:
 
 Linguagens de Programação:
+
 JavaScript: Utilizada para o desenvolvimento de front-end (React) e back-end (Node.js).
 
 Front-End:
@@ -210,6 +211,6 @@ Apresente também uma figura explicando como as tecnologias estão relacionadas 
 
 ## Hospedagem
 
-Inicialmente, a hospedagem do sistema será feita em servidores locais, permitindo um ambiente de desenvolvimento e testes controlado, onde ajustes poderão ser realizados antes da implementação definitiva. Durante essa fase, serão analisados o desempenho, a usabilidade e a estabilidade do sistema. Após essa etapa, a plataforma será migrada para a AWS, utilizando a infraestrutura oferecida pelo curso de Sistemas de Informação da PucMinas, que disponibiliza acesso à nuvem para os estudantes. A migração para a AWS trará benefícios como escalabilidade, disponibilidade e segurança.
+Inicialmente, a hospedagem do sistema será feita em servidores locais, permitindo um ambiente de desenvolvimento e testes controlados, onde ajustes poderão ser realizados antes da implementação definitiva. Durante essa fase, serão analisados o desempenho, a usabilidade e a estabilidade do sistema. Após essa etapa, a plataforma será migrada para a AWS, utilizando a infraestrutura oferecida pelo curso de Sistemas de Informação da PucMinas, que disponibiliza acesso à nuvem para os estudantes. A migração para a AWS trará benefícios como escalabilidade, disponibilidade e segurança.
 
 
