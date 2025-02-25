@@ -191,7 +191,7 @@ Front-End:
 
 - HTML5 e CSS3: Para estruturação e estilização das páginas web.
 
-Bootstrap: Framework CSS para design responsivo e componentes reutilizáveis.
+- Bootstrap: Framework CSS para design responsivo e componentes reutilizáveis.
 
 Back-End:
 
