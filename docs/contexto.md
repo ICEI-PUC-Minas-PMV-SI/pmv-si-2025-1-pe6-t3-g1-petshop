@@ -181,34 +181,34 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 Para implementar a solução de gestão integrada para pet shops, vamos utilizar um conjunto de tecnologias que abrangem tanto o front-end quanto o back-end, além de serviços de hospedagem e ferramentas de desenvolvimento. Aqui está a lista detalhada das tecnologias envolvidas:
 
-Linguagens de Programação
+Linguagens de Programação:
 
-JavaScript: Utilizada para o desenvolvimento de front-end (React) e back-end (Node.js).
+- JavaScript: Utilizada para o desenvolvimento de front-end (React) e back-end (Node.js).
 
-Front-End
+Front-End:
 
-React: Biblioteca JavaScript para construir interfaces de usuário interativas e responsivas.
+- React: Biblioteca JavaScript para construir interfaces de usuário interativas e responsivas.
 
-HTML5 e CSS3: Para estruturação e estilização das páginas web.
+- HTML5 e CSS3: Para estruturação e estilização das páginas web.
 
 Bootstrap: Framework CSS para design responsivo e componentes reutilizáveis.
 
-Back-End
+Back-End:
 
-Node.js: Ambiente de execução JavaScript para desenvolvimento do servidor.
+- Node.js: Ambiente de execução JavaScript para desenvolvimento do servidor.
 
-Banco de Dados
-PostgreSQL: Sistema de gerenciamento de banco de dados relacional para armazenar informações de clientes, pets, produtos e agendamentos.
+Banco de Dados:
+- PostgreSQL: Sistema de gerenciamento de banco de dados relacional para armazenar informações de clientes, pets, produtos e agendamentos.
 
-Ferramentas de Desenvolvimento e Colaboração
+Ferramentas de Desenvolvimento e Colaboração:
 
-GitHub: Controle de versão e colaboração em código fonte.
+- GitHub: Controle de versão e colaboração em código fonte.
 
-Visual Studio Code (VSCode): IDE de desenvolvimento para escrita e depuração de código.
+- Visual Studio Code (VSCode): IDE de desenvolvimento para escrita e depuração de código.
 
-Serviços Web
+Serviços Web:
 
-JSON Web Token (JWT): Utilizado para autenticação e autorização segura dos usuários.
+- JSON Web Token (JWT): Utilizado para autenticação e autorização segura dos usuários.
 
 
 Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas. 
