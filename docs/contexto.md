@@ -212,9 +212,4 @@ Apresente também uma figura explicando como as tecnologias estão relacionadas 
 
 Inicialmente, a hospedagem do sistema será feita em servidores locais, permitindo um ambiente de desenvolvimento e testes controlado, onde ajustes poderão ser realizados antes da implementação definitiva. Durante essa fase, serão analisados o desempenho, a usabilidade e a estabilidade do sistema. Após essa etapa, a plataforma será migrada para a AWS, utilizando a infraestrutura oferecida pelo curso de Sistemas de Informação da PucMinas, que disponibiliza acesso à nuvem para os estudantes. A migração para a AWS trará benefícios como escalabilidade, disponibilidade e segurança.
 
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+
