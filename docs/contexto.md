@@ -186,6 +186,7 @@ Linguagens de Programação
 JavaScript: Utilizada para o desenvolvimento de front-end (React) e back-end (Node.js).
 
 Front-End
+
 React: Biblioteca JavaScript para construir interfaces de usuário interativas e responsivas.
 
 HTML5 e CSS3: Para estruturação e estilização das páginas web.
@@ -193,6 +194,7 @@ HTML5 e CSS3: Para estruturação e estilização das páginas web.
 Bootstrap: Framework CSS para design responsivo e componentes reutilizáveis.
 
 Back-End
+
 Node.js: Ambiente de execução JavaScript para desenvolvimento do servidor.
 
 Banco de Dados
@@ -204,7 +206,8 @@ GitHub: Controle de versão e colaboração em código fonte.
 
 Visual Studio Code (VSCode): IDE de desenvolvimento para escrita e depuração de código.
 
-Serviços Web:
+Serviços Web
+
 JSON Web Token (JWT): Utilizado para autenticação e autorização segura dos usuários.
 
 
