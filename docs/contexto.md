@@ -131,17 +131,16 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-001 | Permitir o cadastro de pets| ALTA |
-|RF-002 | Permitir o cadastro de clientes| ALTA|
-|RF-003 | Permitir o cadastro de produtos| ALTA|
-|RF-004 | Permitir o cadastro de serviços| ALTA|
-|RF-005 | Permitir o cadastro de usuarios| ALTA|
-|RF-006 | Permitir gerenciamento de usuários| ALTA|
-|RF-007 | Permitir agendamento de serviços| ALTA|
-|RF-008 | Permitir login do usuário| ALTA|
-|RF-009 | Permitir resetar senha do usuário| MÉDIA|
+|ID    | Descrição do Requisito  | Prioridade | Responsável|
+|------|-----------------------------------------|----|----|
+|RF-001 | Permitir o cadastro de pets| ALTA | |
+|RF-002 | Permitir o cadastro de clientes| ALTA| |
+|RF-003 | Permitir o cadastro de produtos| ALTA| |
+|RF-004 | Permitir o cadastro de serviços| ALTA| |
+|RF-005 | Permitir o cadastro de usuarios| ALTA| |
+|RF-006 | Permitir agendamento de serviços| ALTA| |
+|RF-007 | Permitir autorização e autenticação de usuários| ALTA| |
+|RF-008 | Permitir resetar senha do usuário| MÉDIA| |
 
 ### Requisitos não Funcionais
 
@@ -157,7 +156,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
 
 # Catálogo de Serviços
 
