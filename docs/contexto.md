@@ -140,7 +140,6 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-005 | Permitir o cadastro de usuarios| ALTA| |
 |RF-006 | Permitir agendamento de serviços| ALTA| |
 |RF-007 | Permitir autorização e autenticação de usuários| ALTA| |
-|RF-008 | Permitir resetar senha do usuário| MÉDIA| |
 
 ### Requisitos não Funcionais
 
