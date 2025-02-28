@@ -136,9 +136,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-001 | Permitir o cadastro de pets| ALTA |Fernanda|
 |RF-002 | Permitir o cadastro de clientes| ALTA| Valdeir|
 |RF-003 | Permitir o cadastro de produtos| ALTA| |
-|RF-004 | Permitir o cadastro de serviços| ALTA| |
+|RF-004 | Permitir o cadastro de serviços| ALTA| Márcia |
 |RF-005 | Permitir o cadastro de usuarios| ALTA| Davi |
-|RF-006 | Permitir agendamento de serviços| ALTA| |Márcia|
+|RF-006 | Permitir agendamento de serviços| ALTA| 
 |RF-007 | Permitir autorização e autenticação de usuários| ALTA| Davi|
 |RF-008 | Permitir realizar faturamento | ALTA| Valdeir |
 
