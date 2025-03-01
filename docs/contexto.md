@@ -92,22 +92,6 @@ Os profissional responsável por banho e tosa precisa de um sistema que facilite
 
 O atendente utiliza o sistema para realizar cadastros de clientes e pets, agendar serviços, registrar vendas de produtos e processar pagamentos. Para esse público, um sistema ágil, intuitivo e de fácil navegação é fundamental para otimizar o tempo de trabalho e melhorar a experiência do cliente.
 
-
-# Diagrama de Personas:
-
-O Diagrama de Personas a seguir apresenta informações detalhadas sobre cada perfil de usuário em cards individuais, destacando suas necessidades e expectativas. 
-
-![Diagrama de Personas](img/persona1.png)
-
-![Diagrama de Personas](img/persona2.png)
-
-![Diagrama de Personas](img/persona3.png)
-
-![Diagrama de Personas](img/persona4.png)
-
-![Diagrama de Personas](img/persona5.png)
-
-
 # Mapa de Stakeholders:
 
 O Mapa de Stakeholders apresenta os diferentes grupos envolvidos no sistema de gestão do pet shop, organizando-os com base em seu nível de influência e interesse na plataforma.
