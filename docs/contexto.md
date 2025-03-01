@@ -144,11 +144,11 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 # Catálogo de Serviços
 
-Cadastro de Usuários: O administrador pode cadastrar novos usuários na plataforma informando e-mail, CPF e senha, que precisa ser confirmada. Após o cadastro, as informações serão registradas no sistema.
+Cadastro de Usuários: O administrador pode cadastrar usuários na plataforma informando e-mail, CPF e senha, que precisa ser confirmada. Após o cadastro, as informações serão registradas no sistema.
 
-Cadastro de Serviço: O usuário poderá cadastrar um novo serviço na plataforma ao preencher um formulário com nome, descrição, preço e profissional.  Após a confirmação, os dados serão salvos no sistema e ficarão disponíveis para consulta.
+Cadastro de Serviço: O usuário poderá cadastrar serviços na plataforma preenchendo um formulário com titulo, descrição, preço e profissional.  Após a confirmação, os dados serão salvos no sistema e ficarão disponíveis para consulta.
 
-Cadastro de Clientes: O usuário poderá cadastrar novos clientes na plataforma preenchendo um formulário com informações como nome, CPF, telefone e endereço. Após a confirmação, os dados serão salvos no sistema e ficarão disponíveis para consulta. Caso seja necessário atualizar alguma informação, o usuário pode editar os dados do cliente e salvar as alterações. Também é possível excluir um cadastro, removendo-o permanentemente da plataforma após confirmação.
+Cadastro de Clientes: O usuário poderá cadastrar clientes na plataforma preenchendo um formulário com informações como nome, CPF, telefone e endereço. Após a confirmação, os dados serão salvos no sistema e ficarão disponíveis para consulta. Caso seja necessário atualizar alguma informação, o usuário pode editar os dados do cliente e salvar as alterações. Também é possível excluir um cadastro, removendo-o permanentemente da plataforma após confirmação.
 
 Gerenciamento de Pets: O usuário poderá adicionar, editar e excluir pets. Para cadastrar um pet, basta informar o CPF do dono e preencher um formulário com dados como raça, nome e cor. Caso seja necessário alterar alguma informação, o usuário pode buscar o CPF do cliente, selecionar o pet e atualizar apenas os campos desejados. Para excluir, basta selecionar o pet e confirmar a remoção.
 
