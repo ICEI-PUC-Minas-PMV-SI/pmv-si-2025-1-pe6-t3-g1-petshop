@@ -1,4 +1,4 @@
-# Gestão de Pet Shop (NOME DO SISTEMA AINDA EM VOTAÇÃO)
+# Gestão de Pet Shop
 
 `CURSO: Sistemas de Informação`
 
