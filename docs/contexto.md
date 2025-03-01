@@ -106,7 +106,6 @@ O Diagrama de Personas a seguir apresenta informações detalhadas sobre cada pe
 
 ![Diagrama de Personas](img/persona5.png)
 
-![Diagrama de Personas](img/persona6.png)
 
 # Mapa de Stakeholders:
 
@@ -114,10 +113,8 @@ O Mapa de Stakeholders apresenta os diferentes grupos envolvidos no sistema de g
 
 - O proprietário do pet shop possui alta influência e alto interesse, pois busca otimizar a administração, melhorar a eficiência das operações e maximizar os lucros.  
 
-- Os funcionários do pet shop possuem alta influência e alto interesse, pois são os maiores usuários do sistema e responsáveis pelo atendimento e execução dos serviços. Para garantir o sucesso da implementação, é essencial treiná-los e mantê-los informados e engajados na execução do sistema. 
-
-- Os clientes do pet shop têm baixo interesse e média influência, pois algumas decisões são embasadas em sua nescessidade e comportamento. Utilizam indiretamente o sistema por meio do uso dos serviços.
-
+- Os funcionários do pet shop possuem alta influência e alto interesse, pois são os maiores usuários do sistema e responsáveis pelo atendimento e execução dos serviços. Para garantir o sucesso da implementação, é essencial treiná-los e mantê-los informados e engajados na execução do sistema.
+  
 - Os fornecedores têm baixo interesse e baixa influência porque seu envolvimento com o sistema é limitado. Eles apenas receberão relatórios para repor estoques de produtos e insumos para o pet shop, sem interação direta com a plataforma. Seu impacto não tem influência ativa sobre o funcionamento da gestão interna do pet shop.
 
 ![Mapa de Stakeholders](img/mapastakeholder.png)
