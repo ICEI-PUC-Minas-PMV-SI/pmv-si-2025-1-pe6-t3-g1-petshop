@@ -119,10 +119,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |------|-----------------------------------------|----|----|
 |RF-001 | Permitir o cadastro de pets| ALTA |Fernanda|
 |RF-002 | Permitir o cadastro de clientes| ALTA| Valdeir|
-|RF-003 | Permitir o cadastro de produtos| ALTA| |
+|RF-003 | Permitir o cadastro de produtos| ALTA| Lucas |
 |RF-004 | Permitir o cadastro de serviços| ALTA| Márcia |
 |RF-005 | Permitir o cadastro de usuarios| ALTA| Davi |
-|RF-006 | Permitir agendamento de serviços| ALTA| 
+|RF-006 | Permitir agendamento de serviços| ALTA| Pedro | 
 |RF-007 | Permitir autorização e autenticação de usuários| ALTA| Davi|
 |RF-008 | Permitir realizar faturamento | ALTA| Valdeir |
 
@@ -130,7 +130,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
+|RNF-001| O sistema deve ser responsivo para rodar em dispositivos móveis | ALTA | 
 |RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
 
 ## Restrições
