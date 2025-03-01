@@ -213,7 +213,7 @@ Ferramentas de Desenvolvimento e Colaboração:
 Serviços Web:
 
 - JSON Web Token (JWT): Utilizado para autenticação e autorização segura dos usuários.
- COLOCAR FIGURA  MOSTRANDO AS INTERAÇÕES NO SISTEMA
+
 
 ## Hospedagem
 
