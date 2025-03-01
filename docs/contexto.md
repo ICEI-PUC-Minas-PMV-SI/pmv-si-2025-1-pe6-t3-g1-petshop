@@ -6,7 +6,7 @@ Este projeto tem como objetivo desenvolver um sistema de gestão integrado para 
 
 # Contexto 
 
-Este projeto será desenvolvido para um pet shop de médio porte, localizado em um centro urbano e que oferece produtos e serviços para animais de estimação. Dentre esses produtos e serviços estão incluídos venda de rações, acessórios, medicamentos e serviços de banho e tosa. Atualmente, o pet shop utiliza métodos manuais e sistemas pouco integrados para gerenciar suas operações, o que resulta em ineficiências, erros e dificuldades na administração do negócio. A introdução de um sistema de gestão visa melhorar a eficiência operacional e proporcionar uma melhor experiência tanto para os funcionários quanto para os clientes. 
+Este projeto será desenvolvido para um pet shop de médio porte, localizado em um centro urbano e que oferece produtos e serviços para animais de estimação. Dentre esses produtos e serviços estão incluídos venda de rações, acessórios, medicamentos e serviços de banho e tosa.Com uma base de clientes crescente e um portfólio diversificado de produtos e serviços, a gestão eficiente do petshop se torna cada vez mais complexa. Atualmente, o pet shop utiliza métodos manuais e sistemas pouco integrados para gerenciar suas operações, o que resulta em ineficiências, erros e dificuldades na administração do negócio. A introdução de um sistema de gestão visa melhorar a eficiência operacional e proporcionar uma melhor experiência para os usuários.
 
 # Problema
 A gestão de um pet shop envolve diversos problemas operacionais e administrativos que podem impactar negativamente a eficiência do negócio e a satisfação dos clientes. Entre os principais desafios enfrentados por pet shops estão: 
@@ -29,7 +29,7 @@ Sem um sistema adequado de gestão de clientes, torna-se difícil acompanhar o h
 
 ## Objetivo Geral: 
 
-Desenvolver um sistema de gestão de pet shop que permita aos prestadores de serviços gerenciar os estoques dos produtos e agendar banhos e tosas, otimizando a eficiência operacional e melhorando a experiência do cliente. 
+Desenvolver um sistema de gestão de pet shop que permita o gerenciamento de estoques dos produtos e o agendamento de serviços de banho e tosa, otimizando a eficiência operacional e melhorando a experiência do usuário.
 
 ## Objetivos Específicos: 
 
@@ -44,7 +44,7 @@ Desenvolver uma plataforma para acompanhar o histórico de compras e serviços, 
 
 # Justificativa
 
-O desenvolvimento de um sistema de gestão para um pet shop de médio porte surge da necessidade  de modernizar e otimizar as operações diárias do negócio. Esta inovação busca proporcionar uma experiência aprimorada para os clientes, ao mesmo tempo em que aumenta a eficiência operacional da empresa. A implementação de um sistema integrado de gestão pode trazer inúmeros benefícios, incluindo melhor controle de estoque, agendamento eficiente de serviços e excelência no atendimento aos clientes. 
+O desenvolvimento de um sistema de gestão para um pet shop de médio porte surge da necessidade de modernizar e otimizar as operações diárias internas do negócio. Esta inovação visa aumentar a eficiência operacional da empresa e garantir um melhor controle de estoque, um agendamento eficiente de serviços e uma gestão eficaz dos clientes. A implementação de um sistema integrado de gestão atenderá especificamente às demandas internas da administração do petshop, proporcionando ferramentas para aprimorar a organização e a coordenação dos processos internos.
 
 # Metodologia 
 
