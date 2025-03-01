@@ -74,6 +74,7 @@ Os proprietários de pet shops, geralmente entre 30 e 55 anos, possuem experiên
 
 Os funcionários do pet shop, que incluem atendentes e técnicos de banho e tosa, têm idades variando entre 18 e 40 anos e diferentes níveis de familiaridade com tecnologia. Os atendentes são responsáveis pelo cadastro de clientes e pets, agendamento de serviços, processamento de pagamentos e venda de produtos. Para esse público, um sistema intuitivo e de fácil navegação é essencial para otimizar o tempo de trabalho e melhorar a experiência do cliente. Já os técnicos de tosa necessitam de funcionalidades que facilitem a organização da fila de atendimento, o agendamento dos serviços e a personalização dos procedimentos para cada animal. O uso de alertas e lembretes automatizados auxilia na execução eficiente das tarefas, minimizando erros operacionais.
 
+
 ## Perfis de usuários:
 
 | Usuário                 | Conhecimentos Prévios                                                                 | Relação com a Tecnologia                                                                                     | Relações Hierárquicas                                    |
@@ -117,6 +118,8 @@ O Mapa de Stakeholders apresenta os diferentes grupos envolvidos no sistema de g
   
 - Os fornecedores têm baixo interesse e baixa influência porque seu envolvimento com o sistema é limitado. Eles apenas receberão relatórios para repor estoques de produtos e insumos para o pet shop, sem interação direta com a plataforma. Seu impacto não tem influência ativa sobre o funcionamento da gestão interna do pet shop.
 
+ - Os clientes, embora sejam usuários indiretos do sistema, têm um alto interesse no desempenho e na eficiência das operações do petshop. Isso porque um sistema de gestão eficiente garante que os produtos estejam sempre disponíveis, o que melhora a satisfação dos clientes;um bom agendamento e gerenciamento de serviços reduz o tempo de espera e melhora a qualidade do atendimento; o histórico de compras e serviços bem gerenciado permite um atendimento mais personalizado e focado nas necessidades dos clientes. A influência dos clientes sobre o sistema de gestão interno pode ser considerada moderada a alta, dependendo da maneira como o petshop utiliza o feedback dos clientes para melhorar suas operações.
+ 
 ![Mapa de Stakeholders](img/mapastakeholder.png)
 
 
