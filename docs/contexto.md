@@ -125,6 +125,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-006 | Permitir agendamento de serviços| ALTA| Pedro | 
 |RF-007 | Permitir autorização e autenticação de usuários| ALTA| Davi|
 |RF-008 | Permitir realizar faturamento | ALTA| Valdeir |
+|RF-009 | Permitir controle de estoque | MEDIA| Valdeir |
 
 ### Requisitos não Funcionais
 
@@ -151,7 +152,7 @@ Gerenciamento de Pets: O usuário poderá adicionar, editar e excluir pets. Para
 
 Gerenciamento de Serviços: O usuário poderá agendar serviços para um pet, começando pela busca do cliente pelo CPF, depois selecionando o pet e escolhendo o serviço desejado. Em seguida, será possível escolher um dia e horário disponível na agenda. O usuário também pode alterar a data e horário de um serviço já agendado ou cancelá-lo, sempre confirmando a ação.
 
-Cadastro de Produtos: O usuário poderá cadastrar novos produtos na plataforma preenchendo um formulário com informações como nome, descrição, preço e quantidade disponível. Após a confirmação, o produto será salvo no sistema e ficará visível para consulta. Caso seja necessário atualizar algum dado, o usuário pode editar as informações do produto e salvar as alterações. Também é possível excluir um produto, removendo-o permanentemente da plataforma após confirmação.
+Cadastro de Produtos: O usuário poderá cadastrar produtos na plataforma preenchendo um formulário com informações como titulo, descrição, preço e quantidade disponível. Após a confirmação, o produto será salvo no sistema e ficará visível para consulta. Caso seja necessário atualizar algum dado, o usuário pode editar as informações do produto e salvar as alterações. Também é possível excluir um produto, removendo-o permanentemente da plataforma após confirmação.
 
 Autenticação: Para acessar a plataforma, o usuário deve fazer login informando e-mail e senha. Se as informações estiverem corretas, ele poderá navegar normalmente pelo sistema. Caso contrário, o acesso será negado. O sistema manterá o usuário autenticado até que ele saia da conta ou o tempo de acesso expire.
 
