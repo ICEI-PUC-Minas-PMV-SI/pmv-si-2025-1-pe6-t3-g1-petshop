@@ -146,11 +146,13 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 Cadastro de Usuários: O administrador pode cadastrar novos usuários na plataforma informando e-mail, CPF e senha, que precisa ser confirmada. Após o cadastro, as informações serão registradas no sistema.
 
+Cadastro de Serviço: O usuário poderá cadastrar um novo serviço na plataforma ao preencher um formulário com nome, descrição, preço e profissional.  Após a confirmação, os dados serão salvos no sistema e ficarão disponíveis para consulta.
+
 Cadastro de Clientes: O usuário poderá cadastrar novos clientes na plataforma preenchendo um formulário com informações como nome, CPF, telefone e endereço. Após a confirmação, os dados serão salvos no sistema e ficarão disponíveis para consulta. Caso seja necessário atualizar alguma informação, o usuário pode editar os dados do cliente e salvar as alterações. Também é possível excluir um cadastro, removendo-o permanentemente da plataforma após confirmação.
 
 Gerenciamento de Pets: O usuário poderá adicionar, editar e excluir pets. Para cadastrar um pet, basta informar o CPF do dono e preencher um formulário com dados como raça, nome e cor. Caso seja necessário alterar alguma informação, o usuário pode buscar o CPF do cliente, selecionar o pet e atualizar apenas os campos desejados. Para excluir, basta selecionar o pet e confirmar a remoção.
 
-Gerenciamento de Serviços: O usuário poderá agendar serviços para um pet, começando pela busca do cliente pelo CPF, depois selecionando o pet e escolhendo o serviço desejado. Em seguida, será possível escolher um dia e horário disponível na agenda. O usuário também pode alterar a data e horário de um serviço já agendado ou cancelá-lo, sempre confirmando a ação.
+Gerenciamento de Agenda: O usuário poderá agendar serviços para um pet, começando pela busca do cliente pelo CPF, depois selecionando o pet e escolhendo o serviço desejado. Em seguida, será possível escolher um dia e horário disponível na agenda. O usuário também pode alterar a data e horário de um serviço já agendado ou cancelá-lo, sempre confirmando a ação.
 
 Cadastro de Produtos: O usuário poderá cadastrar produtos na plataforma preenchendo um formulário com informações como titulo, descrição, preço e quantidade disponível. Após a confirmação, o produto será salvo no sistema e ficará visível para consulta. Caso seja necessário atualizar algum dado, o usuário pode editar as informações do produto e salvar as alterações. Também é possível excluir um produto, removendo-o permanentemente da plataforma após confirmação.
 
