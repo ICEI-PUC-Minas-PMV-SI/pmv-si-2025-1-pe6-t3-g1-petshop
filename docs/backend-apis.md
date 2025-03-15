@@ -16,7 +16,7 @@ O primeiro passo é definir os objetivos da sua API. O que você espera alcança
 ## Modelagem da Aplicação
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
 
-Modelagem de Aplicacão - Cadastro de Usuários
+### Modelagem de Aplicação - Cadastro de Usuários e Autenticação
 
 Estrutura de Dados - Tabelas
 
@@ -51,11 +51,9 @@ Tabela: user_sessions (Gerencia sessões ativas)
 | created_at | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP | Data de criação da sessão  |
 | expires_at | TIMESTAMP        | NOT NULL              | Data de expiração da sessão |
 
+Diagrama de Classes 
 
-
-
-
-
+![arq](img/cadastro_de_usuarios.drawio.png)
 
 ## Tecnologias Utilizadas
 
