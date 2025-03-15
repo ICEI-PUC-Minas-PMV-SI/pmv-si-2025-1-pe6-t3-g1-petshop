@@ -16,6 +16,46 @@ O primeiro passo é definir os objetivos da sua API. O que você espera alcança
 ## Modelagem da Aplicação
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
 
+Modelagem de Aplicacão - Cadastro de Usuários
+
+Estrutura de Dados - Tabelas
+
+Tabela: users (Armazena os dados principais dos usuários)
+
+| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
+|------------|------------------|-----------------------|--------------------------------|
+| id         | UUID             | PRIMARY KEY           | Identificador único do usuário  |
+| nome       | VARCHAR(100)     | NOT NULL              | Nome completo do usuário        |
+| email      | VARCHAR(255)     | UNIQUE, NOT NULL      | E-mail para login               |
+| senha_hash | TEXT             | NOT NULL              | Hash da senha                   |
+| telefone   | VARCHAR(20)      | NULL                  | Telefone do usuário             |
+| data_criacao | TIMESTAMP      | DEFAULT CURRENT_TIMESTAMP | Data de criação da conta |
+
+Tabela: user_profiles (Armazena informações adicionais)
+
+| Campo       | Tipo de Dado       | Restrição               | Descrição                          |
+|------------|------------------|-----------------------|--------------------------------|
+| id         | UUID             | PRIMARY KEY           | Identificador único do perfil  |
+| user_id    | UUID             | FOREIGN KEY (users.id) | Relacionado ao usuário           |
+| foto_url   | VARCHAR(255)     | NULL                  | URL da foto de perfil           |
+| endereco   | TEXT             | NULL                  | Endereço do usuário             |
+| nascimento | DATE             | NULL                  | Data de nascimento              |
+
+Tabela: user_sessions (Gerencia sessões ativas)
+
+| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
+|------------|------------------|-----------------------|--------------------------------|
+| id         | UUID             | PRIMARY KEY           | Identificador único da sessão  |
+| user_id    | UUID             | FOREIGN KEY (users.id) | Relacionado ao usuário          |
+| token      | TEXT             | UNIQUE, NOT NULL      | Token de autenticação           |
+| created_at | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP | Data de criação da sessão  |
+| expires_at | TIMESTAMP        | NOT NULL              | Data de expiração da sessão |
+
+
+
+
+
+
 
 ## Tecnologias Utilizadas
 
