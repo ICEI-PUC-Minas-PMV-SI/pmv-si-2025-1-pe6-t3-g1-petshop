@@ -71,6 +71,18 @@ Tabela: user_sessions (Gerencia sessões ativas)
 | created_at | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP | Data de criação da sessão  |
 | expires_at | TIMESTAMP        | NOT NULL              | Data de expiração da sessão |
 
+Cadastro de Serviços
+Tabela: user_servicos (Gerencia serviços)
+
+| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
+|------------|------------------|-----------------------|-------------------------------- |
+| id_servico | INT              | PRIMARY KEY           | Identificador único do serviço  |
+|nome_servico| VARCHAR (100)    | FOREIGN KEY (users.id)| Banho simples, tosa completa    |
+| descricao  | TEXT             |                       | Descrição detalhada do serviço  |
+| preco      | DECIMAL(10,2)    |                       | Preço do Serviço                |
+|disponibilidade| VARCHAR (50)  | NOT NULL              | Dias e Horários disponíveis para o serviço|
+
+
 Diagrama de Classes 
 
 ![arq](img/cadastro_de_usuarios.drawio.png)
