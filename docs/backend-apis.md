@@ -72,15 +72,58 @@ Tabela: user_sessions (Gerencia sessões ativas)
 | expires_at | TIMESTAMP        | NOT NULL              | Data de expiração da sessão |
 
 Cadastro de Serviços
-Tabela: user_servicos (Gerencia serviços)
+1.Tabela: Serviços  (armazena os serviços oferecidos pelo petshop)
 
 | Campo       | Tipo de Dado       | Restrição               | Descrição                        |
 |------------|------------------|-----------------------|-------------------------------- |
 | id_servico | INT              | PRIMARY KEY           | Identificador único do serviço  |
-|nome_servico| VARCHAR (100)    | FOREIGN KEY (users.id)| Banho simples, tosa completa    |
-| descricao  | TEXT             |                       | Descrição detalhada do serviço  |
-| preco      | DECIMAL(10,2)    |                       | Preço do Serviço                |
+|nome_servico| VARCHAR (100)    | NOT NULL, UNIQUE)     | Banho simples, tosa completa    |
+| descricao  | TEXT             | NOT NULL              | Descrição detalhada do serviço  |
+| preco      | DECIMAL(10,2)    | NOT NULL, CHECK (preco > 0) | Preço do Serviço          |
 |disponibilidade| VARCHAR (50)  | NOT NULL              | Dias e Horários disponíveis para o serviço|
+
+2. Tabela: Clientes (armazena as informações dos clientes)
+   
+| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
+|------------|------------------|-----------------------|-------------------------------- |
+| id_cliente | INT              | PRIMARY KEY           | Identificador único do cliente  |
+|nome_cliente| VARCHAR (15)     | NOT NULL, UNIQUE)     | Nome completo do cliente        |
+| telefone   | VARCHAR (15)     | NOT NULL              | Número de telefone de contato do cliente|
+| email      | VARCHAR (100)    | NOT NULL              | Email do cliente                |
+|endereco    | VARCHAR (255)    | NOT NULL              | Endereço completo do cliente    |
+
+3. Tabela: Pets (armazena informações sobre os pets dos clientes)
+
+| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
+|------------|------------------|-----------------------|-------------------------------- |
+| id_pet     | INT              | PRIMARY KEY           | Identificador único do pet      |
+|id_cliente  | INT              | FK                    | Referência ao cliente, relacionamento com a tabela  clientes|
+| nome       | VARCHAR (15)     | NOT NULL              | Nome do pet                     |
+| tipo       | VARCHAR (50)     | NOT NULL               | Tipo do pet (Cão, Gato, etc...) |
+|raca        | VARCHAR (50)     | NOT NULL               | Raça do pet                     |
+|data_nascimento| DATE          | NOT NULL               | Data de nascimento do pet       |
+|observacoes| TEXT              | NOT NULL               |Observações sobre o pet(aletias, comportamento, etc)
+
+4. Tabela: Agendamentos ( armazena os serviços solicitados pelos clientes para seus pets)
+
+| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
+|------------|------------------|-----------------------|-------------------------------- |
+| id_agendamento| INT           | PRIMARY KEY           | Identificador único do agendanento|
+|id_servico  | INT              | FK                    |Referência ao serviço solicitado (relacionamento com a tabela Serviços) |
+|id_pet      | INT              | FK                    | Referência ao pet (relacionamento com a tabela Pets)|
+|id_cliente  | INT              | FK                    | Referência ao cliente (relacionamento com a tabela Clientes).                |
+|data_agendamento| DATETIME     | NOT NULL              | Data e horário do agendamento|
+|status      | VARCHAR(50)      | NOT NULL              | Status do agendamento (ex: Pendente, Confirmado, Concluído, Cancelado)|    
+
+5. Tabela: Funcionários  ( armazena as informações dos funcionários que atendem os clientes e realizam os serviços)
+   
+| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
+|------------|------------------|-----------------------|-------------------------------- |
+|id_funcionario|	INT            | (PK)	                 |Identificador único do funcionário|
+|nome	         |VARCHAR(100)    | NOT NULL              |	Nome completo do funcionário|
+|cargo	        |VARCHAR(50)	    |  NOT NULL, CHECK      |Cargo do funcionário |
+|telefone	     |VARCHAR(15)	    |  NOT NULL             |Número de telefone do funcionário|
+|email	        |VARCHAR(100)	   |  NOT NULL             |Email do funcionário|
 
 
 Diagrama de Classes 
