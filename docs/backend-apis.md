@@ -72,6 +72,7 @@ Tabela: user_sessions (Gerencia sessões ativas)
 | expires_at | TIMESTAMP        | NOT NULL              | Data de expiração da sessão |
 
 Cadastro de Serviços
+
 1.Tabela: Serviços  (armazena os serviços oferecidos pelo petshop)
 
 | Campo       | Tipo de Dado       | Restrição               | Descrição                        |
@@ -102,7 +103,7 @@ Cadastro de Serviços
 | tipo       | VARCHAR (50)     | NOT NULL               | Tipo do pet (Cão, Gato, etc...) |
 |raca        | VARCHAR (50)     | NOT NULL               | Raça do pet                     |
 |data_nascimento| DATE          | NOT NULL               | Data de nascimento do pet       |
-|observacoes| TEXT              | NOT NULL               |Observações sobre o pet(aletias, comportamento, etc)
+|observacoes| TEXT              | NOT NULL               |Observações sobre o pet(alergias, comportamento, etc)
 
 4. Tabela: Agendamentos ( armazena os serviços solicitados pelos clientes para seus pets)
 
