@@ -1,17 +1,37 @@
 # APIs e Web Services
 
-O planejamento de uma aplicação de APIS Web é uma etapa fundamental para o sucesso do projeto. Ao planejar adequadamente, você pode evitar muitos problemas e garantir que a sua API seja segura, escalável e eficiente.
-
-Aqui estão algumas etapas importantes que devem ser consideradas no planejamento de uma aplicação de APIS Web.
-
-[Inclua uma breve descrição do projeto.]
+O projeto visa desenvolver uma aplicação de gestão de pet shop que permita gerenciar de forma eficiente e centralizada os processos operacionais do negócio. A aplicação de APIs Web será responsável por fornecer funcionalidades essenciais para o pet shop, como o controle de estoque de produtos, agendamento de serviços de banho e tosa, cadastro de clientes e pets, além de permitir a integração com sistemas de pagamento e relatórios financeiros. O foco é criar uma solução ágil e segura que otimize o atendimento ao cliente, melhore a organização interna e facilite a expansão do negócio.
 
 ## Objetivos da API
 
-O primeiro passo é definir os objetivos da sua API. O que você espera alcançar com ela? Você quer que ela seja usada por clientes externos ou apenas por aplicações internas? Quais são os recursos que a API deve fornecer?
+O objetivo principal da API para gestão de pet shop é criar uma plataforma robusta, eficiente e acessível para otimizar os processos operacionais do negócio, melhorando a experiência tanto dos funcionários quanto dos clientes. A seguir estão os principais objetivos que a API deve alcançar:
 
-[Inclua os objetivos da sua api.]
+- Gerenciamento de Clientes e Pets
 
+Cadastro e Atualização: Permitir que o sistema registre e atualize informações sobre clientes e seus pets, facilitando o atendimento e a comunicação.
+Histórico de Atendimento: A API deve fornecer acesso ao histórico de serviços prestados, como banhos e tosas. 
+
+Controle de Estoque
+
+- Gestão de Produtos: A API deve ser capaz de controlar o estoque de ração, brinquedos, medicamentos e outros produtos vendidos no pet shop.
+- Alertas de Reposição: Quando um produto atingir níveis baixos, a API deve gerar alertas para reposição de estoque.
+
+Gestão de Pagamentos
+
+ - Histórico de Transações: Registrar todas as transações realizadas para fins de controle financeiro e geração de relatórios.
+
+ - Autenticação Segura: Garantir que apenas usuários autorizados (administradores e funcionários ) possam acessar as funcionalidades específicas da API.
+
+Controle de Acesso: Implementar níveis de permissão para garantir que diferentes tipos de usuários tenham acesso adequado às informações e funções do sistema.
+
+Escalabilidade e Desempenho
+
+- Alta Performance: A API deve ser otimizada para garantir tempos de resposta rápidos, mesmo com alto volume de requisições.
+- Escalabilidade: A arquitetura da API deve permitir que o sistema cresça conforme o pet shop expande suas operações e abre novas unidades.
+
+Usabilidade e Acessibilidade
+
+- Facilidade de Integração: A API deve ser intuitiva e fácil de integrar, oferecendo uma documentação clara.
 
 ## Modelagem da Aplicação
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
