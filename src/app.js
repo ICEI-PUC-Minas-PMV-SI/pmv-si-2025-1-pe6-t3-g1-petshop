@@ -3,7 +3,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 require("dotenv").config();
 
-const routes = require("./routes/index");
+const routes = require("./routes/index.js");
 const swaggerDocs = require("./config/swagger.js");
 
 const app = express();

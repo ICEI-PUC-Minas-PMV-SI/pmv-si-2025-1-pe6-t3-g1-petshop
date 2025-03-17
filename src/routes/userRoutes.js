@@ -14,7 +14,7 @@ const router = express.Router();
  *       500:
  *         description: Erro interno do servidor.
  */
-router.get("/", getUsers);
+
 /**
  * @swagger
  * /users:
@@ -43,7 +43,49 @@ router.get("/", getUsers);
  *       500:
  *         description: Erro ao criar usuário.
  */
+
+
+
+/**
+ * @swagger
+ * /{id}/roles:
+ *   get:
+ *     summary: Obtém os papéis (roles) de um usuário
+ *     description: Retorna a lista de roles atribuídos a um usuário específico.
+ *     tags:
+ *       - Usuários
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID do usuário
+ *     responses:
+ *       200:
+ *         description: Lista de roles do usuário
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                     example: 1
+ *                   role:
+ *                     type: string
+ *                     example: "admin"
+ *       404:
+ *         description: Usuário não encontrado
+ *       500:
+ *         description: Erro interno do servidor
+ */
+
+router.get("/", getUsers);
 router.post("/", createUser);
 router.get("/:id/roles", getRoles);
+
 
 module.exports = router;
