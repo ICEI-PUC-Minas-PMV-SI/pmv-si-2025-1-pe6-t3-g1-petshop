@@ -1,7 +1,6 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
 
-
 const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
@@ -16,7 +15,15 @@ const sequelize = new Sequelize(
 
 sequelize
   .authenticate()
-  .then(() => console.log("✅ Conectado ao PostgreSQL via Sequelize"))
-  .catch((err) => console.error("❌ Erro ao conectar ao banco:", err));
+  .then(() => console.log("Conectado ao PostgreSQL via Sequelize"))
+  .catch((err) => console.error("Erro ao conectar ao banco:", err));
+
+/* sequelize
+  .sync({ alter: true }) 
+  .then(() => console.log("Tabelas sincronizadas com o banco de dados"))
+  .catch((err) => console.error("Erro ao sincronizar tabelas:", err));
+
+  CRIAR TABELAS 
+ */  
 
 module.exports = sequelize;
