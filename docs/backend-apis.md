@@ -131,6 +131,8 @@ Diagrama de Classes
 
 ![arq](img/cadastro_de_usuarios.drawio.png)
 
+![arq](img/diagrama_agendamento.drawio.png)
+
 ## Tecnologias Utilizadas
 
 Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs Web. A tecnologia certa para o seu projeto dependerá dos seus objetivos, dos seus clientes e dos recursos que a API deve fornecer.
