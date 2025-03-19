@@ -14,7 +14,8 @@ const getUsers = async (req, res) => {
 const createUser = async (req, res) => {
   try {
     const { nome, email, senha_hash, telefone } = req.body;
-    const newUser = await User.createUser(nome, email, senha_hash, telefone);
+    
+    const newUser = await User.create(nome, email, senha_hash, telefone);
     res.status(201).json({ message: "Usuário criado com sucesso", user: newUser });
   } catch (error) {
     res.status(500).json({ error: "Erro ao criar usuário" });
