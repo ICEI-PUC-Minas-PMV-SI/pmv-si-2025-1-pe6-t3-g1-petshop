@@ -5,6 +5,6 @@ const authRoutes = require("./userSessionRoutes");
 const router = express.Router();
 
 router.use("/users", userRoutes);
-router.use("/auth", authRoutes);
+router.use("/", authRoutes);
 
 module.exports = router;
