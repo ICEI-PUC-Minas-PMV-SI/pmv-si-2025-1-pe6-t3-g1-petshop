@@ -17,7 +17,16 @@ const loginUser = async (req, res) => {
 
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
-    res.status(200).json({ message: "Login bem-sucedido", token });
+    const expiresAt = new Date();
+    expiresAt.setHours(expiresAt.getHours() + 1);
+
+    const userSession = await UserSession.create({
+      user_id: user.id,
+      token,
+      expires_at: expiresAt,
+    });
+
+    res.status(200).json({ message: "Login bem-sucedido", token, "Sua sessão expira em:": userSession.expiresAt });
   } catch (error) {
     console.error("Erro ao autenticar usuário:", error);
     res.status(500).json({ error: "Erro ao autenticar usuário" });

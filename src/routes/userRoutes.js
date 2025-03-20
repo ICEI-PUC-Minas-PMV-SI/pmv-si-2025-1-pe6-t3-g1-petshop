@@ -37,6 +37,12 @@ const router = express.Router();
  *               senha_hash:
  *                 type: string
  *                 example: "123456"
+ *               telefone:
+ *                  type: string
+ *                  example: 999999999
+ *               role:
+ *                  type: integer
+ *                  example: 2
  *     responses:
  *       201:
  *         description: Usuário criado com sucesso.
@@ -48,10 +54,10 @@ const router = express.Router();
 
 /**
  * @swagger
- * /{id}/roles:
+ * /users/{id}/roles:
  *   get:
  *     summary: Obtém os papéis (roles) de um usuário
- *     description: Retorna a lista de roles atribuídos a um usuário específico.
+ *     description: Retorna a role do usuário
  *     tags:
  *       - Usuários
  *     parameters:
@@ -59,7 +65,7 @@ const router = express.Router();
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *         description: ID do usuário
  *     responses:
  *       200:
@@ -72,11 +78,12 @@ const router = express.Router();
  *                 type: object
  *                 properties:
  *                   id:
- *                     type: integer
- *                     example: 1
- *                   role:
  *                     type: string
- *                     example: "admin"
+ *                     format: uuid
+ *                     example: 384e1d93-fe0f-47ed-9b17-e751c8c2f82c
+ *                   role:
+ *                     type: integer
+ *                     example: 2
  *       404:
  *         description: Usuário não encontrado
  *       500:
