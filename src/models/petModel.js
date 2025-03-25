@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
-const User = sequelize.define(
+const Pet = sequelize.define(
     "Pet",
 {
       id_pet: {
@@ -37,18 +37,11 @@ const User = sequelize.define(
         type: DataTypes.TEXT,
         allowNull: false
       }
-    }, {
-      tableName: 'Pets',
-      timestamps: false
-    });
+    }, 
+    {
+      tableName: "Pet",
+      timestamps: false,
+    }
+    );
   
-    Pet.associate = (models) => {
-      Pet.belongsTo(models.Cliente, {
-        foreignKey: 'id_cliente',
-        as: 'cliente'
-      });
-    };
-  
-    return Pet;
-
-  
+    module.exports = Pet;
