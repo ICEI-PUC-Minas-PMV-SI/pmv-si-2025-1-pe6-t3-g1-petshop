@@ -20,7 +20,7 @@ app.use((err, req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Valdeir dono do rei do pastel, socio do Davi");
+  res.send("Valdeir dono do rei do pastel, socio do Davi, Fernanda testando");
 });
 
 swaggerDocs(app);
