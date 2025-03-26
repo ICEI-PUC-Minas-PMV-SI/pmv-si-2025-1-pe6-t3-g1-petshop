@@ -4,7 +4,7 @@ const sequelize = require("../config/database");
 const Pet = sequelize.define(
     "Pet",
 {
-      id_pet: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
