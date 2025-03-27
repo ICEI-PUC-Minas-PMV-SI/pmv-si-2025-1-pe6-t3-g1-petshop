@@ -91,4 +91,8 @@ router.get("/", getPets);
 router.post("/", createPet);
 router.get("/:id/types", getPetTypes);
 
-module.exports = router;
+module.exports = router; // primeira parte, testando segunda abaixo (Fernanda)
+
+router.put("/:id", updatePet);
+router.delete("/:id", deletePet);
+router.patch("/:id", patchPet);
