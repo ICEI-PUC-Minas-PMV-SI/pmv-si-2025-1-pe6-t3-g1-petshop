@@ -1,0 +1,29 @@
+{
+  "name": "pmv-si-2025-1-pe6-t3-g1-petshop",
+  "version": "1.0.0",
+  "description": "`CURSO: Sistemas de Informação`",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe6-t3-g1-petshop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe6-t3-g1-petshop/issues"
+  },
+  "homepage": "https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe6-t3-g1-petshop#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.14.1"
+  }
+}
