@@ -7,6 +7,7 @@ const {
   editUser,
 } = require("../controllers/userController");
 const router = express.Router();
+const tokenVerify = require("../middleware/tokenVerify")
 
 /**
  * @swagger
@@ -154,10 +155,10 @@ const router = express.Router();
  *         description: Erro interno do servidor
  */
 
-router.get("/", getUsers);
-router.post("/new-user", createUser);
-router.patch("/:id/update", editUser);
-router.delete("/:id/delete", deleteUser);
-router.get("/:id/roles", getRoles);
+router.get("/", tokenVerify, getUsers);
+router.post("/new-user", tokenVerify, createUser);
+router.patch("/:id/update", tokenVerify, editUser);
+router.delete("/:id/delete", tokenVerify, deleteUser);
+router.get("/:id/roles", tokenVerify, getRoles);
 
 module.exports = router;
