@@ -77,14 +77,6 @@ const Pessoa = sequelize.define(
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      created_at: {
-        type: DataTypes.INTEGER,
-        defaultValue: DataTypes.NOW,
-      },
-      updated_at: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
       user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -92,7 +84,9 @@ const Pessoa = sequelize.define(
     },
     {
       tableName: "pessoas",
-      timestamps: false,
+      timestamps: true, 
+      createdAt: "created_at",
+      updatedAt: "updated_at",
     }
   );
   
