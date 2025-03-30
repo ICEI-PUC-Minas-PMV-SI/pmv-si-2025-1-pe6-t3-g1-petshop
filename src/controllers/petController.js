@@ -1,5 +1,4 @@
 const Pet = require("../models/petModel");
-const User = require("../models/userModel");
 const PetType = require("../models/petTypeModel");
 
 const getPets = async (req, res) => {
@@ -29,8 +28,6 @@ const getPetTypes = async (req, res) => {
     res.status(500).json({ error: "Erro ao buscar tipos do pet" });
   }
 };
-
-module.exports = { getPets, createPet, getPetTypes }; // primeira sessao, testar com outra (fernanda)
 
 const updatePet = async (req, res) => {
   try {
@@ -81,3 +78,5 @@ const patchPet = async (req, res) => {
     res.status(500).json({ error: "Erro ao atualizar parcialmente o pet" });
   }
 };
+
+module.exports = { getPets, createPet, getPetTypes, updatePet, deletePet, patchPet };

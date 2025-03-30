@@ -1,5 +1,5 @@
 const express = require("express");
-const { getPets, createPet, getPetTypes } = require("../controllers/petController");
+const { getPets, createPet, getPetTypes, updatePet, deletePet, patchPet } = require("../controllers/petController");
 const router = express.Router();
 
 /**
@@ -56,8 +56,7 @@ const router = express.Router();
  *   get:
  *     summary: Obtém os tipos de um pet
  *     description: Retorna a lista de tipos atribuídos a um pet específico.
- *     tags:
- *       - Pets
+ *     tags: [Pets]
  *     parameters:
  *       - in: path
  *         name: id
@@ -90,9 +89,8 @@ const router = express.Router();
 router.get("/", getPets);
 router.post("/", createPet);
 router.get("/:id/types", getPetTypes);
-
-module.exports = router; // primeira parte, testando segunda abaixo (Fernanda)
-
 router.put("/:id", updatePet);
 router.delete("/:id", deletePet);
 router.patch("/:id", patchPet);
+
+module.exports = router; 

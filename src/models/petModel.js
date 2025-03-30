@@ -18,15 +18,15 @@ const Pet = sequelize.define(
         }
       },
       nome: {
-        type: DataTypes.STRING(15),
+        type: DataTypes.STRING,
         allowNull: false
       },
       tipo: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING,
         allowNull: false
       },
       raca: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING,
         allowNull: false
       },
       data_nascimento: {
