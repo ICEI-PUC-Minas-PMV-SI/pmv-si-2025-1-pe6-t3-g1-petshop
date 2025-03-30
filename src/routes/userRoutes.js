@@ -1,6 +1,13 @@
 const express = require("express");
-const { getUsers, createUser, getRoles } = require("../controllers/userController");
+const {
+  getUsers,
+  createUser,
+  getRoles,
+  deleteUser,
+  editUser,
+} = require("../controllers/userController");
 const router = express.Router();
+const tokenVerify = require("../middleware/tokenVerify")
 
 /**
  * @swagger
@@ -17,7 +24,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /users:
+ * /users/new-user:
  *   post:
  *     summary: Cria um novo usuário
  *     tags: [Usuários]
@@ -40,7 +47,7 @@ const router = express.Router();
  *               telefone:
  *                  type: string
  *                  example: 999999999
- *               role:
+ *               role_id:
  *                  type: integer
  *                  example: 2
  *     responses:
@@ -50,7 +57,47 @@ const router = express.Router();
  *         description: Erro ao criar usuário.
  */
 
-
+/**
+ * @swagger
+ * /users/{id}/update:
+ *   patch:
+ *     summary: Edita um usuário
+ *     tags: [Usuários]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID do usuário
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nome:
+ *                 type: string
+ *                 example: "João Silva"
+ *               email:
+ *                 type: string
+ *                 example: "joao@email.com"
+ *               senha_hash:
+ *                 type: string
+ *                 example: "123456"
+ *               telefone:
+ *                  type: string
+ *                  example: 999999999
+ *               role_id:
+ *                  type: integer
+ *                  example: 2
+ *     responses:
+ *       201:
+ *         description: Usuário editado com sucesso.
+ *       500:
+ *         description: Erro ao editar usuário.
+ */
 
 /**
  * @swagger
@@ -58,8 +105,7 @@ const router = express.Router();
  *   get:
  *     summary: Obtém os papéis (roles) de um usuário
  *     description: Retorna a role do usuário
- *     tags:
- *       - Usuários
+ *     tags: [Usuários]
  *     parameters:
  *       - in: path
  *         name: id
@@ -77,10 +123,6 @@ const router = express.Router();
  *               items:
  *                 type: object
  *                 properties:
- *                   id:
- *                     type: string
- *                     format: uuid
- *                     example: 384e1d93-fe0f-47ed-9b17-e751c8c2f82c
  *                   role:
  *                     type: integer
  *                     example: 2
@@ -90,9 +132,33 @@ const router = express.Router();
  *         description: Erro interno do servidor
  */
 
-router.get("/", getUsers);
-router.post("/", createUser);
-router.get("/:id/roles", getRoles);
+/**
+ * @swagger
+ * /users/{id}/delete:
+ *   delete:
+ *     summary: Deleta um usuário
+ *     description: Deleta a linha do usuário cujo id foi passado
+ *     tags: [Usuários]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID do usuário
+ *     responses:
+ *       200:
+ *         description: Usuário deletado com sucesso
+ *       404:
+ *         description: Usuário não encontrado
+ *       500:
+ *         description: Erro interno do servidor
+ */
 
+router.get("/", tokenVerify, getUsers);
+router.post("/new-user", tokenVerify, createUser);
+router.patch("/:id/update", tokenVerify, editUser);
+router.delete("/:id/delete", tokenVerify, deleteUser);
+router.get("/:id/roles", tokenVerify, getRoles);
 
 module.exports = router;
