@@ -14,10 +14,10 @@ const getUsers = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    const { nome, email, senha_hash, telefone, role_id } = req.body;
+    const { nome, email, senha, telefone, role_id } = req.body;
 
     const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(senha_hash, saltRounds);
+    const hashedPassword = await bcrypt.hash(senha, saltRounds);
 
     const newUser = await User.create({
       nome,

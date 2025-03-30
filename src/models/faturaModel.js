@@ -32,18 +32,12 @@ const Fatura = sequelize.define(
       pagamento_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-      },
-      created_at: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      updated_at: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
       }
     },{
       tableName: "faturas",
-      timestamps: false,
+      timestamps: true, 
+      createdAt: "created_at",
+      updatedAt: "updated_at",
     }
   );
   

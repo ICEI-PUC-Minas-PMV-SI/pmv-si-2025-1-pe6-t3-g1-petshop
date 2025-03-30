@@ -23,18 +23,15 @@ const UserSession = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    created_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
     expires_at: {
       type: DataTypes.DATE,
       allowNull: false,
-    },
+    }
   },
   {
     tableName: "user_sessions",
-    timestamps: false,
+    timestamps: true,
+    createdAt: "created_at"
   }
 );
 

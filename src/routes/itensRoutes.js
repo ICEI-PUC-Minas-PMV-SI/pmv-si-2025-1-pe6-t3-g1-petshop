@@ -1,6 +1,7 @@
 const express = require("express");
 const { findAll, create, updateSingle, deleteSingle,} = require("../controllers/itemController");
 const router = express.Router();
+const tokenVerify = require("../middleware/tokenVerify");
 
 /**
  * @swagger
@@ -101,9 +102,9 @@ const router = express.Router();
  */
 
 
-router.get("/", findAll);
-router.post("/", create);
-router.put("/:id", updateSingle);
-router.delete("/:id", deleteSingle);
+router.get("/",  tokenVerify, findAll);
+router.post("/",  tokenVerify, create);
+router.put("/:id",  tokenVerify, updateSingle);
+router.delete("/:id",  tokenVerify, deleteSingle);
 
 module.exports = router;

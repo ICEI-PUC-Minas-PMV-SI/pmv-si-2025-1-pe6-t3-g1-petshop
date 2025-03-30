@@ -41,7 +41,7 @@ const tokenVerify = require("../middleware/tokenVerify")
  *               email:
  *                 type: string
  *                 example: "joao@email.com"
- *               senha_hash:
+ *               senha:
  *                 type: string
  *                 example: "123456"
  *               telefone:
@@ -156,7 +156,7 @@ const tokenVerify = require("../middleware/tokenVerify")
  */
 
 router.get("/", tokenVerify, getUsers);
-router.post("/new-user", tokenVerify, createUser);
+router.post("/new-user", createUser);
 router.patch("/:id/update", tokenVerify, editUser);
 router.delete("/:id/delete", tokenVerify, deleteUser);
 router.get("/:id/roles", tokenVerify, getRoles);
