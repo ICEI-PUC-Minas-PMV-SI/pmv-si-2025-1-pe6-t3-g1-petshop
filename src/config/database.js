@@ -18,12 +18,12 @@ sequelize
   .then(() => console.log("Conectado ao PostgreSQL via Sequelize"))
   .catch((err) => console.error("Erro ao conectar ao banco:", err));
 
-/* sequelize
-  .sync({ alter: true }) 
-  .then(() => console.log("Tabelas sincronizadas com o banco de dados"))
-  .catch((err) => console.error("Erro ao sincronizar tabelas:", err));
 
-  CRIAR TABELAS 
- */  
+/*sequelize
+  .sync({ force: true }) 
+  .then(() => console.log("Tabelas sincronizadas com o banco de dados"))
+  .catch((err) => console.error("Erro ao sincronizar tabelas:", err));*/
+
+
 
 module.exports = sequelize;

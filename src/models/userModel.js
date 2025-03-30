@@ -5,9 +5,9 @@ const User = sequelize.define(
   "User",
   {
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
     nome: {
       type: DataTypes.STRING,
@@ -35,7 +35,7 @@ const User = sequelize.define(
   },
   {
     tableName: "users",
-    timestamps: false, 
+    timestamps: false,
   }
 );
 
