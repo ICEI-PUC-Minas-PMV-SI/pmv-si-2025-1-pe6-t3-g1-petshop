@@ -1,5 +1,5 @@
 const Pet = require("../models/petModel");
-const PetType = require("../models/petTypeModel");
+/* const PetType = require("../models/petTypeModel"); */
 
 const getPets = async (req, res) => {
   try {
@@ -20,14 +20,14 @@ const createPet = async (req, res) => {
   }
 };
 
-const getPetTypes = async (req, res) => {
+/* const getPetTypes = async (req, res) => {
   try {
     const petTypes = await PetType.findAll({ where: { pet_id: req.params.id }, include: ['type'] });
     res.status(200).json(petTypes.map(pt => pt.type));
   } catch (error) {
     res.status(500).json({ error: "Erro ao buscar tipos do pet" });
   }
-};
+}; */
 
 const updatePet = async (req, res) => {
   try {
@@ -79,4 +79,4 @@ const patchPet = async (req, res) => {
   }
 };
 
-module.exports = { getPets, createPet, getPetTypes, updatePet, deletePet, patchPet };
+module.exports = { getPets, createPet, updatePet, deletePet, patchPet };

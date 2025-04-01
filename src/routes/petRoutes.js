@@ -88,7 +88,7 @@ const router = express.Router();
 
 router.get("/", getPets);
 router.post("/", createPet);
-router.get("/:id/types", getPetTypes);
+/* router.get("/:id/types", getPetTypes); */
 router.put("/:id", updatePet);
 router.delete("/:id", deletePet);
 router.patch("/:id", patchPet);
