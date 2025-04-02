@@ -96,3 +96,101 @@ module.exports = router; // primeira parte, testando segunda abaixo (Fernanda)
 router.put("/:id", updatePet);
 router.delete("/:id", deletePet);
 router.patch("/:id", patchPet);
+
+/**
+ * @swagger
+ * /pets/{id}:
+ *   put:
+ *     summary: Atualiza um pet completamente
+ *     tags: [Pets]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID do pet
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nome:
+ *                 type: string
+ *                 example: "Rex"
+ *               especie:
+ *                 type: string
+ *                 example: "Cachorro"
+ *               raca:
+ *                 type: string
+ *                 example: "Labrador"
+ *               idade:
+ *                 type: integer
+ *                 example: 5
+ *               dono_id:
+ *                 type: integer
+ *                 example: 1
+ *     responses:
+ *       200:
+ *         description: Atualização bem-sucedida
+ *       404:
+ *         description: Pet não encontrado
+ *       500:
+ *         description: Erro interno do servidor
+ */
+
+/**
+ * @swagger
+ * /pets/{id}:
+ *   patch:
+ *     summary: Atualiza parcialmente um pet
+ *     tags: [Pets]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID do pet
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nome:
+ *                 type: string
+ *                 example: "Novo nome do pet"
+ *     responses:
+ *       200:
+ *         description: Atualização parcial bem-sucedida
+ *       404:
+ *         description: Pet não encontrado
+ *       500:
+ *         description: Erro interno do servidor
+ */
+
+/**
+ * @swagger
+ * /pets/{id}:
+ *   delete:
+ *     summary: Deleta um pet pelo ID
+ *     tags: [Pets]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID do pet
+ *     responses:
+ *       200:
+ *         description: Pet deletado com sucesso
+ *       404:
+ *         description: Pet não encontrado
+ *       500:
+ *         description: Erro interno do servidor
+ */
