@@ -36,7 +36,7 @@ const UserSession = sequelize.define(
 );
 
 UserSession.prototype.validarSessao = function () {
-  return new Date() < this.expires_at;
+  return new Date() < new Date(this.expires_at);
 };
 
 module.exports = UserSession;
