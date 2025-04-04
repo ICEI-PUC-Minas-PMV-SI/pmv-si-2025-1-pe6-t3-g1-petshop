@@ -17,7 +17,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /pets:
+ * /pets/new-pet:
  *   post:
  *     summary: Cria um novo pet
  *     tags: [Pets]
@@ -28,21 +28,25 @@ const router = express.Router();
  *           schema:
  *             type: object
  *             properties:
+ *               id_cliente:
+ *                 type: integer
+ *                 example: 1
  *               nome:
  *                 type: string
  *                 example: "Rex"
- *               especie:
+ *               tipo:
  *                 type: string
  *                 example: "Cachorro"
  *               raca:
  *                 type: string
  *                 example: "Labrador"
- *               idade:
- *                 type: integer
- *                 example: 3
- *               dono_id:
- *                 type: integer
- *                 example: 1
+ *               data_nascimento:
+ *                 type: string
+ *                 format: date
+ *                 example: "2020-01-15"
+ *               observacoes:
+ *                 type: string
+ *                 example: "Muito brincalhão e adora passear."
  *     responses:
  *       201:
  *         description: Pet criado com sucesso.
@@ -51,23 +55,22 @@ const router = express.Router();
  */
 
 /**
- * @swagger
+  * @swagger
  * /pets/{id}/types:
  *   get:
  *     summary: Obtém os tipos de um pet
- *     description: Retorna a lista de tipos atribuídos a um pet específico.
- *     tags:
- *       - Pets
+ *     description: Retorna a lista de tipos associados a um pet específico.
+ *     tags: [Pets]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID do pet
+ *         description: ID do pet.
  *     responses:
  *       200:
- *         description: Lista de tipos do pet
+ *         description: Lista de tipos do pet.
  *         content:
  *           application/json:
  *             schema:
@@ -78,20 +81,25 @@ const router = express.Router();
  *                   id:
  *                     type: integer
  *                     example: 1
- *                   type:
+ *                     description: ID do tipo de pet.
+ *                   nome:
  *                     type: string
  *                     example: "doméstico"
+ *                     description: Nome do tipo de pet.
+ *                   descricao:
+ *                     type: string
+ *                     example: "Animal de estimação criado em ambiente familiar."
+ *                     description: Descrição do tipo de pet.
  *       404:
- *         description: Pet não encontrado
+ *         description: Pet não encontrado.
  *       500:
- *         description: Erro interno do servidor
- */
+ *         description: Erro interno do servidor.
 
 router.get("/", getPets);
 router.post("/", createPet);
 router.get("/:id/types", getPetTypes);
 
-module.exports = router; // primeira parte, testando segunda abaixo (Fernanda)
+module.exports = router; 
 
 router.put("/:id", updatePet);
 router.delete("/:id", deletePet);
@@ -99,7 +107,7 @@ router.patch("/:id", patchPet);
 
 /**
  * @swagger
- * /pets/{id}:
+ * /pets/{id}/updateput:
  *   put:
  *     summary: Atualiza um pet completamente
  *     tags: [Pets]
@@ -143,7 +151,7 @@ router.patch("/:id", patchPet);
 
 /**
  * @swagger
- * /pets/{id}:
+ * /pets/{id}/updatepatch:
  *   patch:
  *     summary: Atualiza parcialmente um pet
  *     tags: [Pets]
@@ -175,7 +183,7 @@ router.patch("/:id", patchPet);
 
 /**
  * @swagger
- * /pets/{id}:
+ * /pets/{id}/delete:
  *   delete:
  *     summary: Deleta um pet pelo ID
  *     tags: [Pets]

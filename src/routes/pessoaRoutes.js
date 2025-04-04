@@ -17,7 +17,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /pessoas:
+ * /pessoas/new-pessoa:
  *   post:
  *     summary: Cria uma nova pessoa
  *     tags: [Pessoas]
@@ -173,7 +173,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /pessoas/{id}:
+ * /pessoas/{id}/update:
  *   put:
  *     summary: Atualiza um registro de pessoa individualmente
  *     tags: [Pessoas]
@@ -248,7 +248,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /pessoas/{id}:
+ * /pessoas/{id}/delete:
  *   delete:
  *     summary: Exclui uma pessoa individualmente
  *     tags: [Pessoas]

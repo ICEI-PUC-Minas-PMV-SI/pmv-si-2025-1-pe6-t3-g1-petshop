@@ -2,6 +2,9 @@ const Pet = require("../models/petModel");
 const User = require("../models/userModel");
 const PetType = require("../models/PetTypeModel");
 
+
+module.exports = { getPets, createPet, getPetTypes, updatePet, deletePet, patchPet };
+
 const getPets = async (req, res) => {
   try {
     const pets = await Pet.findAll();
@@ -29,8 +32,6 @@ const getPetTypes = async (req, res) => {
     res.status(500).json({ error: "Erro ao buscar tipos do pet" });
   }
 };
-
-module.exports = { getPets, createPet, getPetTypes }; // primeira sessao, testar com outra (fernanda)
 
 const updatePet = async (req, res) => {
   try {
