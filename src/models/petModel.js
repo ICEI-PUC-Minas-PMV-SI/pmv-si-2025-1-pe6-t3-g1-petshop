@@ -9,12 +9,12 @@ const Pet = sequelize.define(
         primaryKey: true,
         autoIncrement: true
       },
-      id_cliente: {
+      id_pessoa: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'Clientes',
-          key: 'id_cliente'
+          model: 'pessoas',
+          key: 'id_pessoa'
         }
       },
       nome: {

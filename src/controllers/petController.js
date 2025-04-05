@@ -13,8 +13,8 @@ const getPets = async (req, res) => {
 
 const createPet = async (req, res) => {
   try {
-    const { nome, tipo, raca, data_nascimento, observacoes, id_cliente } = req.body;
-    const newPet = await Pet.create({ nome, tipo, raca, data_nascimento, observacoes, id_cliente });
+    const { nome, tipo, raca, data_nascimento, observacoes, id_pessoa } = req.body;
+    const newPet = await Pet.create({ nome, tipo, raca, data_nascimento, observacoes, id_pessoa });
     res.status(201).json({ message: "Pet criado com sucesso", pet: newPet });
   } catch (error) {
     res.status(500).json({ error: "Erro ao criar pet" });

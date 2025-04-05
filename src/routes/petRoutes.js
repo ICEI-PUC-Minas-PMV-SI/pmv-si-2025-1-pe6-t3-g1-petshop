@@ -28,7 +28,7 @@ const router = express.Router();
  *           schema:
  *             type: object
  *             properties:
- *               id_cliente:
+ *               id_pessoa:
  *                 type: integer
  *                 description: ID do cliente associado ao pet (obrigatório)
  *                 example: 1
@@ -67,7 +67,7 @@ const router = express.Router();
  *                 pet:
  *                   type: object
  *                   properties:
- *                     id_cliente:
+ *                     id_pessoa:
  *                       type: integer
  *                       example: 1
  *                     nome:
@@ -128,7 +128,7 @@ const router = express.Router();
  *                 id:
  *                   type: integer
  *                   example: 1
- *                 id_cliente:
+ *                 id_pessoa:
  *                   type: integer
  *                   example: 1
  *                 nome:
@@ -178,17 +178,6 @@ const router = express.Router();
  *                   type: string
  *                   example: "Erro ao buscar pet."
  */
-
-
-router.get("/", getPets);
-router.post("/", createPet);
-router.get("/:id/types", getPetTypes);
-
-module.exports = router; 
-
-router.put("/:id", updatePet);
-router.delete("/:id", deletePet);
-router.patch("/:id", patchPet);
 
 /**
  * @swagger

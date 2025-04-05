@@ -40,7 +40,7 @@ const router = express.Router();
  *               nascimento:
  *                  type: date
  *                  example: 01/01/2000
- *               genereo:
+ *               genero:
  *                  type: string
  *                  example: "M"
  *               telefone:
