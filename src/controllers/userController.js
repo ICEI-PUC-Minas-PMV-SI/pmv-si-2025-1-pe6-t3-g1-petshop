@@ -51,10 +51,10 @@ const deleteUser = async (req, res) => {
 
     if (user) await user.destroy();
 
-    res.status(201).json({ message: "Usuário deletado com sucesso" });
+    res.status(200).json({ message: "Usuário deletado com sucesso", user: user });
   } catch (error) {
     console.error("Erro ao deletar usuário:", error);
-    res.status(500).json({ error: "Erro ao criar usuário" });
+    res.status(500).json({ error: "Erro ao deletar usuário" });
   }
 };
 
@@ -62,7 +62,13 @@ const editUser = async (req, res) => {
   try {
     const updatedFields = req.body;
     const user = await User.findOne({ where: { id: req.params.id } });
-    if (user) await user.update(nome = updatedFields.nome, email = updatedFields.email, senha_hash = updatedFields.senha, telefone = updatedFields.telefone);
+    if (user)
+      await user.update({
+        nome: updatedFields.nome,
+        email: updatedFields.email,
+        senha_hash: updatedFields.senha,
+        telefone: updatedFields.telefone,
+      });
 
     res.status(201).json({ message: "Usuário editado com sucesso" });
   } catch (error) {

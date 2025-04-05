@@ -12,7 +12,7 @@ const createSchedule = async (req, res) => {
       servico
     });
 
-    res.status(201).json({ message: "Agendado com sucesso" });
+    res.status(201).json({ message: "Agendado com sucesso", schedule: newSchedule });
   } catch (error) {
     console.error("Erro ao agendar:", error);
     res.status(500).json({ error: "Erro ao agendar" });
@@ -28,7 +28,7 @@ const editSchedule = async (req, res) => {
     );
     await desiredSchedule.update(updateFields)
 
-    res.status(201).json({ message: "Agendado com sucesso" });
+    res.status(201).json({ message: "Agendado com sucesso"});
   } catch (error) {
     console.error("Erro ao agendar:", error);
     res.status(500).json({ error: "Erro ao agendar" });
