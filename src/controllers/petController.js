@@ -1,9 +1,6 @@
 const Pet = require("../models/petModel");
-const User = require("../models/userModel");
-const PetType = require("../models/PetTypeModel");
 
-
-module.exports = { getPets, createPet, getPetTypes, updatePet, deletePet, patchPet };
+module.exports = { getPets, createPet, getPet, getPetTypes, updatePet, deletePet };
 
 const getPets = async (req, res) => {
   try {
@@ -23,43 +20,70 @@ const createPet = async (req, res) => {
     res.status(500).json({ error: "Erro ao criar pet" });
   }
 };
-  
-const getPetTypes = async (req, res) => {
+
+const getPet = async (req, res) => {
   try {
-    const petTypes = await PetType.findAll({
-      where: { pet_id: req.params.id }
-    });
+    const { id, nome } = req.query;
 
-    // Caso nenhum tipo seja encontrado, retorne 404
-    if (!petTypes || petTypes.length === 0) {
-      return res.status(404).json({ error: "Tipos não encontrados para o pet especificado." });
+    if (id) {
+      // Buscar por ID
+      const pet = await Pet.findByPk(id);
+
+      if (pet) {
+        res.status(200).json(pet);
+      } else {
+        res.status(404).json({ message: `Pet com id=${id} não encontrado.` });
+      }
+    } else if (nome) {
+      // Buscar por nome
+      const pet = await Pet.findOne({
+        where: {
+          nome: nome
+        }
+      });
+
+      if (pet) {
+        res.status(200).json(pet);
+      } else {
+        res.status(404).json({ message: `Pet com nome=${nome} não encontrado.` });
+      }
+    } else {
+      // Nenhum parâmetro fornecido
+      return res.status(400).json({ error: "ID ou nome devem ser fornecidos." });
     }
-
-    res.status(200).json(
-      petTypes.map(pt => ({
-        id: pt.id,
-        nome: pt.nome,
-        descricao: pt.descricao
-      }))
-    );
   } catch (error) {
-    res.status(500).json({ error: "Erro ao buscar tipos do pet." });
+    console.error("Erro ao buscar pet:", error);
+    res.status(500).json({ error: "Erro ao buscar pet." });
   }
 };
+  
 
 const updatePet = async (req, res) => {
   try {
-    const { id } = req.params;
-    const [updated] = await Pet.update(req.body, {
-      where: { id: id }
-    });
-    if (updated) {
-      const updatedPet = await Pet.findOne({ where: { id: id } });
-      res.status(200).json({ message: "Pet atualizado com sucesso", pet: updatedPet });
+    const pet = await Pet.findByPk(req.params.id);
+
+    if (pet) {
+      const { nome, observacoes } = req.body;
+
+      const updates = {};
+
+      if (nome) {
+        updates.nome = nome;
+      }
+      if (observacoes) {
+        updates.observacoes = observacoes;
+      }
+
+      updates.updated_at = Date.now();
+
+      await pet.update(updates);
+
+      res.status(204).send();
     } else {
-      res.status(404).json({ error: "Pet não encontrado" });
+      res.status(404).send({ message: `Não há pet com id=${req.params.id}.` });
     }
   } catch (error) {
+    console.error("Erro ao atualizar pet:", error);
     res.status(500).json({ error: "Erro ao atualizar pet" });
   }
 };

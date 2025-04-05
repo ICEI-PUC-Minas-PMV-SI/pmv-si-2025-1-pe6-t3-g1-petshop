@@ -1,5 +1,5 @@
 const express = require("express");
-const { getPets, createPet, getPetTypes } = require("../controllers/petController");
+const { getPets, createPet, getPet, updatePet, deletePet} = require("../controllers/petController");
 const router = express.Router();
 
 /**
@@ -98,46 +98,87 @@ const router = express.Router();
  *                   example: "Erro ao criar pet"
  */
 
+
 /**
-  * @swagger
- * /pets/{id}/types:
+ * @swagger
+ * /pets/id:
  *   get:
- *     summary: Obtém os tipos de um pet
- *     description: Retorna a lista de tipos associados a um pet específico.
+ *     summary: Busca um pet pelo ID ou nome
+ *     description: Busca um pet no banco de dados pelo ID ou nome.
  *     tags: [Pets]
  *     parameters:
- *       - in: path
+ *       - in: query
  *         name: id
- *         required: true
  *         schema:
  *           type: integer
- *         description: ID do pet.
+ *         description: ID do pet a ser buscado (opcional)
+ *       - in: query
+ *         name: nome
+ *         schema:
+ *           type: string
+ *         description: Nome do pet a ser buscado (opcional)
  *     responses:
  *       200:
- *         description: Lista de tipos do pet.
+ *         description: Pet encontrado com sucesso
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: integer
- *                     example: 1
- *                     description: ID do tipo de pet.
- *                   nome:
- *                     type: string
- *                     example: "doméstico"
- *                     description: Nome do tipo de pet.
- *                   descricao:
- *                     type: string
- *                     example: "Animal de estimação criado em ambiente familiar."
- *                     description: Descrição do tipo de pet.
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                   example: 1
+ *                 id_cliente:
+ *                   type: integer
+ *                   example: 1
+ *                 nome:
+ *                   type: string
+ *                   example: "Rex"
+ *                 tipo:
+ *                   type: string
+ *                   example: "Cachorro"
+ *                 raca:
+ *                   type: string
+ *                   example: "Labrador"
+ *                 data_nascimento:
+ *                   type: string
+ *                   format: date
+ *                   example: "2020-01-01"
+ *                 observacoes:
+ *                   type: string
+ *                   example: "Nenhuma observação"
+ *       400:
+ *         description: Requisição inválida
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "ID ou nome devem ser fornecidos."
  *       404:
- *         description: Tipos não encontrados para o pet especificado.
+ *         description: Pet não encontrado
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Pet com id={id} não encontrado."
  *       500:
- *         description: Erro ao buscar tipos do pet.
+ *         description: Erro interno do servidor
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Erro ao buscar pet."
+ */
+
 
 router.get("/", getPets);
 router.post("/", createPet);
@@ -152,9 +193,9 @@ router.patch("/:id", patchPet);
 /**
  * @swagger
  * /pets/{id}/update:
- *   put:
- *     summary: Atualiza completamente as informações de um pet pelo ID
- *     description: Atualiza os dados de um pet no banco de dados com base no ID fornecido. Todos os campos enviados no corpo serão substituídos.
+ *   patch:
+ *     summary: Atualiza parcialmente as informações de um pet pelo ID
+ *     description: Atualiza os campos nome e/ou observacoes de um pet no banco de dados com base no ID fornecido.
  *     tags: [Pets]
  *     parameters:
  *       - in: path
@@ -169,81 +210,18 @@ router.patch("/:id", patchPet);
  *         application/json:
  *           schema:
  *             type: object
- *             required:
- *               - id_cliente
- *               - nome
- *               - tipo
- *               - raca
- *               - data_nascimento
- *               - observacoes
  *             properties:
- *               id_cliente:
- *                 type: integer
- *                 example: 1
- *                 description: ID do cliente dono do pet
  *               nome:
  *                 type: string
- *                 example: "Rex"
- *                 description: Nome do pet
- *               tipo:
- *                 type: string
- *                 example: "Cachorro"
- *                 description: Tipo do pet
- *               raca:
- *                 type: string
- *                 example: "Labrador"
- *                 description: Raça do pet
- *               data_nascimento:
- *                 type: string
- *                 format: date
- *                 example: "2020-01-01"
- *                 description: Data de nascimento do pet (YYYY-MM-DD)
+ *                 example: "Novo Nome"
+ *                 description: Novo nome do pet (opcional)
  *               observacoes:
  *                 type: string
- *                 example: "Nenhuma observação"
- *                 description: Observações sobre o pet
+ *                 example: "Novas observações"
+ *                 description: Novas observações sobre o pet (opcional)
  *     responses:
- *       200:
- *         description: Pet atualizado com sucesso
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: "Pet atualizado com sucesso"
- *                 pet:
- *                   type: object
- *                   properties:
- *                     id:
- *                       type: integer
- *                       example: 1
- *                     id_cliente:
- *                       type: integer
- *                       example: 1
- *                       description: ID do cliente dono do pet
- *                     nome:
- *                       type: string
- *                       example: "Rex"
- *                       description: Nome do pet
- *                     tipo:
- *                       type: string
- *                       example: "Cachorro"
- *                       description: Tipo do pet
- *                     raca:
- *                       type: string
- *                       example: "Labrador"
- *                       description: Raça do pet
- *                     data_nascimento:
- *                       type: string
- *                       format: date
- *                       example: "2020-01-01"
- *                       description: Data de nascimento do pet (YYYY-MM-DD)
- *                     observacoes:
- *                       type: string
- *                       example: "Nenhuma observação"
- *                       description: Observações sobre o pet
+ *       204:
+ *         description: Pet atualizado com sucesso (sem conteúdo retornado)
  *       404:
  *         description: Pet não encontrado
  *         content:
@@ -251,9 +229,9 @@ router.patch("/:id", patchPet);
  *             schema:
  *               type: object
  *               properties:
- *                 error:
+ *                 message:
  *                   type: string
- *                   example: "Pet não encontrado"
+ *                   example: "Não há pet com id={id}."
  *       500:
  *         description: Erro interno do servidor
  *         content:
@@ -265,7 +243,6 @@ router.patch("/:id", patchPet);
  *                   type: string
  *                   example: "Erro ao atualizar pet"
  */
-
 /**
  * @swagger
  * /pets/{id}/delete:
