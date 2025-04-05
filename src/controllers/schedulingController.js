@@ -26,7 +26,13 @@ const editSchedule = async (req, res) => {
     const desiredSchedule = await Scheduling.findByPk(
       id.id
     );
-    await desiredSchedule.update(updateFields)
+    await desiredSchedule.update({
+      pessoa: updateFields.pessoa,
+      profissional: updateFields.profissional,
+      pet: updateFields.pet,
+      servico: updateFields.servico,
+      data_agendamento: updateFields.data_agendamento,
+    });
 
     res.status(201).json({ message: "Agendado com sucesso" });
   } catch (error) {

@@ -21,10 +21,10 @@ const tokenVerify = require("../middleware/tokenVerify")
  *                 example: "Carlos Alberto"
  *               profissional:
  *                 type: string
- *                 example: "Guilherme Augusto "
+ *                 example: "Guilherme Augusto"
  *               pet:
  *                 type: string
- *                 example: "Dinossauro"
+ *                 example: "Cachorro"
  *               data_agendamento:
  *                  type: date
  *                  example: 10/10/2025
@@ -63,10 +63,10 @@ const tokenVerify = require("../middleware/tokenVerify")
  *                 example: "Carlos Alberto"
  *               profissional:
  *                 type: string
- *                 example: "Gil Raiz"
+ *                 example: "Guilherme Augusto"
  *               pet:
  *                 type: string
- *                 example: "Dinossauro"
+ *                 example: "Cachorro"
  *               data_agendamento:
  *                  type: date
  *                  example: 10/10/2025
@@ -120,7 +120,7 @@ const tokenVerify = require("../middleware/tokenVerify")
 
 
 router.post("/schedule/create", tokenVerify, createSchedule);
-router.patch("/schedule/update/:id", tokenVerify, editSchedule);
+router.patch("/schedule/update/:id", editSchedule);
 router.delete("/schedule/delete/:id", tokenVerify, deleteSchedule);
 router.get("/schedule/get/:id", tokenVerify, getSchedule);
 
