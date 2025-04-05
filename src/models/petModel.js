@@ -9,14 +9,24 @@ const Pet = sequelize.define(
         primaryKey: true,
         autoIncrement: true
       },
-      id_pessoa: {
-        type: DataTypes.INTEGER,
+  
+      status: {
+        type: DataTypes.STRING,
         allowNull: false,
-        references: {
-          model: 'pessoas',
-          key: 'id_pessoa'
-        }
       },
+
+      pessoa_id: { // pessoa_id como foreignKey
+        type: DataTypes.INTEGER,
+        allowNull: true, 
+        references: {
+          model: 'pessoas', // Nome da tabela que está referenciando
+          key: 'pessoa_id'   // Nome da coluna na tabela de pessoas que está referenciando
+        },
+        onUpdate: 'CASCADE', // Opcional: O que acontece quando o ID da pessoa é atualizado
+        onDelete: 'CASCADE'  // Opcional: O que acontece quando a pessoa é deletada
+      }
+    },
+
       nome: {
         type: DataTypes.STRING(15),
         allowNull: false
@@ -35,13 +45,21 @@ const Pet = sequelize.define(
       },
       observacoes: {
         type: DataTypes.TEXT,
-        allowNull: false
-      }
-    }, 
-    {
+        allowNull: false,
+
+        created_at: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+        },
+        updated_at: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+        }
+      },
+    
       tableName: "Pet",
       timestamps: false,
-    }
+    
     );
   
     module.exports = Pet;
