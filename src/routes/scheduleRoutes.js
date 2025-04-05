@@ -20,7 +20,7 @@ const router = express.Router();
  *                 example: "Carlos Alberto"
  *               profissional:
  *                 type: string
- *                 example: "Gil Raiz"
+ *                 example: "Guilherme Augusto "
  *               pet:
  *                 type: string
  *                 example: "Dinossauro"
