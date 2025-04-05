@@ -1,5 +1,5 @@
 const express = require("express");
-const { getPets, createPet, findSingle, updatePet, deletePet } = require("../controllers/petController");
+const { getPets, createPet, findSingle, updatePet, deletePet} = require("../controllers/petController");
 const router = express.Router();
 
 /**
@@ -56,14 +56,13 @@ const router = express.Router();
  *     responses:
  *       201:
  *         description: Pet criado com sucesso.
- *         
  *       500:
  *         description: Erro ao criar pet.
- *        
+ */
 
 /**
  * @swagger
- * /pets/id:
+ * /pets/{id}:
  *   get:
  *     summary: Busca um pet pelo ID ou nome
  *     description: Busca um pet no banco de dados pelo ID ou nome.
@@ -172,10 +171,10 @@ const router = express.Router();
  *         description: Erro ao deletar pet.
  */
 
-router.get("/", findAll);
-router.post("/", create);
+router.get("/", getPets);
+router.post("/new-pet", createPet);
 router.get("/:id", findSingle);
-router.put("/:id", updateSingle);
-router.delete("/:id", deleteSingle);
+router.put("/:id", updatePet);
+router.delete("/:id", deletePet);
 
 module.exports = router;
