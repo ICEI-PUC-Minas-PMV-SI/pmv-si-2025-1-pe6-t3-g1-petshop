@@ -62,7 +62,7 @@ const editUser = async (req, res) => {
   try {
     const updatedFields = req.body;
     const user = await User.findOne({ where: { id: req.params.id } });
-    if (user) await user.update(updatedFields);
+    if (user) await user.update(nome = updatedFields.nome, email = updatedFields.email, senha_hash = updatedFields.senha, telefone = updatedFields.telefone);
 
     res.status(201).json({ message: "Usuário editado com sucesso" });
   } catch (error) {
