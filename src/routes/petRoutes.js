@@ -1,5 +1,5 @@
 const express = require("express");
-const { getPets, createPet, getPet, updatePet, deletePet} = require("../controllers/petController");
+const { getPets, createPet, findSingle, updatePet, deletePet } = require("../controllers/petController");
 const router = express.Router();
 
 /**
@@ -12,9 +12,9 @@ const router = express.Router();
  *       200:
  *         description: Lista de pets retornada com sucesso.
  *       500:
- *         description: Erro ao buscar pets.
+ *         description: Erro interno do servidor.
  */
-
+ 
 /**
  * @swagger
  * /pets/new-pet:
@@ -28,9 +28,9 @@ const router = express.Router();
  *           schema:
  *             type: object
  *             properties:
- *               id_pessoa:
+ *               pessoa_id:
  *                 type: integer
- *                 description: ID do cliente associado ao pet (obrigatório)
+ *                 description: ID da pessoa associada ao pet (obrigatório)
  *                 example: 1
  *               nome:
  *                 type: string
@@ -56,48 +56,10 @@ const router = express.Router();
  *     responses:
  *       201:
  *         description: Pet criado com sucesso.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: "Pet criado com sucesso"
- *                 pet:
- *                   type: object
- *                   properties:
- *                     id_pessoa:
- *                       type: integer
- *                       example: 1
- *                     nome:
- *                       type: string
- *                       example: "Rex"
- *                     tipo:
- *                       type: string
- *                       example: "Cachorro"
- *                     raca:
- *                       type: string
- *                       example: "Labrador"
- *                     data_nascimento:
- *                       type: string
- *                       format: date
- *                       example: "2020-01-15"
- *                     observacoes:
- *                       type: string
- *                       example: "Muito brincalhão e adora passear."
+ *         
  *       500:
  *         description: Erro ao criar pet.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: "Erro ao criar pet"
- */
-
+ *        
 
 /**
  * @swagger
@@ -128,7 +90,7 @@ const router = express.Router();
  *                 id:
  *                   type: integer
  *                   example: 1
- *                 id_pessoa:
+ *                 pessoa_id:
  *                   type: integer
  *                   example: 1
  *                 nome:
@@ -148,35 +110,11 @@ const router = express.Router();
  *                   type: string
  *                   example: "Nenhuma observação"
  *       400:
- *         description: Requisição inválida
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: "ID ou nome devem ser fornecidos."
- *       404:
- *         description: Pet não encontrado
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: "Pet com id={id} não encontrado."
+ *         description: Pet não encontrado 
+ *         
  *       500:
  *         description: Erro interno do servidor
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: "Erro ao buscar pet."
+ *       
  */
 
 /**
@@ -210,27 +148,9 @@ const router = express.Router();
  *                 description: Novas observações sobre o pet (opcional)
  *     responses:
  *       204:
- *         description: Pet atualizado com sucesso (sem conteúdo retornado)
- *       404:
- *         description: Pet não encontrado
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: "Não há pet com id={id}."
+ *         description: Pet atualizado com sucesso. 
  *       500:
- *         description: Erro interno do servidor
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: "Erro ao atualizar pet"
+ *         description: Erro interno do servidor.
  */
 /**
  * @swagger
@@ -247,9 +167,15 @@ const router = express.Router();
  *         description: ID do pet
  *     responses:
  *       200:
- *         description: Pet deletado com sucesso
- *       404:
- *         description: Pet não encontrado
+ *         description: Pet deletado com sucesso.
  *       500:
- *         description: Erro ao deletar pet
+ *         description: Erro ao deletar pet.
  */
+
+router.get("/", findAll);
+router.post("/", create);
+router.get("/:id", findSingle);
+router.put("/:id", updateSingle);
+router.delete("/:id", deleteSingle);
+
+module.exports = router;
