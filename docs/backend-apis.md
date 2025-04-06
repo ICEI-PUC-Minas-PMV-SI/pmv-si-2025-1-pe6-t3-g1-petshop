@@ -206,7 +206,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 ### Deletar um usuário no sistema
 
 - Método: DELETE
-- URL: `/users/:id/delete`
+- URL: /users/:id/delete
 - Parâmetros (URL):
   - `id`: ID do usuário a ser deletado
 - Resposta:
@@ -236,7 +236,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 ### Atualizar um usuário no sistema
 
 - Método: PATCH
-- URL: `/users/:id/update`
+- URL: /users/:id/update
 - Parâmetros (URL):
   - `id`: ID do usuário a ser editado
 - Parâmetros (body):
