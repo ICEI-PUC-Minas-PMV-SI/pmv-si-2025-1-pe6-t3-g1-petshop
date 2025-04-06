@@ -18,14 +18,13 @@ Desempenho e Simplicidade: Assegurar alta performance, com tempos de resposta r�
 
 Essa API visa atender de maneira eficaz e acessível às necessidades operacionais do pet shop, sem a complexidade de sistemas maiores.
 
-
 ## Modelagem da Aplicação
 
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
 
 ### Modelagem de Aplicação - Cadastro de Usuários e Autenticação
 
-## Diagrama de Classes 
+## Diagrama de Classes
 
 ![arq](img/Diagram0.png)
 
@@ -37,8 +36,8 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 - **Node.js:** Utilizado para desenvolvimento do backend com JavaScript.
 - **Sequelize:** ORM utilizado para conectar e manipular o banco de dados.
 - **Express:** Framework utilizado para criar o servidor e as APIs.
-- **Json Web Token e Bcrypt:**  
-  - **Json Web Token:** Utilizado para autenticação do sistema.  
+- **Json Web Token e Bcrypt:**
+  - **Json Web Token:** Utilizado para autenticação do sistema.
   - **Bcrypt:** Utilizado para encriptar a senha do usuário.
 - **Swagger:** Utilizado para documentação da API.
 - **Jest e Supertest:** Utilizados para testes de integração.
@@ -90,13 +89,13 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     {
       "message": "Usuário criado com sucesso",
       "userId": {
-    	"id": 6,
-    	"nome": "dasdsa",
-    	"email": "dasdasd@email.com",
-    	"telefone": "999999999",
-    	"updated_at": "2025-04-06T19:33:14.658Z",
-    	"created_at": "2025-04-06T19:33:14.658Z"
-  }
+        "id": 6,
+        "nome": "dasdsa",
+        "email": "dasdasd@email.com",
+        "telefone": "999999999",
+        "updated_at": "2025-04-06T19:33:14.658Z",
+        "created_at": "2025-04-06T19:33:14.658Z"
+      }
     }
     ```
   - Erro (400, 409, 500)
@@ -174,6 +173,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 ---
 
 ### Recuperar lista de pessoas
+
 - Método: GET
 - URL: /pessoas
 - Resposta:
@@ -233,6 +233,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 - Parâmetros (URL):
   - `id`: ID do usuário a ser deletado
 - Resposta:
+
   - Sucesso (200 OK)
     ```json
     {
@@ -253,51 +254,76 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Erro ao buscar pessoas"
     }
     ```
-    ---
+    ***
+    ### Deletar um usuário no sistema
+
+- Método: PATCH
+- URL: `/users/:id/new-password`
+- Parâmetros (URL):
+  - `id`: ID do usuário a ter a senha alterada
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      {
+    "message": "Senha atualizada com sucesso"
+    }
+    }
+    ```
+  - Erro (401, 500)
+    ```json
+    {
+      "error": "Erro ao alterar a senha"
+    }
+    ```
+    ***
+
 ### Criar uma nova pessoa
 
 - Método: POST
 - URL: /pessoas
-- Parâmetros: 
+- Parâmetros:
   - Content-Type: application/json;
   - param1: Campos para crição da pessoa
 - Resposta:
   - Sucesso (200 OK)
+
     ```
     {
-	    "message": "Pessoa criada com sucesso",
+      "message": "Pessoa criada com sucesso",
       	"user": {
-		        "id": "2",
-		        "nome": "João Silva",
-		        "cpf_cnpj": "12345678900",
-		        "tipo": "F",
-		        "nascimento": "2000-01-01",
-		        "genero": "M",
-		        "telefone": "31912345678",
-		        "email": "joao@silva.com.br",
-		        "status": 1,
-		        "endereco": "Rua Julio Cesar",
-		        "endereco_num": 100,
-		        "endereco_bairro": "Imperadores",
-		        "cidade": "Belo Horizonte",
-		        "estado": "MG",
-		        "pais": "Brasil",
-		        "cep": "31000100",
-		        "user_id": 1,
-		        "created_at": "1743280011393",
-		        "updated_at": "1743280011393",
-		        "endereco_comp": null
-	          }
+            "id": "2",
+            "nome": "João Silva",
+            "cpf_cnpj": "12345678900",
+            "tipo": "F",
+            "nascimento": "2000-01-01",
+            "genero": "M",
+            "telefone": "31912345678",
+            "email": "joao@silva.com.br",
+            "status": 1,
+            "endereco": "Rua Julio Cesar",
+            "endereco_num": 100,
+            "endereco_bairro": "Imperadores",
+            "cidade": "Belo Horizonte",
+            "estado": "MG",
+            "pais": "Brasil",
+            "cep": "31000100",
+            "user_id": 1,
+            "created_at": "1743280011393",
+            "updated_at": "1743280011393",
+            "endereco_comp": null
+            }
     }
-    
+
     ```
+
   - Erro (4XX, 5XX)
     ```
     {
       "error": "Erro ao buscar pessoas"
     }
     ```
-    ---
+    ***
 
 ### Recuperar registro individual de uma pessoa
 
@@ -305,6 +331,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 - URL: /pessoas/2
 - Resposta:
   - Sucesso (200 OK)
+
     ```
     {
     	"id": "2",
@@ -328,47 +355,50 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     	"created_at": "1743280011393",
     	"updated_at": "1743280011393"
     }
-    
+
     ```
+
   - Erro (4XX, 5XX)
     ```
     {
       "error": "Erro ao buscar pessoas"
     }
     ```
-    ---
+    ***
 
 ### Atualizar registro individual de pessoa
 
 - Método: PUT
 - URL: /pessoas/2
-- Parâmetros: 
-  - Content-Type: application/json;
-  - body: 
+- Parâmetros:
 
-      ```
+  - Content-Type: application/json;
+  - body:
+
+    ```
     {
-          "nome": "João Silva",
-          "cpf_cnpj": "12345678900",
-          "tipo": "F",
-          "nascimento": "01/01/1990",
-          "genereo": "M",
-          "telefone": "31912345678",
-          "email": "joao@silva.com.br",
-          "status": 1,
-          "endereco": "Rua Julio Cesar",
-          "endereco_num": 100,
-          "endereco_comp": "Apto 306",
-          "endereco_bairro": "Imperadores",
-          "cidade": "Belo Horizonte",
-          "estado": "MG",
-          "pais": "Brasil",
-          "cep": 31000100
+        "nome": "João Silva",
+        "cpf_cnpj": "12345678900",
+        "tipo": "F",
+        "nascimento": "01/01/1990",
+        "genereo": "M",
+        "telefone": "31912345678",
+        "email": "joao@silva.com.br",
+        "status": 1,
+        "endereco": "Rua Julio Cesar",
+        "endereco_num": 100,
+        "endereco_comp": "Apto 306",
+        "endereco_bairro": "Imperadores",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "pais": "Brasil",
+        "cep": 31000100
     }
-    
+
     ```
 
 - Resposta:
+
   - Sucesso (204 OK)
 
   - Erro (4XX)
@@ -377,7 +407,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Não ha pessoa com id=X."
     }
     ```
-    ---
+    ***
 
 ### Excluir registro individual de pessoa
 
@@ -385,6 +415,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 - URL: /pessoas/2
 
 - Resposta:
+
   - Sucesso (204 OK)
 
   - Erro (4XX)
@@ -393,14 +424,15 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Não ha pessoa com id=X."
     }
     ```
-    ---
+    ***
 
 ### Criar um novo agendamento
+
 - Método: POST
 - URL: api/schedule/create
 - Parâmetros:
 
-  - body: 
+  - body:
     ```
     {
       "pessoa": "Carlos Alberto",
@@ -410,9 +442,10 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "servico": "Banho e tosa"
     }
     ```
-  
+
 - Resposta:
   - Sucesso (201 OK)
+
     ```
     {
       "message": "Agendado com sucesso",
@@ -425,8 +458,9 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
         "servico": "Banho e tosa"
         }
     }
-    
+
     ```
+
   - Erro (500)
     ```
     {
@@ -434,7 +468,8 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     }
     ```
 
-###  Atualizar um agendamento
+### Atualizar um agendamento
+
 - Método: PATCH
 - URL: api/schedule/update/2
 - Parâmetros:
@@ -470,8 +505,9 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Erro ao atualizar"
     }
     ```
-    
+
 ### Deletar um agendamento
+
 - Método: DELETE
 - URL: api/schedule/delete/2
 - Parâmetros:
@@ -489,13 +525,17 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Erro ao deletar"
     }
     ```
+
 ### Recuperar registro de agendamento
+
 - Método: GET
 - URL: api/schedule/get/2
 - Parâmetros:
   - param1: [descrição]
 - Resposta:
+
   - Sucesso (201 OK)
+
     ```
     {
       "desiredSchedule": {
@@ -509,19 +549,21 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     }
 
     ```
+
   - Erro (500)
     ```
     {
     "error": "Erro ao buscar"
     }
     ```
-    
+
 ### Cadastrar serviço
+
 - Método: POST
 - URL: api/services
 - Parâmetros:
 
-  - body: 
+  - body:
     ```
     {
       "nome_servico": "banho e tosa",
@@ -531,9 +573,10 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "categoria": "Higiene"
     }
     ```
-  
+
 - Resposta:
   - Sucesso (201 OK)
+
     ```
     {
       "message": "Cadastrado com sucesso",
@@ -545,11 +588,12 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
         "categoria": "higiene",
         "created at": "2025-04-06T16:10:00.000Z"
         "updated_at": "2025-04-06T16:10:00.000Z"
-    
+
         }
     }
-    
+
     ```
+
   - Erro (500)
     ```
     {
@@ -586,6 +630,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     ```
 
 ---
+
 ### Deletar um serviço no sistema
 
 - Método: DELETE
@@ -616,12 +661,12 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 
 ---
 
-
 ### Criar um novo profissional no sistema
 
 - Método: POST
 - URL: `/professionals
 - Parâmetros (body):
+
   - `nome`: Nome do profissional
   - `especialidade`: tosador
   - `disponibilidade`: "Segunda a Sexta - 9h às 17h"
@@ -631,18 +676,20 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     ```json
     {
       "message": "Profissional criado com sucesso",
-     
+
+    ```
   }
-    }
-    ```
+  }
+  ````
   - Erro (400)
-    ```json
-    {
-      "error": "campos obrigatórios não fornecidos ou dados inválidos"
-    }
-    ```
+  ```json
+  {
+    "error": "campos obrigatórios não fornecidos ou dados inválidos"
+  }
+  ````
 
 ---
+
 ## Considerações de Segurança
 
 [Discuta as considerações de segurança relevantes para a aplicação distribuída, como autenticação, autorização, proteção contra ataques, etc.]
@@ -680,6 +727,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
   }
 ]
 ```
+
 - **Evidência**:
 - ![arq](img/teste1.jpg)
 
@@ -714,6 +762,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
   }
 }
 ```
+
 - **Evidência**:
 - ![arq](img/teste2.jpg)
 
@@ -757,6 +806,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
   }
 }
 ```
+
 - **Evidência**:
 - ![arq](img/teste3.jpg)
 
@@ -780,6 +830,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
   }
 }
 ```
+
 - **Evidência**:
 - ![arq](img/teste4.jpg)
 
@@ -812,6 +863,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
   }
 }
 ```
+
 - **Evidência**:
 - ![arq](img/teste5.jpg)
 
