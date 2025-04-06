@@ -906,26 +906,33 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
 
 ---
 
-## GET `/api/profissionais`
+## GET `/api/services`
 
-- **Arquivo de teste**: `tests/profissional.test.js`
-- **Descrição**: Retorna todos os profissionais cadastrados.
+- **Arquivo de teste**: `tests/services.test.js`
+- **Descrição**: Retorna todos os serviços cadastrados.
+- **Referência**: RF-004
 - **Entradas**: Nenhuma.
 - **Resposta esperada**:
 
 ```json
 [
   {
-    "id": "64441f99-a1eb-454c-987b-ad00309a29a8",
-    "nome": "Carlos Oliveira",
-    "cargo": "Tosador",
-    "data_criacao": "2025-04-06T16:01:29.883Z"
+    "id": 1,
+    "titulo": "string",
+    "descricao": "string",
+    "preco": 0,
+    "data_criacao": "2025-04-06T23:50:29.602Z",
+    "profissional_id": 1,
+    "Profissional": {
+      "id": 1,
+      "nome": "Carlos Oliveira"
+    }
   }
 ]
 ```
 
 - **Evidência**:
-- ![arq](img/teste1.jpg)
+- ![arq](img/teste6.jpg)
 
 ---
 
@@ -933,6 +940,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
 
 - **Arquivo de teste**: `tests/pet.test.js`
 - **Descrição**: Atualiza dados de um pet existente.
+- **Referência**: RF-001
 - **Entradas (body)**:
 
 ```json
@@ -968,6 +976,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
 
 - **Arquivo de teste**: `tests/pessoas.test.js`
 - **Descrição**: Cria uma nova pessoa no sistema.
+- **Referência**: RF-002
 - **Entradas (body)**:
 
 ```json
@@ -1012,6 +1021,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
 
 - **Arquivo de teste**: `tests/users.test.js`
 - **Descrição**: Deleta um usuário pelo ID.
+- **Referência**: RF-005
 - **Entrada**: `:id` na URL (ex: `/users/3/delete`)
 - **Resposta esperada**:
 
@@ -1036,6 +1046,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
 
 - **Arquivo de teste**: `tests/scheduling.test.js`
 - **Descrição**: Cria um novo agendamento de serviço.
+- **Referência**: RF-006
 - **Entradas (body)**:
 
 ```json
