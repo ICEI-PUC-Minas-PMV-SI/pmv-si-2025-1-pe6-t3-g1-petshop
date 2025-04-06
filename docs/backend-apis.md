@@ -4,35 +4,19 @@ O projeto visa desenvolver uma aplicação de gestão de pet shop que permita ge
 
 ## Objetivos da API
 
-O objetivo principal da API interna para a gestão de um pet shop é proporcionar uma plataforma simples e eficiente, focada em otimizar as operações de serviços de banho e tosa, bem como o controle de vendas de produtos. A seguir estão os principais objetivos que a API deve alcançar:
+A API para gestão do pet shop tem como objetivo simplificar e otimizar as operações de serviços de banho e tosa e controle de vendas de produtos. Seus principais objetivos são:
 
-Gestão de Serviços de Banho e Tosa
+Gestão de Serviços: Registrar e atualizar serviços de banho e tosa, com acesso ao histórico de atendimentos para monitoramento e análise.
 
-Cadastro e Atualização de Serviços: A API deve permitir o registro e a atualização de serviços realizados no pet shop, como banhos e tosas, garantindo que todas as informações sejam mantidas de forma organizada.
+Controle de Vendas e Estoque: Gerenciar as vendas de produtos, como ração e brinquedos, e manter o controle de estoque, alertando sobre reposições necessárias.
 
-Histórico de Atendimento: A API deve permitir o acesso ao histórico de serviços prestados aos pets, facilitando o acompanhamento de atendimentos passados e a identificação de padrões ou necessidades recorrentes.
+Gestão de Pagamentos: Registrar transações de serviços e vendas de produtos, para controle financeiro.
 
-Controle de Vendas de Produtos
+Controle de Acesso: Garantir que apenas usuários autorizados possam acessar e gerenciar as informações sensíveis.
 
-Gestão de Produtos: A API deve ser capaz de registrar e controlar as vendas de produtos no pet shop, como ração, brinquedos, medicamentos e outros itens relacionados ao cuidado dos pets.
+Desempenho e Simplicidade: Assegurar alta performance, com tempos de resposta rápidos e uma arquitetura simples e fácil de usar, proporcionando uma integração eficiente para os colaboradores do pet shop.
 
-Estoque e Reposição: A API deve manter o controle de estoque de produtos, alertando quando os níveis de itens estiverem baixos, facilitando a reposição de forma eficiente.
-
-Gestão de Pagamentos
-
-Histórico de Transações: Registrar todas as transações realizadas para cada serviço prestado e produto vendido, para fins de controle financeiro e geração de relatórios simples.
-
-Controle de Acesso
-
-Autenticação Básica: A API deve garantir que apenas usuários autorizados possam acessar funções como o registro de serviços e vendas, permitindo o controle de ações sensíveis.
-
-Desempenho e Simplicidade
-
-Alta Performance e Simplicidade: A API deve ser otimizada para garantir tempos de resposta rápidos, atendendo de forma eficiente ao volume de requisições em um ambiente simples e direto.
-
-Facilidade de Uso: A arquitetura da API deve ser simples e fácil de usar, com endpoints intuitivos e documentação clara, para garantir fácil integração e uso pelos colaboradores do pet shop.
-
-Esta API visa atender às necessidades operacionais do pet shop de forma eficaz e de baixo custo, sem a complexidade de sistemas mais robustos, garantindo que as funções essenciais de serviço e vendas sejam realizadas de maneira fluida e sem complicações.
+Essa API visa atender de maneira eficaz e acessível às necessidades operacionais do pet shop, sem a complexidade de sistemas maiores.
 
 
 ## Modelagem da Aplicação
