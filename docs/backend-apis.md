@@ -549,7 +549,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     }
     ```
 
-### Buscar todos usuários do sistema
+### Buscar todos os serviços cadastrados no sistema
 
 - Método: GET
 - URL: /api/services
@@ -578,9 +578,35 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     ```
 
 ---
+### Deletar um serviço no sistema
 
+- Método: DELETE
+- URL: /services/:id/delete
+- Parâmetros (URL):
+  - `id`: ID do servico a ser deletado
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Serviço deletado com sucesso",
+      "user": {
+        "id": 2,
+        "nome-servico": "tosa",
+        "descricao": "tosa completa",
+        "duracao": "60",
+        "created_at": "2025-04-06T18:36:14.678Z",
+        "updated_at": "2025-04-06T18:36:14.678Z"
+      }
+    }
+    ```
+  - Erro (404, 500)
+    ```json
+    {
+      "error": "Serviço não encontrado"
+    }
+    ```
 
-
+---
 
 ## Considerações de Segurança
 
