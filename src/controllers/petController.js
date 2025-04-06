@@ -1,5 +1,5 @@
 const Pet = require("../models/petModel");
-const PetType = require("../models/petTypeModel");
+//const PetType = require("../models/petTypeModel");
 
 const getPets = async (req, res) => {
   try {

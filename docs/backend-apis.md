@@ -127,11 +127,9 @@ Cadastro de Serviços
 |email	        |VARCHAR(100)	   |  NOT NULL             |Email do funcionário|
 
 
-Diagrama de Classes 
+## Diagrama de Classes 
 
-![arq](img/cadastro_de_usuarios.drawio.png)
-
-![arq](img/diagrama_agendamento.drawio.png)
+![arq](img/Diagram0.png)
 
 ## Tecnologias Utilizadas
 
