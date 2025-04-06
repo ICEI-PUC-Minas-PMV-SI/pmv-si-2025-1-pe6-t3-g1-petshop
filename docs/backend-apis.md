@@ -9,7 +9,7 @@ O objetivo principal da API para gestão de pet shop é criar uma plataforma rob
 - Gerenciamento de Clientes e Pets
 
 Cadastro e Atualização: Permitir que o sistema registre e atualize informações sobre clientes e seus pets, facilitando o atendimento e a comunicação.
-Histórico de Atendimento: A API deve fornecer acesso ao histórico de serviços prestados, como banhos e tosas. 
+Histórico de Atendimento: A API deve fornecer acesso ao histórico de serviços prestados, como banhos e tosas.
 
 Controle de Estoque
 
@@ -18,9 +18,9 @@ Controle de Estoque
 
 Gestão de Pagamentos
 
- - Histórico de Transações: Registrar todas as transações realizadas para fins de controle financeiro e geração de relatórios.
+- Histórico de Transações: Registrar todas as transações realizadas para fins de controle financeiro e geração de relatórios.
 
- - Autenticação Segura: Garantir que apenas usuários autorizados (administradores e funcionários ) possam acessar as funcionalidades específicas da API.
+- Autenticação Segura: Garantir que apenas usuários autorizados (administradores e funcionários ) possam acessar as funcionalidades específicas da API.
 
 Controle de Acesso: Implementar níveis de permissão para garantir que diferentes tipos de usuários tenham acesso adequado às informações e funções do sistema.
 
@@ -34,98 +34,10 @@ Usabilidade e Acessibilidade
 - Facilidade de Integração: A API deve ser intuitiva e fácil de integrar, oferecendo uma documentação clara.
 
 ## Modelagem da Aplicação
+
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
 
 ### Modelagem de Aplicação - Cadastro de Usuários e Autenticação
-
-Estrutura de Dados - Tabelas
-
-Tabela: users (Armazena os dados principais dos usuários)
-
-| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
-|------------|------------------|-----------------------|--------------------------------|
-| id         | UUID             | PRIMARY KEY           | Identificador único do usuário  |
-| nome       | VARCHAR(100)     | NOT NULL              | Nome completo do usuário        |
-| email      | VARCHAR(255)     | UNIQUE, NOT NULL      | E-mail para login               |
-| senha_hash | TEXT             | NOT NULL              | Hash da senha                   |
-| telefone   | VARCHAR(20)      | NULL                  | Telefone do usuário             |
-| data_criacao | TIMESTAMP      | DEFAULT CURRENT_TIMESTAMP | Data de criação da conta |
-
-Tabela: user_profiles (Armazena informações adicionais)
-
-| Campo       | Tipo de Dado       | Restrição               | Descrição                          |
-|------------|------------------|-----------------------|--------------------------------|
-| id         | UUID             | PRIMARY KEY           | Identificador único do perfil  |
-| user_id    | UUID             | FOREIGN KEY (users.id) | Relacionado ao usuário           |
-| foto_url   | VARCHAR(255)     | NULL                  | URL da foto de perfil           |
-| endereco   | TEXT             | NULL                  | Endereço do usuário             |
-| nascimento | DATE             | NULL                  | Data de nascimento              |
-
-Tabela: user_sessions (Gerencia sessões ativas)
-
-| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
-|------------|------------------|-----------------------|--------------------------------|
-| id         | UUID             | PRIMARY KEY           | Identificador único da sessão  |
-| user_id    | UUID             | FOREIGN KEY (users.id) | Relacionado ao usuário          |
-| token      | TEXT             | UNIQUE, NOT NULL      | Token de autenticação           |
-| created_at | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP | Data de criação da sessão  |
-| expires_at | TIMESTAMP        | NOT NULL              | Data de expiração da sessão |
-
-Cadastro de Serviços
-
-1.Tabela: Serviços  (armazena os serviços oferecidos pelo petshop)
-
-| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
-|------------|------------------|-----------------------|-------------------------------- |
-| id_servico | INT              | PRIMARY KEY           | Identificador único do serviço  |
-|nome_servico| VARCHAR (100)    | NOT NULL, UNIQUE)     | Banho simples, tosa completa    |
-| descricao  | TEXT             | NOT NULL              | Descrição detalhada do serviço  |
-| preco      | DECIMAL(10,2)    | NOT NULL, CHECK (preco > 0) | Preço do Serviço          |
-|disponibilidade| VARCHAR (50)  | NOT NULL              | Dias e Horários disponíveis para o serviço|
-
-2. Tabela: Clientes (armazena as informações dos clientes)
-   
-| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
-|------------|------------------|-----------------------|-------------------------------- |
-| id_cliente | INT              | PRIMARY KEY           | Identificador único do cliente  |
-|nome_cliente| VARCHAR (15)     | NOT NULL, UNIQUE)     | Nome completo do cliente        |
-| telefone   | VARCHAR (15)     | NOT NULL              | Número de telefone de contato do cliente|
-| email      | VARCHAR (100)    | NOT NULL              | Email do cliente                |
-|endereco    | VARCHAR (255)    | NOT NULL              | Endereço completo do cliente    |
-
-3. Tabela: Pets (armazena informações sobre os pets dos clientes)
-
-| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
-|------------|------------------|-----------------------|-------------------------------- |
-| id_pet     | INT              | PRIMARY KEY           | Identificador único do pet      |
-|id_cliente  | INT              | FK                    | Referência ao cliente, relacionamento com a tabela  clientes|
-| nome       | VARCHAR (15)     | NOT NULL              | Nome do pet                     |
-| tipo       | VARCHAR (50)     | NOT NULL               | Tipo do pet (Cão, Gato, etc...) |
-|raca        | VARCHAR (50)     | NOT NULL               | Raça do pet                     |
-|data_nascimento| DATE          | NOT NULL               | Data de nascimento do pet       |
-|observacoes| TEXT              | NOT NULL               |Observações sobre o pet(alergias, comportamento, etc)
-
-4. Tabela: Agendamentos ( armazena os serviços solicitados pelos clientes para seus pets)
-
-| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
-|------------|------------------|-----------------------|-------------------------------- |
-| id_agendamento| INT           | PRIMARY KEY           | Identificador único do agendanento|
-|id_servico  | INT              | FK                    |Referência ao serviço solicitado (relacionamento com a tabela Serviços) |
-|id_pet      | INT              | FK                    | Referência ao pet (relacionamento com a tabela Pets)|
-|id_cliente  | INT              | FK                    | Referência ao cliente (relacionamento com a tabela Clientes).                |
-|data_agendamento| DATETIME     | NOT NULL              | Data e horário do agendamento|
-|status      | VARCHAR(50)      | NOT NULL              | Status do agendamento (ex: Pendente, Confirmado, Concluído, Cancelado)|    
-
-5. Tabela: Funcionários  ( armazena as informações dos funcionários que atendem os clientes e realizam os serviços)
-   
-| Campo       | Tipo de Dado       | Restrição               | Descrição                        |
-|------------|------------------|-----------------------|-------------------------------- |
-|id_funcionario|	INT            | (PK)	                 |Identificador único do funcionário|
-|nome	         |VARCHAR(100)    | NOT NULL              |	Nome completo do funcionário|
-|cargo	        |VARCHAR(50)	    |  NOT NULL, CHECK      |Cargo do funcionário |
-|telefone	     |VARCHAR(15)	    |  NOT NULL             |Número de telefone do funcionário|
-|email	        |VARCHAR(100)	   |  NOT NULL             |Email do funcionário|
-
 
 ## Diagrama de Classes 
 
@@ -139,27 +51,215 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 
 ## API Endpoints
 
-[Liste os principais endpoints da API, incluindo as operações disponíveis, os parâmetros esperados e as respostas retornadas.]
+### Buscar todos usuários do sistema
+
+- Método: GET
+- URL: /api/users
+- Parâmetros:  
+  _Nenhum_
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    [
+      {
+        "id": 1,
+        "nome": "Davi",
+        "email": "davi@email.com",
+        "telefone": "999999999",
+        "created_at": "2025-04-06T16:01:12.261Z",
+        "updated_at": "2025-04-06T16:01:12.261Z"
+      }
+    ]
+    ```
+  - Erro (500 Erro interno do servidor)
+    ```json
+    {
+      "error": "Erro interno ao buscar usuários"
+    }
+    ```
+
+---
+
+### Criar um novo usuário no sistema
+
+- Método: POST
+- URL: `/users`
+- Parâmetros (body):
+  - `nome`: Nome do usuário
+  - `email`: E-mail válido
+  - `senha`: Mínimo 8 caracteres, 1 maiúscula, 1 minúscula e 1 caractere especial
+  - `telefone`: Telefone do usuário
+  - `role_id`: ID da role
+- Resposta:
+  - Sucesso (201 Created)
+    ```json
+    {
+      "message": "Usuário criado com sucesso",
+      "userId": {
+    	"id": 6,
+    	"nome": "dasdsa",
+    	"email": "dasdasd@email.com",
+    	"telefone": "999999999",
+    	"updated_at": "2025-04-06T19:33:14.658Z",
+    	"created_at": "2025-04-06T19:33:14.658Z"
+  }
+    }
+    ```
+  - Erro (400, 409, 500)
+    ```json
+    {
+      "error": "E-mail inválido"
+    }
+    ```
+
+---
+
+### Deletar um usuário no sistema
+
+- Método: DELETE
+- URL: /users/:id/delete
+- Parâmetros (URL):
+  - `id`: ID do usuário a ser deletado
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Usuário deletado com sucesso",
+      "user": {
+        "id": 2,
+        "nome": "dasdsa",
+        "email": "dasdasd@email.com",
+        "telefone": "999999999",
+        "created_at": "2025-04-06T18:36:14.678Z",
+        "updated_at": "2025-04-06T18:36:14.678Z"
+      }
+    }
+    ```
+  - Erro (404, 500)
+    ```json
+    {
+      "error": "Usuário não encontrado"
+    }
+    ```
+
+---
+
+### Atualizar um usuário no sistema
+
+- Método: PATCH
+- URL: /users/:id/update
+- Parâmetros (URL):
+  - `id`: ID do usuário a ser editado
+- Parâmetros (body):
+  - `nome`: Nome atualizado
+  - `email`: E-mail atualizado
+  - `telefone`: Telefone atualizado
+  - `senha`: Nova senha (opcional)
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Usuário atualizado com sucesso",
+      "user": {
+        "id": 5,
+        "nome": "João Silva",
+        "email": "joao@email.com",
+        "telefone": "999999999",
+        "created_at": "2025-04-06T18:57:52.639Z",
+        "updated_at": "2025-04-06T18:58:00.479Z"
+      }
+    }
+    ```
+  - Erro (403, 404, 500)
+    ```json
+    {
+      "error": "Usuário não encontrado"
+    }
+    ```
+
+---
 
 ### Recuperar lista de pessoas
 - Método: GET
 - URL: /pessoas
 - Resposta:
   - Sucesso (200 OK)
+    ```json
+    [
+      {
+        "id": 1,
+        "nome": "Davi",
+        "email": "davi@email.com",
+        "telefone": "999999999",
+        "created_at": "2025-04-06T16:01:12.261Z",
+        "updated_at": "2025-04-06T16:01:12.261Z"
+      }
+    ]
     ```
+  - Erro (500 Erro interno do servidor)
+    ```json
     {
-      "message": "Success",
-      "data": {
-        ...
+      "error": "Erro interno ao buscar usuários"
+    }
+    ```
+
+---
+
+### Criar um novo usuário no sistema
+
+- Método: POST
+- URL: `/users`
+- Parâmetros (body):
+  - `nome`: Nome do usuário
+  - `email`: E-mail válido
+  - `senha`: Mínimo 8 caracteres, 1 maiúscula, 1 minúscula e 1 caractere especial
+  - `telefone`: Telefone do usuário
+  - `role_id`: ID da role
+- Resposta:
+  - Sucesso (201 Created)
+    ```json
+    {
+      "message": "Usuário criado com sucesso",
+      "userId": 1
+    }
+    ```
+  - Erro (400, 409, 500)
+    ```json
+    {
+      "error": "E-mail inválido"
+    }
+    ```
+
+---
+
+### Deletar um usuário no sistema
+
+- Método: DELETE
+- URL: `/users/:id/delete`
+- Parâmetros (URL):
+  - `id`: ID do usuário a ser deletado
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Usuário deletado com sucesso",
+      "user": {
+        "id": 2,
+        "nome": "dasdsa",
+        "email": "dasdasd@email.com",
+        "telefone": "999999999",
+        "created_at": "2025-04-06T18:36:14.678Z",
+        "updated_at": "2025-04-06T18:36:14.678Z"
       }
     }
     ```
-  - Erro (4XX, 5XX)
-    ```
+  - Erro (404, 500)
+    ```json
     {
       "error": "Erro ao buscar pessoas"
     }
     ```
+    ---
 ### Criar uma nova pessoa
 
 - Método: POST
@@ -203,6 +303,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Erro ao buscar pessoas"
     }
     ```
+    ---
 
 ### Recuperar registro individual de uma pessoa
 
@@ -241,6 +342,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Erro ao buscar pessoas"
     }
     ```
+    ---
 
 ### Atualizar registro individual de pessoa
 
@@ -281,6 +383,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Não ha pessoa com id=X."
     }
     ```
+    ---
 
 ### Excluir registro individual de pessoa
 
@@ -296,6 +399,129 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Não ha pessoa com id=X."
     }
     ```
+    ---
+
+### Criar um novo agendamento
+- Método: POST
+- URL: api/schedule/create
+- Parâmetros:
+
+  - body: 
+    ```
+    {
+      "pessoa": "Carlos Alberto",
+      "profissional": "Guilherme Augusto",
+      "pet": "Cachorro",
+      "data_agendamento": "10/10/2025",
+      "servico": "Banho e tosa"
+    }
+    ```
+  
+- Resposta:
+  - Sucesso (201 OK)
+    ```
+    {
+      "message": "Agendado com sucesso",
+      "schedule": {
+        "id": 5,
+        "pessoa": "Renato Vasconcelos",
+        "profissional": "Guilherme Augusto",
+        "pet": "Cachorro",
+        "data_agendamento": "2025-10-10T03:00:00.000Z",
+        "servico": "Banho e tosa"
+        }
+    }
+    
+    ```
+  - Erro (500)
+    ```
+    {
+      "error": "Erro ao agendar"
+    }
+    ```
+
+###  Atualizar um agendamento
+- Método: PATCH
+- URL: api/schedule/update/2
+- Parâmetros:
+  - id: [número correspondente ao Id do agendamento]
+  - body:
+    ```
+    {
+    "pessoa": "Cristiano Novaz",
+    "profissional": "Guilherme Augusto",
+    "pet": "Cachorro",
+    "data_agendamento": "11/10/2025",
+    "servico": "Banho e tosa"
+    }
+    ```
+- Resposta:
+  - Sucesso (201 OK)
+    ```
+    {
+      "message": "Atualizado com sucesso",
+      "schedule": {
+        "id": 3,
+        "pessoa": "Cristiano Novaz",
+        "profissional": "Guilherme Augusto",
+        "pet": "Cachorro",
+        "servico": "Banho e tosa",
+        "data_agendamento": "2025-11-10T03:00:00.000Z"
+      }
+    }
+    ```
+  - Erro (500)
+    ```
+    {
+      "error": "Erro ao atualizar"
+    }
+    ```
+    
+### Deletar um agendamento
+- Método: DELETE
+- URL: api/schedule/delete/2
+- Parâmetros:
+  - param1: [número correspondente ao Id do agendamento]
+- Resposta:
+  - Sucesso (200 OK)
+    ```
+    {
+      "message": "Deletado com sucesso"
+    }
+    ```
+  - Erro (500)
+    ```
+    {
+      "error": "Erro ao deletar"
+    }
+    ```
+### Recuperar registro de agendamento
+- Método: GET
+- URL: api/schedule/get/2
+- Parâmetros:
+  - param1: [descrição]
+- Resposta:
+  - Sucesso (201 OK)
+    ```
+    {
+      "desiredSchedule": {
+      "id": 5,
+      "pessoa": "Renato Vasconcelos",
+      "profissional": "Guilherme Augusto",
+      "pet": "Cachorro",
+      "servico": "Banho e tosa",
+      "data_agendamento": "2025-10-10T03:00:00.000Z"
+      }
+    }
+
+    ```
+  - Erro (500)
+    ```
+    {
+    "error": "Erro ao buscar"
+    }
+    ```
+    
 
 ### Criar um novo agendamento
 - Método: POST

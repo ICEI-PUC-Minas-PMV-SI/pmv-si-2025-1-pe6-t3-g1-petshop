@@ -76,4 +76,3 @@ const getSchedule = async (req, res) => {
 
 };
 module.exports = { createSchedule, editSchedule, deleteSchedule, getSchedule }
-
