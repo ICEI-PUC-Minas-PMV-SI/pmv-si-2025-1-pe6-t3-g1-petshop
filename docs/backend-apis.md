@@ -33,7 +33,15 @@ Essa API visa atender de maneira eficaz e acessível às necessidades operaciona
 
 Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs Web. A tecnologia certa para o seu projeto dependerá dos seus objetivos, dos seus clientes e dos recursos que a API deve fornecer.
 
-[Lista das tecnologias principais que serão utilizadas no projeto.]
+- **PostgreSQL:** Utilizado para criação e utilização do banco de dados.
+- **Node.js:** Utilizado para desenvolvimento do backend com JavaScript.
+- **Sequelize:** ORM utilizado para conectar e manipular o banco de dados.
+- **Express:** Framework utilizado para criar o servidor e as APIs.
+- **Json Web Token e Bcrypt:**  
+  - **Json Web Token:** Utilizado para autenticação do sistema.  
+  - **Bcrypt:** Utilizado para encriptar a senha do usuário.
+- **Swagger:** Utilizado para documentação da API.
+- **Jest e Supertest:** Utilizados para testes de integração.
 
 ## API Endpoints
 
