@@ -34,10 +34,10 @@ const editSchedule = async (req, res) => {
       data_agendamento: updateFields.data_agendamento,
     });
 
-    res.status(201).json({ message: "Agendado com sucesso"});
+    res.status(201).json({ message: "Atualizado com sucesso", schedule: desiredSchedule});
   } catch (error) {
-    console.error("Erro ao agendar:", error);
-    res.status(500).json({ error: "Erro ao agendar" });
+    console.error("Erro ao atualizar:", error);
+    res.status(500).json({ error: "Erro ao atualizar" });
   }
 };
 
@@ -76,4 +76,3 @@ const getSchedule = async (req, res) => {
 
 };
 module.exports = { createSchedule, editSchedule, deleteSchedule, getSchedule }
-
