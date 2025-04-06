@@ -651,13 +651,163 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 
 ## Testes
 
-[Descreva a estratégia de teste, incluindo os tipos de teste a serem realizados (unitários, integração, carga, etc.) e as ferramentas a serem utilizadas.]
+Abaixo estão listados os testes de integração realizados com **Jest** e **Supertest** para verificar o funcionamento das rotas principais da aplicação. Todos os testes foram executados com sucesso, validando status HTTP, mensagens de resposta e estruturas dos objetos retornados.
 
-1. Crie casos de teste para cobrir todos os requisitos funcionais e não funcionais da aplicação.
-2. Implemente testes unitários para testar unidades individuais de código, como funções e classes.
-3. Realize testes de integração para verificar a interação correta entre os componentes da aplicação.
-4. Execute testes de carga para avaliar o desempenho da aplicação sob carga significativa.
-5. Utilize ferramentas de teste adequadas, como frameworks de teste e ferramentas de automação de teste, para agilizar o processo de teste.
+---
+
+## GET `/api/profissionais`
+
+- **Arquivo de teste**: `tests/profissional.test.js`
+- **Descrição**: Retorna todos os profissionais cadastrados.
+- **Entradas**: Nenhuma.
+- **Resposta esperada**:
+
+```json
+[
+  {
+    "id": "64441f99-a1eb-454c-987b-ad00309a29a8",
+    "nome": "Carlos Oliveira",
+    "cargo": "Tosador",
+    "data_criacao": "2025-04-06T16:01:29.883Z"
+  }
+]
+```
+- **Evidência**:
+- [arq](img/)
+
+---
+
+## PATCH `/api/pets/:id/update`
+
+- **Arquivo de teste**: `tests/pet.test.js`
+- **Descrição**: Atualiza dados de um pet existente.
+- **Entradas (body)**:
+
+```json
+{
+  "nome": "davidavi",
+  "observacoes": "Nova davi"
+}
+```
+
+- **Resposta esperada**:
+
+```json
+{
+  "message": "Pet atualizado com sucesso",
+  "pet": {
+    "id": 1,
+    "pessoa_id": 1,
+    "nome": "davidavi",
+    "tipo": "Cachorro",
+    "raca": "Labrador",
+    "data_nascimento": "2020-01-15",
+    "observacoes": "Nova davi"
+  }
+}
+```
+- **Evidência**:
+- [arq](img/)
+
+---
+
+## POST `/api/pessoas`
+
+- **Arquivo de teste**: `tests/pessoas.test.js`
+- **Descrição**: Cria uma nova pessoa no sistema.
+- **Entradas (body)**:
+
+```json
+{
+  "nome": "João Silva",
+  "cpf_cnpj": "12345678900",
+  "tipo": "F",
+  "nascimento": "2000-01-01T02:00:00.000Z",
+  "genero": "M",
+  "telefone": "31912345678",
+  "email": "joao@silva.com.br",
+  "endereco": "Rua Julio Cesar",
+  "endereco_num": 100,
+  "endereco_bairro": "Imperadores",
+  "cidade": "Belo Horizonte",
+  "estado": "MG",
+  "pais": "Brasil",
+  "cep": 3100010,
+  "user_id": 1
+}
+```
+
+- **Resposta esperada**:
+
+```json
+{
+  "message": "Pessoa criada com sucesso",
+  "user": {
+    "id": 36,
+    "nome": "João Silva",
+    ...
+  }
+}
+```
+- **Evidência**:
+- [arq](img/)
+
+---
+
+## DELETE `/api/users/:id/delete`
+
+- **Arquivo de teste**: `tests/users.test.js`
+- **Descrição**: Deleta um usuário pelo ID.
+- **Entrada**: `:id` na URL (ex: `/users/3/delete`)
+- **Resposta esperada**:
+
+```json
+{
+  "message": "Usuário deletado com sucesso",
+  "user": {
+    "id": 3,
+    "nome": "davi",
+    "email": "davi",
+    ...
+  }
+}
+```
+- **Evidência**:
+- [arq](img/)
+
+---
+
+## POST `/api/schedule/create`
+
+- **Arquivo de teste**: `tests/scheduling.test.js`
+- **Descrição**: Cria um novo agendamento de serviço.
+- **Entradas (body)**:
+
+```json
+{
+  "pessoa": "Carlos Alberto",
+  "profissional": "Guilherme Augusto",
+  "pet": "Dinossauro",
+  "data_agendamento": "2025-10-10T03:00:00.000Z",
+  "servico": "Banho e tosa"
+}
+```
+
+- **Resposta esperada**:
+
+```json
+{
+  "message": "Agendado com sucesso",
+  "schedule": {
+    "id": 25,
+    ...
+  }
+}
+```
+- **Evidência**:
+- [arq](img/)
+
+---
 
 # Referências
 
