@@ -509,25 +509,35 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     ```
     
 
+### Cadastrar todos os serviços
 
-Cadastrar Serviço Petshop
-Método: POST
-URL: /api/services
+- Método: POST
+- URL: /api/services
+- Parâmetros:  
+  _Nenhum_
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    [
+      {
+        "id": 1,
+        "nome_servico": "Banho e tosa",
+        "descricao": "Banho e tosa para cães de todos os portes",
+        "preco": "150.00",
+        "duracao": "60",
+        "categoria": "Higiene"
+      }
+    ]
+    ```
+  - Erro (500 Erro interno do servidor)
+    ```json
+    {
+      "error": "Erro interno ao cadastrar serviços"
+    }
+    ```
 
-Parâmetros (no corpo da requisição):
+---
 
-{
-  "nome_servico": "Banho e Tosa",
-  "descricao": "Banho e tosa para cães de todos os portes.",
-  "preco": 150.00,
-  "duracao": 60,
-  "categoria": "Higiene"
-}
-
-
-Resposta:
-
-Sucesso (201 Created)
 
 ## Considerações de Segurança
 
