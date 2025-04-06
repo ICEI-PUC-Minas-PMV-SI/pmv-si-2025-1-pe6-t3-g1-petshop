@@ -5,7 +5,9 @@ const bcrypt = require("bcryptjs");
 
 const getUsers = async (req, res) => {
   try {
-    const users = await User.findAll({ attributes: { exclude: ['senha_hash'] } });
+    const users = await User.findAll({
+      attributes: { exclude: ["senha_hash"] },
+    });
     res.status(200).json(users);
   } catch (error) {
     console.error("Erro em getUsers:", error);
@@ -18,7 +20,9 @@ const createUser = async (req, res) => {
     const { nome, email, senha, telefone, role_id } = req.body;
 
     if (!nome || !email || !senha || !telefone || !role_id) {
-      return res.status(400).json({ error: "Todos os campos são obrigatórios" });
+      return res
+        .status(400)
+        .json({ error: "Todos os campos são obrigatórios" });
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -30,7 +34,8 @@ const createUser = async (req, res) => {
 
     if (!senhaRegex.test(senha)) {
       return res.status(400).json({
-        error: "A senha deve ter no mínimo 8 caracteres, com letras maiúsculas, minúsculas e um caractere especial.",
+        error:
+          "A senha deve ter no mínimo 8 caracteres, com letras maiúsculas, minúsculas e um caractere especial.",
       });
     }
 
@@ -58,7 +63,12 @@ const createUser = async (req, res) => {
       role_id,
     });
 
-    res.status(201).json({ message: "Usuário criado com sucesso", userId: newUser.id });
+    const userData = newUser.get({ plain: true });
+    delete userData.senha_hash;
+
+    res
+      .status(201)
+      .json({ message: "Usuário criado com sucesso", userId: userData });
   } catch (error) {
     console.error("Erro em createUser:", error);
     res.status(500).json({ error: "Erro ao criar usuário" });
@@ -76,7 +86,9 @@ const deleteUser = async (req, res) => {
     delete userData.senha_hash;
 
     await user.destroy();
-    res.status(200).json({ message: "Usuário deletado com sucesso", user: userData });
+    res
+      .status(200)
+      .json({ message: "Usuário deletado com sucesso", user: userData });
   } catch (error) {
     console.error("Erro em deleteUser:", error);
     res.status(500).json({ error: "Erro ao deletar usuário" });
@@ -98,7 +110,9 @@ const editUser = async (req, res) => {
     });
 
     if (!userRole) {
-      return res.status(403).json({ error: "Usuário não possui permissão para edição" });
+      return res
+        .status(403)
+        .json({ error: "Usuário não possui permissão para edição" });
     }
 
     const updates = { nome, email, telefone };
@@ -109,7 +123,9 @@ const editUser = async (req, res) => {
 
     await user.update(updates);
 
-    res.status(200).json({ message: "Usuário atualizado com sucesso", user: userData });
+    res
+      .status(200)
+      .json({ message: "Usuário atualizado com sucesso", user: userData });
   } catch (error) {
     console.error("Erro em editUser:", error);
     res.status(500).json({ error: "Erro ao atualizar usuário" });
@@ -126,7 +142,9 @@ const getRoles = async (req, res) => {
     });
 
     if (!userRoles || userRoles.length === 0) {
-      return res.status(404).json({ error: "Usuário ou roles não encontrados" });
+      return res
+        .status(404)
+        .json({ error: "Usuário ou roles não encontrados" });
     }
 
     const roles = userRoles.map((ur) => ur.role);
@@ -143,7 +161,9 @@ const editPassword = async (req, res) => {
     const { senhaAtual, novaSenha } = req.body;
 
     if (!senhaAtual || !novaSenha) {
-      return res.status(400).json({ error: "Senha atual e nova senha são obrigatórias" });
+      return res
+        .status(400)
+        .json({ error: "Senha atual e nova senha são obrigatórias" });
     }
 
     const user = await User.findByPk(id);
