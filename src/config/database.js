@@ -18,8 +18,8 @@ sequelize
   .then(() => console.log("Conectado ao PostgreSQL via Sequelize"))
   .catch((err) => console.error("Erro ao conectar ao banco:", err));
 
-/* 
-sequelize
+
+/* sequelize
   .sync({ force: true }) 
   .then(() => console.log("Tabelas sincronizadas com o banco de dados"))
   .catch((err) => console.error("Erro ao sincronizar tabelas:", err)); */

@@ -4,9 +4,9 @@ const sequelize = require('../config/database');
 
 const Profissional = sequelize.define('Profissional', {
   id: {
-    type: DataTypes.UUID,
-    defaultValue: DataTypes.UUIDV4,
+    type: DataTypes.INTEGER,
     primaryKey: true,
+    autoIncrement: true,
   },
   nome: {
     type: DataTypes.STRING,
@@ -15,14 +15,11 @@ const Profissional = sequelize.define('Profissional', {
   cargo: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
-  data_criacao: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
+  }
 }, {
   tableName: 'profissionais',
-  timestamps: false, 
+  timestamps: true, 
+  createdAt: "created_at"
 });
 
 module.exports = Profissional;

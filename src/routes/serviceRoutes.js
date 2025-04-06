@@ -39,7 +39,7 @@ router.get("/", tokenVerify, getServices);
  *                 type: number
  *               profissional_id:
  *                 type: string
- *                 example: "uuid-do-profissional"
+ *                 example: 1
  *     responses:
  *       201:
  *         description: Serviço criado com sucesso.
