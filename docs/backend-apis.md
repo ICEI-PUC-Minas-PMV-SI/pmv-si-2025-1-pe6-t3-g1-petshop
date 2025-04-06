@@ -712,11 +712,13 @@ Tokens de Acesso (JWT): Usar para validar usuários nas requisições.
 OAuth2: Usado para integração com outros serviços de autenticação (Google, Facebook).
 
 2. Autorização
+   
 RBAC (Controle de Acesso Baseado em Funções): Permissões baseadas no papel do usuário (ex: admin, cliente).
 
 ABAC (Controle de Acesso Baseado em Atributos): Permissões baseadas em atributos do usuário ou contexto da requisição.
 
 3. Proteção Contra Ataques
+   
 SQL Injection: Evitar com prepared statements e ORMs.
 
 XSS (Cross-Site Scripting): Sanitizar entradas de usuário.
@@ -727,6 +729,7 @@ Rate Limiting: Limitar requisições para prevenir ataques de força bruta ou DD
 
 Criptografia: Usar HTTPS e criptografar dados sensíveis como senhas e informações financeiras.
 
+
 4. Auditoria e Monitoramento
 Logs: Manter logs de acesso e erros, protegidos contra acessos não autorizados.
 
@@ -735,11 +738,13 @@ Alertas de Segurança: Notificar administradores sobre atividades suspeitas.
 Auditoria de Atividades: Rastrear mudanças importantes no sistema.
 
 5. Proteção de Dados Pessoais
+   
 Conformidade com LGPD/GDPR: Garantir que a coleta e o tratamento de dados sigam a legislação de privacidade.
 
 Criptografia de Dados Sensíveis: Proteger dados como informações de pagamento.
 
 6. Backup e Recuperação de Desastres
+   
 Backups Encriptados: Armazenar backups de forma segura.
 
 Plano de Recuperação de Desastres: Garantir a restauração rápida da aplicação em caso de falha ou ataque.
