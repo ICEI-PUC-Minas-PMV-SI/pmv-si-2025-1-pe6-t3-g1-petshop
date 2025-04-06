@@ -719,13 +719,28 @@ Esses pontos formam a base para um sistema seguro, garantindo proteção contra 
 
 ## Implantação
 
-[Instruções para implantar a aplicação distribuída em um ambiente de produção.]
+Os passos a seguir servem como guia para colocar o sistema em produção 
 
-1. Defina os requisitos de hardware e software necessários para implantar a aplicação em um ambiente de produção.
-2. Escolha uma plataforma de hospedagem adequada, como um provedor de nuvem ou um servidor dedicado.
-3. Configure o ambiente de implantação, incluindo a instalação de dependências e configuração de variáveis de ambiente.
-4. Faça o deploy da aplicação no ambiente escolhido, seguindo as instruções específicas da plataforma de hospedagem.
-5. Realize testes para garantir que a aplicação esteja funcionando corretamente no ambiente de produção.
+1. Requisitos de Hardware e Software
+
+Hardware:
+- Recomenda-se um servidor com no mínimo 2 vCPUs, 4 GB de RAM e 20GB de armazenamento SSD.
+
+Software:
+- Sistema operacional linux: Debian, Ubuntu ou outro de preferência nas versões mais recentes.
+- Node.js: Versão LTS (18.x ou superior)
+- PostgreSQL na versão 16 fornecido pelo RDS(AWS)
+- Certbot para configuração do SSL
+- GIT para clonagem do repositório hospedado no github.
+
+2. Recomendamos utilizar AWS para realizar o deploy todos requisitos e passos aqui levantados foram homologados para AWS.
+- Os serviços utilizados foram EC2, RDS e Route 53
+- Crie a zona de DNS e aponte o domínio para o IP publico da instancia EC2
+- Configures as regras de firewall necessárias para liberar acesso externo na aplicação
+- Insira as variáveis de conexão no arquivo .env para o banco hospedado no RDS
+3. Após instalação dos softwares faça a clonagem do repositório da na branch “main” instale as dependências e sigas as instruções presentes no arquivo readme.md
+4. Realize testes para garantir que a aplicação esteja funcionando corretamente no ambiente de produção.
+
 
 ## Testes
 
