@@ -55,13 +55,14 @@ const findAll = async (req, res) => {
     try {
       const fatura = await Fatura.findByPk(req.params.id);
       if(fatura){
-        const { pessoa_id, desconto, pagamento_id } = req.body;
+        const { pessoa_id, status, desconto, pagamento_id } = req.body;
 
         const updated_at = Date.now();
 
         fatura.update({
           pessoa_id,
           desconto,
+          status,
           pagamento_id,
           updated_at
         });

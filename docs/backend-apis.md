@@ -39,99 +39,9 @@ Usabilidade e Acessibilidade
 
 ### Modelagem de Aplicação - Cadastro de Usuários e Autenticação
 
-Estrutura de Dados - Tabelas
+## Diagrama de Classes 
 
-Tabela: users (Armazena os dados principais dos usuários)
-
-| Campo        | Tipo de Dado | Restrição                 | Descrição                      |
-| ------------ | ------------ | ------------------------- | ------------------------------ |
-| id           | UUID         | PRIMARY KEY               | Identificador único do usuário |
-| nome         | VARCHAR(100) | NOT NULL                  | Nome completo do usuário       |
-| email        | VARCHAR(255) | UNIQUE, NOT NULL          | E-mail para login              |
-| senha_hash   | TEXT         | NOT NULL                  | Hash da senha                  |
-| telefone     | VARCHAR(20)  | NULL                      | Telefone do usuário            |
-| data_criacao | TIMESTAMP    | DEFAULT CURRENT_TIMESTAMP | Data de criação da conta       |
-
-Tabela: user_profiles (Armazena informações adicionais)
-
-| Campo      | Tipo de Dado | Restrição              | Descrição                     |
-| ---------- | ------------ | ---------------------- | ----------------------------- |
-| id         | UUID         | PRIMARY KEY            | Identificador único do perfil |
-| user_id    | UUID         | FOREIGN KEY (users.id) | Relacionado ao usuário        |
-| foto_url   | VARCHAR(255) | NULL                   | URL da foto de perfil         |
-| endereco   | TEXT         | NULL                   | Endereço do usuário           |
-| nascimento | DATE         | NULL                   | Data de nascimento            |
-
-Tabela: user_sessions (Gerencia sessões ativas)
-
-| Campo      | Tipo de Dado | Restrição                 | Descrição                     |
-| ---------- | ------------ | ------------------------- | ----------------------------- |
-| id         | UUID         | PRIMARY KEY               | Identificador único da sessão |
-| user_id    | UUID         | FOREIGN KEY (users.id)    | Relacionado ao usuário        |
-| token      | TEXT         | UNIQUE, NOT NULL          | Token de autenticação         |
-| created_at | TIMESTAMP    | DEFAULT CURRENT_TIMESTAMP | Data de criação da sessão     |
-| expires_at | TIMESTAMP    | NOT NULL                  | Data de expiração da sessão   |
-
-Cadastro de Serviços
-
-1.Tabela: Serviços (armazena os serviços oferecidos pelo petshop)
-
-| Campo           | Tipo de Dado  | Restrição                   | Descrição                                  |
-| --------------- | ------------- | --------------------------- | ------------------------------------------ |
-| id_servico      | INT           | PRIMARY KEY                 | Identificador único do serviço             |
-| nome_servico    | VARCHAR (100) | NOT NULL, UNIQUE)           | Banho simples, tosa completa               |
-| descricao       | TEXT          | NOT NULL                    | Descrição detalhada do serviço             |
-| preco           | DECIMAL(10,2) | NOT NULL, CHECK (preco > 0) | Preço do Serviço                           |
-| disponibilidade | VARCHAR (50)  | NOT NULL                    | Dias e Horários disponíveis para o serviço |
-
-2. Tabela: Clientes (armazena as informações dos clientes)
-
-| Campo        | Tipo de Dado  | Restrição         | Descrição                                |
-| ------------ | ------------- | ----------------- | ---------------------------------------- |
-| id_cliente   | INT           | PRIMARY KEY       | Identificador único do cliente           |
-| nome_cliente | VARCHAR (15)  | NOT NULL, UNIQUE) | Nome completo do cliente                 |
-| telefone     | VARCHAR (15)  | NOT NULL          | Número de telefone de contato do cliente |
-| email        | VARCHAR (100) | NOT NULL          | Email do cliente                         |
-| endereco     | VARCHAR (255) | NOT NULL          | Endereço completo do cliente             |
-
-3. Tabela: Pets (armazena informações sobre os pets dos clientes)
-
-| Campo           | Tipo de Dado | Restrição   | Descrição                                                   |
-| --------------- | ------------ | ----------- | ----------------------------------------------------------- |
-| id_pet          | INT          | PRIMARY KEY | Identificador único do pet                                  |
-| id_cliente      | INT          | FK          | Referência ao cliente, relacionamento com a tabela clientes |
-| nome            | VARCHAR (15) | NOT NULL    | Nome do pet                                                 |
-| tipo            | VARCHAR (50) | NOT NULL    | Tipo do pet (Cão, Gato, etc...)                             |
-| raca            | VARCHAR (50) | NOT NULL    | Raça do pet                                                 |
-| data_nascimento | DATE         | NOT NULL    | Data de nascimento do pet                                   |
-| observacoes     | TEXT         | NOT NULL    | Observações sobre o pet(alergias, comportamento, etc)       |
-
-4. Tabela: Agendamentos ( armazena os serviços solicitados pelos clientes para seus pets)
-
-| Campo            | Tipo de Dado | Restrição   | Descrição                                                               |
-| ---------------- | ------------ | ----------- | ----------------------------------------------------------------------- |
-| id_agendamento   | INT          | PRIMARY KEY | Identificador único do agendanento                                      |
-| id_servico       | INT          | FK          | Referência ao serviço solicitado (relacionamento com a tabela Serviços) |
-| id_pet           | INT          | FK          | Referência ao pet (relacionamento com a tabela Pets)                    |
-| id_cliente       | INT          | FK          | Referência ao cliente (relacionamento com a tabela Clientes).           |
-| data_agendamento | DATETIME     | NOT NULL    | Data e horário do agendamento                                           |
-| status           | VARCHAR(50)  | NOT NULL    | Status do agendamento (ex: Pendente, Confirmado, Concluído, Cancelado)  |
-
-5. Tabela: Funcionários ( armazena as informações dos funcionários que atendem os clientes e realizam os serviços)
-
-| Campo          | Tipo de Dado | Restrição       | Descrição                          |
-| -------------- | ------------ | --------------- | ---------------------------------- |
-| id_funcionario | INT          | (PK)            | Identificador único do funcionário |
-| nome           | VARCHAR(100) | NOT NULL        | Nome completo do funcionário       |
-| cargo          | VARCHAR(50)  | NOT NULL, CHECK | Cargo do funcionário               |
-| telefone       | VARCHAR(15)  | NOT NULL        | Número de telefone do funcionário  |
-| email          | VARCHAR(100) | NOT NULL        | Email do funcionário               |
-
-Diagrama de Classes
-
-![arq](img/cadastro_de_usuarios.drawio.png)
-
-![arq](img/diagrama_agendamento.drawio.png)
+![arq](img/Diagram0.png)
 
 ## Tecnologias Utilizadas
 
@@ -141,14 +51,137 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 
 ## API Endpoints
 
-[Liste os principais endpoints da API, incluindo as operações disponíveis, os parâmetros esperados e as respostas retornadas.]
-
 ### Buscar todos usuários do sistema
 
 - Método: GET
 - URL: /api/users
 - Parâmetros:  
   _Nenhum_
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    [
+      {
+        "id": 1,
+        "nome": "Davi",
+        "email": "davi@email.com",
+        "telefone": "999999999",
+        "created_at": "2025-04-06T16:01:12.261Z",
+        "updated_at": "2025-04-06T16:01:12.261Z"
+      }
+    ]
+    ```
+  - Erro (500 Erro interno do servidor)
+    ```json
+    {
+      "error": "Erro interno ao buscar usuários"
+    }
+    ```
+
+---
+
+### Criar um novo usuário no sistema
+
+- Método: POST
+- URL: `/users`
+- Parâmetros (body):
+  - `nome`: Nome do usuário
+  - `email`: E-mail válido
+  - `senha`: Mínimo 8 caracteres, 1 maiúscula, 1 minúscula e 1 caractere especial
+  - `telefone`: Telefone do usuário
+  - `role_id`: ID da role
+- Resposta:
+  - Sucesso (201 Created)
+    ```json
+    {
+      "message": "Usuário criado com sucesso",
+      "userId": {
+    	"id": 6,
+    	"nome": "dasdsa",
+    	"email": "dasdasd@email.com",
+    	"telefone": "999999999",
+    	"updated_at": "2025-04-06T19:33:14.658Z",
+    	"created_at": "2025-04-06T19:33:14.658Z"
+  }
+    }
+    ```
+  - Erro (400, 409, 500)
+    ```json
+    {
+      "error": "E-mail inválido"
+    }
+    ```
+
+---
+
+### Deletar um usuário no sistema
+
+- Método: DELETE
+- URL: /users/:id/delete
+- Parâmetros (URL):
+  - `id`: ID do usuário a ser deletado
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Usuário deletado com sucesso",
+      "user": {
+        "id": 2,
+        "nome": "dasdsa",
+        "email": "dasdasd@email.com",
+        "telefone": "999999999",
+        "created_at": "2025-04-06T18:36:14.678Z",
+        "updated_at": "2025-04-06T18:36:14.678Z"
+      }
+    }
+    ```
+  - Erro (404, 500)
+    ```json
+    {
+      "error": "Usuário não encontrado"
+    }
+    ```
+
+---
+
+### Atualizar um usuário no sistema
+
+- Método: PATCH
+- URL: /users/:id/update
+- Parâmetros (URL):
+  - `id`: ID do usuário a ser editado
+- Parâmetros (body):
+  - `nome`: Nome atualizado
+  - `email`: E-mail atualizado
+  - `telefone`: Telefone atualizado
+  - `senha`: Nova senha (opcional)
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Usuário atualizado com sucesso",
+      "user": {
+        "id": 5,
+        "nome": "João Silva",
+        "email": "joao@email.com",
+        "telefone": "999999999",
+        "created_at": "2025-04-06T18:57:52.639Z",
+        "updated_at": "2025-04-06T18:58:00.479Z"
+      }
+    }
+    ```
+  - Erro (403, 404, 500)
+    ```json
+    {
+      "error": "Usuário não encontrado"
+    }
+    ```
+
+---
+
+### Recuperar lista de pessoas
+- Método: GET
+- URL: /pessoas
 - Resposta:
   - Sucesso (200 OK)
     ```json
@@ -223,46 +256,151 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
   - Erro (404, 500)
     ```json
     {
-      "error": "Usuário não encontrado"
+      "error": "Erro ao buscar pessoas"
     }
     ```
+    ---
+### Criar uma nova pessoa
 
----
-
-### Atualizar um usuário no sistema
-
-- Método: PATCH
-- URL: `/users/:id/update`
-- Parâmetros (URL):
-  - `id`: ID do usuário a ser editado
-- Parâmetros (body):
-  - `nome`: Nome atualizado
-  - `email`: E-mail atualizado
-  - `telefone`: Telefone atualizado
-  - `senha`: Nova senha (opcional)
+- Método: POST
+- URL: /pessoas
+- Parâmetros: 
+  - Content-Type: application/json;
+  - param1: Campos para crição da pessoa
 - Resposta:
   - Sucesso (200 OK)
-    ```json
+    ```
     {
-      "message": "Usuário atualizado com sucesso",
-      "user": {
-        "id": 5,
-        "nome": "João Silva",
-        "email": "joao@email.com",
-        "telefone": "999999999",
-        "created_at": "2025-04-06T18:57:52.639Z",
-        "updated_at": "2025-04-06T18:58:00.479Z"
-      }
+	    "message": "Pessoa criada com sucesso",
+      	"user": {
+		        "id": "2",
+		        "nome": "João Silva",
+		        "cpf_cnpj": "12345678900",
+		        "tipo": "F",
+		        "nascimento": "2000-01-01",
+		        "genero": "M",
+		        "telefone": "31912345678",
+		        "email": "joao@silva.com.br",
+		        "status": 1,
+		        "endereco": "Rua Julio Cesar",
+		        "endereco_num": 100,
+		        "endereco_bairro": "Imperadores",
+		        "cidade": "Belo Horizonte",
+		        "estado": "MG",
+		        "pais": "Brasil",
+		        "cep": "31000100",
+		        "user_id": 1,
+		        "created_at": "1743280011393",
+		        "updated_at": "1743280011393",
+		        "endereco_comp": null
+	          }
+    }
+    
+    ```
+  - Erro (4XX, 5XX)
+    ```
+    {
+      "error": "Erro ao buscar pessoas"
     }
     ```
-  - Erro (403, 404, 500)
-    ```json
+    ---
+
+### Recuperar registro individual de uma pessoa
+
+- Método: GET
+- URL: /pessoas/2
+- Resposta:
+  - Sucesso (200 OK)
+    ```
     {
-      "error": "Usuário não encontrado"
+    	"id": "2",
+    	"nome": "João Silva",
+    	"cpf_cnpj": "12345678900",
+    	"tipo": "F",
+    	"nascimento": "2000-01-01",
+    	"genero": "M",
+    	"telefone": "31912345678",
+    	"email": "joao@silva.com.br",
+    	"status": 1,
+    	"endereco": "Rua Julio Cesar",
+    	"endereco_num": 100,
+    	"endereco_comp": null,
+    	"endereco_bairro": "Imperadores",
+    	"cidade": "Belo Horizonte",
+    	"estado": "MG",
+    	"pais": "Brasil",
+    	"cep": "31000100",
+    	"user_id": 1,
+    	"created_at": "1743280011393",
+    	"updated_at": "1743280011393"
     }
+    
+    ```
+  - Erro (4XX, 5XX)
+    ```
+    {
+      "error": "Erro ao buscar pessoas"
+    }
+    ```
+    ---
+
+### Atualizar registro individual de pessoa
+
+- Método: PUT
+- URL: /pessoas/2
+- Parâmetros: 
+  - Content-Type: application/json;
+  - body: 
+
+      ```
+    {
+          "nome": "João Silva",
+          "cpf_cnpj": "12345678900",
+          "tipo": "F",
+          "nascimento": "01/01/1990",
+          "genereo": "M",
+          "telefone": "31912345678",
+          "email": "joao@silva.com.br",
+          "status": 1,
+          "endereco": "Rua Julio Cesar",
+          "endereco_num": 100,
+          "endereco_comp": "Apto 306",
+          "endereco_bairro": "Imperadores",
+          "cidade": "Belo Horizonte",
+          "estado": "MG",
+          "pais": "Brasil",
+          "cep": 31000100
+    }
+    
     ```
 
----
+- Resposta:
+  - Sucesso (204 OK)
+
+  - Erro (4XX)
+    ```
+    {
+      "error": "Não ha pessoa com id=X."
+    }
+    ```
+    ---
+
+### Excluir registro individual de pessoa
+
+- Método: DELETE
+- URL: /pessoas/2
+
+- Resposta:
+  - Sucesso (204 OK)
+
+  - Erro (4XX)
+    ```
+    {
+      "error": "Não ha pessoa com id=X."
+    }
+    ```
+    ---
+
 
 ## Considerações de Segurança
 
