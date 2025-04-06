@@ -549,6 +549,35 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     }
     ```
 
+### Buscar todos usuários do sistema
+
+- Método: GET
+- URL: /api/services
+- Parâmetros:  
+  _Nenhum_
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    [
+      {
+        "id": 1,
+        "nome_servico": "Banho e tosa",
+        "descricao": "Banho e tosa para gatos",
+        "preco": "150.00",
+        "duracao": 60,
+        "created_at": "2025-04-06T16:01:12.261Z",
+        "updated_at": "2025-04-06T16:01:12.261Z"
+      }
+    ]
+    ```
+  - Erro (500 Erro interno do servidor)
+    ```json
+    {
+      "error": "Erro interno ao buscar serviços"
+    }
+    ```
+
+---
 
 
 
