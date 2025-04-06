@@ -73,12 +73,13 @@ Tabela: user_sessions (Gerencia sessões ativas)
 
 Cadastro de Serviços
 
-1.Tabela: Serviços  (armazena os serviços oferecidos pelo petshop)
+1.Tabela: Servico
+A tabela servicos armazena informações sobre os serviços oferecidos pelo petshop, como banho e tosa.
 
 | Campo       | Tipo de Dado       | Restrição               | Descrição                        |
 |------------|------------------|-----------------------|-------------------------------- |
 | id_servico | INT              | PRIMARY KEY           | Identificador único do serviço  |
-|nome_servico| VARCHAR (100)    | NOT NULL, UNIQUE)     | Banho simples, tosa completa    |
+|tipo_servico| VARCHAR (100)    | NOT NULL, UNIQUE)     | Banho simples, tosa completa    |
 | descricao  | TEXT             | NOT NULL              | Descrição detalhada do serviço  |
 | preco      | DECIMAL(10,2)    | NOT NULL, CHECK (preco > 0) | Preço do Serviço          |
 |disponibilidade| VARCHAR (50)  | NOT NULL              | Dias e Horários disponíveis para o serviço|
