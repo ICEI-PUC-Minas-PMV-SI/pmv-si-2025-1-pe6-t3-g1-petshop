@@ -673,7 +673,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
 ]
 ```
 - **Evidência**:
-- [arq](img/teste1)
+- [arq](img/teste1.jpg)
 
 ---
 
@@ -707,7 +707,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
 }
 ```
 - **Evidência**:
-- [arq](img/teste2)
+- [arq](img/teste2.jpg)
 
 ---
 
@@ -750,7 +750,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
 }
 ```
 - **Evidência**:
-- [arq](img/teste3)
+- [arq](img/teste3.jpg)
 
 ---
 
@@ -773,7 +773,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
 }
 ```
 - **Evidência**:
-- [arq](img/teste4)
+- [arq](img/teste4.jpg)
 
 ---
 
@@ -805,7 +805,7 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
 }
 ```
 - **Evidência**:
-- [arq](img/teste5)
+- [arq](img/teste5.jpg)
 
 ---
 
