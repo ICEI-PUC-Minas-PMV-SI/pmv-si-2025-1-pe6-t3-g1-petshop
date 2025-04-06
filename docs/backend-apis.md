@@ -100,32 +100,111 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 
 ## API Endpoints
 
-[Liste os principais endpoints da API, incluindo as operações disponíveis, os parâmetros esperados e as respostas retornadas.]
+Endpoint 1: Listar todos os serviços
 
-### Endpoint 1
-- Método: GET
-- URL: /endpoint1
-- Parâmetros:
-  - param1: [descrição]
-- Resposta:
-  - Sucesso (200 OK)
-    ```
+Método: GET
+URL: /services
+
+Parâmetros: Nenhum
+
+Resposta:
+Sucesso (200 OK)
+
+{
+  "message": "Serviços listados com sucesso",
+  "data": [
     {
-      "message": "Success",
-      "data": {
-        ...
-      }
+      "_id": "id-do-servico",
+      "titulo": "Banho",
+      "descricao": "Banho completo com shampoo neutro",
+      "preco": 50,
+      "profissional_id": "id-do-profissional"
     }
-    ```
-  - Erro (4XX, 5XX)
-    ```
-    {
-      "message": "Error",
-      "error": {
-        ...
-      }
-    }
-    ```
+  ]
+}
+Erro (500 Internal Server Error)
+{
+  "message": "Erro ao buscar serviços",
+  "error": "Mensagem de erro"
+}
+
+ Endpoint 2 – Criar novo serviço
+Método: POST
+
+URL: /services
+
+Parâmetros (Body JSON):
+{
+  "titulo": "Tosa",
+  "descricao": "Tosa completa",
+  "preco": 120.00,
+  "profissional_id": "uuid-do-profissional"
+}
+Resposta:
+✅Sucesso (201 Created):
+{
+  "message": "Serviço criado com sucesso.",
+  "data": { ... }
+}
+❌ Erro (500 Internal Server Error):
+{
+  "message": "Erro ao criar serviço.",
+  "error": {}
+  
+}
+Endpoint 3 – Atualizar um serviço
+Método: PUT
+
+URL: /services/{id}
+
+Parâmetros:
+
+id (path): ID do serviço
+
+Body JSON:
+{
+  "titulo": "Banho completo",
+  "descricao": "Inclui hidratação",
+  "preco": 100.00,
+  "profissional_id": "uuid-do-profissional"
+}
+Resposta:
+
+✅ Sucesso (200 OK):
+
+{
+  "message": "Serviço atualizado com sucesso.",
+  "data": { ... }
+}
+{
+  "message": "Serviço atualizado com sucesso.",
+  "data": { ... }
+}
+❌ Erro (404 Not Found):
+{
+  "message": "Serviço não encontrado."
+}
+
+Endpoint 4 – Deletar um serviço
+Método: DELETE
+
+URL: /services/{id}
+
+Parâmetros:
+
+id (path): ID do serviço
+
+Resposta:
+
+✅ Sucesso (200 OK):
+
+{
+  "message": "Serviço deletado com sucesso."
+}
+❌ Erro (404 Not Found):
+{
+  "message": "Serviço não encontrado."
+}
 
 ## Considerações de Segurança
 
