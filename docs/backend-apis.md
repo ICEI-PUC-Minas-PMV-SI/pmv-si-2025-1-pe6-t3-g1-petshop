@@ -108,6 +108,7 @@ URL: /services
 Parâmetros: Nenhum
 
 Resposta:
+
 Sucesso (200 OK)
 
 {
@@ -128,70 +129,98 @@ Sucesso (200 OK)
     }
   ]
 }
+
 Erro (500 Internal Server Error)
 {
   "message": "Erro ao buscar serviços",
+  
   "error": "Mensagem de erro"
 }
 
+
  Endpoint 2 – Criar novo serviço
+ 
 Método: POST
 
 URL: /services
 
+
 Parâmetros (Body JSON):
+
 {
   "titulo": "Tosa",
+  
   "descricao": "Tosa completa",
+  
   "preco": 120.00,
+  
   "profissional_id": "uuid-do-profissional"
 }
+
 Resposta:
+
 ✅Sucesso (201 Created):
 {
   "message": "Serviço criado com sucesso.",
   "data": { ... }
 }
+
 ❌ Erro (500 Internal Server Error):
 {
+
   "message": "Erro ao criar serviço.",
+  
   "error": {}
   
 }
+
 Endpoint 3 – Atualizar um serviço
+
 Método: PUT
 
 URL: /services/{id}
 
 Parâmetros:
 
+
 id (path): ID do serviço
 
 Body JSON:
+
 {
   "titulo": "Banho completo",
+  
   "descricao": "Inclui hidratação",
+  
   "preco": 100.00,
+  
   "profissional_id": "uuid-do-profissional"
 }
+
 Resposta:
 
 ✅ Sucesso (200 OK):
 
 {
+
   "message": "Serviço atualizado com sucesso.",
+  
   "data": { ... }
 }
+
 {
   "message": "Serviço atualizado com sucesso.",
   "data": { ... }
+  
 }
 ❌ Erro (404 Not Found):
 {
   "message": "Serviço não encontrado."
 }
 
+
 Endpoint 4 – Deletar um serviço
+
 Método: DELETE
 
 URL: /services/{id}
@@ -206,11 +235,14 @@ Resposta:
 
 {
   "message": "Serviço deletado com sucesso."
+  
 }
 ❌ Erro (404 Not Found):
 {
   "message": "Serviço não encontrado."
+  
 }
+
 
 ## Considerações de Segurança
 
