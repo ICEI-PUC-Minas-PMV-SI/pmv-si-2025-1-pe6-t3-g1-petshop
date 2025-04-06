@@ -608,6 +608,33 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 
 ---
 
+
+### Criar um novo profissional no sistema
+
+- Método: POST
+- URL: `/professionals
+- Parâmetros (body):
+  - `nome`: Nome do profissional
+  - `especialidade`: tosador
+  - `disponibilidade`: "Segunda a Sexta - 9h às 17h"
+
+- Resposta:
+  - Sucesso (201 Created)
+    ```json
+    {
+      "message": "Profissional criado com sucesso",
+     
+  }
+    }
+    ```
+  - Erro (400)
+    ```json
+    {
+      "error": "campos obrigatórios não fornecidos ou dados inválidos"
+    }
+    ```
+
+---
 ## Considerações de Segurança
 
 [Discuta as considerações de segurança relevantes para a aplicação distribuída, como autenticação, autorização, proteção contra ataques, etc.]
