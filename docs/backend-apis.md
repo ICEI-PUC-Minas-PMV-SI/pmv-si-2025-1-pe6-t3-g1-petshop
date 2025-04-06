@@ -4,34 +4,36 @@ O projeto visa desenvolver uma aplicação de gestão de pet shop que permita ge
 
 ## Objetivos da API
 
-O objetivo principal da API para gestão de pet shop é criar uma plataforma robusta, eficiente e acessível para otimizar os processos operacionais do negócio, melhorando a experiência tanto dos funcionários quanto dos clientes. A seguir estão os principais objetivos que a API deve alcançar:
+O objetivo principal da API interna para a gestão de um pet shop é proporcionar uma plataforma simples e eficiente, focada em otimizar as operações de serviços de banho e tosa, bem como o controle de vendas de produtos. A seguir estão os principais objetivos que a API deve alcançar:
 
-- Gerenciamento de Clientes e Pets
+Gestão de Serviços de Banho e Tosa
 
-Cadastro e Atualização: Permitir que o sistema registre e atualize informações sobre clientes e seus pets, facilitando o atendimento e a comunicação.
-Histórico de Atendimento: A API deve fornecer acesso ao histórico de serviços prestados, como banhos e tosas.
+Cadastro e Atualização de Serviços: A API deve permitir o registro e a atualização de serviços realizados no pet shop, como banhos e tosas, garantindo que todas as informações sejam mantidas de forma organizada.
 
-Controle de Estoque
+Histórico de Atendimento: A API deve permitir o acesso ao histórico de serviços prestados aos pets, facilitando o acompanhamento de atendimentos passados e a identificação de padrões ou necessidades recorrentes.
 
-- Gestão de Produtos: A API deve ser capaz de controlar o estoque de ração, brinquedos, medicamentos e outros produtos vendidos no pet shop.
-- Alertas de Reposição: Quando um produto atingir níveis baixos, a API deve gerar alertas para reposição de estoque.
+Controle de Vendas de Produtos
+
+Gestão de Produtos: A API deve ser capaz de registrar e controlar as vendas de produtos no pet shop, como ração, brinquedos, medicamentos e outros itens relacionados ao cuidado dos pets.
+
+Estoque e Reposição: A API deve manter o controle de estoque de produtos, alertando quando os níveis de itens estiverem baixos, facilitando a reposição de forma eficiente.
 
 Gestão de Pagamentos
 
-- Histórico de Transações: Registrar todas as transações realizadas para fins de controle financeiro e geração de relatórios.
+Histórico de Transações: Registrar todas as transações realizadas para cada serviço prestado e produto vendido, para fins de controle financeiro e geração de relatórios simples.
 
-- Autenticação Segura: Garantir que apenas usuários autorizados (administradores e funcionários ) possam acessar as funcionalidades específicas da API.
+Controle de Acesso
 
-Controle de Acesso: Implementar níveis de permissão para garantir que diferentes tipos de usuários tenham acesso adequado às informações e funções do sistema.
+Autenticação Básica: A API deve garantir que apenas usuários autorizados possam acessar funções como o registro de serviços e vendas, permitindo o controle de ações sensíveis.
 
-Escalabilidade e Desempenho
+Desempenho e Simplicidade
 
-- Alta Performance: A API deve ser otimizada para garantir tempos de resposta rápidos, mesmo com alto volume de requisições.
-- Escalabilidade: A arquitetura da API deve permitir que o sistema cresça conforme o pet shop expande suas operações e abre novas unidades.
+Alta Performance e Simplicidade: A API deve ser otimizada para garantir tempos de resposta rápidos, atendendo de forma eficiente ao volume de requisições em um ambiente simples e direto.
 
-Usabilidade e Acessibilidade
+Facilidade de Uso: A arquitetura da API deve ser simples e fácil de usar, com endpoints intuitivos e documentação clara, para garantir fácil integração e uso pelos colaboradores do pet shop.
 
-- Facilidade de Integração: A API deve ser intuitiva e fácil de integrar, oferecendo uma documentação clara.
+Esta API visa atender às necessidades operacionais do pet shop de forma eficaz e de baixo custo, sem a complexidade de sistemas mais robustos, garantindo que as funções essenciais de serviço e vendas sejam realizadas de maneira fluida e sem complicações.
+
 
 ## Modelagem da Aplicação
 
