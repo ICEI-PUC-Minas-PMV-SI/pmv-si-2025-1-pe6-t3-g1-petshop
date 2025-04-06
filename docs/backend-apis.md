@@ -112,12 +112,18 @@ Sucesso (200 OK)
 
 {
   "message": "Serviços listados com sucesso",
+  
   "data": [
+  
     {
       "_id": "id-do-servico",
+      
       "titulo": "Banho",
+      
       "descricao": "Banho completo com shampoo neutro",
+      
       "preco": 50,
+      
       "profissional_id": "id-do-profissional"
     }
   ]
