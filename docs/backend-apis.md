@@ -666,6 +666,164 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     ```
 
 ---
+### Buscar todos pets do sistema
+
+- Método: GET
+- URL: /api/pets
+- Parâmetros:  
+  _Nenhum_
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    [
+      {
+        "id": 1,
+        "id_pessoa": 3,
+        "nome": "Toby",
+        "tipo": "cachorro",
+        "raca": "shitzu",
+        "data_nascimento": "2020-05-12",
+        "observacoes": "Alergia a frango",
+        "created_at": "2025-04-07T09:45:33.782Z",
+        "updated_at": "2025-04-07T09:45:33.782Z"
+      }
+    ]
+    ```
+  - Erro (500 Erro interno do servidor)
+    ```json
+    {
+      "error": "Erro interno ao buscar pets"
+    }
+    ```
+
+---
+
+### Criar um novo pet no sistema
+
+- Método: POST
+- URL: `/pets`
+- Parâmetros (body):
+  - `nome`: nome do pet
+  - `tipo`: tipo do pet
+  - `raca`: raca do pet
+  - `data_nascimento`: data de nascimento do pet
+  - `pet_id`: ID do pet
+  - `observacoes`: anotacoes relevantes 
+- Resposta:
+  - Sucesso (201 Created)
+    ```json
+    {
+      "message": "pet criado com sucesso",
+      "petid": {
+        "id": 6,
+        "nome": "Luke",
+        "tipo": "cachorro",
+        "raca": "pitbull",
+        "data_nascimento": "2022-07-11",
+        "observacoes": "agressivo",
+        "updated_at": "2025-04-07T14:22:09.481Z",
+        "created_at": "2025-04-07T14:22:09.481Z"
+      }
+    }
+    ```
+  - Erro (400, 409, 500)
+    ```json
+    {
+      "error": "Pet inválido"
+    }
+    ```
+
+---
+
+### Deletar um pet no sistema
+
+- Método: DELETE
+- URL: /pets/:id/delete
+- Parâmetros (URL):
+  - `id`: ID do pet a ser deletado
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Pet deletado com sucesso",
+      "pet": {
+        "id": 6,
+        "nome": "Luke",
+        "tipo": "cachorro",
+        "raca": "pitbull",
+        "data_nascimento": "2022-07-11",
+        "observacoes": "agressivo",
+        "created_at": "2025-04-07T17:10:45.392Z",
+        "updated_at": "2025-04-07T17:10:45.392Z"
+      }
+    }
+    ```
+  - Erro (404, 500)
+    ```json
+    {
+      "error": "Pet não encontrado"
+    }
+    ```
+
+---
+
+### Atualizar um pet no sistema
+
+- Método: PATCH
+- URL: /pets/:id/update
+- Parâmetros (URL):
+  - `id`: ID do pet a ser editado
+- Parâmetros (body):
+  - `nome`: Nome atualizado
+  - `pet_id`: ID do pet
+  - `observacoes`: anotacoes relevantes 
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Pet atualizado com sucesso",
+      "pet": {
+        "id": 5,
+        "nome": "Rex",
+        "observacoes": "alergia a frango",
+        "created_at": "2025-04-07T21:36:18.204Z",
+        "updated_at": "2025-04-07T21:36:22.947Z"
+      }
+    }
+    ```
+  - Erro (403, 404, 500)
+    ```json
+    {
+      "error": "Pet não encontrado"
+    }
+    ```
+
+---
+
+### Recuperar um pet pelo id
+
+- Método: GET
+- URL: /pets/id
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    [
+      {
+        "id": 1,
+        "nome": "Luna",
+        "created_at": "2025-04-08T08:15:47.523Z",
+        "updated_at": "2025-04-10T14:42:31.918Z"
+      }
+    ]
+    ```
+  - Erro (500 Erro interno do servidor)
+    ```json
+    {
+      "error": "Erro interno ao buscar pet"
+    }
+    ```
+
+    ---
 
 
 ## Considerações de Segurança
@@ -719,13 +877,28 @@ Esses pontos formam a base para um sistema seguro, garantindo proteção contra 
 
 ## Implantação
 
-[Instruções para implantar a aplicação distribuída em um ambiente de produção.]
+Os passos a seguir servem como guia para colocar o sistema em produção 
 
-1. Defina os requisitos de hardware e software necessários para implantar a aplicação em um ambiente de produção.
-2. Escolha uma plataforma de hospedagem adequada, como um provedor de nuvem ou um servidor dedicado.
-3. Configure o ambiente de implantação, incluindo a instalação de dependências e configuração de variáveis de ambiente.
-4. Faça o deploy da aplicação no ambiente escolhido, seguindo as instruções específicas da plataforma de hospedagem.
-5. Realize testes para garantir que a aplicação esteja funcionando corretamente no ambiente de produção.
+1. Requisitos de Hardware e Software
+
+Hardware:
+- Recomenda-se um servidor com no mínimo 2 vCPUs, 4 GB de RAM e 20GB de armazenamento SSD.
+
+Software:
+- Sistema operacional linux: Debian, Ubuntu ou outro de preferência nas versões mais recentes.
+- Node.js: Versão LTS (18.x ou superior)
+- PostgreSQL na versão 16 fornecido pelo RDS(AWS)
+- Certbot para configuração do SSL
+- GIT para clonagem do repositório hospedado no github.
+
+2. Recomendamos utilizar AWS para realizar o deploy todos requisitos e passos aqui levantados foram homologados para AWS.
+- Os serviços utilizados foram EC2, RDS e Route 53
+- Crie a zona de DNS e aponte o domínio para o IP publico da instancia EC2
+- Configures as regras de firewall necessárias para liberar acesso externo na aplicação
+- Insira as variáveis de conexão no arquivo .env para o banco hospedado no RDS
+3. Após instalação dos softwares faça a clonagem do repositório da na branch “main” instale as dependências e sigas as instruções presentes no arquivo readme.md
+4. Realize testes para garantir que a aplicação esteja funcionando corretamente no ambiente de produção.
+
 
 ## Testes
 
