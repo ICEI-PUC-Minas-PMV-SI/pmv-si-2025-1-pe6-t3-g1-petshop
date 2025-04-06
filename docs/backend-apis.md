@@ -510,6 +510,26 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     
 
 
+Cadastrar Serviço Petshop
+Método: POST
+URL: /api/services
+
+Parâmetros (no corpo da requisição):
+
+json
+Copiar
+Editar
+{
+  "nome_servico": "Banho e Tosa",
+  "descricao": "Banho e tosa para cães de todos os portes.",
+  "preco": 150.00,
+  "duracao": 60,
+  "categoria": "Higiene"
+}
+Resposta:
+
+Sucesso (201 Created)
+
 ## Considerações de Segurança
 
 [Discuta as considerações de segurança relevantes para a aplicação distribuída, como autenticação, autorização, proteção contra ataques, etc.]
