@@ -401,6 +401,128 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     ```
     ---
 
+### Criar um novo agendamento
+- Método: POST
+- URL: api/schedule/create
+- Parâmetros:
+
+  - body: 
+    ```
+    {
+      "pessoa": "Carlos Alberto",
+      "profissional": "Guilherme Augusto",
+      "pet": "Cachorro",
+      "data_agendamento": "10/10/2025",
+      "servico": "Banho e tosa"
+    }
+    ```
+  
+- Resposta:
+  - Sucesso (201 OK)
+    ```
+    {
+      "message": "Agendado com sucesso",
+      "schedule": {
+        "id": 5,
+        "pessoa": "Renato Vasconcelos",
+        "profissional": "Guilherme Augusto",
+        "pet": "Cachorro",
+        "data_agendamento": "2025-10-10T03:00:00.000Z",
+        "servico": "Banho e tosa"
+        }
+    }
+    
+    ```
+  - Erro (500)
+    ```
+    {
+      "error": "Erro ao agendar"
+    }
+    ```
+
+###  Atualizar um agendamento
+- Método: PATCH
+- URL: api/schedule/update/2
+- Parâmetros:
+  - id: [número correspondente ao Id do agendamento]
+  - body:
+    ```
+    {
+    "pessoa": "Cristiano Novaz",
+    "profissional": "Guilherme Augusto",
+    "pet": "Cachorro",
+    "data_agendamento": "11/10/2025",
+    "servico": "Banho e tosa"
+    }
+    ```
+- Resposta:
+  - Sucesso (201 OK)
+    ```
+    {
+      "message": "Atualizado com sucesso",
+      "schedule": {
+        "id": 3,
+        "pessoa": "Cristiano Novaz",
+        "profissional": "Guilherme Augusto",
+        "pet": "Cachorro",
+        "servico": "Banho e tosa",
+        "data_agendamento": "2025-11-10T03:00:00.000Z"
+      }
+    }
+    ```
+  - Erro (500)
+    ```
+    {
+      "error": "Erro ao atualizar"
+    }
+    ```
+    
+### Deletar um agendamento
+- Método: DELETE
+- URL: api/schedule/delete/2
+- Parâmetros:
+  - param1: [número correspondente ao Id do agendamento]
+- Resposta:
+  - Sucesso (200 OK)
+    ```
+    {
+      "message": "Deletado com sucesso"
+    }
+    ```
+  - Erro (500)
+    ```
+    {
+      "error": "Erro ao deletar"
+    }
+    ```
+### Recuperar registro de agendamento
+- Método: GET
+- URL: api/schedule/get/2
+- Parâmetros:
+  - param1: [descrição]
+- Resposta:
+  - Sucesso (201 OK)
+    ```
+    {
+      "desiredSchedule": {
+      "id": 5,
+      "pessoa": "Renato Vasconcelos",
+      "profissional": "Guilherme Augusto",
+      "pet": "Cachorro",
+      "servico": "Banho e tosa",
+      "data_agendamento": "2025-10-10T03:00:00.000Z"
+      }
+    }
+
+    ```
+  - Erro (500)
+    ```
+    {
+    "error": "Erro ao buscar"
+    }
+    ```
+    
+
 
 ## Considerações de Segurança
 
