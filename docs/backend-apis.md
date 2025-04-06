@@ -599,7 +599,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "message": "Serviço deletado com sucesso",
       "user": {
         "id": 2,
-        "nome-servico": "tosa",
+        "nome_servico": "tosa",
         "descricao": "tosa completa",
         "duracao": "60",
         "created_at": "2025-04-06T18:36:14.678Z",
@@ -643,9 +643,108 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     ```
 
 ---
-## Considerações de Segurança
 
-[Discuta as considerações de segurança relevantes para a aplicação distribuída, como autenticação, autorização, proteção contra ataques, etc.]
+### Buscar todos os profissionais cadastrados no sistema
+
+- Método: GET
+- URL: /api/professionals
+- Parâmetros:  
+  _Nenhum_
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    [
+      {
+        "id": 1,
+        "nome_profissional": "Camila Andrade",
+        "especialidade": "tosador",
+        "created_at": "2025-04-06T16:01:12.261Z",
+        "updated_at": "2025-04-06T16:01:12.261Z"
+      }
+    ]
+    ```
+  - Erro (500 Erro interno do servidor)
+    ```json
+    {
+      "error": "Erro interno ao buscar profissionais"
+    }
+    ```
+
+---
+
+### Deletar um proffissional no sistema
+
+- Método: DELETE
+- URL: /professionals/:id/delete
+- Parâmetros (URL):
+  - `id`: ID do profissional a ser deletado
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Profissional deletado com sucesso",
+      "user": {
+        "id": 2,
+        "nome_profissional": "Arthur oliveira",
+        "especialidade": "tosador",
+        "created_at": "2025-04-06T18:36:14.678Z",
+        "updated_at": "2025-04-06T18:36:14.678Z"
+      }
+    }
+    ```
+  - Erro (404, 500)
+    ```json
+    {
+      "error": "Profissional não encontrado"
+    }
+    ```
+
+---
+
+
+## Considerações de Segurança
+Em uma aplicação distribuída, a segurança é um aspecto crítico para garantir a integridade, a confidencialidade e a disponibilidade dos dados e dos serviços oferecidos. A seguir, listamos os principais pontos de segurança para a API petshop:
+
+1. Autenticação
+   
+Tokens de Acesso (JWT): Usar para validar usuários nas requisições.
+
+OAuth2: Usado para integração com outros serviços de autenticação (Google, Facebook).
+
+2. Autorização
+RBAC (Controle de Acesso Baseado em Funções): Permissões baseadas no papel do usuário (ex: admin, cliente).
+
+ABAC (Controle de Acesso Baseado em Atributos): Permissões baseadas em atributos do usuário ou contexto da requisição.
+
+3. Proteção Contra Ataques
+SQL Injection: Evitar com prepared statements e ORMs.
+
+XSS (Cross-Site Scripting): Sanitizar entradas de usuário.
+
+CSRF (Cross-Site Request Forgery): Usar tokens para proteger requisições críticas.
+
+Rate Limiting: Limitar requisições para prevenir ataques de força bruta ou DDoS.
+
+Criptografia: Usar HTTPS e criptografar dados sensíveis como senhas e informações financeiras.
+
+4. Auditoria e Monitoramento
+Logs: Manter logs de acesso e erros, protegidos contra acessos não autorizados.
+
+Alertas de Segurança: Notificar administradores sobre atividades suspeitas.
+
+Auditoria de Atividades: Rastrear mudanças importantes no sistema.
+
+5. Proteção de Dados Pessoais
+Conformidade com LGPD/GDPR: Garantir que a coleta e o tratamento de dados sigam a legislação de privacidade.
+
+Criptografia de Dados Sensíveis: Proteger dados como informações de pagamento.
+
+6. Backup e Recuperação de Desastres
+Backups Encriptados: Armazenar backups de forma segura.
+
+Plano de Recuperação de Desastres: Garantir a restauração rápida da aplicação em caso de falha ou ataque.
+
+Esses pontos formam a base para um sistema seguro, garantindo proteção contra acessos não autorizados, ataques e vazamentos de dados.
 
 ## Implantação
 
