@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
+const Pessoa = require("../models/pessoaModel")
 
 const Pet = sequelize.define(
     "Pet",
@@ -9,13 +10,14 @@ const Pet = sequelize.define(
         primaryKey: true,
         autoIncrement: true
       },
-      id_cliente: {
+      pessoa_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'Clientes',
-          key: 'id_cliente'
-        }
+          model: Pessoa,
+          key: 'id'
+        },
+        onDelete: "CASCADE",
       },
       nome: {
         type: DataTypes.STRING,
@@ -39,9 +41,8 @@ const Pet = sequelize.define(
       }
     }, 
     {
-      tableName: "Pet",
+      tableName: "pet",
       timestamps: false,
     }
     );
-  
     module.exports = Pet;

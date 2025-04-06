@@ -29,7 +29,7 @@ router.use("/pessoas", pessoaRoutes);
 router.use("/pets", petRoutes);
 
 // Marcia
-router.use("profissionais", profissionalRoutes);
-router.use("services", servicesRoutes);
+router.use("/profissionais", profissionalRoutes);
+router.use("/services", servicesRoutes);
 
 module.exports = router;

@@ -2,6 +2,7 @@
 const express = require("express");
 const { getServices, createService, updateService, deleteService } = require("../controllers/serviceController");
 const router = express.Router();
+const tokenVerify = require("../middleware/tokenVerify")
 
 /**
  * @swagger
@@ -15,7 +16,7 @@ const router = express.Router();
  *       500:
  *         description: Erro interno do servidor.
  */
-router.get("/", getServices);
+router.get("/", tokenVerify, getServices);
 
 /**
  * @swagger
@@ -45,7 +46,7 @@ router.get("/", getServices);
  *       500:
  *         description: Erro ao criar serviço.
  */
-router.post("/", createService);
+router.post("/", tokenVerify, createService);
 
 /**
  * @swagger
@@ -83,7 +84,7 @@ router.post("/", createService);
  *       500:
  *         description: Erro ao atualizar serviço.
  */
-router.put("/:id", updateService);
+router.put("/:id", tokenVerify, updateService);
 
 /**
  * @swagger
@@ -106,6 +107,6 @@ router.put("/:id", updateService);
  *       500:
  *         description: Erro ao deletar serviço.
  */
-router.delete("/:id", deleteService);
+router.delete("/:id", tokenVerify, deleteService);
 
 module.exports = router;

@@ -2,6 +2,7 @@
 const express = require('express');
 const { getProfissionais, createProfissional } = require('../controllers/profissionalController');
 const router = express.Router();
+const tokenVerify = require("../middleware/tokenVerify")
 
 /**
  * @swagger
@@ -18,7 +19,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /profissionais:
+ * /profissionais/create-new:
  *   post:
  *     summary: Cria um novo profissional
  *     tags: [Profissionais]
@@ -42,7 +43,7 @@ const router = express.Router();
  *         description: Erro ao criar profissional.
  */
 
-router.get("/", getProfissionais);
-router.post("/", createProfissional);
+router.get("/", tokenVerify, getProfissionais);
+router.post("/create-new", tokenVerify, createProfissional);
 
 module.exports = router;

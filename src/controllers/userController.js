@@ -16,6 +16,21 @@ const createUser = async (req, res) => {
   try {
     const { nome, email, senha, telefone, role_id } = req.body;
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const senhaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
+
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ error: "E-mail inválido" });
+    }
+
+    if (!senhaRegex.test(senha)) {
+      return res.status(400).json({
+        error:
+          "A senha deve conter no mínimo 8 caracteres, incluindo uma letra maiúscula, uma minúscula e um caractere especial.",
+      });
+    }
+
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(senha, saltRounds);
 
@@ -62,15 +77,25 @@ const editUser = async (req, res) => {
   try {
     const updatedFields = req.body;
     const user = await User.findOne({ where: { id: req.params.id } });
-    if (user)
-      await user.update({
-        nome: updatedFields.nome,
-        email: updatedFields.email,
-        senha_hash: updatedFields.senha,
-        telefone: updatedFields.telefone,
-      });
+    if (!user) {
+      return res.status(404).json({ error: "Usuário não encontrado" });
+    }
+    const userRole = await UserRole.findOne({
+      where: { user_id: user.id, role_id: 2 },
+    });
 
-    res.status(201).json({ message: "Usuário editado com sucesso" });
+    if (!userRole) {
+      return res.status(403).json({ error: "Usuário não possui permissão para edição" });
+    }
+
+    await user.update({
+      nome: updatedFields.nome,
+      email: updatedFields.email,
+      senha_hash: updatedFields.senha,
+      telefone: updatedFields.telefone,
+    });
+
+    res.status(200).json({ message: "Usuário editado com sucesso" });
   } catch (error) {
     console.error("Erro ao editar o usuário:", error);
     res.status(500).json({ error: "Erro ao editar o usuário" });
@@ -95,5 +120,15 @@ const getRoles = async (req, res) => {
     res.status(500).json({ error: "Erro ao buscar roles do usuário" });
   }
 };
+
+const editPassword = async (req, res) => {
+  try {
+
+  }
+  catch (error) {
+    
+  }
+
+}
 
 module.exports = { getUsers, createUser, getRoles, deleteUser, editUser };

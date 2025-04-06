@@ -120,7 +120,7 @@ const tokenVerify = require("../middleware/tokenVerify")
 
 
 router.post("/schedule/create", tokenVerify, createSchedule);
-router.patch("/schedule/update/:id", editSchedule);
+router.patch("/schedule/update/:id", tokenVerify, editSchedule);
 router.delete("/schedule/delete/:id", tokenVerify, deleteSchedule);
 router.get("/schedule/get/:id", tokenVerify, getSchedule);
 
