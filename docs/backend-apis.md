@@ -516,9 +516,6 @@ URL: /api/services
 
 Parâmetros (no corpo da requisição):
 
-json
-Copiar
-Editar
 {
   "nome_servico": "Banho e Tosa",
   "descricao": "Banho e tosa para cães de todos os portes.",
@@ -526,6 +523,8 @@ Editar
   "duracao": 60,
   "categoria": "Higiene"
 }
+
+
 Resposta:
 
 Sucesso (201 Created)
