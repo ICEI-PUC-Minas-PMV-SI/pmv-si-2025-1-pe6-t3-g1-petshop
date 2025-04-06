@@ -127,11 +127,9 @@ Cadastro de Serviços
 |email	        |VARCHAR(100)	   |  NOT NULL             |Email do funcionário|
 
 
-Diagrama de Classes 
+## Diagrama de Classes 
 
-![arq](img/cadastro_de_usuarios.drawio.png)
-
-![arq](img/diagrama_agendamento.drawio.png)
+![arq](img/Diagram0.png)
 
 ## Tecnologias Utilizadas
 
@@ -143,11 +141,9 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 
 [Liste os principais endpoints da API, incluindo as operações disponíveis, os parâmetros esperados e as respostas retornadas.]
 
-### Endpoint 1
+### Recuperar lista de pessoas
 - Método: GET
-- URL: /endpoint1
-- Parâmetros:
-  - param1: [descrição]
+- URL: /pessoas
 - Resposta:
   - Sucesso (200 OK)
     ```
@@ -161,12 +157,146 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
   - Erro (4XX, 5XX)
     ```
     {
-      "message": "Error",
-      "error": {
-        ...
-      }
+      "error": "Erro ao buscar pessoas"
     }
     ```
+### Criar uma nova pessoa
+
+- Método: POST
+- URL: /pessoas
+- Parâmetros: 
+  - Content-Type: application/json;
+  - param1: Campos para crição da pessoa
+- Resposta:
+  - Sucesso (200 OK)
+    ```
+    {
+	    "message": "Pessoa criada com sucesso",
+      	"user": {
+		        "id": "2",
+		        "nome": "João Silva",
+		        "cpf_cnpj": "12345678900",
+		        "tipo": "F",
+		        "nascimento": "2000-01-01",
+		        "genero": "M",
+		        "telefone": "31912345678",
+		        "email": "joao@silva.com.br",
+		        "status": 1,
+		        "endereco": "Rua Julio Cesar",
+		        "endereco_num": 100,
+		        "endereco_bairro": "Imperadores",
+		        "cidade": "Belo Horizonte",
+		        "estado": "MG",
+		        "pais": "Brasil",
+		        "cep": "31000100",
+		        "user_id": 1,
+		        "created_at": "1743280011393",
+		        "updated_at": "1743280011393",
+		        "endereco_comp": null
+	          }
+    }
+    
+    ```
+  - Erro (4XX, 5XX)
+    ```
+    {
+      "error": "Erro ao buscar pessoas"
+    }
+    ```
+
+### Recuperar registro individual de uma pessoa
+
+- Método: GET
+- URL: /pessoas/2
+- Resposta:
+  - Sucesso (200 OK)
+    ```
+    {
+    	"id": "2",
+    	"nome": "João Silva",
+    	"cpf_cnpj": "12345678900",
+    	"tipo": "F",
+    	"nascimento": "2000-01-01",
+    	"genero": "M",
+    	"telefone": "31912345678",
+    	"email": "joao@silva.com.br",
+    	"status": 1,
+    	"endereco": "Rua Julio Cesar",
+    	"endereco_num": 100,
+    	"endereco_comp": null,
+    	"endereco_bairro": "Imperadores",
+    	"cidade": "Belo Horizonte",
+    	"estado": "MG",
+    	"pais": "Brasil",
+    	"cep": "31000100",
+    	"user_id": 1,
+    	"created_at": "1743280011393",
+    	"updated_at": "1743280011393"
+    }
+    
+    ```
+  - Erro (4XX, 5XX)
+    ```
+    {
+      "error": "Erro ao buscar pessoas"
+    }
+    ```
+
+### Atualizar registro individual de pessoa
+
+- Método: PUT
+- URL: /pessoas/2
+- Parâmetros: 
+  - Content-Type: application/json;
+  - body: 
+
+      ```
+    {
+          "nome": "João Silva",
+          "cpf_cnpj": "12345678900",
+          "tipo": "F",
+          "nascimento": "01/01/1990",
+          "genereo": "M",
+          "telefone": "31912345678",
+          "email": "joao@silva.com.br",
+          "status": 1,
+          "endereco": "Rua Julio Cesar",
+          "endereco_num": 100,
+          "endereco_comp": "Apto 306",
+          "endereco_bairro": "Imperadores",
+          "cidade": "Belo Horizonte",
+          "estado": "MG",
+          "pais": "Brasil",
+          "cep": 31000100
+    }
+    
+    ```
+
+- Resposta:
+  - Sucesso (204 OK)
+
+  - Erro (4XX)
+    ```
+    {
+      "error": "Não ha pessoa com id=X."
+    }
+    ```
+
+### Excluir registro individual de pessoa
+
+- Método: DELETE
+- URL: /pessoas/2
+
+- Resposta:
+  - Sucesso (204 OK)
+
+  - Erro (4XX)
+    ```
+    {
+      "error": "Não ha pessoa com id=X."
+    }
+    ```
+
 
 ## Considerações de Segurança
 

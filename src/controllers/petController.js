@@ -1,5 +1,9 @@
 const Pet = require("../models/petModel");
+<<<<<<< HEAD
 
+=======
+//const PetType = require("../models/petTypeModel");
+>>>>>>> valdeir
 
 const getPets = async (req, res) => {
   try {
