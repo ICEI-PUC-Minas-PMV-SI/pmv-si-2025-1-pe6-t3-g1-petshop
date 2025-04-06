@@ -508,35 +508,49 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     }
     ```
     
-
-### Cadastrar todos os serviços
-
+### Cadastrar serviço
 - Método: POST
-- URL: /api/services
-- Parâmetros:  
-  _Nenhum_
+- URL: api/services
+- Parâmetros:
+
+  - body: 
+    ```
+    {
+      "nome_servico": "banho e tosa",
+      "descricao": "Banho e tosa para cães de todos os portes",
+      "preco": "150.00",
+      "duracao": "60",
+      "categoria": "Higiene"
+    }
+    ```
+  
 - Resposta:
-  - Sucesso (200 OK)
-    ```json
-    [
-      {
+  - Sucesso (201 OK)
+    ```
+    {
+      "message": "Cadastrado com sucesso",
+      "schedule": {
         "id": 1,
         "nome_servico": "Banho e tosa",
-        "descricao": "Banho e tosa para cães de todos os portes",
+        "descricao": "Banho e yosa para cães de todos os portes",
         "preco": "150.00",
-        "duracao": "60",
-        "categoria": "Higiene"
-      }
-    ]
+        "categoria": "higiene",
+        "created at": "2025-04-06T16:10:00.000Z"
+        "updated_at": "2025-04-06T16:10:00.000Z"
+    
+        }
+    }
+    
     ```
-  - Erro (500 Erro interno do servidor)
-    ```json
+  - Erro (500)
+    ```
     {
-      "error": "Erro interno ao cadastrar serviços"
+      "error": "Erro interno ao cadastrar serviço"
     }
     ```
 
----
+
+
 
 
 ## Considerações de Segurança
