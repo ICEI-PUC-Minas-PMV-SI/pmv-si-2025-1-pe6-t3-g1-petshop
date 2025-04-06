@@ -20,6 +20,8 @@ const loginUser = async (req, res) => {
     const expiresAt = new Date();
     expiresAt.setHours(expiresAt.getHours() + 1);
 
+    console.log(expiresAt);
+
     const userSession = await UserSession.create({
       user_id: user.id,
       token,
