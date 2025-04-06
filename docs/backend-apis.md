@@ -140,6 +140,133 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 ## API Endpoints
 
 [Liste os principais endpoints da API, incluindo as operações disponíveis, os parâmetros esperados e as respostas retornadas.]
+### Buscar todos usuários do sistema
+
+- Método: GET
+- URL: /api/users
+- Parâmetros:  
+  _Nenhum_
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    [
+      {
+        "id": 1,
+        "nome": "Davi",
+        "email": "davi@email.com",
+        "telefone": "999999999",
+        "created_at": "2025-04-06T16:01:12.261Z",
+        "updated_at": "2025-04-06T16:01:12.261Z"
+      }
+    ]
+    ```
+  - Erro (500 Erro interno do servidor)
+    ```json
+    {
+      "error": "Erro interno ao buscar usuários"
+    }
+    ```
+
+---
+
+### Criar um novo usuário no sistema
+
+- Método: POST
+- URL: `/users`
+- Parâmetros (body):
+  - `nome`: Nome do usuário
+  - `email`: E-mail válido
+  - `senha`: Mínimo 8 caracteres, 1 maiúscula, 1 minúscula e 1 caractere especial
+  - `telefone`: Telefone do usuário
+  - `role_id`: ID da role
+- Resposta:
+  - Sucesso (201 Created)
+    ```json
+    {
+      "message": "Usuário criado com sucesso",
+      "userId": {
+    	"id": 6,
+    	"nome": "dasdsa",
+    	"email": "dasdasd@email.com",
+    	"telefone": "999999999",
+    	"updated_at": "2025-04-06T19:33:14.658Z",
+    	"created_at": "2025-04-06T19:33:14.658Z"
+  }
+    }
+    ```
+  - Erro (400, 409, 500)
+    ```json
+    {
+      "error": "E-mail inválido"
+    }
+    ```
+
+---
+
+### Deletar um usuário no sistema
+
+- Método: DELETE
+- URL: `/users/:id/delete`
+- Parâmetros (URL):
+  - `id`: ID do usuário a ser deletado
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Usuário deletado com sucesso",
+      "user": {
+        "id": 2,
+        "nome": "dasdsa",
+        "email": "dasdasd@email.com",
+        "telefone": "999999999",
+        "created_at": "2025-04-06T18:36:14.678Z",
+        "updated_at": "2025-04-06T18:36:14.678Z"
+      }
+    }
+    ```
+  - Erro (404, 500)
+    ```json
+    {
+      "error": "Usuário não encontrado"
+    }
+    ```
+
+---
+
+### Atualizar um usuário no sistema
+
+- Método: PATCH
+- URL: `/users/:id/update`
+- Parâmetros (URL):
+  - `id`: ID do usuário a ser editado
+- Parâmetros (body):
+  - `nome`: Nome atualizado
+  - `email`: E-mail atualizado
+  - `telefone`: Telefone atualizado
+  - `senha`: Nova senha (opcional)
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Usuário atualizado com sucesso",
+      "user": {
+        "id": 5,
+        "nome": "João Silva",
+        "email": "joao@email.com",
+        "telefone": "999999999",
+        "created_at": "2025-04-06T18:57:52.639Z",
+        "updated_at": "2025-04-06T18:58:00.479Z"
+      }
+    }
+    ```
+  - Erro (403, 404, 500)
+    ```json
+    {
+      "error": "Usuário não encontrado"
+    }
+    ```
+
+---
 
 ### Recuperar lista de pessoas
 - Método: GET
@@ -160,6 +287,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Erro ao buscar pessoas"
     }
     ```
+    ---
 ### Criar uma nova pessoa
 
 - Método: POST
@@ -203,6 +331,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Erro ao buscar pessoas"
     }
     ```
+    ---
 
 ### Recuperar registro individual de uma pessoa
 
@@ -241,6 +370,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Erro ao buscar pessoas"
     }
     ```
+    ---
 
 ### Atualizar registro individual de pessoa
 
@@ -281,6 +411,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Não ha pessoa com id=X."
     }
     ```
+    ---
 
 ### Excluir registro individual de pessoa
 
@@ -296,6 +427,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
       "error": "Não ha pessoa com id=X."
     }
     ```
+    ---
 
 
 ## Considerações de Segurança
