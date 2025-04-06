@@ -666,6 +666,164 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
     ```
 
 ---
+### Buscar todos pets do sistema
+
+- Método: GET
+- URL: /api/pets
+- Parâmetros:  
+  _Nenhum_
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    [
+      {
+        "id": 1,
+        "id_pessoa": 3,
+        "nome": "Toby",
+        "tipo": "cachorro",
+        "raca": "shitzu",
+        "data_nascimento": "2020-05-12",
+        "observacoes": "Alergia a frango",
+        "created_at": "2025-04-07T09:45:33.782Z",
+        "updated_at": "2025-04-07T09:45:33.782Z"
+      }
+    ]
+    ```
+  - Erro (500 Erro interno do servidor)
+    ```json
+    {
+      "error": "Erro interno ao buscar pets"
+    }
+    ```
+
+---
+
+### Criar um novo pet no sistema
+
+- Método: POST
+- URL: `/pets`
+- Parâmetros (body):
+  - `nome`: nome do pet
+  - `tipo`: tipo do pet
+  - `raca`: raca do pet
+  - `data_nascimento`: data de nascimento do pet
+  - `pet_id`: ID do pet
+  - `observacoes`: anotacoes relevantes 
+- Resposta:
+  - Sucesso (201 Created)
+    ```json
+    {
+      "message": "pet criado com sucesso",
+      "petid": {
+        "id": 6,
+        "nome": "Luke",
+        "tipo": "cachorro",
+        "raca": "pitbull",
+        "data_nascimento": "2022-07-11",
+        "observacoes": "agressivo",
+        "updated_at": "2025-04-07T14:22:09.481Z",
+        "created_at": "2025-04-07T14:22:09.481Z"
+      }
+    }
+    ```
+  - Erro (400, 409, 500)
+    ```json
+    {
+      "error": "Pet inválido"
+    }
+    ```
+
+---
+
+### Deletar um pet no sistema
+
+- Método: DELETE
+- URL: /pets/:id/delete
+- Parâmetros (URL):
+  - `id`: ID do pet a ser deletado
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Pet deletado com sucesso",
+      "pet": {
+        "id": 6,
+        "nome": "Luke",
+        "tipo": "cachorro",
+        "raca": "pitbull",
+        "data_nascimento": "2022-07-11",
+        "observacoes": "agressivo",
+        "created_at": "2025-04-07T17:10:45.392Z",
+        "updated_at": "2025-04-07T17:10:45.392Z"
+      }
+    }
+    ```
+  - Erro (404, 500)
+    ```json
+    {
+      "error": "Pet não encontrado"
+    }
+    ```
+
+---
+
+### Atualizar um pet no sistema
+
+- Método: PATCH
+- URL: /pets/:id/update
+- Parâmetros (URL):
+  - `id`: ID do pet a ser editado
+- Parâmetros (body):
+  - `nome`: Nome atualizado
+  - `pet_id`: ID do pet
+  - `observacoes`: anotacoes relevantes 
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Pet atualizado com sucesso",
+      "pet": {
+        "id": 5,
+        "nome": "Rex",
+        "observacoes": "alergia a frango",
+        "created_at": "2025-04-07T21:36:18.204Z",
+        "updated_at": "2025-04-07T21:36:22.947Z"
+      }
+    }
+    ```
+  - Erro (403, 404, 500)
+    ```json
+    {
+      "error": "Pet não encontrado"
+    }
+    ```
+
+---
+
+### Recuperar um pet pelo id
+
+- Método: GET
+- URL: /pets/id
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    [
+      {
+        "id": 1,
+        "nome": "Luna",
+        "created_at": "2025-04-08T08:15:47.523Z",
+        "updated_at": "2025-04-10T14:42:31.918Z"
+      }
+    ]
+    ```
+  - Erro (500 Erro interno do servidor)
+    ```json
+    {
+      "error": "Erro interno ao buscar pet"
+    }
+    ```
+
+    ---
 
 
 ## Considerações de Segurança
