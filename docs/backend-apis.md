@@ -20,8 +20,6 @@ Essa API visa atender de maneira eficaz e acessível às necessidades operaciona
 
 ## Modelagem da Aplicação
 
-<<<<<<< HEAD
-=======
 A estrutura de dados principal se constitui das entidades, requisito funcional:
 
 - Pessoa, RF-002;
@@ -30,8 +28,6 @@ A estrutura de dados principal se constitui das entidades, requisito funcional:
 - User, RF-005;
 - Profissional, RF-006;
 - Service, RF-004;
->>>>>>> valdeir
-
 
 ## Diagrama de Classes
 
