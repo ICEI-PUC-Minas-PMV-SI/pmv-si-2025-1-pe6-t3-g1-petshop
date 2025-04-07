@@ -5,9 +5,9 @@ const User = sequelize.define(
   "User",
   {
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
     nome: {
       type: DataTypes.STRING,
@@ -27,15 +27,13 @@ const User = sequelize.define(
     },
     telefone: {
       type: DataTypes.STRING,
-    },
-    data_criacao: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
+    }
   },
   {
     tableName: "users",
-    timestamps: false, 
+    timestamps: true, 
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   }
 );
 
