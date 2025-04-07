@@ -20,7 +20,6 @@ Essa API visa atender de maneira eficaz e acessível às necessidades operaciona
 
 ## Modelagem da Aplicação
 
-[Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
 
 ### Modelagem de Aplicação - Cadastro de Usuários e Autenticação
 
@@ -1078,4 +1077,22 @@ Abaixo estão listados os testes de integração realizados com **Jest** e **Sup
 
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
+AUTH0. JSON Web Tokens (JWT) Introduction. Disponível em: https://jwt.io/introduction. Acesso em: 06 abr. 2025.
+
+BCrypt. bcrypt documentation. Biblioteca para hashing de senhas. Disponível em: https://www.npmjs.com/package/bcrypt. Acesso em: 06 abr. 2025.
+
+EXPRESS. Express.js Documentation. Framework web para Node.js. Disponível em: https://expressjs.com/. Acesso em: 06 abr. 2025.
+
+JEST. Jest – Delightful JavaScript Testing Framework. Disponível em: https://jestjs.io/docs/getting-started. Acesso em: 06 abr. 2025.
+
+MICROSOFT CORPORATION. Visual Studio Code Documentation. Ambiente de desenvolvimento utilizado na codificação. Disponível em: https://code.visualstudio.com/docs. Acesso em: 06 abr. 2025.
+
+OPENJS FOUNDATION. Node.js Documentation. Node.js – JavaScript runtime built on Chrome's V8 JavaScript engine. Disponível em: https://nodejs.org/en/docs/. Acesso em: 06 abr. 2025.
+
+POSTGRESQL GLOBAL DEVELOPMENT GROUP. PostgreSQL: The World's Most Advanced Open Source Relational Database. Disponível em: https://www.postgresql.org/docs/. Acesso em: 06 abr. 2025.
+
+SEQUELIZE. Sequelize – Node.js ORM Tool Documentation. Disponível em: https://sequelize.org/docs/v6/. Acesso em: 06 abr. 2025.
+
+SMARTBEAR SOFTWARE. Swagger OpenAPI Documentation. Ferramenta para documentação de APIs. Disponível em: https://swagger.io/docs/. Acesso em: 06 abr. 2025.
+
+SUPERTEST. Supertest – Super-agent driven library for testing Node.js HTTP servers. Disponível em: https://www.npmjs.com/package/supertest. Acesso em: 06 abr. 2025.
