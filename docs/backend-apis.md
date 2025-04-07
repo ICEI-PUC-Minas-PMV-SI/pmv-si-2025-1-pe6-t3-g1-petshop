@@ -28,6 +28,7 @@ A estrutura de dados principal se constitui das entidades, requisito funcional:
 - User, RF-005;
 - Profissional, RF-006;
 - Service, RF-004;
+- Agendamento, RF-006;
 
 ## Diagrama de Classes
 
@@ -601,11 +602,10 @@ Para o desenvolvimento da API voltada à gestão de um petshop, foi adotado um c
     ```json
     {
       "message": "Profissional criado com sucesso",
+    }
 
     ```
-  }
-  }
-  ````
+
   - Erro (400)
   ```json
   {
@@ -837,8 +837,6 @@ Em uma aplicação distribuída, a segurança é um aspecto crítico para garant
 1. Autenticação
    
 Tokens de Acesso (JWT): Usar para validar usuários nas requisições.
-
-OAuth2: Usado para integração com outros serviços de autenticação (Google, Facebook).
 
 2. Autorização
    
