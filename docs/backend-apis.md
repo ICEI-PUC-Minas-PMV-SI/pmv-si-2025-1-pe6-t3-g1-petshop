@@ -35,7 +35,7 @@ A estrutura de dados principal se constitui das entidades, requisito funcional:
 
 ## Tecnologias Utilizadas
 
-Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs Web. A tecnologia certa para o seu projeto dependerá dos seus objetivos, dos seus clientes e dos recursos que a API deve fornecer.
+Para o desenvolvimento da API voltada à gestão de um petshop, foi adotado um conjunto de tecnologias modernas e amplamente utilizadas no ecossistema JavaScript. Essas ferramentas foram escolhidas por sua eficiência, escalabilidade, comunidade ativa e facilidade de integração.
 
 - **PostgreSQL:** Utilizado para criação e utilização do banco de dados.
 - **Node.js:** Utilizado para desenvolvimento do backend com JavaScript.
