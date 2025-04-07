@@ -20,9 +20,15 @@ Essa API visa atender de maneira eficaz e acessível às necessidades operaciona
 
 ## Modelagem da Aplicação
 
-[Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
+A estrutura de dados principal se constitui das entidades, requisito funcional:
 
-### Modelagem de Aplicação - Cadastro de Usuários e Autenticação
+- Pessoa, RF-002;
+- Fatura, RF-008;
+- Pet, RF-001;
+- User, RF-005;
+- Profissional, RF-006;
+- Service, RF-004;
+
 
 ## Diagrama de Classes
 
