@@ -1,8 +1,10 @@
 # Front-end Web
 
-[Inclua uma breve descrição do projeto e seus objetivos.]
+O projeto tem como objetivo fornecer uma interface web intuitiva, acessível e responsiva para a gestão de um pet shop. Através do front-end, os usuários poderão realizar opera;oes com consulta e cadastro de pets, clientes, serviços e agendamentos, além de visualizar relatórios, acompanhar o estoque e efetuar a gestão de pagamentos. O design e a usabilidade foram pensados para otimizar o fluxo de trabalho, facilitar o acesso às informações e garantir uma experiência agradável e segura aos usuários.
 
 ## Projeto da Interface Web
+
+A interface web foi desenvolvida com foco na usabilidade e na eficiência operacional dos colaboradores do pet shop. O layout é dividido em áreas de navegação lateral (menu), cabeçalho com atalhos e áreas centrais para exibição de conteúdo dinâmico. O sistema conta com páginas específicas para cada entidade (Usuários, Pets, Serviços, Agendamentos, Vendas, Estoque), com formulários claros, listagens com filtros e ações rápidas como editar e excluir. As interações do usuário são otimizadas para minimizar o número de cliques e maximizar a produtividade. Alertas visuais e mensagens de confirmação ajudam a guiar o usuário em suas ações.
 
 [Descreva o projeto da interface Web da aplicação, incluindo o design visual, layout das páginas, interações do usuário e outros aspectos relevantes.]
 
