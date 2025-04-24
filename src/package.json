@@ -20,8 +20,11 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.12.1",
     "morgan": "^1.10.0",
+    "next": "^15.3.1",
     "pg": "^8.14.0",
     "pg-hstore": "^2.3.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "sequelize": "^6.37.6",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
@@ -29,10 +32,13 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "nodemon": "^3.1.9",
-    "sequelize-mock": "^0.10.2",
     "supertest": "^7.1.0"
   },
   "jest": {
-    "testEnvironment": "node"
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setupTests.js"
+    ],
+    "verbose": true
   }
+  
 }

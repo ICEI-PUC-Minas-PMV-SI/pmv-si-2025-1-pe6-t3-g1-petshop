@@ -1,6 +1,7 @@
 const express = require("express");
 const { createSchedule, editSchedule, deleteSchedule, getSchedule } = require("../controllers/schedulingController");
 const router = express.Router();
+const tokenVerify = require("../middleware/tokenVerify")
 
 /**
  * @swagger
@@ -20,10 +21,10 @@ const router = express.Router();
  *                 example: "Carlos Alberto"
  *               profissional:
  *                 type: string
- *                 example: "Gil Raiz"
+ *                 example: "Guilherme Augusto"
  *               pet:
  *                 type: string
- *                 example: "Dinossauro"
+ *                 example: "Cachorro"
  *               data_agendamento:
  *                  type: date
  *                  example: 10/10/2025
@@ -62,10 +63,10 @@ const router = express.Router();
  *                 example: "Carlos Alberto"
  *               profissional:
  *                 type: string
- *                 example: "Gil Raiz"
+ *                 example: "Guilherme Augusto"
  *               pet:
  *                 type: string
- *                 example: "Dinossauro"
+ *                 example: "Cachorro"
  *               data_agendamento:
  *                  type: date
  *                  example: 10/10/2025
@@ -118,10 +119,10 @@ const router = express.Router();
  */
 
 
-router.post("/schedule/create", createSchedule);
-router.patch("/schedule/update/:id", editSchedule);
-router.delete("/schedule/delete/:id", deleteSchedule);
-router.get("/schedule/get/:id", getSchedule);
+router.post("/schedule/create", tokenVerify, createSchedule);
+router.patch("/schedule/update/:id", tokenVerify, editSchedule);
+router.delete("/schedule/delete/:id", tokenVerify, deleteSchedule);
+router.get("/schedule/get/:id", tokenVerify, getSchedule);
 
 
 module.exports = router;

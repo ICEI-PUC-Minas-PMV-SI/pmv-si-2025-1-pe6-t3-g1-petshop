@@ -27,15 +27,13 @@ const User = sequelize.define(
     },
     telefone: {
       type: DataTypes.STRING,
-    },
-    data_criacao: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
+    }
   },
   {
     tableName: "users",
-    timestamps: false,
+    timestamps: true, 
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   }
 );
 

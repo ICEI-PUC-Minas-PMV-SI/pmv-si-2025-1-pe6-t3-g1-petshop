@@ -11,18 +11,17 @@ const getPets = async (_req, res) => {
 
 const createPet = async (req, res) => {
   try {
-    const { nome, tipo, raca, data_nascimento, observacoes, pessoa_id } = req.body; 
-    
+    const { nome, tipo, raca, data_nascimento, observacoes, pessoa_id } =
+      req.body;
     const newPet = await Pet.create({
       nome,
       tipo,
       raca,
       data_nascimento,
       observacoes,
-      pessoa_id
+      pessoa_id,
     });
-
-    res.status(201).json({ message: "Pet criado com sucesso", pet: newPet }); 
+    res.status(201).json({ message: "Pet criado com sucesso", pet: newPet });
   } catch (error) {
     console.error("Erro ao criar pet:", error);
     res.status(500).json({ error: "Erro ao criar pet" });
@@ -44,17 +43,22 @@ const findSingle = async (req, res) => {
 
 const updatePet = async (req, res) => {
   try {
-    const pet = await Pet.findByPk(req.params.id);
-
-    if (pet) {
-      const { nome, observacoes } = req.body;
-
-      await pet.update({ 
-        nome,
-        observacoes
-      });
-
-      res.status(204).send();
+    const updatedFields = req.body;
+    const { id } = req.params;
+    const [updated] = await Pet.update(
+      {
+        nome: updatedFields.nome,
+        observacoes: updatedFields.observacoes,
+      },
+      {
+        where: { id: id },
+      }
+    );
+    if (updated) {
+      const updatedPet = await Pet.findOne({ where: { id: id } });
+      res
+        .status(200)
+        .json({ message: "Pet atualizado com sucesso", pet: updatedPet });
     } else {
       res.status(404).send({ message: `Não há pet com id=${req.params.id}.` });
     }
@@ -65,10 +69,12 @@ const updatePet = async (req, res) => {
 
 const deletePet = async (req, res) => {
   try {
-    const Pet = await Pet.findByPk(req.params.id);
-    if (Pet) {
-      await Pet.destroy(); 
-      res.status(204).send();
+    const { id } = req.params;
+    const deleted = await Pet.destroy({
+      where: { id: id },
+    });
+    if (deleted) {
+      res.status(200).json({ message: "Pet deletado com sucesso" });
     } else {
       res.status(404).send({ message: `Não há pet com id=${req.params.id}.` });
     }
@@ -77,4 +83,4 @@ const deletePet = async (req, res) => {
   }
 };
 
-module.exports = { getPets, createPet, findSingle, updatePet, deletePet };
+module.exports = { getPets, createPet, updatePet, deletePet, findSingle };

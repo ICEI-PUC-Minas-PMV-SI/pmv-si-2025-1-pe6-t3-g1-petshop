@@ -1,6 +1,7 @@
 const express = require("express");
 const { findAll, create, findSingle, updateSingle, deleteSingle } = require("../controllers/pessoaController");
 const router = express.Router();
+const tokenVerify = require("../middleware/tokenVerify");
 
 /**
  * @swagger
@@ -266,10 +267,10 @@ const router = express.Router();
  *         description: Erro interno do servidor.
  */
 
-router.get("/", findAll);
-router.post("/", create);
-router.get("/:id", findSingle);
-router.put("/:id", updateSingle);
-router.delete("/:id", deleteSingle);
+router.get("/", tokenVerify, findAll);
+router.post("/", tokenVerify,  create);
+router.get("/:id", tokenVerify, findSingle);
+router.put("/:id", tokenVerify, updateSingle);
+router.delete("/:id", tokenVerify, deleteSingle);
 
 module.exports = router;

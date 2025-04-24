@@ -1,4 +1,4 @@
-const { DataTypes, INTEGER } = require("sequelize");
+const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
 const Pagamentos = sequelize.define(
@@ -18,20 +18,15 @@ const Pagamentos = sequelize.define(
         allowNull: false,
       },
       condicao: {
-        type: DataTypes>INTEGER,
-        allowNull: false,
-      },
-      created_at: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      updated_at: {
         type: DataTypes.INTEGER,
         allowNull: false,
       }
-    },{
+      
+    },  {
       tableName: "forma_pagto",
-      timestamps: false,
+      timestamps: true, 
+      createdAt: "created_at",
+      updatedAt: "updated_at",
     }
   );
   

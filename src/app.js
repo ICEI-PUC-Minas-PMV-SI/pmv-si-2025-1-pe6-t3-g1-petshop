@@ -19,9 +19,6 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Erro interno do servidor" });
 });
 
-app.get("/", (req, res) => {
-  res.send("Valdeir dono do rei do pastel, socio do Davi, Fernanda testando");
-});
 
 swaggerDocs(app);
 

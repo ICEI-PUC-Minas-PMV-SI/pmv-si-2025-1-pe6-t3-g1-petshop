@@ -12,7 +12,7 @@ const createSchedule = async (req, res) => {
       servico
     });
 
-    res.status(201).json({ message: "Agendado com sucesso" });
+    res.status(201).json({ message: "Agendado com sucesso", schedule: newSchedule });
   } catch (error) {
     console.error("Erro ao agendar:", error);
     res.status(500).json({ error: "Erro ao agendar" });
@@ -26,12 +26,18 @@ const editSchedule = async (req, res) => {
     const desiredSchedule = await Scheduling.findByPk(
       id.id
     );
-    await desiredSchedule.update(updateFields)
+    await desiredSchedule.update({
+      pessoa: updateFields.pessoa,
+      profissional: updateFields.profissional,
+      pet: updateFields.pet,
+      servico: updateFields.servico,
+      data_agendamento: updateFields.data_agendamento,
+    });
 
-    res.status(201).json({ message: "Agendado com sucesso" });
+    res.status(201).json({ message: "Atualizado com sucesso", schedule: desiredSchedule});
   } catch (error) {
-    console.error("Erro ao agendar:", error);
-    res.status(500).json({ error: "Erro ao agendar" });
+    console.error("Erro ao atualizar:", error);
+    res.status(500).json({ error: "Erro ao atualizar" });
   }
 };
 
@@ -70,4 +76,3 @@ const getSchedule = async (req, res) => {
 
 };
 module.exports = { createSchedule, editSchedule, deleteSchedule, getSchedule }
-

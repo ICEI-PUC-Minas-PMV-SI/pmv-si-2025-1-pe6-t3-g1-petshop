@@ -1,6 +1,7 @@
 const express = require("express");
-const { getPets, createPet, findSingle, updatePet, deletePet} = require("../controllers/petController");
+const { getPets, createPet, findSingle, updatePet, deletePet } = require("../controllers/petController");
 const router = express.Router();
+const tokenVerify = require("../middleware/tokenVerify");
 
 /**
  * @swagger
@@ -171,10 +172,11 @@ const router = express.Router();
  *         description: Erro ao deletar pet.
  */
 
-router.get("/", getPets);
-router.post("/new-pet", createPet);
-router.get("/:id", findSingle);
-router.put("/:id", updatePet);
-router.delete("/:id", deletePet);
+
+router.get("/", tokenVerify, getPets);
+router.post("/new-pet", tokenVerify, createPet);
+router.get("/:id", tokenVerify, findSingle);
+router.patch("/:id/update", tokenVerify, updatePet);
+router.delete("/:id", tokenVerify, deletePet);
 
 module.exports = router;
