@@ -5,6 +5,7 @@ const {
   getRoles,
   deleteUser,
   editUser,
+  editPassword
 } = require("../controllers/userController");
 const router = express.Router();
 const tokenVerify = require("../middleware/tokenVerify")
@@ -155,10 +156,47 @@ const tokenVerify = require("../middleware/tokenVerify")
  *         description: Erro interno do servidor
  */
 
+/**
+ * @swagger
+ * /users/{id}/new-password:
+ *   patch:
+ *     summary: Atualiza a senha do usuário
+ *     description: Atualiza a senha do usuário
+ *     tags: [Usuários]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID do usuário
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               senhaAtual:
+ *                 type: string
+ *                 example: "q123456Q!"
+ *               novaSenha:
+ *                 type: string
+ *                 example: "r321654R!"
+ *     responses:
+ *       200:
+ *         description: Senha atualizada com sucesso
+ *       401:
+ *         description: Senha atual incorreta
+ *       500:
+ *         description: Erro ao alterar a senha
+ */
+
 router.get("/", tokenVerify, getUsers);
 router.post("/new-user", createUser);
 router.patch("/:id/update", tokenVerify, editUser);
 router.delete("/:id/delete", tokenVerify, deleteUser);
 router.get("/:id/roles", tokenVerify, getRoles);
+router.patch("/:id/new-password", tokenVerify, editPassword);
 
 module.exports = router;
