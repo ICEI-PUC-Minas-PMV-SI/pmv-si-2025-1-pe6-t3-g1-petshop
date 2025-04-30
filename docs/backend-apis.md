@@ -34,6 +34,9 @@ A estrutura de dados principal se constitui das entidades, requisito funcional:
 
 ![arq](img/Diagram0.png)
 
+![image](https://github.com/user-attachments/assets/42a2d741-8590-4075-9a16-a9ed3bfc969d)
+
+
 ## Tecnologias Utilizadas
 
 Para o desenvolvimento da API voltada à gestão de um petshop, foi adotado um conjunto de tecnologias modernas e amplamente utilizadas no ecossistema JavaScript. Essas ferramentas foram escolhidas por sua eficiência, escalabilidade, comunidade ativa e facilidade de integração.
