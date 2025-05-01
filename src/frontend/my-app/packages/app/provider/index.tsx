@@ -9,6 +9,7 @@ import {
 } from '@my/ui'
 import { ToastViewport } from './ToastViewport'
 
+
 export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'config'>) {
   const colorScheme = useColorScheme()
 
