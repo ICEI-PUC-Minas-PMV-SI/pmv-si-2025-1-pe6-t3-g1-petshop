@@ -94,7 +94,7 @@ export default function RegisterPessoaPage() {
           alignItems: 'center',
           height: '50px',
           width: '100%',
-          background: 'rgba(0, 0, 0, 0.7)',
+          background: 'rgba(0, 0, 0, 0.5)',
           padding: '0 20px',
           color: 'white',
         }}
@@ -138,7 +138,7 @@ export default function RegisterPessoaPage() {
         <YStack
           w="90%"
           maxWidth={800}
-          bg="rgba(0, 0, 0, 0.8)"
+          bg="rgba(0, 0, 0, 0.65)"
           p="$6"
           borderRadius="$4"
           shadowColor="#00000033"
