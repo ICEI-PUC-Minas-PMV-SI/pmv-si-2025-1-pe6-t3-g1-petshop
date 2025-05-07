@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { YStack, XStack, Input, Button, H1, Paragraph } from '@my/ui'
-import { FaHome } from 'react-icons/fa'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
