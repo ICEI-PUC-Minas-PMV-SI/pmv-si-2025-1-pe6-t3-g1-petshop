@@ -21,7 +21,15 @@ A interface web foi desenvolvida com foco na usabilidade e na eficiência operac
 [Diagrama ou descrição do fluxo de dados na aplicação.]
 
 ## Tecnologias Utilizadas
-[Lista das tecnologias principais que serão utilizadas no projeto.]
+Este projeto foi desenvolvido utilizando as seguintes tecnologias principais:
+
+Next.js – Framework React para desenvolvimento web moderno, com suporte a SSR (Server-Side Rendering), rotas dinâmicas e API Routes.
+
+Tamagui – Biblioteca de UI unificada para React Native e Web, que oferece componentes estilizados com performance e acessibilidade, ideal para construção de interfaces responsivas e consistentes.
+
+JavaScript – Linguagem de programação utilizada para o desenvolvimento de toda a lógica do projeto.
+
+Node.js + npm – Ambiente e gerenciador de pacotes para instalação e execução das dependências.
 
 ## Considerações de Segurança
 
