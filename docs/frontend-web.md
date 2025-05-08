@@ -44,8 +44,7 @@ Resposta ao Usuário
 
 O servidor envia uma resposta com o resultado da operação (sucesso, erro ou dados solicitados). A interface web exibe a informação ao usuário com mensagens de sucesso, erro ou atualização visual da tela.
 
-![image](https://github.com/user-attachments/assets/dce63abf-11d5-4309-b3f7-35ea8c765375)
-
+![Fluxograma](https://github.com/user-attachments/assets/171c66fa-4d79-43d2-a543-0ab31e9e69da)
 
 ## Tecnologias Utilizadas
 Este projeto foi desenvolvido utilizando as seguintes tecnologias principais:
