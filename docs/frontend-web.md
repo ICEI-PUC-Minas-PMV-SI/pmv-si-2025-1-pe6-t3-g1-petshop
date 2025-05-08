@@ -101,15 +101,46 @@ Servidor Web / Proxy reverso: Nginx ou Apache
 Outros: PM2 (gerenciador de processos Node.js); Git (para deploy via pull); Certbot (para HTTPS com Let's Encrypt).
 
 ## Testes
+1. Casos de Teste
+Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consultas e pesquisa de produtos/serviços.
 
-[Descreva a estratégia de teste, incluindo os tipos de teste a serem realizados (unitários, integração, carga, etc.) e as ferramentas a serem utilizadas.]
+Não Funcionais: Testar desempenho sob carga, usabilidade e segurança.
 
-1. Crie casos de teste para cobrir todos os requisitos funcionais e não funcionais da aplicação.
-2. Implemente testes unitários para testar unidades individuais de código, como funções e classes.
-3. Realize testes de integração para verificar a interação correta entre os componentes da aplicação.
-4. Execute testes de carga para avaliar o desempenho da aplicação sob carga significativa.
-5. Utilize ferramentas de teste adequadas, como frameworks de teste e ferramentas de automação de teste, para agilizar o processo de teste.
+2. Testes Unitários
+Focar na validação de funções e classes isoladas, como validação de campos de formulários e cálculos de preços.
+
+Ferramentas: Jest.
+
+3. Testes de Integração
+Verificar a interação entre front-end e back-end (ex.: fluxo de compra, integração com API).
+
+Ferramentas: Postman, Supertest.
+
+4. Testes de Carga
+Avaliar o desempenho da aplicação com múltiplos usuários e transações simultâneas.
+
+Ferramentas: Apache JMeter, Gatling, Artillery.
+
+5. Automação de Testes
+Automação contínua de testes em ambientes de CI/CD para garantir qualidade após cada alteração.
+
+Ferramentas: Selenium, Cypress.
+
+6. Testes de Usabilidade
+Testar a navegação e interatividade do site para garantir uma experiência de usuário intuitiva.
+
+Ferramentas: Lookback.io, Hotjar.
 
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
+BECK, Kent. Test-Driven Development: By Example. Boston: Addison-Wesley, 2002.
+
+BROWN, Mike. Test Automation in Agile Projects: A Review. 2017. Disponível em: https://ieeexplore.ieee.org/document/8011347. Acesso em: 7 mai. 2025.
+
+HUMBLE, Jez; FARLEY, David. Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation. 1. ed. Boston: Addison-Wesley, 2010.
+
+MARTINS, Rafael. The Challenges of Load Testing in Continuous Integration. 2020. Disponível em: https://www.softwaretestinghelp.com/load-testing-continuous-integration/. Acesso em: 7 mai. 2025.
+
+MYERS, Glenford J. The Art of Software Testing. 3. ed. New York: Wiley, 2011.
+
+
