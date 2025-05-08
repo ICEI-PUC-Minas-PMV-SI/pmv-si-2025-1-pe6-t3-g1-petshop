@@ -190,7 +190,7 @@ const tokenVerify = require("../middleware/tokenVerify")
  */
 
 router.get("/", tokenVerify, getUsers);
-router.post("/new-user", createUser);
+router.post("/new-user", tokenVerify, createUser);
 router.patch("/:id/update", tokenVerify, editUser);
 router.delete("/:id/delete", tokenVerify, deleteUser);
 router.get("/:id/roles", tokenVerify, getRoles);

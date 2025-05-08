@@ -17,6 +17,17 @@ const getUsers = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
+    console.log(req.user)
+    const adminId = req.user.id;
+    const isAdmin = await UserRole.findOne({
+      where: { user_id: adminId, role_id: 1 },
+    });
+    if (!isAdmin) {
+      return res
+        .status(403)
+        .json({ error: "Apenas administradores podem criar usuários" });
+    }
+
     const { nome, email, senha, telefone, role_id } = req.body;
 
     if (!nome || !email || !senha || !telefone || !role_id) {
@@ -68,7 +79,7 @@ const createUser = async (req, res) => {
 
     res
       .status(201)
-      .json({ message: "Usuário criado com sucesso", userId: userData });
+      .json({ message: "Usuário criado com sucesso", user: userData });
   } catch (error) {
     console.error("Erro em createUser:", error);
     res.status(500).json({ error: "Erro ao criar usuário" });
@@ -78,14 +89,29 @@ const createUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await User.findByPk(id);
+    const adminId = req.user.id;
 
+    const admin = await User.findByPk(adminId);
+    if (!admin) return res.status(401).json({ error: "Admin não encontrado" });
+
+    const adminRole = await UserRole.findOne({
+      where: { user_id: adminId, role_id: 1 },
+    });
+
+    if (!adminRole) {
+      return res
+        .status(403)
+        .json({ error: "Sem permissão para deletar usuários" });
+    }
+
+    const user = await User.findByPk(id);
     if (!user) return res.status(404).json({ error: "Usuário não encontrado" });
 
     const userData = user.get({ plain: true });
     delete userData.senha_hash;
 
     await user.destroy();
+
     res
       .status(200)
       .json({ message: "Usuário deletado com sucesso", user: userData });
@@ -97,40 +123,43 @@ const deleteUser = async (req, res) => {
 
 const editUser = async (req, res) => {
   try {
-    const { id } = req.params;
-    const { nome, email, telefone, senha } = req.body;
+    const adminId = req.user.id
+    const { id } = req.params
+    const { nome, email, telefone, senha } = req.body
 
-    const user = await User.findByPk(id);
+    const isAdmin = await UserRole.findOne({
+      where: { user_id: adminId, role_id: 1 },
+    })
+    if (!isAdmin) {
+      return res.status(403).json({ error: "Apenas administradores podem editar usuários" })
+    }
+
+    const user = await User.findByPk(id)
     if (!user) {
-      return res.status(404).json({ error: "Usuário não encontrado" });
+      return res.status(404).json({ error: "Usuário não encontrado" })
     }
 
-    const userRole = await UserRole.findOne({
-      where: { user_id: user.id, role_id: 2 },
-    });
+    const updates = {}
 
-    if (!userRole) {
-      return res
-        .status(403)
-        .json({ error: "Usuário não possui permissão para edição" });
+    if (nome) updates.nome = nome
+    if (email && email.trim() !== '') updates.email = email
+    if (telefone && telefone.trim() !== '') updates.telefone = telefone
+    if (senha && senha.trim() !== '') {
+      updates.senha_hash = await bcrypt.hash(senha, 10)
     }
 
-    const updates = { nome, email, telefone };
-    if (senha) updates.senha_hash = await bcrypt.hash(senha, 10);
+    await user.update(updates)
 
-    const userData = user.get({ plain: true });
-    delete userData.senha_hash;
+    const userData = user.get({ plain: true })
+    delete userData.senha_hash
 
-    await user.update(updates);
-
-    res
-      .status(200)
-      .json({ message: "Usuário atualizado com sucesso", user: userData });
+    res.status(200).json({ message: "Usuário atualizado com sucesso", user: userData })
   } catch (error) {
-    console.error("Erro em editUser:", error);
-    res.status(500).json({ error: "Erro ao atualizar usuário" });
+    console.error("Erro em editUser:", error)
+    res.status(500).json({ error: "Erro ao atualizar usuário" })
   }
-};
+}
+
 
 const getRoles = async (req, res) => {
   try {

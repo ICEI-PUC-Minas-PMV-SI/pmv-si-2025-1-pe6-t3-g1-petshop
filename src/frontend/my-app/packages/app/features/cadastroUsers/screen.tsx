@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { XStack, YStack, XGroup, Input, Button, H1, Paragraph, Text } from '@my/ui'
 
 export default function UserRegisterPage() {
-  const [name, setName] = useState('')
+  const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
   const [senha, setSenha] = useState('')
@@ -13,7 +13,7 @@ export default function UserRegisterPage() {
   const [tipoUsuario, setTipoUsuario] = useState('2')
 
   const handleRegister = async () => {
-    if (!name || !email || !senha || !telefone || !confirmSenha || !tipoUsuario) {
+    if (!nome || !email || !senha || !telefone || !confirmSenha || !tipoUsuario) {
       setErrorMessage('Por favor, preencha todos os campos.')
       return
     }
@@ -24,14 +24,15 @@ export default function UserRegisterPage() {
     }
 
     try {
-      const response = await fetch('/api/users/new-user', {
+      const response = await fetch('http://localhost:3001/api/users/new-user', {
         method: 'POST',
-        headers: { Authorization: 'Bearer xxxxxx', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, senha, telefone }),
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ nome, email, senha, telefone, role_id: Number(tipoUsuario) }),
       })
 
       if (response.ok) {
-        window.location.href = '/cadastroUser'
+        window.location.href = '/cadastroUsers'
       } else {
         setErrorMessage('Erro ao realizar cadastro. Tente novamente.')
       }
@@ -62,7 +63,7 @@ export default function UserRegisterPage() {
           </H1>
 
           <XStack space="$3" flexWrap="wrap">
-            <Input placeholder="Nome Completo" value={name} onChangeText={setName} flex={1} />
+            <Input placeholder="Nome Completo" value={nome} onChangeText={setNome} flex={1} />
             <Input
               placeholder="E-mail"
               value={email}
@@ -109,7 +110,7 @@ export default function UserRegisterPage() {
                   borderWidth={1}
                   borderColor="$blue10"
                 >
-                  1 - Usuário
+                  1 - Administrador
                 </Button>
               </XGroup.Item>
               <XGroup.Item>
@@ -120,7 +121,7 @@ export default function UserRegisterPage() {
                   borderWidth={1}
                   borderColor="$blue10"
                 >
-                  2 - Administrador
+                  2 - Usuário
                 </Button>
               </XGroup.Item>
             </XGroup>

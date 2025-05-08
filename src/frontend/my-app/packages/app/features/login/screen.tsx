@@ -15,9 +15,10 @@ export default function LoginPage() {
     }
 
     try {
-      const response = await fetch('/api/login', {
+      const response = await fetch('http://localhost:3001/api/login', {
         method: 'POST',
-        headers: { Authorization: 'Bearer xxxxxx', 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({ email, senha }),
       })
 
@@ -38,8 +39,6 @@ export default function LoginPage() {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
     >
-
-
       <View flexDirection="column" alignItems="center">
         <View
           width="100%"
@@ -70,7 +69,7 @@ export default function LoginPage() {
             mb="$3"
           />
 
-          <View display='flex' alignItems='start'>
+          <View display="flex" alignItems="start">
             <Paragraph
               color="$red10"
               ta="center"

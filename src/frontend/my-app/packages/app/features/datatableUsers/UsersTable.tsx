@@ -103,13 +103,12 @@ const columns = [
 
       const handleDelete = async () => {
         try {
-          const res = await fetch(`/api/users/${userId}/delete`, {
+          const res = await fetch(`http://localhost:3001/api/users/${userId}/delete`, {
             method: 'DELETE',
             headers: {
-              Authorization:
-                'Bearer xxxxxx',
               'Content-Type': 'application/json',
             },
+             credentials: 'include'
           })
 
           if (res.ok) {
@@ -282,10 +281,9 @@ export function SortableTable() {
   React.useEffect(() => {
     fetch('http://localhost:3001/api/users', {
       headers: {
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzQ2NjY1MzU2LCJleHAiOjE3NDY2Njg5NTZ9.1zJiD18Ntf75LNAZT5uBffG297nXTePzBtYOi8Fer1A',
         'Content-Type': 'application/json',
       },
+      credentials: 'include'
     })
       .then((res) => res.json())
       .then((data) => setData(data))
@@ -321,7 +319,7 @@ export function SortableTable() {
   const rowCounter = React.useRef(-1)
   rowCounter.current = -1
 
-  const CELL_WIDTH = '$15'
+  const CELL_WIDTH = '$17'
   const TABLE_WIDTH = getTokenValue(CELL_WIDTH) * columns.length
 
   const { sm } = isWeb ? useMedia() : { sm: true }

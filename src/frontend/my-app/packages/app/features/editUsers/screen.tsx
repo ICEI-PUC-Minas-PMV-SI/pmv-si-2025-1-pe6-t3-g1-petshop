@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { XStack, YStack, XGroup, Input, Button, H1, Paragraph, Text } from '@my/ui'
+import { XStack, YStack, Input, Button, H1, Paragraph } from '@my/ui'
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 
@@ -15,12 +15,12 @@ export default function UserEditPage() {
   const searchParams = useSearchParams()
   const userId = searchParams.get('id')
 
-  useEffect(() => {
+/*   useEffect(() => {
     if (!userId) return
 
     const fetchUser = async () => {
       try {
-        const res = await fetch(`/api/users/${userId}`)
+        const res = await fetch(`http://localhost:3001/api/users/${userId}`)
         const data = await res.json()
         setNome(data.nome)
         setEmail(data.email)
@@ -32,23 +32,19 @@ export default function UserEditPage() {
     }
 
     fetchUser()
-  }, [userId])
+  }, [userId]) */
 
   const handleEdit = async () => {
-    if (!nome || !email || !senha || !telefone) {
-      setErrorMessage('Por favor, preencha todos os campos.')
-      return
-    }
-
     try {
-      const response = await fetch(`/api/users/${userId}/update`, {
+      const response = await fetch(`http://localhost:3001/api/users/${userId}/update`, {
         method: 'PATCH',
-        headers: { Authorization: 'Bearer xxxxxx', 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({ nome, email, senha, telefone }),
       })
 
       if (response.ok) {
-        window.location.href = '/editUser?'
+        window.location.href = `/editUsers?id=${userId}`
       } else {
         setErrorMessage('Erro ao realizar cadastro. Tente novamente.')
       }
@@ -79,7 +75,7 @@ export default function UserEditPage() {
           </H1>
 
           <XStack space="$3" flexWrap="wrap">
-            <Input placeholder="Nome Completo" value={nome} onChangeText={setNome} flex={1} />
+            <Input placeholder="Novo nome" value={nome} onChangeText={setNome} flex={1} />
             <Input
               placeholder="E-mail"
               value={email}
@@ -92,7 +88,7 @@ export default function UserEditPage() {
 
           <XStack space="$3" flexWrap="wrap">
             <Input
-              placeholder="Telefone"
+              placeholder="Novo telefone"
               value={telefone}
               onChangeText={setTelefone}
               keyboardType="phone-pad"
@@ -100,7 +96,7 @@ export default function UserEditPage() {
               flex={1}
             />
             <Input
-              placeholder="Senha"
+              placeholder="Nova senha"
               value={senha}
               onChangeText={setSenha}
               secureTextEntry
@@ -120,7 +116,7 @@ export default function UserEditPage() {
           </YStack>
 
           <Button onPress={handleEdit} bg="$blue10" color="white">
-            Cadastrar
+            Confirmar edição
           </Button>
         </YStack>
       </YStack>
