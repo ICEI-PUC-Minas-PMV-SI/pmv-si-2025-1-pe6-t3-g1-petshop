@@ -15,6 +15,14 @@ const getUsers = async (req, res) => {
   }
 };
 
+const getUserById = async (req, res) => {
+  const user = await User.findByPk(req.params.id)
+  if (!user) return res.status(404).json({ error: 'Usuário não encontrado' })
+  const userData = user.get({ plain: true })
+  delete userData.senha_hash
+  res.json(userData)
+}
+
 const createUser = async (req, res) => {
   try {
     console.log(req.user)
@@ -222,4 +230,5 @@ module.exports = {
   deleteUser,
   editUser,
   editPassword,
+  getUserById
 };

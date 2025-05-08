@@ -5,7 +5,8 @@ const {
   getRoles,
   deleteUser,
   editUser,
-  editPassword
+  editPassword,
+  getUserById
 } = require("../controllers/userController");
 const router = express.Router();
 const tokenVerify = require("../middleware/tokenVerify")
@@ -19,6 +20,19 @@ const tokenVerify = require("../middleware/tokenVerify")
  *     responses:
  *       200:
  *         description: Lista de usuários retornada com sucesso.
+ *       500:
+ *         description: Erro interno do servidor.
+ */
+
+/**
+ * @swagger
+ * /users/{id}:
+ *   get:
+ *     summary: Retorna um usuário
+ *     tags: [Usuários]
+ *     responses:
+ *       200:
+ *         description: Informações do usuário retornadas com sucesso
  *       500:
  *         description: Erro interno do servidor.
  */
@@ -190,6 +204,7 @@ const tokenVerify = require("../middleware/tokenVerify")
  */
 
 router.get("/", tokenVerify, getUsers);
+router.get("/:id", tokenVerify, getUserById);
 router.post("/new-user", tokenVerify, createUser);
 router.patch("/:id/update", tokenVerify, editUser);
 router.delete("/:id/delete", tokenVerify, deleteUser);
