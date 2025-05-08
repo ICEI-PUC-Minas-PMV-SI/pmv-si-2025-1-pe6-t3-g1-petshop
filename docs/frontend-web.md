@@ -61,46 +61,44 @@ Node.js + npm – Ambiente e gerenciador de pacotes para instalação e execuç�
 
 A aplicação web foi projetada com diversas camadas de segurança para garantir a integridade dos dados, a proteção dos usuários e a resiliência contra ataques comuns em ambientes distribuídos. As principais considerações adotadas incluem:
 
-- Autenticação
-Implementação de autenticação segura baseada em tokens (JWT) ou sessões.
+- Autenticação: implementação de autenticação segura baseada em tokens (JWT) ou sessões; Senhas são armazenadas com hashing seguro (bcrypt ou Argon2), jamais em texto puro; Tempo de expiração configurável e renovação de tokens para minimizar riscos de sessões inativas.
 
-Senhas são armazenadas com hashing seguro (bcrypt ou Argon2), jamais em texto puro.
+- Autorização: controle de acesso baseado em papéis de usuário (roles), restringindo funcionalidades conforme permissões (ex: administrador, atendente);Validação de permissões em cada endpoint para evitar acesso não autorizado via requisições forjadas.
 
-Tempo de expiração configurável e renovação de tokens para minimizar riscos de sessões inativas.
+ - Proteção contra ataques comuns: Proteção contra CSRF (Cross-Site Request Forgery) usando tokens em formulários; Validação e sanitização de entradas para prevenir injeção de SQL/XSS; Uso de cabeçalhos de segurança (ex: Content-Security-Policy, X-Frame-Options, Strict-Transport-Security); Rate limiting e logging para detectar comportamentos anômalos e mitigar ataques de força bruta.
 
-- Autorização
-Controle de acesso baseado em papéis de usuário (roles), restringindo funcionalidades conforme permissões (ex: administrador, atendente).
+- Comunicação segura:toda comunicação entre cliente e servidor é feita via HTTPS, garantindo criptografia dos dados em trânsito; Autenticação em múltiplos fatores (MFA) pode ser integrada como camada adicional de segurança.
 
-Validação de permissões em cada endpoint para evitar acesso não autorizado via requisições forjadas.
-
- - Proteção contra ataques comuns
-Proteção contra CSRF (Cross-Site Request Forgery) usando tokens em formulários.
-
-Validação e sanitização de entradas para prevenir injeção de SQL/XSS.
-
-Uso de cabeçalhos de segurança (ex: Content-Security-Policy, X-Frame-Options, Strict-Transport-Security).
-
-Rate limiting e logging para detectar comportamentos anômalos e mitigar ataques de força bruta.
-
-- Comunicação segura
-Toda comunicação entre cliente e servidor é feita via HTTPS, garantindo criptografia dos dados em trânsito.
-
-Autenticação em múltiplos fatores (MFA) pode ser integrada como camada adicional de segurança.
-
- - Logs e monitoramento
-Registro de logs de autenticação, tentativas de login e alterações sensíveis.
-
-Monitoramento contínuo com alertas para atividades suspeitas e falhas de segurança.
+ - Logs e monitoramento:registro de logs de autenticação, tentativas de login e alterações sensíveis; Monitoramento contínuo com alertas para atividades suspeitas e falhas de segurança.
 
 ## Implantação
 
 [Instruções para implantar a aplicação distribuída em um ambiente de produção.]
 
-1. Defina os requisitos de hardware e software necessários para implantar a aplicação em um ambiente de produção.
-2. Escolha uma plataforma de hospedagem adequada, como um provedor de nuvem ou um servidor dedicado.
-3. Configure o ambiente de implantação, incluindo a instalação de dependências e configuração de variáveis de ambiente.
-4. Faça o deploy da aplicação no ambiente escolhido, seguindo as instruções específicas da plataforma de hospedagem.
-5. Realize testes para garantir que a aplicação esteja funcionando corretamente no ambiente de produção.
+A implantação da aplicação em ambiente de produção (onde o sistema estará rodando com dados reais do pet shop e sendo usado pelos funcionários) requer atenção a aspectos de infraestrutura, segurança, escalabilidade e monitoramento. Abaixo estão as etapas recomendadas para garantir uma implantação segura e eficiente:
+
+Hardware
+Servidor cloud VPS (como DigitalOcean, Render, AWS Lightsail):
+
+CPU: 2 núcleos
+
+RAM: 4 GB
+
+Armazenamento: 40 GB SSD
+
+Rede: conexão estável com IP público fixo (ou DNS dinâmico)
+
+Software
+
+Backend: Node.js ; Express.js. 
+
+Frontend:Next.js (React); Tamagui (para design UI cross-platform).
+
+Banco de Dados: PostgreSQL (recomendado pela robustez e compatibilidade com Node.js)
+
+Servidor Web / Proxy reverso: Nginx ou Apache
+
+Outros: PM2 (gerenciador de processos Node.js); Git (para deploy via pull); Certbot (para HTTPS com Let's Encrypt).
 
 ## Testes
 
