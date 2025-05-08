@@ -59,7 +59,38 @@ Node.js + npm – Ambiente e gerenciador de pacotes para instalação e execuç�
 
 ## Considerações de Segurança
 
-[Discuta as considerações de segurança relevantes para a aplicação distribuída, como autenticação, autorização, proteção contra ataques, etc.]
+A aplicação web foi projetada com diversas camadas de segurança para garantir a integridade dos dados, a proteção dos usuários e a resiliência contra ataques comuns em ambientes distribuídos. As principais considerações adotadas incluem:
+
+- Autenticação
+Implementação de autenticação segura baseada em tokens (JWT) ou sessões.
+
+Senhas são armazenadas com hashing seguro (bcrypt ou Argon2), jamais em texto puro.
+
+Tempo de expiração configurável e renovação de tokens para minimizar riscos de sessões inativas.
+
+- Autorização
+Controle de acesso baseado em papéis de usuário (roles), restringindo funcionalidades conforme permissões (ex: administrador, atendente).
+
+Validação de permissões em cada endpoint para evitar acesso não autorizado via requisições forjadas.
+
+ - Proteção contra ataques comuns
+Proteção contra CSRF (Cross-Site Request Forgery) usando tokens em formulários.
+
+Validação e sanitização de entradas para prevenir injeção de SQL/XSS.
+
+Uso de cabeçalhos de segurança (ex: Content-Security-Policy, X-Frame-Options, Strict-Transport-Security).
+
+Rate limiting e logging para detectar comportamentos anômalos e mitigar ataques de força bruta.
+
+- Comunicação segura
+Toda comunicação entre cliente e servidor é feita via HTTPS, garantindo criptografia dos dados em trânsito.
+
+Autenticação em múltiplos fatores (MFA) pode ser integrada como camada adicional de segurança.
+
+ - Logs e monitoramento
+Registro de logs de autenticação, tentativas de login e alterações sensíveis.
+
+Monitoramento contínuo com alertas para atividades suspeitas e falhas de segurança.
 
 ## Implantação
 
