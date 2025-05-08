@@ -13,7 +13,7 @@ export function DashboardScreen({ children }: { children: React.ReactNode }) {
     { key: 'services', label: 'Serviços', path: '/services' },
     { key: 'scheduling', label: 'Agendamentos', path: '/scheduling' },
     { key: 'pessoas', label: 'Pessoas', path: '/pessoas' },
-    { key: 'users', label: 'Usuários', path: '/cadastroUsers' },
+    { key: 'users', label: 'Usuários', path: '/users' },
   ]
 
   return (
@@ -43,7 +43,7 @@ export function DashboardScreen({ children }: { children: React.ReactNode }) {
 
           <Button size="$2" theme="active" onPress={() => router.push('/login')}>
             Logout
-          </Button>
+          </Button> 
         </XStack>
       </XStack>
       <XStack f={1} flex={1} height="100%">

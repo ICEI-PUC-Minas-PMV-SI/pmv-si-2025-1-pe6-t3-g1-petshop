@@ -84,15 +84,12 @@ const tokenVerify = require("../middleware/tokenVerify")
  *               email:
  *                 type: string
  *                 example: "joao@email.com"
- *               senha_hash:
+ *               senha:
  *                 type: string
  *                 example: "123456"
  *               telefone:
  *                  type: string
  *                  example: 999999999
- *               role_id:
- *                  type: integer
- *                  example: 2
  *     responses:
  *       201:
  *         description: Usuário editado com sucesso.

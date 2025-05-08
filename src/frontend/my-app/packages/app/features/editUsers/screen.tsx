@@ -2,36 +2,53 @@
 
 import { useState } from 'react'
 import { XStack, YStack, XGroup, Input, Button, H1, Paragraph, Text } from '@my/ui'
+import { useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 
-export default function UserRegisterPage() {
-  const [name, setName] = useState('')
+export default function UserEditPage() {
+  const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
   const [senha, setSenha] = useState('')
-  const [confirmSenha, setConfirmSenha] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
-  const [tipoUsuario, setTipoUsuario] = useState('2')
 
-  const handleRegister = async () => {
-    if (!name || !email || !senha || !telefone || !confirmSenha || !tipoUsuario) {
+  const searchParams = useSearchParams()
+  const userId = searchParams.get('id')
+
+  useEffect(() => {
+    if (!userId) return
+
+    const fetchUser = async () => {
+      try {
+        const res = await fetch(`/api/users/${userId}`)
+        const data = await res.json()
+        setNome(data.nome)
+        setEmail(data.email)
+        setTelefone(data.telefone)
+      } catch (err) {
+        console.error('Erro ao carregar usuário:', err)
+        setErrorMessage('Erro ao carregar dados do usuário.')
+      }
+    }
+
+    fetchUser()
+  }, [userId])
+
+  const handleEdit = async () => {
+    if (!nome || !email || !senha || !telefone) {
       setErrorMessage('Por favor, preencha todos os campos.')
       return
     }
 
-    if (senha !== confirmSenha) {
-      setErrorMessage('As senhas não coincidem.')
-      return
-    }
-
     try {
-      const response = await fetch('/api/users/new-user', {
-        method: 'POST',
+      const response = await fetch(`/api/users/${userId}/update`, {
+        method: 'PATCH',
         headers: { Authorization: 'Bearer xxxxxx', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, senha, telefone }),
+        body: JSON.stringify({ nome, email, senha, telefone }),
       })
 
       if (response.ok) {
-        window.location.href = '/cadastroUser'
+        window.location.href = '/editUser?'
       } else {
         setErrorMessage('Erro ao realizar cadastro. Tente novamente.')
       }
@@ -58,11 +75,11 @@ export default function UserRegisterPage() {
           shadowRadius="$2"
         >
           <H1 color="$blue10" ta="center">
-            Novo Usuário
+            Editar Usuário - id {userId}
           </H1>
 
           <XStack space="$3" flexWrap="wrap">
-            <Input placeholder="Nome Completo" value={name} onChangeText={setName} flex={1} />
+            <Input placeholder="Nome Completo" value={nome} onChangeText={setNome} flex={1} />
             <Input
               placeholder="E-mail"
               value={email}
@@ -89,42 +106,7 @@ export default function UserRegisterPage() {
               secureTextEntry
               flex={1}
             />
-            <Input
-              placeholder="Confirmar Senha"
-              value={confirmSenha}
-              onChangeText={setConfirmSenha}
-              secureTextEntry
-              flex={1}
-            />
           </XStack>
-
-          <YStack space="$2">
-            <Text color="white">Tipo de Usuário</Text>
-            <XGroup>
-              <XGroup.Item>
-                <Button
-                  onPress={() => setTipoUsuario('1')}
-                  backgroundColor={tipoUsuario === '1' ? '$blue10' : 'transparent'}
-                  color={tipoUsuario === '1' ? 'white' : '$blue10'}
-                  borderWidth={1}
-                  borderColor="$blue10"
-                >
-                  1 - Usuário
-                </Button>
-              </XGroup.Item>
-              <XGroup.Item>
-                <Button
-                  onPress={() => setTipoUsuario('2')}
-                  backgroundColor={tipoUsuario === '2' ? '$blue10' : 'transparent'}
-                  color={tipoUsuario === '2' ? 'white' : '$blue10'}
-                  borderWidth={1}
-                  borderColor="$blue10"
-                >
-                  2 - Administrador
-                </Button>
-              </XGroup.Item>
-            </XGroup>
-          </YStack>
 
           <YStack h={32} jc="center" ai="center">
             <Paragraph
@@ -137,7 +119,7 @@ export default function UserRegisterPage() {
             </Paragraph>
           </YStack>
 
-          <Button onPress={handleRegister} bg="$blue10" color="white">
+          <Button onPress={handleEdit} bg="$blue10" color="white">
             Cadastrar
           </Button>
         </YStack>
