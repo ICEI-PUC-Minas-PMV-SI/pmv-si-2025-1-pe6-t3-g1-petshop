@@ -46,3 +46,10 @@ thumbs.db
 
 # turbo build log
 **/.turbo/*
+
+.husky
+.vscode
+.github
+.devcontainer
+.codesandbox
+.yarn

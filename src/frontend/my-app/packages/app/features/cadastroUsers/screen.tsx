@@ -4,34 +4,35 @@ import { useState } from 'react'
 import { XStack, YStack, XGroup, Input, Button, H1, Paragraph, Text } from '@my/ui'
 
 export default function UserRegisterPage() {
-  const [name, setName] = useState('')
+  const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [senha, setSenha] = useState('')
+  const [confirmSenha, setConfirmSenha] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [tipoUsuario, setTipoUsuario] = useState('2')
 
   const handleRegister = async () => {
-    if (!name || !email || !password || !confirmPassword || !tipoUsuario) {
+    if (!nome || !email || !senha || !telefone || !confirmSenha || !tipoUsuario) {
       setErrorMessage('Por favor, preencha todos os campos.')
       return
     }
 
-    if (password !== confirmPassword) {
+    if (senha !== confirmSenha) {
       setErrorMessage('As senhas não coincidem.')
       return
     }
 
     try {
-      const response = await fetch('/x', {
+      const response = await fetch('http://localhost:3001/api/users/new-user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password }),
+        credentials: 'include',
+        body: JSON.stringify({ nome, email, senha, telefone, role_id: Number(tipoUsuario) }),
       })
 
       if (response.ok) {
-        window.location.href = '/cadastroUser'
+        window.location.href = '/cadastroUsers'
       } else {
         setErrorMessage('Erro ao realizar cadastro. Tente novamente.')
       }
@@ -62,7 +63,7 @@ export default function UserRegisterPage() {
           </H1>
 
           <XStack space="$3" flexWrap="wrap">
-            <Input placeholder="Nome Completo" value={name} onChangeText={setName} flex={1} />
+            <Input placeholder="Nome Completo" value={nome} onChangeText={setNome} flex={1} />
             <Input
               placeholder="E-mail"
               value={email}
@@ -84,15 +85,15 @@ export default function UserRegisterPage() {
             />
             <Input
               placeholder="Senha"
-              value={password}
-              onChangeText={setPassword}
+              value={senha}
+              onChangeText={setSenha}
               secureTextEntry
               flex={1}
             />
             <Input
               placeholder="Confirmar Senha"
-              value={confirmPassword}
-              onChangeText={setConfirmPassword}
+              value={confirmSenha}
+              onChangeText={setConfirmSenha}
               secureTextEntry
               flex={1}
             />
@@ -109,7 +110,7 @@ export default function UserRegisterPage() {
                   borderWidth={1}
                   borderColor="$blue10"
                 >
-                  1 - Usuário
+                  1 - Administrador
                 </Button>
               </XGroup.Item>
               <XGroup.Item>
@@ -120,7 +121,7 @@ export default function UserRegisterPage() {
                   borderWidth={1}
                   borderColor="$blue10"
                 >
-                  2 - Administrador
+                  2 - Usuário
                 </Button>
               </XGroup.Item>
             </XGroup>

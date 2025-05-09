@@ -1,7 +1,15 @@
 import { SortableTable } from '../datatableUsers/UsersTable'
-import { XStack, YStack, XGroup, Input, Button, H1, Paragraph, Text } from '@my/ui'
+import { View, YStack, Button, H1 } from '@my/ui'
+import { useRouter } from 'next/navigation'
 
 export default function Users() {
+
+  const router = useRouter()
+
+  const handleRedirectToNewUser = () => {
+    router.push('/cadastroUsers')
+  }
+
   return (
     <YStack
       f={1}
@@ -19,14 +27,13 @@ export default function Users() {
           shadowColor="#00000033"
           shadowRadius="$2"
         >
-          <XStack>
-            <H1 color="$blue10" ta="center">
+          <View flexDirection="row" justifyContent="space-between" alignItems="center" width="100%">
+            <H1 color="$blue10" ta="left">
               Usuários
             </H1>
-            <Button color="$blue10" ta="center">
-              Novo usuário
-            </Button>
-          </XStack>
+
+            <Button onPress={handleRedirectToNewUser} color="$blue10">Novo usuário</Button>
+          </View>
           <SortableTable />{' '}
         </YStack>
       </YStack>

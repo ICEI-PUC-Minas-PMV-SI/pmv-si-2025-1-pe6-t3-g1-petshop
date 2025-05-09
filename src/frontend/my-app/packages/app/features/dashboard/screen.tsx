@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { YStack, XStack, Text, Button, ScrollView, Avatar } from 'tamagui'
+import { useAuthCheck } from '../../hooks/useAuthCheck'
 
 export function DashboardScreen({ children }: { children: React.ReactNode }) {
   const [activeItem, setActiveItem] = useState('home')
@@ -13,8 +14,29 @@ export function DashboardScreen({ children }: { children: React.ReactNode }) {
     { key: 'services', label: 'Serviços', path: '/services' },
     { key: 'scheduling', label: 'Agendamentos', path: '/scheduling' },
     { key: 'pessoas', label: 'Pessoas', path: '/pessoas' },
-    { key: 'users', label: 'Usuários', path: '/cadastroUsers' },
+    { key: 'users', label: 'Usuários', path: '/users' },
   ]
+
+  useAuthCheck()
+
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/logout', {
+        method: 'POST',
+        credentials: 'include',
+      })
+
+      if (response.ok) {
+       router.push('/login')
+      } else {
+        alert('Erro ao fazer logout.')
+      }
+
+    } catch (error) {
+      console.error('Erro ao fazer logout:', error)
+      alert('Erro ao se desconectar. Tente novamente.')
+    }
+  }
 
   return (
     <YStack f={1} minHeight="100vh">
@@ -41,9 +63,9 @@ export function DashboardScreen({ children }: { children: React.ReactNode }) {
             <Avatar.Fallback bg="$blue5" />
           </Avatar>
 
-          <Button size="$2" theme="active" onPress={() => router.push('/login')}>
+          <Button size="$2" theme="active" onPress={handleLogout}>
             Logout
-          </Button>
+          </Button> 
         </XStack>
       </XStack>
       <XStack f={1} flex={1} height="100%">
