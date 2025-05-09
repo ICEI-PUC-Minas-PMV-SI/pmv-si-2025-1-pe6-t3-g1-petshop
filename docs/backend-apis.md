@@ -82,7 +82,7 @@ Para o desenvolvimento da API voltada à gestão de um petshop, foi adotado um c
 ### Criar um novo usuário no sistema
 
 - Método: POST
-- URL: `/users`
+- URL: `/users/new-user`
 - Parâmetros (body):
   - `nome`: Nome do usuário
   - `email`: E-mail válido

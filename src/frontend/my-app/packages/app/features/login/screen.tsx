@@ -1,25 +1,25 @@
 'use client'
 
 import { useState } from 'react'
-import { YStack, XStack, Input, Button, H1, Paragraph } from '@my/ui'
-import { FaHome } from 'react-icons/fa'
+import { View, Input, Button, H1, Paragraph } from '@my/ui'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [senha, setSenha] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
 
   const handleLogin = async () => {
-    if (!email || !password) {
+    if (!email || !senha) {
       setErrorMessage('Por favor, preencha todos os campos.')
       return
     }
 
     try {
-      const response = await fetch('/api/login', {
+      const response = await fetch('http://localhost:3001/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        credentials: 'include',
+        body: JSON.stringify({ email, senha }),
       })
 
       if (response.ok) {
@@ -33,29 +33,17 @@ export default function LoginPage() {
   }
 
   return (
-    <YStack
-      minHeight="20vh"
-      f={1}
+    <View
       bg="linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(240, 248, 255, 0.6), rgba(91, 155, 213, 0.5)), url('image.jpg')"
       backgroundSize="cover"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
     >
-      <XStack
-        h={40}
-        jc="flex-start"
-        ai="center"
-        px="$4"
-        bg="rgba(0,0,0,0.5)"
-      >
-      </XStack>
-
-      <YStack f={1} jc="center" ai="center" p="$4">
-        <YStack
-          w="90%"
+      <View flexDirection="column" alignItems="center">
+        <View
+          width="100%"
           maxWidth={400}
           space="$4"
-          bg="rgba(0,0,0,0.7)"
           p="$4"
           borderRadius="$4"
           shadowColor="#00000033"
@@ -75,13 +63,13 @@ export default function LoginPage() {
           />
           <Input
             placeholder="Senha"
-            value={password}
-            onChangeText={setPassword}
+            value={senha}
+            onChangeText={setSenha}
             secureTextEntry
             mb="$3"
           />
 
-          <YStack h={32} jc="center" ai="center" mb="$3">
+          <View display="flex" alignItems="start">
             <Paragraph
               color="$red10"
               ta="center"
@@ -90,13 +78,13 @@ export default function LoginPage() {
             >
               {errorMessage}
             </Paragraph>
-          </YStack>
+          </View>
 
           <Button onPress={handleLogin} bg="$blue10" color="white">
             Entrar
           </Button>
-        </YStack>
-      </YStack>
-    </YStack>
+        </View>
+      </View>
+    </View>
   )
 }
