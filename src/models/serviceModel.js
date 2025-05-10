@@ -7,15 +7,9 @@ const Service = sequelize.define(
   "Service",
   {
     id: {
-<<<<<<< HEAD
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      primaryKey: true,
-=======
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
->>>>>>> 101cd35693b34708b56f4b50303526e50490d03c
     },
     titulo: { 
       type: DataTypes.STRING,
@@ -34,11 +28,7 @@ const Service = sequelize.define(
       defaultValue: DataTypes.NOW,
     },
     profissional_id: {
-<<<<<<< HEAD
-      type: DataTypes.UUID,
-=======
       type: DataTypes.INTEGER,
->>>>>>> 101cd35693b34708b56f4b50303526e50490d03c
       references: {
         model: Profissional,
         key: 'id',

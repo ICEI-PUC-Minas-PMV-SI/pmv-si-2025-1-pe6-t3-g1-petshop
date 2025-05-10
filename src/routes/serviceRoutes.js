@@ -2,10 +2,7 @@
 const express = require("express");
 const { getServices, createService, updateService, deleteService } = require("../controllers/serviceController");
 const router = express.Router();
-<<<<<<< HEAD
-=======
 const tokenVerify = require("../middleware/tokenVerify")
->>>>>>> 101cd35693b34708b56f4b50303526e50490d03c
 
 /**
  * @swagger
@@ -19,11 +16,7 @@ const tokenVerify = require("../middleware/tokenVerify")
  *       500:
  *         description: Erro interno do servidor.
  */
-<<<<<<< HEAD
-router.get("/", getServices);
-=======
 router.get("/", tokenVerify, getServices);
->>>>>>> 101cd35693b34708b56f4b50303526e50490d03c
 
 /**
  * @swagger
@@ -46,22 +39,14 @@ router.get("/", tokenVerify, getServices);
  *                 type: number
  *               profissional_id:
  *                 type: string
-<<<<<<< HEAD
- *                 example: "uuid-do-profissional"
-=======
  *                 example: 1
->>>>>>> 101cd35693b34708b56f4b50303526e50490d03c
  *     responses:
  *       201:
  *         description: Serviço criado com sucesso.
  *       500:
  *         description: Erro ao criar serviço.
  */
-<<<<<<< HEAD
-router.post("/", createService);
-=======
 router.post("/", tokenVerify, createService);
->>>>>>> 101cd35693b34708b56f4b50303526e50490d03c
 
 /**
  * @swagger
@@ -99,11 +84,7 @@ router.post("/", tokenVerify, createService);
  *       500:
  *         description: Erro ao atualizar serviço.
  */
-<<<<<<< HEAD
-router.put("/:id", updateService);
-=======
 router.put("/:id", tokenVerify, updateService);
->>>>>>> 101cd35693b34708b56f4b50303526e50490d03c
 
 /**
  * @swagger
@@ -126,10 +107,6 @@ router.put("/:id", tokenVerify, updateService);
  *       500:
  *         description: Erro ao deletar serviço.
  */
-<<<<<<< HEAD
-router.delete("/:id", deleteService);
-=======
 router.delete("/:id", tokenVerify, deleteService);
->>>>>>> 101cd35693b34708b56f4b50303526e50490d03c
 
 module.exports = router;

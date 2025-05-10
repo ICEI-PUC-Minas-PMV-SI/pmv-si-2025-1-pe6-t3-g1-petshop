@@ -2,10 +2,7 @@
 const express = require('express');
 const { getProfissionais, createProfissional } = require('../controllers/profissionalController');
 const router = express.Router();
-<<<<<<< HEAD
-=======
 const tokenVerify = require("../middleware/tokenVerify")
->>>>>>> 101cd35693b34708b56f4b50303526e50490d03c
 
 /**
  * @swagger
@@ -22,11 +19,7 @@ const tokenVerify = require("../middleware/tokenVerify")
 
 /**
  * @swagger
-<<<<<<< HEAD
- * /profissionais:
-=======
  * /profissionais/create-new:
->>>>>>> 101cd35693b34708b56f4b50303526e50490d03c
  *   post:
  *     summary: Cria um novo profissional
  *     tags: [Profissionais]
@@ -50,12 +43,7 @@ const tokenVerify = require("../middleware/tokenVerify")
  *         description: Erro ao criar profissional.
  */
 
-<<<<<<< HEAD
-router.get("/", getProfissionais);
-router.post("/", createProfissional);
-=======
 router.get("/", tokenVerify, getProfissionais);
 router.post("/create-new", tokenVerify, createProfissional);
->>>>>>> 101cd35693b34708b56f4b50303526e50490d03c
 
 module.exports = router;
