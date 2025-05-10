@@ -2,7 +2,7 @@ const Pet = require("../models/petModel");
 
 const getPets = async (req, res) => {
   try {
-    const pets = await Pet.findAll()();
+    const pets = await Pet.findAll();
     res.status(200).json(pets);
   } catch (error) {
     res.status(500).json({ error: "Erro ao buscar pets" });

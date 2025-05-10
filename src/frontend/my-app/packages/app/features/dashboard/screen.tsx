@@ -10,7 +10,7 @@ export function DashboardScreen({ children }: { children: React.ReactNode }) {
   const router = useRouter()
 
   const menuItems = [
-    { key: 'pets', label: 'Pets', path: '/pets' },
+    { key: 'pets', label: 'Pets', path: '/petCrud' },
     { key: 'services', label: 'Serviços', path: '/services' },
     { key: 'scheduling', label: 'Agendamentos', path: '/scheduling' },
     { key: 'pessoas', label: 'Pessoas', path: '/pessoas' },
