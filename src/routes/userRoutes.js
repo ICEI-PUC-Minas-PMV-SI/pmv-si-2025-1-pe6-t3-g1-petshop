@@ -30,6 +30,10 @@ const tokenVerify = require("../middleware/tokenVerify")
  *   get:
  *     summary: Retorna um usuário
  *     tags: [Usuários]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
  *     responses:
  *       200:
  *         description: Informações do usuário retornadas com sucesso
@@ -204,7 +208,7 @@ const tokenVerify = require("../middleware/tokenVerify")
  */
 
 router.get("/", tokenVerify, getUsers);
-router.get("/:id", tokenVerify, getUserById);
+router.get("/:id",  getUserById);
 router.post("/new-user", tokenVerify, createUser);
 router.patch("/:id/update", tokenVerify, editUser);
 router.delete("/:id/delete", tokenVerify, deleteUser);

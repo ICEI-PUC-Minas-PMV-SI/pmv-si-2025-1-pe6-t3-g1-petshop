@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { XStack, YStack, Input, Button, H1, Paragraph } from '@my/ui'
+import { XStack, YStack, Input, Button, H1, Paragraph, Spinner } from '@my/ui'
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 
@@ -11,11 +11,12 @@ export default function UserEditPage() {
   const [telefone, setTelefone] = useState('')
   const [senha, setSenha] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
+  const [loading, setLoading] = useState(true)
 
   const searchParams = useSearchParams()
   const userId = searchParams.get('id')
 
-/*   useEffect(() => {
+  useEffect(() => {
     if (!userId) return
 
     const fetchUser = async () => {
@@ -28,11 +29,13 @@ export default function UserEditPage() {
       } catch (err) {
         console.error('Erro ao carregar usuário:', err)
         setErrorMessage('Erro ao carregar dados do usuário.')
+      } finally {
+        setLoading(false)
       }
     }
 
     fetchUser()
-  }, [userId]) */
+  }, [userId])
 
   const handleEdit = async () => {
     try {
@@ -52,6 +55,8 @@ export default function UserEditPage() {
       setErrorMessage('Erro ao tentar realizar cadastro. Tente novamente mais tarde.')
     }
   }
+
+  if (loading) return <Spinner />
 
   return (
     <YStack
