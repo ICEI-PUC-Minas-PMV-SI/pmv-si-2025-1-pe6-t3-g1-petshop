@@ -6,12 +6,12 @@ const UserSession = sequelize.define(
   "UserSession",
   {
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
     user_id: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: User,
@@ -23,23 +23,20 @@ const UserSession = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    created_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
     expires_at: {
       type: DataTypes.DATE,
       allowNull: false,
-    },
+    }
   },
   {
     tableName: "user_sessions",
-    timestamps: false,
+    timestamps: true,
+    createdAt: "created_at"
   }
 );
 
 UserSession.prototype.validarSessao = function () {
-  return new Date() < this.expires_at;
+  return new Date() < new Date(this.expires_at);
 };
 
 module.exports = UserSession;

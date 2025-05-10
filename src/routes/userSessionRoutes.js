@@ -1,6 +1,7 @@
 const express = require("express");
-const { loginUser, logoutUser } = require("../controllers/userSessionController");
+const { loginUser, logoutUser, getMe } = require("../controllers/userSessionController");
 const router = express.Router();
+const tokenVerify = require("../middleware/tokenVerify")
 
 /**
  * @swagger
@@ -61,8 +62,26 @@ const router = express.Router();
  *         description: Erro interno do servidor
  */
 
+/**
+ * @swagger
+ * /me:
+ *   get:
+ *     summary: Checa o token
+ *     description: Checa o token
+ *     tags:
+ *       - Autenticação
+ *     responses:
+ *       200:
+ *         description: Token válido
+ *       401:
+ *         description: Usuário não autenticado
+ *       500:
+ *         description: Erro interno do servidor
+ */
+
 router.post("/login", loginUser);
-router.post("/logout", logoutUser);
+router.post("/logout", tokenVerify, logoutUser);
+router.get('/me', tokenVerify, getMe)
 
 
 module.exports = router;

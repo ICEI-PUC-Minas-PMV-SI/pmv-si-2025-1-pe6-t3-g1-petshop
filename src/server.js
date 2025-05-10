@@ -1,4 +1,5 @@
 const app = require("./app");
+require('./utils/tokenCleaner')
 
 const PORT = process.env.PORT || 3001;
 
