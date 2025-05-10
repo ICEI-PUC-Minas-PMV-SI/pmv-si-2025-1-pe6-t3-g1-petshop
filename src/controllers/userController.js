@@ -25,7 +25,6 @@ const getUserById = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    console.log(req.user)
     const adminId = req.user.id;
     const isAdmin = await UserRole.findOne({
       where: { user_id: adminId, role_id: 1 },
