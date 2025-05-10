@@ -17,7 +17,7 @@ export function DashboardScreen({ children }: { children: React.ReactNode }) {
     { key: 'users', label: 'Usuários', path: '/users' },
   ]
 
-  //useAuthCheck()
+  useAuthCheck()
 
   const handleLogout = async () => {
     try {

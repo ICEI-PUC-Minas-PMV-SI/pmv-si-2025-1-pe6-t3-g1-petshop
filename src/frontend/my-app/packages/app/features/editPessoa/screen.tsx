@@ -1,10 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { XStack, YStack, XGroup, Input, Button, H1, Paragraph, Text } from '@my/ui'
+import { XStack, YStack, XGroup, Input, Button, H1, Paragraph, Spinner } from '@my/ui'
+import { useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 
-export default function NovaPessoaPage() {
-  const [nome, setName] = useState('')
+export default function UserEditPage() {
+  const [nome, setNome] = useState('')
   const [cpf_cnpj, setTaxId] = useState('')
   const [tipo, setTipo] = useState('F')
   const [nascimento, setNascimento] = useState('')
@@ -21,24 +23,55 @@ export default function NovaPessoaPage() {
   const [cep, setCep] = useState('')
 
   const [errorMessage, setErrorMessage] = useState('')
+  const [loading, setLoading] = useState(true)
 
-  const handleRegister = async () => {
-    if (!nome || !cpf_cnpj || !tipo || !telefone || !tipo) {
-      setErrorMessage('Por favor, preencha todos os campos.')
-      return
+  const searchParams = useSearchParams()
+  const pessoaId = searchParams.get('id')
+
+   useEffect(() => {
+    if (!pessoaId) return
+
+    const fetchUser = async () => {
+      try {
+        const res = await fetch(`http://localhost:3001/api/pessoas/${pessoaId}`,{credentials: 'include'})
+        const data = await res.json()
+        setNome(data.nome)
+        setTaxId(data.cpf_cnpj)
+        setTipo(data.tipo)
+        setNascimento(data.nascimento)
+        setGenero(data.genero)
+        setPhone(data.telefone)
+        setEmail(data.email)
+        setEndereco(data.endereco)
+        setEndNum(data.endereco_num)
+        setEndComp(data.endereco_comp)
+        setEndBairro(data.endereco_bairro)
+        setCidade(data.cidade)
+        setEstado(data.estado)
+        setPais(data.pais)
+        setCep(data.cep)
+      } catch (err) {
+        console.error('Erro ao carregar usuário:', err)
+        setErrorMessage('Erro ao carregar dados do usuário.')
+      }finally {
+        setLoading(false)
+      }
     }
 
+    fetchUser()
+  }, [pessoaId]) 
+
+  const handleEdit = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/pessoas', {
-        method: 'POST',
+      const response = await fetch(`http://localhost:3001/api/pessoas/${pessoaId}`, {
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify({ nome, cpf_cnpj, tipo, nascimento, genero,telefone,email,endereco,endereco_num, endereco_comp,endereco_bairro, cidade,estado,pais,cep }),
       })
-      
 
       if (response.ok) {
-        window.location.href = '/cadastroPessoa'
+        window.location.href = `/editPessoa?id=${pessoaId}`
       } else {
         setErrorMessage('Erro ao realizar cadastro. Tente novamente.')
       }
@@ -46,6 +79,8 @@ export default function NovaPessoaPage() {
       setErrorMessage('Erro ao tentar realizar cadastro. Tente novamente mais tarde.')
     }
   }
+
+  
 
   return (
     <YStack
@@ -65,11 +100,11 @@ export default function NovaPessoaPage() {
           shadowRadius="$2"
         >
           <H1 color="$blue10" ta="center">
-            Novo Pesoa
+            Editar Pessoa: {pessoaId}
           </H1>
 
           <XStack space="$3" flexWrap="wrap">
-            <Input placeholder="Nome Completo" value={nome} onChangeText={setName} flex={1} />
+            <Input placeholder="Nome Completo" value={nome} onChangeText={setNome} flex={1} />
             <Input
               placeholder="CPF/CNPJ"
               value={cpf_cnpj}
@@ -217,7 +252,6 @@ export default function NovaPessoaPage() {
               autoCapitalize="none"
               flex={1}
             />
-
           </XStack>
 
           <YStack h={32} jc="center" ai="center">
@@ -231,8 +265,8 @@ export default function NovaPessoaPage() {
             </Paragraph>
           </YStack>
 
-          <Button onPress={handleRegister} bg="$blue10" color="white">
-            Cadastrar
+          <Button onPress={handleEdit} bg="$green10" color="white">
+            Salvar
           </Button>
         </YStack>
       </YStack>

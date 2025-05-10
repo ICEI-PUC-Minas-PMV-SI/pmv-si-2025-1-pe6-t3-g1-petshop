@@ -45,7 +45,7 @@ export function SortableTable() {
   const router = useRouter()
 
   React.useEffect(() => {
-    fetch('http://localhost:3001/api/users', {
+    fetch('http://localhost:3001/api/pessoas', {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -57,21 +57,8 @@ export function SortableTable() {
   }, [])
 
   const columns = [
-    columnHelper.accessor('avatar', {
-      cell: (info) => {
-        const src = info.getValue()
-        const fallbackSrc = 'https://cdn-icons-png.flaticon.com/512/9131/9131529.png'
-        return (
-          <Avatar circular size="$3">
-            <Avatar.Image accessibilityLabel="Profile image" src={src || fallbackSrc} />
-            <Avatar.Fallback backgroundColor="$blue10" />
-          </Avatar>
-        )
-      },
-      header: () => 'Avatar',
-      footer: (info) => info.column.id,
-    }),
-    ...['nome', 'email', 'telefone', 'created_at', 'updated_at'].map((field) =>
+
+    ...['nome', 'cpf_cnpj', 'tipo', 'nascimento', 'genero','telefone', 'email', 'endereco', 'created_at', 'updated_at'].map((field) =>
       columnHelper.accessor(field, {
         cell: (info) => {
           const value = field.includes('at')
@@ -100,10 +87,10 @@ export function SortableTable() {
         const row = info.row.original
         const userId = row.id
 
-        const handleEdit = () => router.push(`/editUsers?id=${userId}`)
+        const handleEdit = () => router.push(`/editPessoa?id=${userId}`)
         const handleDelete = async () => {
           try {
-            const res = await fetch(`http://localhost:3001/api/users/${userId}/delete`, {
+            const res = await fetch(`http://localhost:3001/api/pessoas/${userId}`, {
               method: 'DELETE',
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include',
