@@ -1,5 +1,5 @@
 const express = require("express");
-const { createSchedule, editSchedule, deleteSchedule, getSchedule } = require("../controllers/schedulingController");
+const { createSchedule, editSchedule, deleteSchedule, getAllSchedules, getScheduleById } = require("../controllers/schedulingController");
 const router = express.Router();
 const tokenVerify = require("../middleware/tokenVerify")
 
@@ -117,12 +117,24 @@ const tokenVerify = require("../middleware/tokenVerify")
  *       500:
  *         description: Erro ao buscar agendamento.
  */
+/**
+ * @swagger
+ * /schedule/get:
+ *   get:
+ *     summary: Procura por todos os agendamentos
+ *     tags: [Agendamentos]
+ *     responses:
+ *       201:
+ *         description: Agendamentos.
+ *       500:
+ *         description: Erro ao buscar agendamentos.
+ */
 
 
 router.post("/schedule/create", createSchedule);
 router.patch("/schedule/update/:id", editSchedule);
 router.delete("/schedule/delete/:id", deleteSchedule);
-router.get("/schedule/get/:id", getSchedule);
-
+router.get("/schedule/get/:id", getScheduleById);
+router.get("/schedule/get", getAllSchedules);
 
 module.exports = router;

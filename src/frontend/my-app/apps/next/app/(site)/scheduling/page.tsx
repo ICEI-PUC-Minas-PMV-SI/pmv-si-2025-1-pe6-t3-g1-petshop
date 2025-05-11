@@ -1,7 +1,7 @@
 'use client'
 
-import SchedulingScreen from 'app/features/scheduling/screen'
+import Schedulings from 'app/features/schedulings/screen'
 
 export default function Page() {
-  return <SchedulingScreen />
+  return <Schedulings />
 }

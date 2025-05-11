@@ -25,7 +25,7 @@ const getUserById = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    console.log(req.user)
+    /*console.log(req.user)
     const adminId = req.user.id;
     const isAdmin = await UserRole.findOne({
       where: { user_id: adminId, role_id: 1 },
@@ -34,7 +34,7 @@ const createUser = async (req, res) => {
       return res
         .status(403)
         .json({ error: "Apenas administradores podem criar usuários" });
-    }
+    }*/
 
     const { nome, email, senha, telefone, role_id } = req.body;
 
