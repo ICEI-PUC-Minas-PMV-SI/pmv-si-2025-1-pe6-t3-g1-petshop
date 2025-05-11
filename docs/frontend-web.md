@@ -123,9 +123,9 @@ CT-001: Atualizar as informações de um pet com dados válidos
   2. Procure o pet que deseja editar e clique no botão editar deste.
   3. Preencha os campos que deseja editar e clique em atualizar pet.
 - Resultado esperado: Os dados enviados são atualizados e as novas informações já aparecem na lista.
-[](img/PET_EDIT.png)
-[](img/PET_EDIT2.png)
-[](img/PET_EDIT3.png)
+![dasdas](img/PET_EDIT.png)
+![sadas](img/PET_EDIT2.png)
+![asdsad](img/PET_EDIT3.png)
 
 
 Não Funcionais: Testar desempenho sob carga, usabilidade e segurança.
