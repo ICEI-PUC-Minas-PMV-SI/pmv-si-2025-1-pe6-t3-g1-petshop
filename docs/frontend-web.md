@@ -111,6 +111,19 @@ Servidor Web / Proxy reverso: Nginx ou Apache
 1. Casos de Teste
 Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consultas e pesquisa de produtos/serviços.
 
+# Plano de Testes de Software
+
+## Requisitos Funcionais
+
+[RF-001](./contexto.md#rf-001): Permitir que o usuário ou administrador edite um pet
+CT-001: Atualizar as informações de um pet com dados válidos
+- Pré condições: O pet já deve existir no sistema.
+- Passos:
+  1. Logue no sistema, clique em pets na coluna lateral da esquerda.
+  2. Procure o pet que deseja editar e clique no botão editar deste.
+  3. Preencha os campos que deseja editar e clique em atualizar pet.
+- Resultado esperado: Os dados enviados são atualizados e as novas informações já aparecem na lista.
+
 Não Funcionais: Testar desempenho sob carga, usabilidade e segurança.
 
 2. Testes Unitários
