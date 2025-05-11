@@ -23,7 +23,7 @@ export default function NovaPessoaPage() {
   const [errorMessage, setErrorMessage] = useState('')
 
   const handleRegister = async () => {
-    if (!nome || !cpf_cnpj || !tipo || !telefone || !tipo) {
+    if (!nome || !cpf_cnpj || !tipo || !telefone || !tipo ||!genero) {
       setErrorMessage('Por favor, preencha todos os campos.')
       return
     }
@@ -65,7 +65,7 @@ export default function NovaPessoaPage() {
           shadowRadius="$2"
         >
           <H1 color="$blue10" ta="center">
-            Novo Pesoa
+            Nova Pesoa
           </H1>
 
           <XStack space="$3" flexWrap="wrap">

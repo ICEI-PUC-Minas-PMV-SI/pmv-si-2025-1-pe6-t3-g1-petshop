@@ -64,13 +64,13 @@ export function SortableTable() {
           const value = field.includes('at')
             ? new Date(info.getValue()).toLocaleDateString()
             : info.getValue()
-          const userId = info.row.original.id
+          const pessoaId = info.row.original.id
           return (
             <Text
               fontSize="$4"
               color="$blue10"
               style={{ cursor: 'pointer', textDecorationLine: 'underline' }}
-              onPress={() => router.push(`/user?id=${userId}`)}
+              onPress={() => router.push(`/pessoa?id=${pessoaId}`)}
             >
               {value}
             </Text>
@@ -85,12 +85,12 @@ export function SortableTable() {
       header: () => 'Ações',
       cell: (info) => {
         const row = info.row.original
-        const userId = row.id
+        const pessoaId = row.id
 
-        const handleEdit = () => router.push(`/editPessoa?id=${userId}`)
+        const handleEdit = () => router.push(`/editPessoa?id=${pessoaId}`)
         const handleDelete = async () => {
           try {
-            const res = await fetch(`http://localhost:3001/api/pessoas/${userId}`, {
+            const res = await fetch(`http://localhost:3001/api/pessoas/${pessoaId}`, {
               method: 'DELETE',
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include',
