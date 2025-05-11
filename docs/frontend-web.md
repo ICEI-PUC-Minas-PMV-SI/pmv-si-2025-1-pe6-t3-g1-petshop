@@ -1,10 +1,10 @@
 # Front-end Web
 
-O projeto tem como objetivo fornecer uma interface web intuitiva, acessível e responsiva para a gestão de um pet shop. Através do front-end, os usuários poderão realizar opera;oes com consulta e cadastro de pets, clientes, serviços e agendamentos, além de visualizar relatórios, acompanhar o estoque e efetuar a gestão de pagamentos. O design e a usabilidade foram pensados para otimizar o fluxo de trabalho, facilitar o acesso às informações e garantir uma experiência agradável e segura aos usuários.
+O projeto tem como objetivo fornecer uma interface web intuitiva, acessível e responsiva para a gestão de um pet shop. Através do front-end, os usuários poderão realizar operações com consulta e cadastro de usuários pets, clientes e agendamentos. O design e a usabilidade foram pensados para otimizar o fluxo de trabalho, facilitar o acesso às informações e garantir uma experiência agradável e segura aos usuários.
 
 ## Projeto da Interface Web
 
-A interface web foi desenvolvida com foco na usabilidade e na eficiência operacional dos colaboradores do pet shop. O layout é dividido em áreas de navegação lateral (menu), cabeçalho com atalhos e áreas centrais para exibição de conteúdo dinâmico. O sistema conta com páginas específicas para cada entidade (Usuários, Pets, Serviços, Agendamentos, Vendas, Estoque), com formulários claros, listagens com filtros e ações rápidas como editar e excluir. As interações do usuário são otimizadas para minimizar o número de cliques e maximizar a produtividade. Alertas visuais e mensagens de confirmação ajudam a guiar o usuário em suas ações.
+A interface web foi desenvolvida com foco na usabilidade e na eficiência operacional dos colaboradores do pet shop. O layout é dividido em áreas de navegação lateral (menu), cabeçalho com atalhos e áreas centrais para exibição de conteúdo dinâmico. O sistema conta com páginas específicas para cada entidade (Usuários, Pets, Agendamentos, Pessoas), com formulários claros, listagens com filtros e ações rápidas como adicionar, editar e excluir. As interações do usuário são otimizadas para minimizar o número de cliques e maximizar a produtividade.
 
 [Descreva o projeto da interface Web da aplicação, incluindo o design visual, layout das páginas, interações do usuário e outros aspectos relevantes.]
 
@@ -22,7 +22,7 @@ O fluxo de dados da aplicação web do pet shop segue uma arquitetura baseada em
 Interação do Usuário (Frontend)
 
 
-O usuário interage com a interface web por meio de formulários, botões e menus. Essas ações geram requisições (via HTTP/HTTPS) ao servidor, utilizando métodos REST (GET, POST, PUT, DELETE).
+O usuário interage com a interface web por meio de formulários, botões e menus. Essas ações geram requisições (via HTTP/HTTPS) ao servidor, utilizando métodos REST (GET, POST, PATCH, PUT, DELETE).
 
 
 Requisição ao Servidor (Backend)
@@ -41,7 +41,6 @@ Após o processamento, o serviço se comunica com o repositório ou camada de ac
 
 Resposta ao Usuário
 
-
 O servidor envia uma resposta com o resultado da operação (sucesso, erro ou dados solicitados). A interface web exibe a informação ao usuário com mensagens de sucesso, erro ou atualização visual da tela.
 
 ![Fluxograma](https://github.com/user-attachments/assets/171c66fa-4d79-43d2-a543-0ab31e9e69da)
@@ -53,9 +52,9 @@ Next.js – Framework React para desenvolvimento web moderno, com suporte a SSR 
 
 Tamagui – Biblioteca de UI unificada para React Native e Web, que oferece componentes estilizados com performance e acessibilidade, ideal para construção de interfaces responsivas e consistentes.
 
-JavaScript – Linguagem de programação utilizada para o desenvolvimento de toda a lógica do projeto.
+JavaScript e TypeScript – Linguagem de programação utilizada para o desenvolvimento de toda a lógica do projeto.
 
-Node.js + npm – Ambiente e gerenciador de pacotes para instalação e execução das dependências.
+Node.js + npm + yarn – Ambiente e gerenciadores de pacotes para instalação e execução das dependências.
 
 ## Considerações de Segurança
 
@@ -63,13 +62,11 @@ A aplicação web foi projetada com diversas camadas de segurança para garantir
 
 - Autenticação: implementação de autenticação segura baseada em tokens (JWT) ou sessões; Senhas são armazenadas com hashing seguro (bcrypt ou Argon2), jamais em texto puro; Tempo de expiração configurável e renovação de tokens para minimizar riscos de sessões inativas.
 
-- Autorização: controle de acesso baseado em papéis de usuário (roles), restringindo funcionalidades conforme permissões (ex: administrador, atendente);Validação de permissões em cada endpoint para evitar acesso não autorizado via requisições forjadas.
+- Autorização: controle de acesso baseado em papéis de usuário (roles), restringindo funcionalidades conforme permissões (ex: administrador, usuário); Validação de permissões em cada endpoint para evitar acesso não autorizado via requisições forjadas.
 
  - Proteção contra ataques comuns: Proteção contra CSRF (Cross-Site Request Forgery) usando tokens em formulários; Validação e sanitização de entradas para prevenir injeção de SQL/XSS; Uso de cabeçalhos de segurança (ex: Content-Security-Policy, X-Frame-Options, Strict-Transport-Security); Rate limiting e logging para detectar comportamentos anômalos e mitigar ataques de força bruta.
 
-- Comunicação segura:toda comunicação entre cliente e servidor é feita via HTTPS, garantindo criptografia dos dados em trânsito; Autenticação em múltiplos fatores (MFA) pode ser integrada como camada adicional de segurança.
-
- - Logs e monitoramento:registro de logs de autenticação, tentativas de login e alterações sensíveis; Monitoramento contínuo com alertas para atividades suspeitas e falhas de segurança.
+- Comunicação segura:toda comunicação entre cliente e servidor é feita via HTTPS, garantindo criptografia dos dados em trânsito;
 
 ## Implantação
 
@@ -77,28 +74,38 @@ A aplicação web foi projetada com diversas camadas de segurança para garantir
 
 A implantação da aplicação em ambiente de produção (onde o sistema estará rodando com dados reais do pet shop e sendo usado pelos funcionários) requer atenção a aspectos de infraestrutura, segurança, escalabilidade e monitoramento. Abaixo estão as etapas recomendadas para garantir uma implantação segura e eficiente:
 
-Hardware
-Servidor cloud VPS (como DigitalOcean, Render, AWS Lightsail):
+Hardware Backend / Frontend
+Servidor Cloud na máquina virtual Ubuntu
 
 CPU: 2 núcleos
 
 RAM: 4 GB
 
-Armazenamento: 40 GB SSD
+Armazenamento: 10 GB SSD
 
-Rede: conexão estável com IP público fixo (ou DNS dinâmico)
+Rede: conexão estável com IP público fixo
+
+Hardware Banco de dados
+
+Servidor Cloud na máquina virtual Debian
+
+CPU: 1 núcleos
+
+RAM: 2 GB
+
+Armazenamento: 10 GB SSD
+
+Rede: conexão estável com IP público fixo
 
 Software
 
 Backend: Node.js ; Express.js. 
 
-Frontend:Next.js (React); Tamagui (para design UI cross-platform).
+Frontend: Next.js (React) com TypeScript; Tamagui (para design UI cross-platform); 
 
 Banco de Dados: PostgreSQL (recomendado pela robustez e compatibilidade com Node.js)
 
 Servidor Web / Proxy reverso: Nginx ou Apache
-
-Outros: PM2 (gerenciador de processos Node.js); Git (para deploy via pull); Certbot (para HTTPS com Let's Encrypt).
 
 ## Testes
 1. Casos de Teste
