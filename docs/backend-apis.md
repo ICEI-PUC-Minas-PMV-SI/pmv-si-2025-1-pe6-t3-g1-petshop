@@ -830,6 +830,107 @@ Para o desenvolvimento da API voltada à gestão de um petshop, foi adotado um c
 
     ---
 
+### Criar um novo agendamento
+- Método: POST
+- URL: api/schedule/create
+- Parâmetros:
+  - param1: [descrição]
+- Resposta:
+  - Sucesso (200 OK)
+    ```json
+    {
+      "message": "Agendado com sucesso",
+      "schedule": {
+        "id": 5,
+        "pessoa": "Renato Vasconcelos",
+        "profissional": "Guilherme Augusto",
+        "pet": "Cachorro",
+        "data_agendamento": "2025-10-10T03:00:00.000Z",
+        "servico": "Banho e tosa"
+        }
+    }
+    
+    ```
+  - Erro (4XX, 5XX)
+    ```
+    {
+      "error": "Erro ao agendar"
+    }
+    ```
+
+###  Atualizar um agendamento
+- Método: PATCH
+- URL: api/schedule/update/2
+- Parâmetros:
+  - id: [número correspondente ao Id do agendamento]
+- Resposta:
+  - Sucesso (200 OK)
+    ```
+    {
+      "message": "Success",
+      "data": {
+        ...
+      }
+    }
+    ```
+  - Erro (4XX, 5XX)
+    ```
+    {
+      "message": "Error",
+      "error": {
+        ...
+      }
+    }
+    ```
+    
+### Deletar um agendamento
+- Método: DELETE
+- URL: api/schedule/delete/2
+- Parâmetros:
+  - param1: [número correspondente ao Id do agendamento]
+- Resposta:
+  - Sucesso (200 OK)
+    ```
+    {
+      "message": "Success",
+      "data": {
+        ...
+      }
+    }
+    ```
+  - Erro (4XX, 5XX)
+    ```
+    {
+      "message": "Error",
+      "error": {
+        ...
+      }
+    }
+    ```
+### Recuperar registro de agendamento
+- Método: GET
+- URL: api/schedule/get/2
+- Parâmetros:
+  - param1: [descrição]
+- Resposta:
+  - Sucesso (200 OK)
+    ```
+    {
+      "message": "Success",
+      "data": {
+        ...
+      }
+    }
+    ```
+  - Erro (4XX, 5XX)
+    ```
+    {
+      "message": "Error",
+      "error": {
+        ...
+      }
+    }
+    ```
 
 ## Considerações de Segurança
 Em uma aplicação distribuída, a segurança é um aspecto crítico para garantir a integridade, a confidencialidade e a disponibilidade dos dados e dos serviços oferecidos. A seguir, listamos os principais pontos de segurança para a API petshop:
