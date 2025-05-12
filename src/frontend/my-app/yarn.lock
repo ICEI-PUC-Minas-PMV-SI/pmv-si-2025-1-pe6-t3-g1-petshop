@@ -14670,6 +14670,7 @@ __metadata:
     "@babel/runtime": "npm:^7.24.6"
     "@biomejs/biome": "npm:^1.9.3"
     "@tamagui/cli": "npm:^1.125.34"
+    "@tamagui/lucide-icons": "npm:1.125.34"
     "@tanstack/react-table": "npm:^8.21.3"
     check-dependency-version-consistency: "npm:^4.1.0"
     eslint: "npm:^9.3.0"

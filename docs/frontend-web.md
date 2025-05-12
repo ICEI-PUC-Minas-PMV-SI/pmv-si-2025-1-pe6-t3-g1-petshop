@@ -6,17 +6,25 @@ O projeto tem como objetivo fornecer uma interface web intuitiva, acessível e r
 
 A interface web foi desenvolvida com foco na usabilidade e na eficiência operacional dos colaboradores do pet shop. O layout é dividido em áreas de navegação lateral (menu), cabeçalho com atalhos e áreas centrais para exibição de conteúdo dinâmico. O sistema conta com páginas específicas para cada entidade (Usuários, Pets, Agendamentos, Pessoas), com formulários claros, listagens com filtros e ações rápidas como adicionar, editar e excluir. As interações do usuário são otimizadas para minimizar o número de cliques e maximizar a produtividade.
 
-[Descreva o projeto da interface Web da aplicação, incluindo o design visual, layout das páginas, interações do usuário e outros aspectos relevantes.]
 
 ### Wireframes
 
-[Inclua os wireframes das páginas principais da interface, mostrando a disposição dos elementos na página.]
+A seguir wireframes de partes do sistema contendo o layout padrão desenvolvido.
+
+![Cadastro](img/wireframe-cadastro.png)
+![Registros](img/wireframe-tabela.png)
+![Detalhes](img/wireframe-detalhes.png)
+![Editar](img/wireframe-editar.png)
 
 ### Design Visual
 
-[Descreva o estilo visual da interface, incluindo paleta de cores, tipografia, ícones e outros elementos gráficos.]
+Layout foi construindo baseado em um conceito limpo e utilizando cores amigáveis como o azul pensando em longo período de uso, o mesmo conceito aplicado também na escolha da fonte mas considerando a atualidade assim optamos pela fonte Inter. A seguir capturas das telas de login e uma tabela de registros do sistema.
+
+![Detalhes](img/layout-login.png)
+![Editar](img/layout-tabela.png)
 
 ## Fluxo de Dados
+
 O fluxo de dados da aplicação web do pet shop segue uma arquitetura baseada em CRUD (Create, Read, Update, Delete) e é organizado em camadas para garantir a separação de responsabilidades, segurança e performance. A seguir, descreve-se o ciclo típico de processamento de dados:
 
 Interação do Usuário (Frontend)
