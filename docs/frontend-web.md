@@ -123,8 +123,8 @@ Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consulta
 
 ## Requisitos Funcionais
 
-[RF-001](./contexto.md#rf-001): Permitir que o usuário ou administrador edite um pet
-CT-001: Atualizar as informações de um pet com dados válidos
+## [RF-001](./contexto.md#rf-001): Permitir que o usuário ou administrador edite um pet
+> ### CT-001: Atualizar as informações de um pet com dados válidos
 - Pré condições: O pet já deve existir no sistema.
 - Passos:
   1. Logue no sistema, clique em pets na coluna lateral da esquerda.
@@ -135,8 +135,8 @@ CT-001: Atualizar as informações de um pet com dados válidos
 ![PET_EDIT2](img/PET_EDIT2.png)
 ![PET_EDIT3](img/PET_EDIT3.png)
 
-[RF-002](./contexto.md#rf-002): Permitir que o administrador delete um cliente.
-CT-002: Deletar um cliente do sistema.
+## [RF-002](./contexto.md#rf-002): Permitir que o administrador delete um cliente.
+> ### CT-002: Deletar um cliente do sistema.
 - Pré condições: Precisará de uma conta com role de administrador.
 - Passos:
   1. Logue no sistema e clique em pessoas na coluna lateral da esquerda.
@@ -145,8 +145,8 @@ CT-002: Deletar um cliente do sistema.
 ![PESSOAS1](img/PESSOAS1.jpg)
 ![PESSOAS2](img/PESSOAS2.jpg)
 
-[RF-005](./contexto.md#rf-005): Permitir que o administrador cadastre um usuário.
-CT-003: Cadastrar um novo usuário no sistema.
+## [RF-005](./contexto.md#rf-005): Permitir que o administrador cadastre um usuário.
+> ### CT-003: Cadastrar um novo usuário no sistema.
 - Pré condições: Precisará de uma conta com role de administrador.
 - Passos:
   1. Logue no sistema e clique em usuários na coluna lateral da esquerda.
@@ -157,42 +157,14 @@ CT-003: Cadastrar um novo usuário no sistema.
 ![USER1](img/USER1.jpg)
 ![USER2](img/USER2.jpg)
 
-[RF-006](./contexto.md#rf-006): Permitir que o usuário visualize todos agendamentos.
-CT-004: Ler os agendamentos do sistema.
+## [RF-006](./contexto.md#rf-006): Permitir que o usuário visualize todos agendamentos.
+> ### CT-004: Ler os agendamentos do sistema.
 - Pré condições: Existir agendamentos no sistema.
 - Passos:
   1. Logue no sistema e clique em agendamentos na coluna lateral da esquerda.
   2. Aparecerá uma tabela com todos agendamentos existentes no sistema.
 - Resultado esperado: Lista todos agendamentos existentes em uma tabela com paginação.
 ![AGENDAMENTOS1](img/AGENDAMENTOS1.jpg)
-
-
-Não Funcionais: Testar desempenho sob carga, usabilidade e segurança.
-
-2. Testes Unitários
-Focar na validação de funções e classes isoladas, como validação de campos de formulários e cálculos de preços.
-
-Ferramentas: Jest.
-
-3. Testes de Integração
-Verificar a interação entre front-end e back-end (ex.: fluxo de compra, integração com API).
-
-Ferramentas: Postman, Supertest.
-
-4. Testes de Carga
-Avaliar o desempenho da aplicação com múltiplos usuários e transações simultâneas.
-
-Ferramentas: Apache JMeter, Gatling, Artillery.
-
-5. Automação de Testes
-Automação contínua de testes em ambientes de CI/CD para garantir qualidade após cada alteração.
-
-Ferramentas: Selenium, Cypress.
-
-6. Testes de Usabilidade
-Testar a navegação e interatividade do site para garantir uma experiência de usuário intuitiva.
-
-Ferramentas: Lookback.io, Hotjar.
 
 # Referências
 
