@@ -20,7 +20,7 @@ export default function UserDetailsPage() {
       credentials: 'include',
     })
       .then(res => {
-        if (!res.ok) throw new Error('Erro ao buscar usuário')
+        if (!res.ok) throw new Error('Erro ao buscar agendamento')
         return res.json()
       })
       .then(data => setUser(data))
@@ -33,7 +33,7 @@ export default function UserDetailsPage() {
   if (error || !user) {
     return (
       <YStack f={1} jc="center" ai="center" p="$4">
-        <Paragraph color="$red10">{error || 'Usuário não encontrado'}</Paragraph>
+        <Paragraph color="$red10">{error || 'Agendamento não encontrado'}</Paragraph>
         <Button mt="$4" onPress={() => router.push('/users')}>
           Voltar
         </Button>
