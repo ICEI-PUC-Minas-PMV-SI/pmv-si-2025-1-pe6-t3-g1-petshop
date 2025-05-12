@@ -21,7 +21,10 @@ export default function UserEditPage() {
 
     const fetchUser = async () => {
       try {
-        const res = await fetch(`http://localhost:3001/api/users/${userId}`)
+        const res = await fetch(`http://localhost:3001/api/users/${userId}`, {
+        method: 'GET',
+        credentials: 'include',
+        })
         const data = await res.json()
         setNome(data.nome)
         setEmail(data.email)

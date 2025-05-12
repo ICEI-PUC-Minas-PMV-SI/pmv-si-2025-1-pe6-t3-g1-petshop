@@ -33,6 +33,7 @@ export default function UserRegisterPage() {
 
       if (response.ok) {
         window.location.href = '/cadastroUsers'
+        alert('Usuário cadastrado com sucesso')
       } else {
         setErrorMessage('Erro ao realizar cadastro. Tente novamente.')
       }
