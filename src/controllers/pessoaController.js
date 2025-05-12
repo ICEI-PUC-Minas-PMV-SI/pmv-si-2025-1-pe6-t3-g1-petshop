@@ -35,6 +35,7 @@ const findAll = async (req, res) => {
 
   const create = async (req, res) => {
     try {
+      console.log(req)
       const { nome, cpf_cnpj, tipo, nascimento, genero, telefone, email, endereco, endereco_num, endereco_bairro, cidade, estado, pais, cep } = req.body;
 
       var user_id = 1,
