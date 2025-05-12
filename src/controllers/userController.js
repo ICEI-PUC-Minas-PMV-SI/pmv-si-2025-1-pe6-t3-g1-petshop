@@ -33,7 +33,7 @@ const createUser = async (req, res) => {
       return res
         .status(403)
         .json({ error: "Apenas administradores podem criar usuários" });
-    }*/
+    }
 
     const { nome, email, senha, telefone, role_id } = req.body;
 
