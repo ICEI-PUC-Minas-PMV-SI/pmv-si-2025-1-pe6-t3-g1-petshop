@@ -131,9 +131,40 @@ CT-001: Atualizar as informações de um pet com dados válidos
   2. Procure o pet que deseja editar e clique no botão editar deste.
   3. Preencha os campos que deseja editar e clique em atualizar pet.
 - Resultado esperado: Os dados enviados são atualizados e as novas informações já aparecem na lista.
-![dasdas](img/PET_EDIT.png)
-![sadas](img/PET_EDIT2.png)
-![asdsad](img/PET_EDIT3.png)
+![PET_EDIT](img/PET_EDIT.png)
+![PET_EDIT2](img/PET_EDIT2.png)
+![PET_EDIT3](img/PET_EDIT3.png)
+
+[RF-002](./contexto.md#rf-002): Permitir que o administrador delete um cliente.
+CT-002: Deletar um cliente do sistema.
+- Pré condições: Precisará de uma conta com role de administrador.
+- Passos:
+  1. Logue no sistema e clique em pessoas na coluna lateral da esquerda.
+  2. Procure o cliente desejado na tabela e clique no botão deletar deste cliente.
+- Resultado esperado: Aparece um alert do navegador dizendo que o cliente foi deletado com sucesso.
+![CLIENTE1](img/.jpg)
+![CLIENTE2](img/.jpg)
+
+[RF-005](./contexto.md#rf-005): Permitir que o administrador cadastre um usuário.
+CT-003: Cadastrar um novo usuário no sistema.
+- Pré condições: Precisará de uma conta com role de administrador.
+- Passos:
+  1. Logue no sistema e clique em usuários na coluna lateral da esquerda.
+  2. Clique no botão novo usuário, no canto superior direito.
+  3. Preencha o formulário com dados válidos e selecione a role do usuário.
+  4. Clique no botão cadastrar
+- Resultado esperado: Aparece um alert do navegador dizendo que o usuário foi criado com sucesso.
+![USER1](img/USER1.jpg)
+![USER2](img/USER2.jpg)
+
+[RF-006](./contexto.md#rf-006): Permitir que o usuário visualize todos agendamentos.
+CT-004: Ler os agendamentos do sistema.
+- Pré condições: Existir agendamentos no sistema.
+- Passos:
+  1. Logue no sistema e clique em agendamentos na coluna lateral da esquerda.
+  2. Aparecerá uma tabela com todos agendamentos existentes no sistema.
+- Resultado esperado: Aparece um alert do navegador dizendo que o usuário foi criado com sucesso.
+![AGENDAMENTOS1](img/AGENDAMENTOS1.jpg)
 
 
 Não Funcionais: Testar desempenho sob carga, usabilidade e segurança.
