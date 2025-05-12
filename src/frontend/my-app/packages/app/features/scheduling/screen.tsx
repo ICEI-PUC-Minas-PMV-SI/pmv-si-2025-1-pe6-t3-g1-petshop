@@ -43,7 +43,7 @@ export default function UserDetailsPage() {
 
   return (
     <YStack f={1} jc="center" ai="center" p="$4" space="$3">
-      <H1 color="$blue10">Detalhes do Usuário</H1>
+      <H1 color="$blue10">Detalhes do Agendamento</H1>
       <Paragraph>Pessoa: {user.pessoa}</Paragraph>
       <Paragraph>Profissional: {user.profissional}</Paragraph>
       <Paragraph>Pet: {user.pet}</Paragraph>
