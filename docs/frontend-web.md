@@ -135,6 +135,18 @@ CT-001: Atualizar as informações de um pet com dados válidos
 ![sadas](img/PET_EDIT2.png)
 ![asdsad](img/PET_EDIT3.png)
 
+[RF-005](./contexto.md#rf-005): Permitir cadastrar um usuário.
+CT-003: Cadastrar um novo usuário no sistema.
+- Pré condições: Precisará de uma conta com role de administrador.
+- Passos:
+  1. Logue no sistema e clique em usuários na coluna lateral da esquerda.
+  2. Clique no botão novo usuário, no canto superior direito.
+  3. Preencha o formulário com dados válidos e selecione a role do usuário.
+  4. Clique no botão cadastrar
+- Resultado esperado: Aparece um alert do navegador dizendo que o usuário foi criado com sucesso.
+![USER1](img/USER1.jpg)
+![USER2](img/USER2.jpg)
+
 
 Não Funcionais: Testar desempenho sob carga, usabilidade e segurança.
 
