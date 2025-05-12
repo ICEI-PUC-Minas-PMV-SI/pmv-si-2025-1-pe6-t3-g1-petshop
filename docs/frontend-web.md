@@ -142,8 +142,8 @@ CT-002: Deletar um cliente do sistema.
   1. Logue no sistema e clique em pessoas na coluna lateral da esquerda.
   2. Procure o cliente desejado na tabela e clique no botão deletar deste cliente.
 - Resultado esperado: Aparece um alert do navegador dizendo que o cliente foi deletado com sucesso.
-![CLIENTE1](img/.jpg)
-![CLIENTE2](img/.jpg)
+![PESSOAS1](img/PESSOAS1.jpg)
+![PESSOAS2](img/PESSOAS2.jpg)
 
 [RF-005](./contexto.md#rf-005): Permitir que o administrador cadastre um usuário.
 CT-003: Cadastrar um novo usuário no sistema.
@@ -163,7 +163,7 @@ CT-004: Ler os agendamentos do sistema.
 - Passos:
   1. Logue no sistema e clique em agendamentos na coluna lateral da esquerda.
   2. Aparecerá uma tabela com todos agendamentos existentes no sistema.
-- Resultado esperado: Aparece um alert do navegador dizendo que o usuário foi criado com sucesso.
+- Resultado esperado: Lista todos agendamentos existentes em uma tabela com paginação.
 ![AGENDAMENTOS1](img/AGENDAMENTOS1.jpg)
 
 
