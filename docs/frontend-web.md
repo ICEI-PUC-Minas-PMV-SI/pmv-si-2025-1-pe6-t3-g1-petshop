@@ -135,6 +135,16 @@ CT-001: Atualizar as informações de um pet com dados válidos
 ![sadas](img/PET_EDIT2.png)
 ![asdsad](img/PET_EDIT3.png)
 
+[RF-002](./contexto.md#rf-005): Permitir deletar um cliente.
+CT-002: Deletar um cliente do sistema.
+- Pré condições: Precisará de uma conta com role de administrador.
+- Passos:
+  1. Logue no sistema e clique em pessoas na coluna lateral da esquerda.
+  2. Procure o cliente desejado na tabela e clique no botão deletar deste cliente.
+- Resultado esperado: Aparece um alert do navegador dizendo que o cliente foi deletado com sucesso.
+![CLIENTE1](img/.jpg)
+![CLIENTE2](img/.jpg)
+
 [RF-005](./contexto.md#rf-005): Permitir cadastrar um usuário.
 CT-003: Cadastrar um novo usuário no sistema.
 - Pré condições: Precisará de uma conta com role de administrador.
