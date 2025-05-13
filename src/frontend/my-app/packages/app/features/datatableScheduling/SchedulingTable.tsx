@@ -31,6 +31,7 @@ import {
   isWeb,
   useWindowDimensions,
 } from 'tamagui'
+import { CustomAlertDialog } from '../CustomAlertDialog/screen'
 import { useMedia } from 'tamagui'
 import { useRouter } from 'next/navigation'
 
@@ -41,11 +42,12 @@ const columnHelper = createColumnHelper()
 export function SortableSchedulingTable() {
   const [data, setData] = React.useState([])
   const [grouping, setGrouping] = React.useState([])
+  const [isOpen, setIsOpen] = React.useState(false)
   const { width: windowWidth } = useWindowDimensions()
   const router = useRouter()
 
   React.useEffect(() => {
-    fetch('http://localhost:3001/api/schedule/get', { //http://localhost:3001/api/schedule/get/
+    fetch('http://localhost:3001/api/schedule/get', {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -56,7 +58,6 @@ export function SortableSchedulingTable() {
       .catch((err) => console.error('Erro ao buscar dados:', err))
   }, [])
 
-  
   const columns = [
     columnHelper.accessor('avatar', {
       cell: (info) => {
@@ -75,14 +76,15 @@ export function SortableSchedulingTable() {
     ...['pessoa', 'profissional', 'pet', 'servico', 'data_agendamento'].map((field) =>
       columnHelper.accessor(field, {
         cell: (info) => {
-          const value = field === 'data_agendamento'
-            ? (() => {
-                const [datePart, timePart] = info.getValue().split('T')
-                const [ano, mes, dia] = datePart.split('-')
-                const [hora, minuto] = timePart.split(':')
-                return `${dia}/${mes}/${ano} ${hora}:${minuto}`
-              })()
-            : info.getValue()
+          const value =
+            field === 'data_agendamento'
+              ? (() => {
+                  const [datePart, timePart] = info.getValue().split('T')
+                  const [ano, mes, dia] = datePart.split('-')
+                  const [hora, minuto] = timePart.split(':')
+                  return `${dia}/${mes}/${ano} ${hora}:${minuto}`
+                })()
+              : info.getValue()
           const userId = info.row.original.id
           return (
             <Text
@@ -109,14 +111,24 @@ export function SortableSchedulingTable() {
         const handleEdit = () => router.push(`/editScheduling?id=${userId}`)
         const handleDelete = async () => {
           try {
-            const res = await fetch(`http://localhost:3001/api/schedule/delete/${userId}`, { //schedule/delete/${userId} ou users/${userId}/delete
+            const res = await fetch(`http://localhost:3001/api/schedule/delete/${userId}`, {
               method: 'DELETE',
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include',
             })
-            res.ok
-              ? alert('Agendamento deletado com sucesso!')
-              : alert('Erro ao deletar agendamento.')
+
+            if (res.ok) {
+              const updatedRes = await fetch('http://localhost:3001/api/schedule/get', {
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+              })
+              const updatedData = await updatedRes.json()
+              setData(updatedData)
+            } else {
+              alert('Erro ao deletar agendamento.')
+            }
           } catch (error) {
             console.error(error)
             alert('Erro de rede ao tentar deletar.')
@@ -125,10 +137,19 @@ export function SortableSchedulingTable() {
 
         return (
           <XStack gap="$2">
+            <CustomAlertDialog
+              open={isOpen}
+              onOpenChange={setIsOpen}
+              title="Deletar agendamento"
+              description="Você tem certeza que deseja deletar este agendamento?"
+              cancelText="Cancelar"
+              actionText="Deletar"
+              onConfirm={handleDelete}
+            />
             <Button size="$2" theme="active" onPress={handleEdit}>
               Editar
             </Button>
-            <Button size="$2" theme="red" onPress={handleDelete}>
+            <Button size="$2" theme="red" onPress={() => setIsOpen(true)}>
               Deletar
             </Button>
           </XStack>
@@ -161,9 +182,15 @@ export function SortableSchedulingTable() {
   const { sm } = isWeb ? useMedia() : { sm: true }
   const screenWidth = windowWidth - 15
 
-  const FooterContainer = ({ children, Footer }) => (
-    isWeb ? children : <>{children}<Footer /></>
-  )
+  const FooterContainer = ({ children, Footer }) =>
+    isWeb ? (
+      children
+    ) : (
+      <>
+        {children}
+        <Footer />
+      </>
+    )
 
   const Footer = ({ table, screenWidth, tableWidth: TABLE_WIDTH }) => (
     <View
@@ -175,31 +202,53 @@ export function SortableSchedulingTable() {
       justifyContent="space-between"
     >
       <XGroup>
-        {[['First', ChevronFirst], ['Left', ChevronLeft], ['Right', ChevronRight], ['Last', ChevronLast]].map(([label, Icon], idx) => (
+        {[
+          ['First', ChevronFirst],
+          ['Left', ChevronLeft],
+          ['Right', ChevronRight],
+          ['Last', ChevronLast],
+        ].map(([label, Icon], idx) => (
           <XGroup.Item key={label}>
             <Button
               $platform-native={{ minWidth: screenWidth / 4 }}
-              onPress={() => [
-                () => table.setPageIndex(0),
-                () => table.previousPage(),
-                () => table.nextPage(),
-                () => table.setPageIndex(table.getPageCount() - 1),
-              ][idx]()}
+              onPress={() =>
+                [
+                  () => table.setPageIndex(0),
+                  () => table.previousPage(),
+                  () => table.nextPage(),
+                  () => table.setPageIndex(table.getPageCount() - 1),
+                ][idx]()
+              }
               disabled={idx < 2 ? !table.getCanPreviousPage() : !table.getCanNextPage()}
             >
-              <TButton.Icon><Icon /></TButton.Icon>
+              <TButton.Icon>
+                <Icon />
+              </TButton.Icon>
             </Button>
           </XGroup.Item>
         ))}
       </XGroup>
-      <View flexDirection="row" borderRadius={999999} padding="$2" paddingHorizontal="$6" themeInverse backgroundColor="$background" gap="$3" $platform-native={{ display: 'none' }}>
-        <Text fontWeight="$5" lineHeight="$5" fontSize="$5">Page</Text>
+      <View
+        flexDirection="row"
+        borderRadius={999999}
+        padding="$2"
+        paddingHorizontal="$6"
+        themeInverse
+        backgroundColor="$background"
+        gap="$3"
+        $platform-native={{ display: 'none' }}
+      >
+        <Text fontWeight="$5" lineHeight="$5" fontSize="$5">
+          Page
+        </Text>
         <Text fontWeight="$5" lineHeight="$5" fontSize="$5">
           {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
         </Text>
       </View>
       <View $platform-native={{ display: 'none' }} flexDirection="row" gap="$4" alignItems="center">
-        <Text fontSize="$5" fontWeight="$5" lineHeight="$5">Go to page</Text>
+        <Text fontSize="$5" fontWeight="$5" lineHeight="$5">
+          Go to page
+        </Text>
         <Input
           keyboardType="numeric"
           {...(isWeb && { type: 'number' })}
@@ -219,7 +268,9 @@ export function SortableSchedulingTable() {
   )
 
   return (
-    <FooterContainer Footer={() => <Footer screenWidth={screenWidth} tableWidth={TABLE_WIDTH} table={table} /> }>
+    <FooterContainer
+      Footer={() => <Footer screenWidth={screenWidth} tableWidth={TABLE_WIDTH} table={table} />}
+    >
       <ScrollView horizontal maxWidth="100%">
         <View
           flex={1}
@@ -251,7 +302,13 @@ export function SortableSchedulingTable() {
                   <Table.Row
                     backgrounded
                     backgroundColor="$color2"
-                    rowLocation={rowCounter.current === 0 ? 'first' : rowCounter.current === allRowsLength - 1 ? 'last' : 'middle'}
+                    rowLocation={
+                      rowCounter.current === 0
+                        ? 'first'
+                        : rowCounter.current === allRowsLength - 1
+                          ? 'last'
+                          : 'middle'
+                    }
                     key={headerGroup.id}
                     borderTopRightRadius="$4"
                     borderTopLeftRadius="$4"
@@ -260,20 +317,36 @@ export function SortableSchedulingTable() {
                   >
                     {headerGroup.headers.map((header) => (
                       <Table.HeaderCell
-                        cellLocation={header.id === 'avatar' ? 'first' : header.id === 'progress' ? 'last' : 'middle'}
+                        cellLocation={
+                          header.id === 'avatar'
+                            ? 'first'
+                            : header.id === 'progress'
+                              ? 'last'
+                              : 'middle'
+                        }
                         key={header.id}
                       >
                         <View
                           flexDirection="row"
                           cursor={header.column.getCanSort() ? 'pointer' : 'none'}
-                          onPress={header.column.getCanSort() ? header.column.getToggleSortingHandler() : undefined}
+                          onPress={
+                            header.column.getCanSort()
+                              ? header.column.getToggleSortingHandler()
+                              : undefined
+                          }
                           gap="$2"
                           alignItems="center"
                         >
                           <Text fontSize="$4" selectable={false}>
-                            {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                            {header.isPlaceholder
+                              ? null
+                              : flexRender(header.column.columnDef.header, header.getContext())}
                           </Text>
-                          {{ asc: <ChevronUp size="$1" color="$blue10" />, desc: <ChevronDown size="$1" color="$blue10" />, noSort: <ChevronsUpDown size="$1" color="$blue10" /> }[header.column.getIsSorted() || 'noSort'] ?? null}
+                          {{
+                            asc: <ChevronUp size="$1" color="$blue10" />,
+                            desc: <ChevronDown size="$1" color="$blue10" />,
+                            noSort: <ChevronsUpDown size="$1" color="$blue10" />,
+                          }[header.column.getIsSorted() || 'noSort'] ?? null}
                         </View>
                       </Table.HeaderCell>
                     ))}
@@ -288,18 +361,33 @@ export function SortableSchedulingTable() {
                   <Table.Row
                     minWidth={TABLE_WIDTH}
                     hoverStyle={{ backgroundColor: '$color2' }}
-                    rowLocation={rowCounter.current === 0 ? 'first' : rowCounter.current === allRowsLength - 1 ? 'last' : 'middle'}
+                    rowLocation={
+                      rowCounter.current === 0
+                        ? 'first'
+                        : rowCounter.current === allRowsLength - 1
+                          ? 'last'
+                          : 'middle'
+                    }
                     key={`${row.id}-${index}`}
                   >
                     {row.getVisibleCells().map((cell) => (
                       <Table.Cell
-                        cellLocation={cell.column.id === 'avatar' ? 'first' : cell.column.id === 'progress' ? 'last' : 'middle'}
+                        cellLocation={
+                          cell.column.id === 'avatar'
+                            ? 'first'
+                            : cell.column.id === 'progress'
+                              ? 'last'
+                              : 'middle'
+                        }
                         key={cell.id}
                       >
-                        {cell.column.id === 'avatar'
-                          ? flexRender(cell.column.columnDef.cell, cell.getContext())
-                          : <Text fontSize="$4" color="$blue10">{flexRender(cell.column.columnDef.cell, cell.getContext())}</Text>
-                        }
+                        {cell.column.id === 'avatar' ? (
+                          flexRender(cell.column.columnDef.cell, cell.getContext())
+                        ) : (
+                          <Text fontSize="$4" color="$blue10">
+                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                          </Text>
+                        )}
                       </Table.Cell>
                     ))}
                   </Table.Row>
@@ -312,5 +400,4 @@ export function SortableSchedulingTable() {
       </ScrollView>
     </FooterContainer>
   )
-    
 }
