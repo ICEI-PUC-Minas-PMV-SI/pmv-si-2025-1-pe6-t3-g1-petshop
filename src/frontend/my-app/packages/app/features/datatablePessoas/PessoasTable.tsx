@@ -96,8 +96,8 @@ export function SortableTable() {
               credentials: 'include',
             })
             res.ok
-              ? alert('Usuário deletado com sucesso!')
-              : alert('Erro ao deletar usuário.')
+              ? alert('Pessoa deletada com sucesso!')
+              : alert('Erro ao deletar pessoa.')
           } catch (error) {
             console.error(error)
             alert('Erro de rede ao tentar deletar.')
