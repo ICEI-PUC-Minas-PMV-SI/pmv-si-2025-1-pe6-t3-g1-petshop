@@ -41,8 +41,8 @@ export default function PetCrud() {
   const handleSubmit = async () => {
     const method = editingPetId ? 'PATCH' : 'POST'
     const url = editingPetId
-      ? `/api/pets/${editingPetId}/update`
-      : '/api/pets/new-pet'
+      ? `http://localhost:3001/api/pets/${editingPetId}/update`
+      : 'http://localhost:3001/api/pets/new-pet'
 
     try {
       const response = await fetch(url, {
@@ -50,6 +50,7 @@ export default function PetCrud() {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify(formData),
       })
 
@@ -75,8 +76,9 @@ export default function PetCrud() {
   // Função para deletar um pet
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`/api/pets/${id}`, {
+      const response = await fetch(`http://localhost:3001/api/pets/${id}`, {
         method: 'DELETE',
+        credentials: 'include'
       })
 
       if (response.ok) {

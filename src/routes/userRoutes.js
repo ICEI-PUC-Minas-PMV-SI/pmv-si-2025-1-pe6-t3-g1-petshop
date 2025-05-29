@@ -208,7 +208,7 @@ const tokenVerify = require("../middleware/tokenVerify")
  */
 
 router.get("/", tokenVerify, getUsers);
-router.get("/:id",  getUserById);
+router.get("/:id", tokenVerify, getUserById);
 router.post("/new-user", tokenVerify, createUser);
 router.patch("/:id/update", tokenVerify, editUser);
 router.delete("/:id/delete", tokenVerify, deleteUser);
