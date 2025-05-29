@@ -54,7 +54,7 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <CustomRootLayout>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="dashboardScreen" options={{ headerShown: false }} />
         <Stack.Screen name="login" options={{ headerShown: false }}/>
       </Stack>
       </CustomRootLayout>

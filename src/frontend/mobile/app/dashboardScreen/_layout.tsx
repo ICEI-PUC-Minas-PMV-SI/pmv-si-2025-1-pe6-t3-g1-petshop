@@ -66,7 +66,7 @@ export default function DashboardScreen({
   const handleNavigate = (item: (typeof menuItems)[0]) => {
     setActiveItem(item.key);
     toggleMenu();
-    router.push(item.path);
+    router.push('dashboardScreen' + item.path);
   };
 
   return (
