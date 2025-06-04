@@ -5,6 +5,8 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import CustomRootLayout from '../components/CustomRootLayout';
+import { TamaguiProvider } from 'tamagui'
+import config from '../tamagui.config'
 
 import 'react-native-reanimated';
 
@@ -51,13 +53,12 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <TamaguiProvider config={config} >
       <CustomRootLayout>
-      <Stack>
-        <Stack.Screen name="dashboardScreen" options={{ headerShown: false }} />
-        <Stack.Screen name="login" options={{ headerShown: false }}/>
-      </Stack>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="login/index"  />
+        </Stack>
       </CustomRootLayout>
-    </ThemeProvider>
+    </TamaguiProvider>
   );
 }

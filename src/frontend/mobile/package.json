@@ -15,6 +15,15 @@
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
     "@react-navigation/native": "^7.1.6",
+    "@tamagui/config": "^1.126.13",
+    "@tamagui/core": "^1.125.34",
+    "@tamagui/create-context": "^1.125.34",
+    "@tamagui/helpers": "^1.125.34",
+    "@tamagui/lucide-icons": "^1.125.34",
+    "@tamagui/stacks": "^1.125.34",
+    "@tamagui/themes": "^1.125.34",
+    "@tamagui/web": "^1.125.34",
+    "@tanstack/react-table": "^8.21.3",
     "expo": "~53.0.9",
     "expo-font": "~13.3.1",
     "expo-linking": "~7.1.5",
@@ -23,13 +32,16 @@
     "expo-status-bar": "~2.2.3",
     "expo-system-ui": "~5.0.7",
     "expo-web-browser": "~14.1.6",
+    "lucide-react-native": "^0.511.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.2",
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.10.0",
-    "react-native-web": "~0.20.0"
+    "react-native-svg": "^15.12.0",
+    "react-native-web": "~0.20.0",
+    "tamagui": "^1.125.34"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

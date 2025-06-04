@@ -8,6 +8,7 @@ import {
   Dimensions,
 } from 'react-native'
 import { useRouter } from 'expo-router'
+import { UsersDetailsList }  from '../../../components/ListUsers/UsersList'
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -16,7 +17,7 @@ export default function Users() {
   const router = useRouter()
 
   const handleRedirectToNewUser = () => {
-    router.push('/cadastroUsers')
+    router.push(`/dashboardScreen/newUser`)
   }
 
   return (
@@ -31,7 +32,7 @@ export default function Users() {
             </TouchableOpacity>
           </View>
 
-          {/* <SortableTable /> */}
+          <UsersDetailsList />
         </View>
       </ScrollView>
     </View>

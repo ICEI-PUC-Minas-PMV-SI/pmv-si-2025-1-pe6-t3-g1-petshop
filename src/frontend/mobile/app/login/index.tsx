@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   TextInput,
@@ -14,7 +14,6 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 
-
 export default function LoginPage({ children }: { children: React.ReactNode }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -28,7 +27,7 @@ export default function LoginPage({ children }: { children: React.ReactNode }) {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/api/login", {
+      const response = await fetch("http://10.0.2.2:3001/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -36,7 +35,7 @@ export default function LoginPage({ children }: { children: React.ReactNode }) {
       });
 
       if (response.ok) {
-        router.replace("/");
+        router.replace("/dashboardScreen");
       } else {
         setErrorMessage("Credenciais inválidas. Tente novamente.");
       }
@@ -46,6 +45,10 @@ export default function LoginPage({ children }: { children: React.ReactNode }) {
       );
     }
   };
+
+  const handleRedirectHome = () => {
+    router.push('/dashboardScreen')
+  }
 
   return (
     <SafeAreaView style={stylesHeader.safeArea}>
@@ -81,6 +84,12 @@ export default function LoginPage({ children }: { children: React.ReactNode }) {
 
           <TouchableOpacity style={styles.button} onPress={handleLogin}>
             <Text style={styles.buttonText}>Entrar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={handleRedirectHome}
+          >
+            <Text style={styles.buttonText}>KKKKKK</Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
@@ -161,5 +170,5 @@ const stylesHeader = StyleSheet.create({
   content: {
     flex: 1,
     padding: 16,
-  }
+  },
 });
