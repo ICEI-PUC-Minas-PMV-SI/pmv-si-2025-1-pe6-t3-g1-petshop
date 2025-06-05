@@ -42,7 +42,6 @@ export default function Users() {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: '#f0f8ff',
   },
   container: {
     alignItems: 'center',

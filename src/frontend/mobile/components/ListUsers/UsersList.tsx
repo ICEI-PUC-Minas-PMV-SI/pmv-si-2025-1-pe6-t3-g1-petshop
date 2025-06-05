@@ -2,8 +2,10 @@ import { ChevronRight } from "@tamagui/lucide-icons";
 import { TextInput } from "react-native";
 import { ListItem, Separator, YGroup } from "tamagui";
 import React from "react";
+import { useRouter } from "expo-router";
 
 export function UsersDetailsList() {
+  const router = useRouter();
   const [data, setData] = React.useState<any[]>([]);
   React.useEffect(() => {
     fetch("http://10.0.2.2:3001/api/users", {
@@ -18,7 +20,7 @@ export function UsersDetailsList() {
   }, []);
 
   function openDetails(user: any) {
-    console.log("Detalhes do usuário:", user);
+    router.push(`/dashboardScreen/userDetail/${user.id}`);
   }
 
   const [query, setQuery] = React.useState("");
