@@ -55,19 +55,11 @@ const deleteSchedule = async (req, res) => {
   }
 };
 
-const getSchedule = async (req, res) => {
+const getAllSchedules = async (req, res) => {
   try {
-    if (Number.isInteger(Number(req.params.id)))  {
-    const desiredSchedule = await Scheduling.findByPk(
-      req.params.id);
-      if (!desiredSchedule){
-        throw new Error ("Id não existente")
-      }
-      res.status(201).json({ desiredSchedule });
-    }
-    else{
+    {
     const getAllSchedules = await Scheduling.findAll()
-    res.status(201).json({ getAllSchedules });
+    res.status(201).json( getAllSchedules ); //retirado {}
   }
   } catch (error) {
     console.error("Erro ao buscar", error);
@@ -75,4 +67,22 @@ const getSchedule = async (req, res) => {
   }
 
 };
-module.exports = { createSchedule, editSchedule, deleteSchedule, getSchedule }
+
+const getScheduleById = async (req, res) => {
+  try {
+    if (Number.isInteger(Number(req.params.id)))  {
+    const desiredSchedule = await Scheduling.findByPk(
+      req.params.id);
+      if (!desiredSchedule){
+        throw new Error ("Id não existente")
+      }
+      res.status(201).json( desiredSchedule ); //retirado {}
+    }
+  
+  } catch (error) {
+    console.error("Erro ao buscar", error);
+    res.status(500).json({ error: "Erro ao buscar" });
+  }
+
+};
+module.exports = { createSchedule, editSchedule, deleteSchedule, getAllSchedules, getScheduleById }
