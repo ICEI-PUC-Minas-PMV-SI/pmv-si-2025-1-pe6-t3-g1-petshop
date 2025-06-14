@@ -46,7 +46,7 @@ export function SortableTable() {
   const router = useRouter()
 
   React.useEffect(() => {
-    fetch('http://10.0.2.2:3001/api/users', {
+    fetch('http://petshop.goul.me/api/users', {
       headers: {
         'Content-Type': 'application/json',
       },

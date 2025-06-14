@@ -4,11 +4,11 @@ import { ListItem, Separator, YGroup } from "tamagui";
 import React from "react";
 import { useRouter } from "expo-router";
 
-export function UsersDetailsList() {
+export function PessoasList() {
   const router = useRouter();
   const [data, setData] = React.useState<any[]>([]);
   React.useEffect(() => {
-    fetch("http://petshop.goul.me/api/users", {
+    fetch("http://petshop.goul.me/api/pessoas", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -19,19 +19,19 @@ export function UsersDetailsList() {
       .catch((err) => console.error("Erro ao buscar dados:", err));
   }, []);
 
-  function openDetails(user: any) {
-    router.push(`/dashboardScreen/userDetail/${user.id}`);
+  function openDetails(pessoa: any) {
+    router.push(`/dashboardScreen/pessoaDetails/${pessoa.id}`);
   }
 
   const [query, setQuery] = React.useState("");
 
-  const filteredUsers = data.filter((u) =>
+  const filteredPessoas = data.filter((u) =>
     u.nome.toLowerCase().includes(query.toLowerCase())
   );
   return (
     <>
       <TextInput
-        placeholder="Pesquisar usuário..."
+        placeholder="Buscar pessoa..."
         value={query}
         onChangeText={setQuery}
         style={{
@@ -50,16 +50,16 @@ export function UsersDetailsList() {
         size="$5"
         separator={<Separator />}
       >
-        {filteredUsers.map((user) => (
-          <YGroup.Item key={user.id}>
+        {filteredPessoas.map((pessoa) => (
+          <YGroup.Item key={pessoa.id}>
             <ListItem
               size={"$6"}
               width={"100%"}
               hoverTheme
               pressTheme
-              title={user.nome}
+              title={pessoa.nome}
               iconAfter={ChevronRight}
-              onPress={() => openDetails(user)}
+              onPress={() => openDetails(pessoa)}
             />
           </YGroup.Item>
         ))}

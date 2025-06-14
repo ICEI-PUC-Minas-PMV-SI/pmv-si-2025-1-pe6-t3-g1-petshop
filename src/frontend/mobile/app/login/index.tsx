@@ -15,8 +15,8 @@ import {
 import { useRouter } from "expo-router";
 
 export default function LoginPage({ children }: { children: React.ReactNode }) {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState("robertoc@email.com");
+  const [senha, setSenha] = useState("123@mudAr");
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
 
@@ -27,7 +27,7 @@ export default function LoginPage({ children }: { children: React.ReactNode }) {
     }
 
     try {
-      const response = await fetch("http://10.0.2.2:3001/api/login", {
+      const response = await fetch("http://petshop.goul.me/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

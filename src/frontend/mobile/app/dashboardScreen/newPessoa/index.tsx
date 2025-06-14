@@ -11,7 +11,7 @@ import {
 import { ArrowLeft } from "lucide-react-native";
 import { useRouter } from "expo-router";
 
-export default function UserRegisterPage() {
+export default function PessoaRegisterPage() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
@@ -39,7 +39,7 @@ export default function UserRegisterPage() {
     }
 
     try {
-      const response = await fetch("http://petshop.goul.me/api/users/new-user", {
+      const response = await fetch("http://petshop.goul.me/api/pessoas", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -53,10 +53,10 @@ export default function UserRegisterPage() {
       });
 
       if (response.ok) {
-        Alert.alert("Sucesso", "Usuário cadastrado com sucesso.", [
+        Alert.alert("Sucesso", "Pessoa cadastrado com sucesso.", [
           {
             text: "OK",
-            onPress: () => (router.push("/dashboardScreen/newUser")),
+            onPress: () => (router.push("/dashboardScreen/newPessoa")),
           },
         ]);
       } else {
@@ -69,17 +69,17 @@ export default function UserRegisterPage() {
     }
   };
 
-  const handleRedirectToUsers = () => {
-    router.push("/dashboardScreen/users");
+  const handleRedirectToPessoas = () => {
+    router.push("/dashboardScreen/pessoas");
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} onPress={handleRedirectToUsers}>
+        <TouchableOpacity style={styles.backButton} onPress={handleRedirectToPessoas}>
           <ArrowLeft size={26} color="#0050b3" />
         </TouchableOpacity>
-        <Text style={styles.title}>Novo Usuário</Text>
+        <Text style={styles.title}>Nova Pessoa</Text>
       </View>
 
       <TextInput
@@ -123,18 +123,18 @@ export default function UserRegisterPage() {
         secureTextEntry
       />
 
-      <View style={styles.userTypeContainer}>
+      <View style={styles.pessoaTypeContainer}>
         <TouchableOpacity
           style={[
-            styles.userTypeButton,
-            tipoUsuario === "1" && styles.userTypeButtonSelected,
+            styles.pessoaTypeButton,
+            tipoUsuario === "1" && styles.pessoaTypeButtonSelected,
           ]}
           onPress={() => setTipoUsuario("1")}
         >
           <Text
             style={[
-              styles.userTypeText,
-              tipoUsuario === "1" && styles.userTypeTextSelected,
+              styles.pessoaTypeText,
+              tipoUsuario === "1" && styles.pessoaTypeTextSelected,
             ]}
           >
             1 - Administrador
@@ -143,18 +143,18 @@ export default function UserRegisterPage() {
 
         <TouchableOpacity
           style={[
-            styles.userTypeButton,
-            tipoUsuario === "2" && styles.userTypeButtonSelected,
+            styles.pessoaTypeButton,
+            tipoUsuario === "2" && styles.pessoaTypeButtonSelected,
           ]}
           onPress={() => setTipoUsuario("2")}
         >
           <Text
             style={[
-              styles.userTypeText,
-              tipoUsuario === "2" && styles.userTypeTextSelected,
+              styles.pessoaTypeText,
+              tipoUsuario === "2" && styles.pessoaTypeTextSelected,
             ]}
           >
-            2 - Usuário
+            2 - Pessoa
           </Text>
         </TouchableOpacity>
       </View>
@@ -205,12 +205,12 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     backgroundColor: "#fff",
   },
-  userTypeContainer: {
+  pessoaTypeContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 12,
   },
-  userTypeButton: {
+  pessoaTypeButton: {
     flex: 1,
     borderWidth: 1,
     borderColor: "#0050b3",
@@ -219,13 +219,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
     alignItems: "center",
   },
-  userTypeButtonSelected: {
+  pessoaTypeButtonSelected: {
     backgroundColor: "#0050b3",
   },
-  userTypeText: {
+  pessoaTypeText: {
     color: "#0050b3",
   },
-  userTypeTextSelected: {
+  pessoaTypeTextSelected: {
     color: "#fff",
   },
   errorText: {

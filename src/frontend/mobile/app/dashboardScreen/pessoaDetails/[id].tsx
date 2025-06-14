@@ -12,11 +12,11 @@ import {
 import { Trash2, Pencil } from "lucide-react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
 
-export default function UserDetailsScreen() {
-  const { id: userId } = useLocalSearchParams();
+export default function PessoaDetailsScreen() {
+  const { id: pessoaId } = useLocalSearchParams();
   const router = useRouter();
 
-  interface User {
+  interface Pessoa {
     id: number;
     nome: string;
     email: string;
@@ -25,38 +25,38 @@ export default function UserDetailsScreen() {
     updated_at: string;
   }
 
-  const [user, setUser] = useState<User | null>(null);
+  const [pessoa, setPessoa] = useState<Pessoa | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!userId) {
-      setError("ID de usuário não fornecido");
+    if (!pessoaId) {
+      setError("ID da pessoa não fornecido");
       setLoading(false);
       return;
     }
 
-    fetch(`http://petshop.goul.me/api/users/${userId}`, {
+    fetch(`http://petshop.goul.me/api/pessoas/${pessoaId}`, {
       credentials: "include",
     })
       .then((res) => {
-        if (!res.ok) throw new Error("Erro ao buscar usuário");
+        if (!res.ok) throw new Error("Erro ao buscar pessoa");
         return res.json();
       })
-      .then((data) => setUser(data))
+      .then((data) => setPessoa(data))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-  }, [userId]);
+  }, [pessoaId]);
 
-  const handleDeleteUser = () => {
-    if (!userId) return;
-    fetch(`http://petshop.goul.me/api/users/${userId}/delete`, {
+  const handleDeletePessoa = () => {
+    if (!pessoaId) return;
+    fetch(`http://petshop.goul.me/api/pessoas/${pessoaId}/delete`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     })
       .then((res) => {
-        if (!res.ok) throw new Error("Erro ao deletar usuário");
+        if (!res.ok) throw new Error("Erro ao deletar pessoa");
         router.back();
       })
       .catch((err) => setError(err.message));
@@ -64,18 +64,18 @@ export default function UserDetailsScreen() {
 
   const showDeleteAlert = () => {
     Alert.alert(
-      "Deletar Usuário",
-      "Você tem certeza que deseja deletar este usuário?",
+      "Deletar Pessoa",
+      "Você tem certeza que deseja deletar esta pessoa?",
       [
         { text: "Cancelar", style: "cancel" },
-        { text: "OK", onPress: () => handleDeleteUser() },
+        { text: "OK", onPress: () => handleDeletePessoa() },
       ],
       { cancelable: false }
     );
   };
 
-  const handleRedirectToEditUser = () => {
-    router.push(`/dashboardScreen/editUser/${userId}`);
+  const handleRedirectToEditPessoa = () => {
+    router.push(`/dashboardScreen/editPessoa/${pessoaId}`);
   };
 
   if (loading) {
@@ -86,11 +86,11 @@ export default function UserDetailsScreen() {
     );
   }
 
-  if (error || !user) {
+  if (error || !pessoa) {
     return (
       <View style={[styles.centered, styles.container]}>
         <Text style={styles.errorText}>
-          {error || "Usuário não encontrado"}
+          {error || "Pessoa não encontrado"}
         </Text>
         <View style={styles.buttonWrapper}>
           <Button
@@ -108,9 +108,9 @@ export default function UserDetailsScreen() {
       contentContainerStyle={[styles.container, styles.contentContainer]}
     >
       <View style={styles.header}>
-        <Text style={styles.title}>Detalhes do Usuário</Text>
+        <Text style={styles.title}>Detalhes de {pessoa.nome}</Text>
         <TouchableOpacity>
-          <Pencil onPress={handleRedirectToEditUser} color={"#0050b3"} />
+          <Pencil onPress={handleRedirectToEditPessoa} color={"#0050b3"} />
         </TouchableOpacity>
         <TouchableOpacity>
           <Trash2 onPress={showDeleteAlert} color={"#0050b3"} />
@@ -118,42 +118,42 @@ export default function UserDetailsScreen() {
       </View>
 
       <View style={styles.field}>
+        <Text style={styles.label}>ID:</Text>
+        <Text style={styles.value}>{pessoa.id}</Text>
+      </View>
+
+      <View style={styles.field}>
         <Text style={styles.label}>Nome:</Text>
-        <Text style={styles.value}>{user.nome}</Text>
+        <Text style={styles.value}>{pessoa.nome}</Text>
       </View>
 
       <View style={styles.field}>
         <Text style={styles.label}>Email:</Text>
-        <Text style={styles.value}>{user.email}</Text>
+        <Text style={styles.value}>{pessoa.email}</Text>
       </View>
 
       <View style={styles.field}>
         <Text style={styles.label}>Telefone:</Text>
-        <Text style={styles.value}>{user.telefone}</Text>
-      </View>
-
-      <View style={styles.field}>
-        <Text style={styles.label}>ID:</Text>
-        <Text style={styles.value}>{user.id}</Text>
+        <Text style={styles.value}>{pessoa.telefone}</Text>
       </View>
 
       <View style={styles.field}>
         <Text style={styles.label}>Criado em:</Text>
         <Text style={styles.value}>
-          {new Date(user.created_at).toLocaleString()}
+          {new Date(pessoa.created_at).toLocaleString()}
         </Text>
       </View>
 
       <View style={styles.field}>
         <Text style={styles.label}>Atualizado em:</Text>
         <Text style={styles.value}>
-          {new Date(user.updated_at).toLocaleString()}
+          {new Date(pessoa.updated_at).toLocaleString()}
         </Text>
       </View>
 
       <View style={styles.buttonWrapper}>
         <Button
-          title="Voltar para lista"
+          title="Voltar"
           onPress={() => router.back()}
           color="#0050b3"
         />

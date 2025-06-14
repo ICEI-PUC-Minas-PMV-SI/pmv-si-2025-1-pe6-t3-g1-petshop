@@ -10,9 +10,9 @@ import {
 } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 
-export default function UserEditScreen() {
+export default function PessoaEditScreen() {
   const router = useRouter();
-  const { id: userId } = useLocalSearchParams();
+  const { id: pessoaId } = useLocalSearchParams();
 
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
@@ -22,39 +22,39 @@ export default function UserEditScreen() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!userId) {
-      setErrorMessage('ID de usuário não fornecido');
+    if (!pessoaId) {
+      setErrorMessage('ID de pessoa não fornecido');
       setLoading(false);
       return;
     }
 
-    const fetchUser = async () => {
+    const fetchPessoa = async () => {
       try {
-        const res = await fetch(`http://petshop.goul.me/api/users/${userId}`, {
+        const res = await fetch(`http://petshop.goul.me/api/pessoas/${pessoaId}`, {
           method: 'GET',
           credentials: 'include',
         });
-        if (!res.ok) throw new Error('Erro ao carregar usuário');
+        if (!res.ok) throw new Error('Erro ao carregar pessoa');
         const data = await res.json();
         setNome(data.nome);
         setEmail(data.email);
         setTelefone(data.telefone);
       } catch (err) {
-        console.error('Erro ao carregar usuário:', err);
-        setErrorMessage('Erro ao carregar dados do usuário.');
+        console.error('Erro ao carregar pessoa:', err);
+        setErrorMessage('Erro ao carregar dados do pessoa.');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchUser();
-  }, [userId]);
+    fetchPessoa();
+  }, [pessoaId]);
 
   const handleEdit = async () => {
     setErrorMessage('');
     try {
-      const response = await fetch(`http://petshop.goul.me/api/users/${userId}/update`, {
-        method: 'PATCH',
+      const response = await fetch(`http://petshop.goul.me/api/pessoas/${pessoaId}`, {
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify({ nome, email, senha, telefone }),
@@ -63,7 +63,7 @@ export default function UserEditScreen() {
       if (response.ok) {
         router.back();
       } else {
-        setErrorMessage('Erro ao atualizar usuário. Tente novamente.');
+        setErrorMessage('Erro ao atualizar pessoa. Tente novamente.');
       }
     } catch (error) {
       setErrorMessage('Erro ao tentar atualizar. Tente mais tarde.');
@@ -80,7 +80,7 @@ export default function UserEditScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Editar Usuário – id {userId}</Text>
+      <Text style={styles.title}>Editar {nome}</Text>
 
       <TextInput
         style={styles.input}
@@ -118,7 +118,7 @@ export default function UserEditScreen() {
       {errorMessage ? <Text style={styles.errorText}>{errorMessage}</Text> : null}
 
       <View style={styles.buttonWrapper}>
-        <Button title="Confirmar edição" onPress={handleEdit} color="#0050b3" />
+        <Button title="Salvar" onPress={handleEdit} color="#0050b3" />
       </View>
     </ScrollView>
   );
