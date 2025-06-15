@@ -71,12 +71,6 @@ A aplicação web foi projetada com diversas camadas de segurança para garantir
 4. Faça o deploy da aplicação no ambiente escolhido, seguindo as instruções específicas da plataforma de hospedagem.
 5. Realize testes para garantir que a aplicação esteja funcionando corretamente no ambiente de produção.
 
-## Testes
-
-1. Casos de Teste
-
-Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consultas e pesquisa de produtos/serviços.
-
 # Plano de Testes de Software
 
 ## Requisitos Funcionais
