@@ -37,8 +37,8 @@
 
 ## Testes
 
-## Testes
 1. Casos de Teste
+
 Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consultas e pesquisa de produtos/serviços.
 
 # Plano de Testes de Software
