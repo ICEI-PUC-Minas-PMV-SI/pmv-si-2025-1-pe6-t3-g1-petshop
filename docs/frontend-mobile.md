@@ -3,7 +3,7 @@
 O projeto tem como objetivo fornecer uma interface mobile intuitiva, acessível e responsiva para a gestão de um pet shop. Através do front-end mobile, os usuários poderão realizar operações como consulta e cadastro de pets, clientes e agendamentos. O design e a usabilidade foram pensados para otimizar o fluxo de trabalho, facilitar o acesso às informações e garantir uma experiência agradável, prática e segura aos usuários em dispositivos móveis
 
 ## Projeto da Interface
-[Descreva o projeto da interface móvel da aplicação, incluindo o design visual, layout das páginas, interações do usuário e outros aspectos relevantes.]
+A interface móvel foi projetada para oferecer uma navegação intuitiva e eficiente em dispositivos móveis. Com um layout limpo e responsivo, conta com barra de navegação inferior e telas organizadas por seções: Pets, Clientes, Agendamentos e Usuários. Cada página possui formulários simplificados, listas com filtros e ações rápidas. As interações priorizam poucos toques, uso de ícones intuitivos e feedbacks visuais, garantindo uma experiência ágil e produtiva para os colaboradores do pet shop.
 
 ### Wireframes
 
@@ -87,5 +87,19 @@ Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consulta
 
 
 # Referências
+NIELSEN, Jakob; BUDIU, Raluca. Mobile Usability. New Riders, 2012.
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
+KRUG, Steve. Não me faça pensar: uma abordagem de bom senso à usabilidade na web e nos aplicativos móveis. Alta Books, 2014.
+
+MATERIAL DESIGN. Guidelines for mobile UI/UX design. Disponível em: https://m3.material.io. Acesso em: 10 jun. 2025.
+
+APPLE DEVELOPER. Human Interface Guidelines. Disponível em: https://developer.apple.com/design/human-interface-guidelines. Acesso em: 10 jun. 2025.
+
+W3C. Web Accessibility Guidelines (WCAG) 2.1. Disponível em: https://www.w3.org/TR/WCAG21. Acesso em: 09 jun. 2025.
+
+MDN Web Docs. Responsive Design Basics. Disponível em: https://developer.mozilla.org/. Acesso em: 09 jun. 2025.
+
+FERREIRA, Fabio. UX Design: técnicas e práticas para o design de interfaces. Novatec Editora, 2020.
+
+
+
