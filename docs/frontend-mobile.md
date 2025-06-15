@@ -98,6 +98,9 @@ Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consulta
   1. Logue no sistema e clique em pessoas na coluna lateral da esquerda.
   2. Procure o cliente desejado na tabela e clique no botão deletar deste cliente.
 - Resultado esperado: Aparece um alert do navegador dizendo que o cliente foi deletado com sucesso.
+![PESSOA1](img/PESSOA_MOBILE1.png)
+![PESSOA2](img/PESSOA_MOBILE2.png)
+![PESSOA3](img/PESSOA_MOBILE3.png)
 
 
 ## [RF-005](./contexto.md#rf-005): Permitir que o administrador cadastre um usuário.
