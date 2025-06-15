@@ -55,7 +55,7 @@ function RootLayoutNav() {
   return (
     <TamaguiProvider config={config} >
       <CustomRootLayout>
-        <Stack screenOptions={{ headerShown: true }}>
+        <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="login/index"  />
         </Stack>
       </CustomRootLayout>

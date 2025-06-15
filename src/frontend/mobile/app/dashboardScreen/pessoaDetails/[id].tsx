@@ -58,7 +58,7 @@ export default function PessoaDetailsScreen() {
 
   const handleDeletePessoa = () => {
     if (!pessoaId) return;
-    fetch(`http://10.0.2.2:3001/api/pessoas/${pessoaId}/delete`, {
+    fetch(`http://10.0.2.2:3001/api/pessoas/${pessoaId}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

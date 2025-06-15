@@ -46,6 +46,10 @@ export default function LoginPage({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const handleRedirectHome = () => {
+    router.push('/dashboardScreen')
+  }
+
   return (
     <SafeAreaView style={stylesHeader.safeArea}>
       <View style={stylesHeader.header}>
@@ -81,7 +85,12 @@ export default function LoginPage({ children }: { children: React.ReactNode }) {
           <TouchableOpacity style={styles.button} onPress={handleLogin}>
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
-
+          <TouchableOpacity
+            style={styles.button}
+            onPress={handleRedirectHome}
+          >
+            <Text style={styles.buttonText}>KKKKKK</Text>
+          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
