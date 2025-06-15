@@ -12,51 +12,63 @@ import { ArrowLeft } from "lucide-react-native";
 import { useRouter } from "expo-router";
 
 export default function UserRegisterPage() {
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [senha, setSenha] = useState("");
-  const [confirmSenha, setConfirmSenha] = useState("");
+  const [pessoa, setPessoa] = useState("");
+  const [profissional, setProfissional] = useState("");
+  const [pet, setPet] = useState("");
+  const [servico, setServico] = useState("");
+  const [data_agendamento, setDataAgendamento] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [tipoUsuario, setTipoUsuario] = useState("2");
+  //const [tipoUsuario, setTipoUsuario] = useState("2");
   const router = useRouter();
+
   const handleRegister = async () => {
     if (
-      !nome ||
-      !email ||
-      !senha ||
-      !telefone ||
-      !confirmSenha ||
-      !tipoUsuario
+      !pessoa ||
+      !profissional ||
+      !pet ||
+      !servico ||
+      !data_agendamento
     ) {
       setErrorMessage("Por favor, preencha todos os campos.");
       return;
     }
 
-    if (senha !== confirmSenha) {
+    /*if (senha !== confirmSenha) {
       setErrorMessage("As senhas não coincidem.");
       return;
     }
+*/
+  // Validação do formato da data
+  const dataRegex = /^\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}$/
+  if (!dataRegex.test(data_agendamento)) {
+    setErrorMessage('Data inválida. Use o formato dd/mm/yyyy.')
+    return
+  }
+
+  // Converte para ISO antes de enviar (ex: "2025-05-10")
+  const [dataParte, horaParte] = data_agendamento.split(' ')
+  const [dia, mes, ano] = dataParte.split('/')
+  const dataFormatada = `${ano}-${mes}-${dia}T${horaParte}:00`
 
     try {
-      const response = await fetch("http://10.0.2.2:3001/api/users/new-user", {
+      const response = await fetch("http://10.0.2.2:3001/api/schedule/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify({
-          nome,
-          email,
-          senha,
-          telefone,
-          role_id: Number(tipoUsuario),
+          pessoa,
+          profissional,
+          pet,
+          servico,
+          data_agendamento: dataFormatada,
         }),
       });
 
       if (response.ok) {
-        Alert.alert("Sucesso", "Usuário cadastrado com sucesso.", [
+        Alert.alert("Sucesso", "Agendamento cadastrado com sucesso.", [
           {
             text: "OK",
-            onPress: () => (router.push("/dashboardScreen/users")),
+            onPress: () => (router.push("/dashboardScreen/scheduling")),
           },
         ]);
       } else {
@@ -70,7 +82,7 @@ export default function UserRegisterPage() {
   };
 
   const handleRedirectToUsers = () => {
-    router.push("/dashboardScreen/users");
+    router.push("/dashboardScreen/scheduling");
   };
 
   return (
@@ -79,85 +91,44 @@ export default function UserRegisterPage() {
         <TouchableOpacity style={styles.backButton} onPress={handleRedirectToUsers}>
           <ArrowLeft size={26} color="#0050b3" />
         </TouchableOpacity>
-        <Text style={styles.title}>Novo Usuário</Text>
+        <Text style={styles.title}>Novo Agendamento</Text>
       </View>
 
       <TextInput
         style={styles.input}
-        placeholder="Nome Completo"
-        value={nome}
-        onChangeText={setNome}
+        placeholder="Pessoa"
+        value={pessoa}
+        onChangeText={setPessoa}
       />
 
       <TextInput
         style={styles.input}
-        placeholder="E-mail"
-        value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-        autoCapitalize="none"
+        placeholder="Profissional"
+        value={profissional}
+        onChangeText={setProfissional}
       />
 
       <TextInput
         style={styles.input}
-        placeholder="Telefone"
-        value={telefone}
-        onChangeText={setTelefone}
-        keyboardType="phone-pad"
-        autoCapitalize="none"
+        placeholder="Pet"
+        value={pet}
+        onChangeText={setPet}
+        //autoCapitalize="none"
       />
 
       <TextInput
         style={styles.input}
-        placeholder="Senha"
-        value={senha}
-        onChangeText={setSenha}
-        secureTextEntry
+        placeholder="Serviço"
+        value={servico}
+        onChangeText={setServico}
       />
 
       <TextInput
         style={styles.input}
-        placeholder="Confirmar Senha"
-        value={confirmSenha}
-        onChangeText={setConfirmSenha}
-        secureTextEntry
+        placeholder="Data (dd/mm/yyyy hh:mm)"
+        value={data_agendamento}
+        onChangeText={setDataAgendamento}
       />
-
-      <View style={styles.userTypeContainer}>
-        <TouchableOpacity
-          style={[
-            styles.userTypeButton,
-            tipoUsuario === "1" && styles.userTypeButtonSelected,
-          ]}
-          onPress={() => setTipoUsuario("1")}
-        >
-          <Text
-            style={[
-              styles.userTypeText,
-              tipoUsuario === "1" && styles.userTypeTextSelected,
-            ]}
-          >
-            1 - Administrador
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[
-            styles.userTypeButton,
-            tipoUsuario === "2" && styles.userTypeButtonSelected,
-          ]}
-          onPress={() => setTipoUsuario("2")}
-        >
-          <Text
-            style={[
-              styles.userTypeText,
-              tipoUsuario === "2" && styles.userTypeTextSelected,
-            ]}
-          >
-            2 - Usuário
-          </Text>
-        </TouchableOpacity>
-      </View>
 
       {errorMessage ? (
         <Text style={styles.errorText}>{errorMessage}</Text>
