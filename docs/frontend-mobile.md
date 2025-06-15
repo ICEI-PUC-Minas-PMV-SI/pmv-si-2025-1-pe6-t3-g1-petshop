@@ -15,12 +15,39 @@ A interface móvel foi projetada para oferecer uma navegação intuitiva e efici
 
 ## Fluxo de Dados
 
-[Diagrama ou descrição do fluxo de dados na aplicação.]
+O fluxo de dados da aplicação mobile do pet shop segue uma arquitetura baseada em CRUD (Create, Read, Update, Delete) e é organizado em camadas para garantir a separação de responsabilidades, segurança e performance. A seguir, descreve-se o ciclo típico de processamento de dados:
+
+Interação do Usuário (Frontend Mobile)
+
+O usuário interage com a interface mobile por meio de formulários, botões e menus. Essas ações geram requisições (via HTTP/HTTPS) ao servidor, utilizando métodos REST (GET, POST, PUT, DELETE).
+
+Requisição ao Servidor (Backend)
+
+O servidor recebe a solicitação e a redireciona para o controlador adequado (ex: PetController, AgendamentoController). Os dados da requisição são validados para garantir integridade e segurança.
+
+Processamento e Regras de Negócio
+
+O controlador repassa a solicitação para os serviços internos responsáveis pelas regras de negócio. Ex: Antes de registrar um agendamento, o sistema verifica se a data esta no formato correto.
+
+Acesso ao Banco de Dados
+
+Após o processamento, o serviço se comunica com o repositório ou camada de acesso a dados. Consultas, inserções ou atualizações são feitas no banco de dados relacional (PostgreSQL).
+
+Resposta ao Usuário
+
+O servidor envia uma resposta com o resultado da operação (sucesso, erro ou dados solicitados). A interface web exibe a informação ao usuário com mensagens de sucesso, erro ou atualização visual da tela.
+
+![FLUXOMOBILE](img/Fluxomobile.png)
+
 
 ## Tecnologias Utilizadas
+O desenvolvimento Mobile foi realizado utilizando as seguintes tecnologias principais:
 
-[Lista das tecnologias principais que serão utilizadas no projeto.]
+Tamagui – Biblioteca de UI unificada para React Native, que oferece componentes estilizados com performance e acessibilidade, ideal para construção de interfaces responsivas e consistentes.
 
+JavaScript e TypeScript – Linguagem de programação utilizada para o desenvolvimento de toda a lógica do projeto.
+
+Expo (React Native) - Uma plataforma que simplifica o desenvolvimento, e visualização em Android ou IOS. O Expo oferece um fluxo de desenvolvimento mais rápido.
 ## Considerações de Segurança
 
 [Discuta as considerações de segurança relevantes para a aplicação distribuída, como autenticação, autorização, proteção contra ataques, etc.]
