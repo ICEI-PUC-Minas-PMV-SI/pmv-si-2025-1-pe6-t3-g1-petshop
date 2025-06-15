@@ -1,9 +1,14 @@
 const Pet = require("../models/petModel");
 
-const getPets = async (req, res) => {
+const getPets = async (_req, res) => {
   try {
+<<<<<<< HEAD
+    const Pets = await Pet.findAll();
+    res.status(200).json(Pets); 
+=======
     const pets = await Pet.findAll();
     res.status(200).json(pets);
+>>>>>>> 0921015df3536de75501537cdc4f1c83e62be2d7
   } catch (error) {
     res.status(500).json({ error: "Erro ao buscar pets" });
   }
@@ -23,6 +28,7 @@ const createPet = async (req, res) => {
     });
     res.status(201).json({ message: "Pet criado com sucesso", pet: newPet });
   } catch (error) {
+    console.error("Erro ao criar pet:", error);
     res.status(500).json({ error: "Erro ao criar pet" });
   }
 };
@@ -59,10 +65,10 @@ const updatePet = async (req, res) => {
         .status(200)
         .json({ message: "Pet atualizado com sucesso", pet: updatedPet });
     } else {
-      res.status(404).json({ error: "Pet não encontrado" });
+      res.status(404).send({ message: `Não há pet com id=${req.params.id}.` });
     }
   } catch (error) {
-    res.status(500).json({ error: "Erro ao atualizar pet" });
+    res.status(500).json({ error: "Erro ao atualizar pet" }); 
   }
 };
 
@@ -75,13 +81,11 @@ const deletePet = async (req, res) => {
     if (deleted) {
       res.status(200).json({ message: "Pet deletado com sucesso" });
     } else {
-      res.status(404).json({ error: "Pet não encontrado" });
+      res.status(404).send({ message: `Não há pet com id=${req.params.id}.` });
     }
   } catch (error) {
-    res.status(500).json({ error: "Erro ao deletar pet" });
+    res.status(500).json({ error: "Erro ao deletar pet" }); 
   }
 };
-
-
 
 module.exports = { getPets, createPet, updatePet, deletePet, findSingle };

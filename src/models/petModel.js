@@ -4,7 +4,7 @@ const Pessoa = require("../models/pessoaModel")
 
 const Pet = sequelize.define(
     "Pet",
-{
+    {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -19,6 +19,7 @@ const Pet = sequelize.define(
         },
         onDelete: "CASCADE",
       },
+
       nome: {
         type: DataTypes.STRING,
         allowNull: false
@@ -32,17 +33,23 @@ const Pet = sequelize.define(
         allowNull: false
       },
       data_nascimento: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.DATE,
         allowNull: false
       },
       observacoes: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false
+      },
+      pessoa_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true
       }
-    }, 
+    },
     {
       tableName: "pet",
       timestamps: false,
     }
+
     );
     module.exports = Pet;
+

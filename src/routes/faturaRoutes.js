@@ -1,4 +1,4 @@
-const express = require("express");
+ const express = require("express");
 const { findAll, create, findSingle, updateSingle, deleteSingle} = require("../controllers/faturaController");
 const router = express.Router();
 const tokenVerify = require("../middleware/tokenVerify")
