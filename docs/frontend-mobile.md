@@ -1,6 +1,6 @@
 # Front-end Móvel
 
-[Inclua uma breve descrição do projeto e seus objetivos.]
+O projeto tem como objetivo fornecer uma interface mobile intuitiva, acessível e responsiva para a gestão de um pet shop. Através do front-end mobile, os usuários poderão realizar operações como consulta e cadastro de pets, clientes e agendamentos. O design e a usabilidade foram pensados para otimizar o fluxo de trabalho, facilitar o acesso às informações e garantir uma experiência agradável, prática e segura aos usuários em dispositivos móveis
 
 ## Projeto da Interface
 [Descreva o projeto da interface móvel da aplicação, incluindo o design visual, layout das páginas, interações do usuário e outros aspectos relevantes.]
