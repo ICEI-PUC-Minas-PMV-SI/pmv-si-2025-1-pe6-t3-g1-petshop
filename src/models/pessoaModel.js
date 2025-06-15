@@ -60,19 +60,19 @@ const Pessoa = sequelize.define(
     },
     endereco_bairro: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     cidade: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     estado: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     pais: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     cep: {
       type: DataTypes.INTEGER,

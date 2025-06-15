@@ -3,11 +3,13 @@
 import { useState } from 'react'
 import { XStack, YStack, XGroup, Input, Button, H1, Paragraph, Text } from '@my/ui'
 
+import { DatePickerExample } from '../datePicker/DatePicker'
+
 export default function NovaPessoaPage() {
   const [nome, setName] = useState('')
   const [cpf_cnpj, setTaxId] = useState('')
   const [tipo, setTipo] = useState('F')
-  const [nascimento, setNascimento] = useState('')
+  const [nascimento, setNascimento] = useState<Date[]>([])
   const [genero, setGenero] = useState('M')
   const [telefone, setPhone] = useState('')
   const [email, setEmail] = useState('')
@@ -23,7 +25,7 @@ export default function NovaPessoaPage() {
   const [errorMessage, setErrorMessage] = useState('')
 
   const handleRegister = async () => {
-    if (!nome || !cpf_cnpj || !tipo || !telefone || !tipo ||!genero) {
+    if (!nome || !cpf_cnpj || !tipo || !telefone ||!genero) {
       setErrorMessage('Por favor, preencha todos os campos.')
       return
     }
@@ -102,13 +104,12 @@ export default function NovaPessoaPage() {
               </XGroup.Item>
             </XGroup>
 
-            <Input
-              placeholder="Nascimento"
-              value={nascimento}
-              onChangeText={setNascimento}
-              autoCapitalize="none"
-              flex={1}
+            <DatePickerExample
+            value={nascimento}
+            onChange={setNascimento}
             />
+
+            
 
             <XGroup>
               <XGroup.Item>
