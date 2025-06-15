@@ -17,6 +17,8 @@ A interface móvel foi projetada para oferecer uma navegação intuitiva e efici
 ![CADASTRO_USUÁRIOS](img/CADASTRO_USUÁRIOS1.png)
 ![LOGIN_MOBILE](img/TELA_LOGIN_MOBILE.png)
 ![MENU_LATERAL_MOBILE](img/MENU_LATERAL_MOBILE.png)
+![MENU_LATERAL_MOBILE](img/detalhes_pessoa.png)
+![MENU_LATERAL_MOBILE](img/editar_pessoa.png)
 
 ## Fluxo de Dados
 
@@ -24,7 +26,7 @@ O fluxo de dados da aplicação mobile do pet shop segue uma arquitetura baseada
 
 Interação do Usuário (Frontend Mobile)
 
-O usuário interage com a interface mobile por meio de formulários, botões e menus. Essas ações geram requisições (via HTTP/HTTPS) ao servidor, utilizando métodos REST (GET, POST, PUT, DELETE).
+O usuário interage com a interface mobile por meio de formulários, botões e menus. Essas ações geram requisições via HTTP ao servidor, utilizando métodos REST (GET, POST, PUT, DELETE).
 
 Requisição ao Servidor (Backend)
 
@@ -68,13 +70,11 @@ A aplicação web foi projetada com diversas camadas de segurança para garantir
 
 ## Implantação
 
-[Instruções para implantar a aplicação distribuída em um ambiente de produção.]
+* ###  Aplicativo Movel
 
-1. Defina os requisitos de hardware e software necessários para implantar a aplicação em um ambiente de produção.
-2. Escolha uma plataforma de hospedagem adequada, como um provedor de nuvem ou um servidor dedicado.
-3. Configure o ambiente de implantação, incluindo a instalação de dependências e configuração de variáveis de ambiente.
-4. Faça o deploy da aplicação no ambiente escolhido, seguindo as instruções específicas da plataforma de hospedagem.
-5. Realize testes para garantir que a aplicação esteja funcionando corretamente no ambiente de produção.
+1. Gerar arquivos IPA e APK para as respectivas plataformas iOS e Android em ambientes de desenvolvimentos
+2. Geração de chaves e assinatura dos pacotes.
+3. Envio dos pacotes para serem publicados nas respectivas lojas de aplicativos de cada plataforma, Andoid(Play Store) e iOS(App Store) 
 
 # Plano de Testes de Software
 
