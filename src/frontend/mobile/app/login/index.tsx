@@ -27,7 +27,7 @@ export default function LoginPage({ children }: { children: React.ReactNode }) {
     }
 
     try {
-      const response = await fetch("http://petshop.goul.me/api/login", {
+      const response = await fetch("http://10.0.2.2:3001/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

@@ -4,20 +4,33 @@ import {
   Text,
   TextInput,
   Button,
+  TouchableOpacity,
   ActivityIndicator,
   StyleSheet,
   ScrollView,
 } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import moment from 'moment';
 
 export default function PessoaEditScreen() {
   const router = useRouter();
   const { id: pessoaId } = useLocalSearchParams();
+  const [date, setDate] = useState(new Date());
 
-  const [nome, setNome] = useState('');
+  const [nome, setNome] = useState("");
+  const [cpf_cnpj, setTaxId] = useState('');
+  const [tipo, setTipo] = useState('');
+  const [nascimento, setNascimento] = useState('');
+  const [genero, setGenero] = useState('');
+  const [telefone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [senha, setSenha] = useState('');
+  const [endereco, setEndereco] = useState('');
+  const [endereco_num, setEndNum] = useState('');
+  const [cep, setCep] = useState('');
+
+  const [show, setShow] = useState(false);
+
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(true);
 
@@ -30,15 +43,22 @@ export default function PessoaEditScreen() {
 
     const fetchPessoa = async () => {
       try {
-        const res = await fetch(`http://petshop.goul.me/api/pessoas/${pessoaId}`, {
+        const res = await fetch(`http://10.0.2.2:3001/api/pessoas/${pessoaId}`, {
           method: 'GET',
           credentials: 'include',
         });
         if (!res.ok) throw new Error('Erro ao carregar pessoa');
         const data = await res.json();
         setNome(data.nome);
+        setTaxId(data.cpf_cnpj);
+        setTipo(data.tipo);
+        setNascimento(new Date(data.nascimento).toLocaleDateString());
+        setGenero(data.genero);
+        setPhone(data.telefone);
         setEmail(data.email);
-        setTelefone(data.telefone);
+        setEndereco(data.endereco);
+        setEndNum(data.endereco_num);
+        setCep(data.cep);
       } catch (err) {
         console.error('Erro ao carregar pessoa:', err);
         setErrorMessage('Erro ao carregar dados do pessoa.');
@@ -53,11 +73,11 @@ export default function PessoaEditScreen() {
   const handleEdit = async () => {
     setErrorMessage('');
     try {
-      const response = await fetch(`http://petshop.goul.me/api/pessoas/${pessoaId}`, {
+      const response = await fetch(`http://10.0.2.2:3001/api/pessoas/${pessoaId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ nome, email, senha, telefone }),
+        body: JSON.stringify({ nome, email, telefone }),
       });
 
       if (response.ok) {
@@ -84,9 +104,121 @@ export default function PessoaEditScreen() {
 
       <TextInput
         style={styles.input}
-        placeholder="Novo nome"
+        placeholder="Nome Completo"
         value={nome}
         onChangeText={setNome}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="CPF/CNPJ"
+        value={cpf_cnpj}
+        onChangeText={setTaxId}
+      />
+
+      <View style={styles.pessoaTypeContainer}>
+        <TouchableOpacity
+          style={[
+            styles.pessoaTypeButton,
+            tipo === "F" && styles.pessoaTypeButtonSelected,
+          ]}
+          onPress={() => setTipo("F")}
+        >
+          <Text
+            style={[
+              styles.pessoaTypeText,
+              tipo === "F" && styles.pessoaTypeTextSelected,
+            ]}
+          >
+            Fisica
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[
+            styles.pessoaTypeButton,
+            tipo === "J" && styles.pessoaTypeButtonSelected,
+          ]}
+          onPress={() => setTipo("J")}
+        >
+          <Text
+            style={[
+              styles.pessoaTypeText,
+              tipo === "J" && styles.pessoaTypeTextSelected,
+            ]}
+          >
+            Juridica
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      {show && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={'date'}
+            is24Hour={true}
+            display="default"
+            onTouchCancel={() => setShow(false)}
+            onChange={(event, date) => {
+              setShow(false);
+              setNascimento(moment(date).format('DD/MM/YYYY'));
+            }}
+          />
+        )}
+
+<TouchableOpacity onPress={() => setShow(true)}>
+    <TextInput
+        style={styles.input}
+        placeholder="Nascimento/Fundação"
+        value={nascimento}
+        editable={false}
+      />
+</TouchableOpacity>
+
+    <View style={styles.pessoaTypeContainer}>
+        <TouchableOpacity
+          style={[
+            styles.pessoaTypeButton,
+            genero === "M" && styles.pessoaTypeButtonSelected,
+          ]}
+          onPress={() => setGenero("M")}
+        >
+          <Text
+            style={[
+              styles.pessoaTypeText,
+              genero === "M" && styles.pessoaTypeTextSelected,
+            ]}
+          >
+            Masculino
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[
+            styles.pessoaTypeButton,
+            genero === "F" && styles.pessoaTypeButtonSelected,
+          ]}
+          onPress={() => setGenero("F")}
+        >
+          <Text
+            style={[
+              styles.pessoaTypeText,
+              genero === "J" && styles.pessoaTypeTextSelected,
+            ]}
+          >
+            Feminino
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Telefone"
+        value={telefone}
+        onChangeText={setPhone}
+        keyboardType="phone-pad"
+        autoCapitalize="none"
       />
 
       <TextInput
@@ -98,22 +230,32 @@ export default function PessoaEditScreen() {
         autoCapitalize="none"
       />
 
-      <TextInput
+    <TextInput
         style={styles.input}
-        placeholder="Novo telefone"
-        value={telefone}
-        onChangeText={setTelefone}
-        keyboardType="phone-pad"
+        placeholder="Endereço"
+        value={endereco}
+        onChangeText={setEndereco}
         autoCapitalize="none"
       />
 
       <TextInput
         style={styles.input}
-        placeholder="Nova senha (opcional)"
-        value={senha}
-        onChangeText={setSenha}
-        secureTextEntry
+        placeholder="Nº"
+        value={endereco_num}
+        onChangeText={setEndNum}
+        keyboardType="number-pad"
+        autoCapitalize="none"
       />
+
+      <TextInput
+        style={styles.input}
+        placeholder="CEP"
+        value={cep}
+        onChangeText={setCep}
+        keyboardType="number-pad"
+        autoCapitalize="none"
+      />
+
 
       {errorMessage ? <Text style={styles.errorText}>{errorMessage}</Text> : null}
 
@@ -150,6 +292,28 @@ const styles = StyleSheet.create({
     padding: 12,
     backgroundColor: '#fff',
     marginBottom: 12,
+  },pessoaTypeContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 12,
+  },
+  pessoaTypeButton: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: "#0050b3",
+    borderRadius: 8,
+    padding: 12,
+    marginHorizontal: 4,
+    alignItems: "center",
+  },
+  pessoaTypeButtonSelected: {
+    backgroundColor: "#0050b3",
+  },
+  pessoaTypeText: {
+    color: "#0050b3",
+  },
+  pessoaTypeTextSelected: {
+    color: "#fff",
   },
   errorText: {
     color: '#D00',

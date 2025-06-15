@@ -25,7 +25,7 @@ export default function NovaPessoaPage() {
   const [errorMessage, setErrorMessage] = useState('')
 
   const handleRegister = async () => {
-    if (!nome || !cpf_cnpj || !tipo || !telefone || !tipo ||!genero) {
+    if (!nome || !cpf_cnpj || !tipo || !telefone ||!genero) {
       setErrorMessage('Por favor, preencha todos os campos.')
       return
     }

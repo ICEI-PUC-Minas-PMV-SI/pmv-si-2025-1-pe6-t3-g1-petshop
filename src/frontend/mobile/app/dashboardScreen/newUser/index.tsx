@@ -39,7 +39,7 @@ export default function UserRegisterPage() {
     }
 
     try {
-      const response = await fetch("http://petshop.goul.me/api/users/new-user", {
+      const response = await fetch("http://10.0.2.2:3001/api/users/new-user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

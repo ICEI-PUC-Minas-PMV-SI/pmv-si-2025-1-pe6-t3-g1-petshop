@@ -30,7 +30,7 @@ export default function UserEditScreen() {
 
     const fetchUser = async () => {
       try {
-        const res = await fetch(`http://petshop.goul.me/api/users/${userId}`, {
+        const res = await fetch(`http://10.0.2.2:3001/api/users/${userId}`, {
           method: 'GET',
           credentials: 'include',
         });
@@ -53,7 +53,7 @@ export default function UserEditScreen() {
   const handleEdit = async () => {
     setErrorMessage('');
     try {
-      const response = await fetch(`http://petshop.goul.me/api/users/${userId}/update`, {
+      const response = await fetch(`http://10.0.2.2:3001/api/users/${userId}/update`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

@@ -36,7 +36,7 @@ export default function UserDetailsScreen() {
       return;
     }
 
-    fetch(`http://petshop.goul.me/api/users/${userId}`, {
+    fetch(`http://10.0.2.2:3001/api/users/${userId}`, {
       credentials: "include",
     })
       .then((res) => {
@@ -50,7 +50,7 @@ export default function UserDetailsScreen() {
 
   const handleDeleteUser = () => {
     if (!userId) return;
-    fetch(`http://petshop.goul.me/api/users/${userId}/delete`, {
+    fetch(`http://10.0.2.2:3001/api/users/${userId}/delete`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

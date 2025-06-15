@@ -8,7 +8,7 @@ export function PessoasList() {
   const router = useRouter();
   const [data, setData] = React.useState<any[]>([]);
   React.useEffect(() => {
-    fetch("http://petshop.goul.me/api/pessoas", {
+    fetch("http://10.0.2.2:3001/api/pessoas", {
       headers: {
         "Content-Type": "application/json",
       },

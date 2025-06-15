@@ -10,45 +10,57 @@ import {
 } from "react-native";
 import { ArrowLeft } from "lucide-react-native";
 import { useRouter } from "expo-router";
+import DateTimePicker from '@react-native-community/datetimepicker';
+import moment from 'moment';
 
 export default function PessoaRegisterPage() {
+  const [date, setDate] = useState(new Date());
+
   const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [senha, setSenha] = useState("");
-  const [confirmSenha, setConfirmSenha] = useState("");
+  const [cpf_cnpj, setTaxId] = useState('');
+  const [tipo, setTipo] = useState('F');
+  const [nascimento, setNascimento] = useState('');
+  const [genero, setGenero] = useState('M');
+  const [telefone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [endereco, setEndereco] = useState('');
+  const [endereco_num, setEndNum] = useState('');
+  const [cep, setCep] = useState('');
+
+  const [show, setShow] = useState(false);
+
   const [errorMessage, setErrorMessage] = useState("");
-  const [tipoUsuario, setTipoUsuario] = useState("2");
   const router = useRouter();
   const handleRegister = async () => {
     if (
-      !nome ||
-      !email ||
-      !senha ||
+      !nome || 
+      !cpf_cnpj || 
+      !tipo ||
+      !nascimento || 
       !telefone ||
-      !confirmSenha ||
-      !tipoUsuario
+      !genero
     ) {
       setErrorMessage("Por favor, preencha todos os campos.");
       return;
     }
 
-    if (senha !== confirmSenha) {
-      setErrorMessage("As senhas não coincidem.");
-      return;
-    }
 
     try {
-      const response = await fetch("http://petshop.goul.me/api/pessoas", {
+      const response = await fetch("http://10.0.2.2:3001/api/pessoas", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify({
           nome,
-          email,
-          senha,
+          cpf_cnpj,
+          tipo,
+          nascimento,
+          genero,
           telefone,
-          role_id: Number(tipoUsuario),
+          email,
+          endereco,
+          endereco_num,
+          cep
         }),
       });
 
@@ -91,6 +103,118 @@ export default function PessoaRegisterPage() {
 
       <TextInput
         style={styles.input}
+        placeholder="CPF/CNPJ"
+        value={cpf_cnpj}
+        onChangeText={setTaxId}
+      />
+
+      <View style={styles.pessoaTypeContainer}>
+        <TouchableOpacity
+          style={[
+            styles.pessoaTypeButton,
+            tipo === "F" && styles.pessoaTypeButtonSelected,
+          ]}
+          onPress={() => setTipo("F")}
+        >
+          <Text
+            style={[
+              styles.pessoaTypeText,
+              tipo === "F" && styles.pessoaTypeTextSelected,
+            ]}
+          >
+            Fisica
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[
+            styles.pessoaTypeButton,
+            tipo === "J" && styles.pessoaTypeButtonSelected,
+          ]}
+          onPress={() => setTipo("J")}
+        >
+          <Text
+            style={[
+              styles.pessoaTypeText,
+              tipo === "J" && styles.pessoaTypeTextSelected,
+            ]}
+          >
+            Juridica
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+            {show && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={'date'}
+            is24Hour={true}
+            display="default"
+            onTouchCancel={() => setShow(false)}
+            onChange={(event, date) => {
+              setShow(false);
+              setNascimento(moment(date).format('DD/MM/YYYY'));
+            }}
+          />
+        )}
+
+    <TouchableOpacity onPress={() => setShow(true)}>
+        <TextInput
+            style={styles.input}
+            placeholder="Nascimento/Fundação"
+            value={nascimento}
+            editable={false}
+          />
+    </TouchableOpacity>
+
+    <View style={styles.pessoaTypeContainer}>
+        <TouchableOpacity
+          style={[
+            styles.pessoaTypeButton,
+            genero === "M" && styles.pessoaTypeButtonSelected,
+          ]}
+          onPress={() => setGenero("M")}
+        >
+          <Text
+            style={[
+              styles.pessoaTypeText,
+              genero === "M" && styles.pessoaTypeTextSelected,
+            ]}
+          >
+            Masculino
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[
+            styles.pessoaTypeButton,
+            genero === "F" && styles.pessoaTypeButtonSelected,
+          ]}
+          onPress={() => setGenero("F")}
+        >
+          <Text
+            style={[
+              styles.pessoaTypeText,
+              genero === "J" && styles.pessoaTypeTextSelected,
+            ]}
+          >
+            Feminino
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Telefone"
+        value={telefone}
+        onChangeText={setPhone}
+        keyboardType="phone-pad"
+        autoCapitalize="none"
+      />
+
+      <TextInput
+        style={styles.input}
         placeholder="E-mail"
         value={email}
         onChangeText={setEmail}
@@ -98,66 +222,31 @@ export default function PessoaRegisterPage() {
         autoCapitalize="none"
       />
 
-      <TextInput
+    <TextInput
         style={styles.input}
-        placeholder="Telefone"
-        value={telefone}
-        onChangeText={setTelefone}
-        keyboardType="phone-pad"
+        placeholder="Endereço"
+        value={endereco}
+        onChangeText={setEndereco}
         autoCapitalize="none"
       />
 
       <TextInput
         style={styles.input}
-        placeholder="Senha"
-        value={senha}
-        onChangeText={setSenha}
-        secureTextEntry
+        placeholder="Endereço Nº"
+        value={endereco_num}
+        onChangeText={setEndNum}
+        keyboardType="number-pad"
+        autoCapitalize="none"
       />
 
       <TextInput
         style={styles.input}
-        placeholder="Confirmar Senha"
-        value={confirmSenha}
-        onChangeText={setConfirmSenha}
-        secureTextEntry
+        placeholder="CEP"
+        value={cep}
+        onChangeText={setCep}
+        keyboardType="number-pad"
+        autoCapitalize="none"
       />
-
-      <View style={styles.pessoaTypeContainer}>
-        <TouchableOpacity
-          style={[
-            styles.pessoaTypeButton,
-            tipoUsuario === "1" && styles.pessoaTypeButtonSelected,
-          ]}
-          onPress={() => setTipoUsuario("1")}
-        >
-          <Text
-            style={[
-              styles.pessoaTypeText,
-              tipoUsuario === "1" && styles.pessoaTypeTextSelected,
-            ]}
-          >
-            1 - Administrador
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[
-            styles.pessoaTypeButton,
-            tipoUsuario === "2" && styles.pessoaTypeButtonSelected,
-          ]}
-          onPress={() => setTipoUsuario("2")}
-        >
-          <Text
-            style={[
-              styles.pessoaTypeText,
-              tipoUsuario === "2" && styles.pessoaTypeTextSelected,
-            ]}
-          >
-            2 - Pessoa
-          </Text>
-        </TouchableOpacity>
-      </View>
 
       {errorMessage ? (
         <Text style={styles.errorText}>{errorMessage}</Text>

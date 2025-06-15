@@ -19,8 +19,16 @@ export default function PessoaDetailsScreen() {
   interface Pessoa {
     id: number;
     nome: string;
+    cpf_cnpj: string;
+    tipo: string;
+    nascimento: string;
+    genero: string;
     email: string;
     telefone: string;
+    endereco: string;
+    endereco_num: string;
+    endereco_bairro: string;
+    cep: string;
     created_at: string;
     updated_at: string;
   }
@@ -36,7 +44,7 @@ export default function PessoaDetailsScreen() {
       return;
     }
 
-    fetch(`http://petshop.goul.me/api/pessoas/${pessoaId}`, {
+    fetch(`http://10.0.2.2:3001/api/pessoas/${pessoaId}`, {
       credentials: "include",
     })
       .then((res) => {
@@ -50,7 +58,7 @@ export default function PessoaDetailsScreen() {
 
   const handleDeletePessoa = () => {
     if (!pessoaId) return;
-    fetch(`http://petshop.goul.me/api/pessoas/${pessoaId}/delete`, {
+    fetch(`http://10.0.2.2:3001/api/pessoas/${pessoaId}/delete`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -128,13 +136,46 @@ export default function PessoaDetailsScreen() {
       </View>
 
       <View style={styles.field}>
-        <Text style={styles.label}>Email:</Text>
-        <Text style={styles.value}>{pessoa.email}</Text>
+        <Text style={styles.label}>Tipo:</Text>
+        <Text style={styles.value}>{pessoa.tipo == 'F'?'Fisica':'Juridica'}</Text>
+      </View>
+
+      <View style={styles.field}>
+        <Text style={styles.label}>CPF/CNPJ:</Text>
+        <Text style={styles.value}>{pessoa.cpf_cnpj}</Text>
+      </View>
+      <View style={styles.field}>
+        <Text style={styles.label}>Nascimento/Fundação:</Text>
+        <Text style={styles.value}>{new Date(pessoa.nascimento).toLocaleDateString()}</Text>
+      </View>
+
+      <View style={styles.field}>
+        <Text style={styles.label}>Genero:</Text>
+        <Text style={styles.value}>{pessoa.genero == 'M'?'Masculino':'Feminino'}</Text>
       </View>
 
       <View style={styles.field}>
         <Text style={styles.label}>Telefone:</Text>
         <Text style={styles.value}>{pessoa.telefone}</Text>
+      </View>
+
+      <View style={styles.field}>
+        <Text style={styles.label}>Email:</Text>
+        <Text style={styles.value}>{pessoa.email}</Text>
+      </View>
+
+      <View style={styles.field}>
+        <Text style={styles.label}>Endereço:</Text>
+        <Text style={styles.value}>{pessoa.endereco + ', ' + pessoa.endereco_num }</Text>
+      </View>
+
+      <View style={styles.field}>
+        <Text style={styles.label}>Bairro:</Text>
+        <Text style={styles.value}>{pessoa.endereco_bairro}</Text>
+      </View>
+     <View style={styles.field}>
+        <Text style={styles.label}>CEP:</Text>
+        <Text style={styles.value}>{pessoa.cep}</Text>
       </View>
 
       <View style={styles.field}>
@@ -145,7 +186,7 @@ export default function PessoaDetailsScreen() {
       </View>
 
       <View style={styles.field}>
-        <Text style={styles.label}>Atualizado em:</Text>
+        <Text style={styles.label}>Ultma atualização:</Text>
         <Text style={styles.value}>
           {new Date(pessoa.updated_at).toLocaleString()}
         </Text>
