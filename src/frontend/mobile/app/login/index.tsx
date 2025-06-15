@@ -15,8 +15,8 @@ import {
 import { useRouter } from "expo-router";
 
 export default function LoginPage({ children }: { children: React.ReactNode }) {
-  const [email, setEmail] = useState("robertoc@email.com");
-  const [senha, setSenha] = useState("123@mudAr");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
 
