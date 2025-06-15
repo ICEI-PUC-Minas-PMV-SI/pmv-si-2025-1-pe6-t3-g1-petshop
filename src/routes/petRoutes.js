@@ -172,6 +172,7 @@ const tokenVerify = require("../middleware/tokenVerify");
  *         description: Erro ao deletar pet.
  */
 
+
 router.get("/", tokenVerify, getPets);
 router.post("/new-pet", tokenVerify, createPet);
 router.get("/:id", tokenVerify, findSingle);

@@ -108,6 +108,11 @@ export function SortableTable() {
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include',
             })
+<<<<<<< HEAD
+            res.ok
+              ? alert('Pessoa deletada com sucesso!')
+              : alert('Erro ao deletar pessoa.')
+=======
 
             if (res.ok) {
               const updatedRes = await fetch('http://localhost:3001/api/pessoas', {
@@ -121,6 +126,7 @@ export function SortableTable() {
             } else {
               alert('Erro ao deletar pessoa.')
             }
+>>>>>>> dev
           } catch (error) {
             console.error(error)
             alert('Erro de rede ao tentar deletar.')

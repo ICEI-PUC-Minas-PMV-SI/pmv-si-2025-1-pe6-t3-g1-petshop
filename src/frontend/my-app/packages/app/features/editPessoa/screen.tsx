@@ -51,8 +51,8 @@ export default function UserEditPage() {
         setPais(data.pais)
         setCep(data.cep)
       } catch (err) {
-        console.error('Erro ao carregar usuário:', err)
-        setErrorMessage('Erro ao carregar dados do usuário.')
+        console.error('Erro ao carregar pessoa:', err)
+        setErrorMessage('Erro ao carregar dados do pessoa.')
       }finally {
         setLoading(false)
       }

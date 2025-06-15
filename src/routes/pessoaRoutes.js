@@ -18,7 +18,7 @@ const tokenVerify = require("../middleware/tokenVerify");
 
 /**
  * @swagger
- * /pessoas:
+ * /pessoas/new-pessoa:
  *   post:
  *     summary: Cria uma nova pessoa
  *     tags: [Pessoas]
@@ -174,7 +174,7 @@ const tokenVerify = require("../middleware/tokenVerify");
 
 /**
  * @swagger
- * /pessoas/{id}:
+ * /pessoas/{id}/update:
  *   put:
  *     summary: Atualiza um registro de pessoa individualmente
  *     tags: [Pessoas]
@@ -249,7 +249,7 @@ const tokenVerify = require("../middleware/tokenVerify");
 
 /**
  * @swagger
- * /pessoas/{id}:
+ * /pessoas/{id}/delete:
  *   delete:
  *     summary: Exclui uma pessoa individualmente
  *     tags: [Pessoas]
@@ -270,7 +270,7 @@ const tokenVerify = require("../middleware/tokenVerify");
 router.get("/", tokenVerify, findAll);
 router.post("/", tokenVerify,  create);
 router.get("/:id", tokenVerify, findSingle);
-router.put("/:id", tokenVerify, updateSingle);
-router.delete("/:id", tokenVerify, deleteSingle);
+router.put("/:id/update", tokenVerify, updateSingle);
+router.delete("/:id/delete", tokenVerify, deleteSingle);
 
 module.exports = router;

@@ -178,4 +178,3 @@ MARTINS, Rafael. The Challenges of Load Testing in Continuous Integration. 2020.
 
 MYERS, Glenford J. The Art of Software Testing. 3. ed. New York: Wiley, 2011.
 
-

@@ -1,29 +1,70 @@
 # Front-end Móvel
 
-[Inclua uma breve descrição do projeto e seus objetivos.]
+O projeto tem como objetivo fornecer uma interface mobile intuitiva, acessível e responsiva para a gestão de um pet shop. Através do front-end mobile, os usuários poderão realizar operações como consulta e cadastro de pets, clientes e agendamentos. O design e a usabilidade foram pensados para otimizar o fluxo de trabalho, facilitar o acesso às informações e garantir uma experiência agradável, prática e segura aos usuários em dispositivos móveis
 
 ## Projeto da Interface
-[Descreva o projeto da interface móvel da aplicação, incluindo o design visual, layout das páginas, interações do usuário e outros aspectos relevantes.]
+A interface móvel foi projetada para oferecer uma navegação intuitiva e eficiente em dispositivos móveis. Com um layout limpo e responsivo, conta com barra de navegação inferior e telas organizadas por seções: Pets, Clientes, Agendamentos e Usuários. Cada página possui formulários simplificados, listas com filtros e ações rápidas. As interações priorizam poucos toques, uso de ícones intuitivos e feedbacks visuais, garantindo uma experiência ágil e produtiva para os colaboradores do pet shop.
 
 ### Wireframes
 
-[Inclua os wireframes das páginas principais da interface, mostrando a disposição dos elementos na página.]
+![login](./img/Mobile-1.png)
+![perfil](./img/Mobile-2.png)
+![perfil](./img/Mobile-3.png)
 
 ### Design Visual
 
-[Descreva o estilo visual da interface, incluindo paleta de cores, tipografia, ícones e outros elementos gráficos.]
+![CADASTRO_AGENDAMENTOS](img/CADASTRO_AGENDAMENTOS1.png)
+![CADASTRO_USUÁRIOS](img/CADASTRO_USUÁRIOS1.png)
+![LOGIN_MOBILE](img/TELA_LOGIN_MOBILE.png)
+![MENU_LATERAL_MOBILE](img/MENU_LATERAL_MOBILE.png)
 
 ## Fluxo de Dados
 
-[Diagrama ou descrição do fluxo de dados na aplicação.]
+O fluxo de dados da aplicação mobile do pet shop segue uma arquitetura baseada em CRUD (Create, Read, Update, Delete) e é organizado em camadas para garantir a separação de responsabilidades, segurança e performance. A seguir, descreve-se o ciclo típico de processamento de dados:
+
+Interação do Usuário (Frontend Mobile)
+
+O usuário interage com a interface mobile por meio de formulários, botões e menus. Essas ações geram requisições (via HTTP/HTTPS) ao servidor, utilizando métodos REST (GET, POST, PUT, DELETE).
+
+Requisição ao Servidor (Backend)
+
+O servidor recebe a solicitação e a redireciona para o controlador adequado (ex: PetController, AgendamentoController). Os dados da requisição são validados para garantir integridade e segurança.
+
+Processamento e Regras de Negócio
+
+O controlador repassa a solicitação para os serviços internos responsáveis pelas regras de negócio. Ex: Antes de registrar um agendamento, o sistema verifica se a data esta no formato correto.
+
+Acesso ao Banco de Dados
+
+Após o processamento, o serviço se comunica com o repositório ou camada de acesso a dados. Consultas, inserções ou atualizações são feitas no banco de dados relacional (PostgreSQL).
+
+Resposta ao Usuário
+
+O servidor envia uma resposta com o resultado da operação (sucesso, erro ou dados solicitados). A interface web exibe a informação ao usuário com mensagens de sucesso, erro ou atualização visual da tela.
+
+![FLUXOMOBILE](img/Fluxomobile.png)
+
 
 ## Tecnologias Utilizadas
+O desenvolvimento Mobile foi realizado utilizando as seguintes tecnologias principais:
 
-[Lista das tecnologias principais que serão utilizadas no projeto.]
+Tamagui – Biblioteca de UI unificada para React Native, que oferece componentes estilizados com performance e acessibilidade, ideal para construção de interfaces responsivas e consistentes.
 
+JavaScript e TypeScript – Linguagem de programação utilizada para o desenvolvimento de toda a lógica do projeto.
+
+Expo (React Native) - Uma plataforma que simplifica o desenvolvimento, e visualização em Android ou IOS. O Expo oferece um fluxo de desenvolvimento mais rápido.
 ## Considerações de Segurança
 
-[Discuta as considerações de segurança relevantes para a aplicação distribuída, como autenticação, autorização, proteção contra ataques, etc.]
+A aplicação web foi projetada com diversas camadas de segurança para garantir a integridade dos dados, a proteção dos usuários e a resiliência contra ataques comuns em ambientes distribuídos. As principais considerações adotadas incluem:
+
+- Autenticação: implementação de autenticação segura baseada em tokens (JWT) ou sessões; Senhas são armazenadas com hashing seguro (bcrypt ou Argon2), jamais em texto puro; Tempo de expiração configurável e renovação de tokens para minimizar riscos de sessões inativas.
+
+- Autorização: controle de acesso baseado em papéis de usuário (roles), restringindo funcionalidades conforme permissões (ex: administrador, usuário); Validação de permissões em cada endpoint para evitar acesso não autorizado via requisições forjadas.
+
+ - Proteção contra ataques comuns: Proteção contra CSRF (Cross-Site Request Forgery) usando tokens em formulários; Validação e sanitização de entradas para prevenir injeção de SQL/XSS; Uso de cabeçalhos de segurança (ex: Content-Security-Policy, X-Frame-Options, Strict-Transport-Security); Rate limiting e logging para detectar comportamentos anômalos e mitigar ataques de força bruta.
+
+- Comunicação segura:toda comunicação entre cliente e servidor é feita via HTTPS, garantindo criptografia dos dados em trânsito;
+
 
 ## Implantação
 
@@ -35,24 +76,9 @@
 4. Faça o deploy da aplicação no ambiente escolhido, seguindo as instruções específicas da plataforma de hospedagem.
 5. Realize testes para garantir que a aplicação esteja funcionando corretamente no ambiente de produção.
 
-## Testes
-
-1. Casos de Teste
-
-Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consultas e pesquisa de produtos/serviços.
-
 # Plano de Testes de Software
 
 ## Requisitos Funcionais
-
-## [RF-001](./contexto.md#rf-001): Permitir que o usuário ou administrador edite um pet
-> ### CT-001: Atualizar as informações de um pet com dados válidos
-- Pré condições: O pet já deve existir no sistema.
-- Passos:
-  1. Logue no sistema, clique em pets na coluna lateral da esquerda.
-  2. Procure o pet que deseja editar e clique no botão editar deste.
-  3. Preencha os campos que deseja editar e clique em atualizar pet.
-- Resultado esperado: Os dados enviados são atualizados e as novas informações já aparecem na lista.
 
 
 ## [RF-002](./contexto.md#rf-002): Permitir que o administrador delete um cliente.
@@ -62,6 +88,9 @@ Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consulta
   1. Logue no sistema e clique em pessoas na coluna lateral da esquerda.
   2. Procure o cliente desejado na tabela e clique no botão deletar deste cliente.
 - Resultado esperado: Aparece um alert do navegador dizendo que o cliente foi deletado com sucesso.
+![PESSOA1](img/PESSOAS_MOBILE1.png)
+![PESSOA2](img/PESSOAS_MOBILE2.png)
+![PESSOA3](img/PESSOAS_MOBILE3.png)
 
 
 ## [RF-005](./contexto.md#rf-005): Permitir que o administrador cadastre um usuário.
@@ -87,5 +116,19 @@ Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consulta
 
 
 # Referências
+NIELSEN, Jakob; BUDIU, Raluca. Mobile Usability. New Riders, 2012.
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
+KRUG, Steve. Não me faça pensar: uma abordagem de bom senso à usabilidade na web e nos aplicativos móveis. Alta Books, 2014.
+
+MATERIAL DESIGN. Guidelines for mobile UI/UX design. Disponível em: https://m3.material.io. Acesso em: 10 jun. 2025.
+
+APPLE DEVELOPER. Human Interface Guidelines. Disponível em: https://developer.apple.com/design/human-interface-guidelines. Acesso em: 10 jun. 2025.
+
+W3C. Web Accessibility Guidelines (WCAG) 2.1. Disponível em: https://www.w3.org/TR/WCAG21. Acesso em: 09 jun. 2025.
+
+MDN Web Docs. Responsive Design Basics. Disponível em: https://developer.mozilla.org/. Acesso em: 09 jun. 2025.
+
+FERREIRA, Fabio. UX Design: técnicas e práticas para o design de interfaces. Novatec Editora, 2020.
+
+
+

@@ -7,12 +7,11 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
-  Image,
   SafeAreaView,
-  ScrollView,
-  Dimensions,
 } from "react-native";
 import { useRouter } from "expo-router";
+import { SvgUri } from "react-native-svg";
+import { Asset } from "expo-asset";
 
 export default function LoginPage({ children }: { children: React.ReactNode }) {
   const [email, setEmail] = useState("");
@@ -46,16 +45,23 @@ export default function LoginPage({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const [uri, setUri] = useState<string>();
+
+  useEffect(() => {
+    (async () => {
+      const asset = Asset.fromModule(require("../assets/pet-logo.svg"));
+      await asset.downloadAsync();
+      setUri(asset.localUri);
+    })();
+  }, []);
+
   return (
     <SafeAreaView style={stylesHeader.safeArea}>
-      <View style={stylesHeader.header}>
-        <Text style={stylesHeader.headerTitle}>PetSystem</Text>
-      </View>
-
       <KeyboardAvoidingView
         style={styles.container}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
+        <SvgUri style={stylesHeader.logo} uri={uri}></SvgUri>
         <View style={styles.form}>
           <TextInput
             placeholder="E-mail"
@@ -81,7 +87,6 @@ export default function LoginPage({ children }: { children: React.ReactNode }) {
           <TouchableOpacity style={styles.button} onPress={handleLogin}>
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
-
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -143,23 +148,9 @@ const stylesHeader = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
   },
-  header: {
-    height: 64,
-    backgroundColor: "#0050b3",
-    flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 16,
-    justifyContent: "space-between",
-  },
-  headerTitle: {
-    color: "#fff",
-    fontSize: 20,
-    fontWeight: "bold",
-    flex: 1,
-    textAlign: "center",
-  },
-  content: {
-    flex: 1,
-    padding: 16,
+  logo: {
+    width: "100%",
+    height: 180,
+    marginBottom: 64
   },
 });
