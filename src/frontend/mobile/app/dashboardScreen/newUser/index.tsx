@@ -56,7 +56,7 @@ export default function UserRegisterPage() {
         Alert.alert("Sucesso", "Usuário cadastrado com sucesso.", [
           {
             text: "OK",
-            onPress: () => (router.push("/dashboardScreen/newUser")),
+            onPress: () => (router.push("/dashboardScreen/users")),
           },
         ]);
       } else {

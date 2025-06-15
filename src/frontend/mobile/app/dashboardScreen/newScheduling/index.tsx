@@ -65,10 +65,10 @@ export default function UserRegisterPage() {
       });
 
       if (response.ok) {
-        Alert.alert("Sucesso", "Usuário cadastrado com sucesso.", [
+        Alert.alert("Sucesso", "Agendamento cadastrado com sucesso.", [
           {
             text: "OK",
-            onPress: () => (router.push("/dashboardScreen/newScheduling")),
+            onPress: () => (router.push("/dashboardScreen/scheduling")),
           },
         ]);
       } else {

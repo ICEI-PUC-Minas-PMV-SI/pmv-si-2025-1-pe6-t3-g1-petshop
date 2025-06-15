@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-// import { useAuthCheck } from '../../hooks/useAuthCheck'
+import { useAuthCheck } from "../hooks/useAuthCheck";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -35,7 +35,7 @@ export default function DashboardScreen({
   const [menuOpen, setMenuOpen] = useState(false);
   const slideAnim = useState(new Animated.Value(-SCREEN_WIDTH))[0];
 
-  // useAuthCheck()
+  useAuthCheck();
 
   const toggleMenu = () => {
     Animated.timing(slideAnim, {
@@ -46,8 +46,9 @@ export default function DashboardScreen({
   };
 
   const handleLogout = async () => {
+    console.log("Logout button pressed");
     try {
-      const response = await fetch("http://localhost:3001/api/logout", {
+      const response = await fetch("http://10.0.2.2:3001/api/logout", {
         method: "POST",
         credentials: "include",
       });
@@ -74,9 +75,6 @@ export default function DashboardScreen({
       <View style={styles.header}>
         <TouchableOpacity onPress={toggleMenu}>
           <Ionicons name="menu" size={28} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => router.push("/login")}>
-          <Ionicons name="home" size={28} color="white" />{" "}
         </TouchableOpacity>
         <Text style={styles.headerTitle}>PetSystem</Text>
         <View style={styles.userBox}>
