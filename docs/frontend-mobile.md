@@ -71,24 +71,9 @@ A aplicação web foi projetada com diversas camadas de segurança para garantir
 4. Faça o deploy da aplicação no ambiente escolhido, seguindo as instruções específicas da plataforma de hospedagem.
 5. Realize testes para garantir que a aplicação esteja funcionando corretamente no ambiente de produção.
 
-## Testes
-
-1. Casos de Teste
-
-Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consultas e pesquisa de produtos/serviços.
-
 # Plano de Testes de Software
 
 ## Requisitos Funcionais
-
-## [RF-001](./contexto.md#rf-001): Permitir que o usuário ou administrador edite um pet
-> ### CT-001: Atualizar as informações de um pet com dados válidos
-- Pré condições: O pet já deve existir no sistema.
-- Passos:
-  1. Logue no sistema, clique em pets na coluna lateral da esquerda.
-  2. Procure o pet que deseja editar e clique no botão editar deste.
-  3. Preencha os campos que deseja editar e clique em atualizar pet.
-- Resultado esperado: Os dados enviados são atualizados e as novas informações já aparecem na lista.
 
 
 ## [RF-002](./contexto.md#rf-002): Permitir que o administrador delete um cliente.
@@ -98,6 +83,9 @@ Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consulta
   1. Logue no sistema e clique em pessoas na coluna lateral da esquerda.
   2. Procure o cliente desejado na tabela e clique no botão deletar deste cliente.
 - Resultado esperado: Aparece um alert do navegador dizendo que o cliente foi deletado com sucesso.
+![PESSOA1](img/PESSOAS_MOBILE1.png)
+![PESSOA2](img/PESSOAS_MOBILE2.png)
+![PESSOA3](img/PESSOAS_MOBILE3.png)
 
 
 ## [RF-005](./contexto.md#rf-005): Permitir que o administrador cadastre um usuário.
