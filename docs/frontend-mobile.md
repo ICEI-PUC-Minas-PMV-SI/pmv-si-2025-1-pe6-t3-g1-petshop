@@ -11,7 +11,10 @@ A interface móvel foi projetada para oferecer uma navegação intuitiva e efici
 
 ### Design Visual
 
-[Descreva o estilo visual da interface, incluindo paleta de cores, tipografia, ícones e outros elementos gráficos.]
+![CADASTRO_AGENDAMENTOS](img/CADASTRO_AGENDAMENTOS1.png)
+![CADASTRO_USUÁRIOS](img/CADASTRO_USUÁRIOS1.png)
+![LOGIN_MOBILE](img/TELA_LOGIN_MOBILE.png)
+![MENU_LATERAL_MOBILE](img/MENU_LATERAL_MOBILE.png)
 
 ## Fluxo de Dados
 
