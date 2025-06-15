@@ -37,13 +37,54 @@
 
 ## Testes
 
-[Descreva a estratégia de teste, incluindo os tipos de teste a serem realizados (unitários, integração, carga, etc.) e as ferramentas a serem utilizadas.]
+1. Casos de Teste
 
-1. Crie casos de teste para cobrir todos os requisitos funcionais e não funcionais da aplicação.
-2. Implemente testes unitários para testar unidades individuais de código, como funções e classes.
-3. Realize testes de integração para verificar a interação correta entre os componentes da aplicação.
-4. Execute testes de carga para avaliar o desempenho da aplicação sob carga significativa.
-5. Utilize ferramentas de teste adequadas, como frameworks de teste e ferramentas de automação de teste, para agilizar o processo de teste.
+Funcionais: Testar cadastro de pets, compra de produtos, agendamento de consultas e pesquisa de produtos/serviços.
+
+# Plano de Testes de Software
+
+## Requisitos Funcionais
+
+## [RF-001](./contexto.md#rf-001): Permitir que o usuário ou administrador edite um pet
+> ### CT-001: Atualizar as informações de um pet com dados válidos
+- Pré condições: O pet já deve existir no sistema.
+- Passos:
+  1. Logue no sistema, clique em pets na coluna lateral da esquerda.
+  2. Procure o pet que deseja editar e clique no botão editar deste.
+  3. Preencha os campos que deseja editar e clique em atualizar pet.
+- Resultado esperado: Os dados enviados são atualizados e as novas informações já aparecem na lista.
+
+
+## [RF-002](./contexto.md#rf-002): Permitir que o administrador delete um cliente.
+> ### CT-002: Deletar um cliente do sistema.
+- Pré condições: Precisará de uma conta com role de administrador.
+- Passos:
+  1. Logue no sistema e clique em pessoas na coluna lateral da esquerda.
+  2. Procure o cliente desejado na tabela e clique no botão deletar deste cliente.
+- Resultado esperado: Aparece um alert do navegador dizendo que o cliente foi deletado com sucesso.
+
+
+## [RF-005](./contexto.md#rf-005): Permitir que o administrador cadastre um usuário.
+> ### CT-003: Cadastrar um novo usuário no sistema.
+- Pré condições: Precisará de uma conta com role de administrador.
+- Passos:
+  1. Logue no sistema e clique em usuários na coluna lateral da esquerda.
+  2. Clique no botão novo usuário, no canto superior direito.
+  3. Preencha o formulário com dados válidos e selecione a role do usuário.
+  4. Clique no botão cadastrar
+- Resultado esperado: Aparece um alert do navegador dizendo que o usuário foi criado com sucesso.
+![USER1](img/USER_MOBILE1.png)
+![USER2](img/USER_MOBILE2.png)
+
+## [RF-006](./contexto.md#rf-006): Permitir que o usuário visualize todos agendamentos.
+> ### CT-004: Ler os agendamentos do sistema.
+- Pré condições: Existir agendamentos no sistema.
+- Passos:
+  1. Logue no sistema e clique em agendamentos na coluna lateral da esquerda.
+  2. Aparecerá uma tabela com todos agendamentos existentes no sistema.
+- Resultado esperado: Lista todos agendamentos existentes em uma tabela com paginação.
+![AGENDAMENTOS1](img/AGENDAMENTO_MOBILE1.png)
+
 
 # Referências
 
