@@ -54,6 +54,7 @@ export default function UserDetailsScreen() {
     })
       .then((res) => {
         if (!res.ok) throw new Error("Erro ao buscar agendamento");
+
         return res.json();
       })
       .then((data) => setUser(data))
@@ -71,6 +72,7 @@ export default function UserDetailsScreen() {
       .then((res) => {
         if (!res.ok) throw new Error("Erro ao deletar agendamento");
         router.back();
+        res.ok && Alert.alert("Sucesso", "Agendamento deletado com sucesso")
       })
       .catch((err) => setError(err.message));
   };

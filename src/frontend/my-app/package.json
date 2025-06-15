@@ -35,12 +35,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.24.6",
-<<<<<<< HEAD
     "@rehookify/datepicker": "^6.6.8",
-=======
     "@tamagui/alert-dialog": "^1.126.12",
     "@tamagui/babel-plugin": "^1.126.13",
->>>>>>> dev
     "@tamagui/cli": "^1.125.34",
     "@tamagui/config": "^1.126.13",
     "@tamagui/lucide-icons": "^1.126.13",

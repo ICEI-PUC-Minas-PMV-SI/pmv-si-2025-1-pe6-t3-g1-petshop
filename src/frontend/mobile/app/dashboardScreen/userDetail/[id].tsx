@@ -58,6 +58,7 @@ export default function UserDetailsScreen() {
       .then((res) => {
         if (!res.ok) throw new Error("Erro ao deletar usuário");
         router.back();
+        res.ok && Alert.alert("Sucesso", "Usuário deletada com sucesso")
       })
       .catch((err) => setError(err.message));
   };

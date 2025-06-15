@@ -66,6 +66,7 @@ export default function PessoaDetailsScreen() {
       .then((res) => {
         if (!res.ok) throw new Error("Erro ao deletar pessoa");
         router.back();
+        res.ok && Alert.alert("Sucesso", "Pessoa deletada com sucesso")
       })
       .catch((err) => setError(err.message));
   };

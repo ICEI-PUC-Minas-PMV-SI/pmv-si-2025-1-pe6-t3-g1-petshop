@@ -270,7 +270,7 @@ const tokenVerify = require("../middleware/tokenVerify");
 router.get("/", tokenVerify, findAll);
 router.post("/", tokenVerify,  create);
 router.get("/:id", tokenVerify, findSingle);
-router.put("/:id", tokenVerify, updateSingle);
-router.delete("/:id", tokenVerify, deleteSingle);
+router.put("/:id/update", tokenVerify, updateSingle);
+router.delete("/:id/delete", tokenVerify, deleteSingle);
 
 module.exports = router;

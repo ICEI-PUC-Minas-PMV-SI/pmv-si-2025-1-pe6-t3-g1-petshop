@@ -2,13 +2,8 @@ const Pet = require("../models/petModel");
 
 const getPets = async (_req, res) => {
   try {
-<<<<<<< HEAD
     const Pets = await Pet.findAll();
     res.status(200).json(Pets); 
-=======
-    const pets = await Pet.findAll();
-    res.status(200).json(pets);
->>>>>>> 0921015df3536de75501537cdc4f1c83e62be2d7
   } catch (error) {
     res.status(500).json({ error: "Erro ao buscar pets" });
   }
