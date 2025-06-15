@@ -11,9 +11,9 @@ const loginUser = async (req, res) => {
     const user = await User.findOne({ where: { email } });
     if (!user) return res.status(401).json({ error: "Credenciais inválidas" });
 
-    /*const isMatch = await bcrypt.compare(senha, user.senha_hash);
+    const isMatch = await bcrypt.compare(senha, user.senha_hash);
     if (!isMatch)
-      return res.status(401).json({ error: "Credenciais inválidas" });*/
+      return res.status(401).json({ error: "Credenciais inválidas" });
 
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
