@@ -14,7 +14,7 @@ A interface móvel foi projetada para oferecer uma navegação intuitiva e efici
 ### Design Visual
 
 ![CADASTRO_AGENDAMENTOS](img/CADASTRO_AGENDAMENTOS1.png)
-![CADASTRO_USUÁRIOS](img/CADASTRO_USUÁRIOS1.png)
+![CADASTRO_USUÁRIOS](img/CADASTRO_USUÁRIOS_MOBILE.png)
 ![LOGIN_MOBILE](img/TELA_LOGIN_MOBILE.png)
 ![MENU_LATERAL_MOBILE](img/MENU_LATERAL_MOBILE.png)
 ![MENU_LATERAL_MOBILE](img/detalhes_pessoa.png)
