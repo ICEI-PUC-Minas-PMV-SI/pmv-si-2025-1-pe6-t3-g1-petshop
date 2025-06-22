@@ -39,7 +39,6 @@ const loginUser = async (req, res) => {
       .status(200)
       .json({
         message: "Login bem-sucedido",
-        token,
         "Sua sessão expira em:": userSession.expiresAt,
       });
   } catch (error) {
