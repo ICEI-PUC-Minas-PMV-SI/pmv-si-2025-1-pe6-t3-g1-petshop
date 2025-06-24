@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
-const User = require("../models/userModel")
+const User = require("../models/userModel");
 
 const Pessoa = sequelize.define(
   "Pessoa",
@@ -80,12 +80,12 @@ const Pessoa = sequelize.define(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: User,
         key: "id",
       },
-      onDelete: "CASCADE",
+     onDelete: "SET NULL",
     },
   },
   {
@@ -95,5 +95,15 @@ const Pessoa = sequelize.define(
     updatedAt: "updated_at",
   }
 );
+
+Pessoa.belongsTo(User, {
+  foreignKey: "user_id",
+  as: "user",
+});
+
+User.hasOne(Pessoa, {
+  foreignKey: "user_id",
+  as: "pessoa",
+});
 
 module.exports = Pessoa;

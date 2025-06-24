@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { XStack, YStack, XGroup, Input, Button, H1, Paragraph, Text } from '@my/ui'
 
 import { DatePickerExample } from '../datePicker/DatePicker'
@@ -21,11 +21,28 @@ export default function NovaPessoaPage() {
   const [estado, setEstado] = useState('')
   const [pais, setPais] = useState('')
   const [cep, setCep] = useState('')
+  const [userId, setUserId] = useState(null)
 
   const [errorMessage, setErrorMessage] = useState('')
 
+      useEffect(() => {
+      async function loadUserId() {
+        const res = await fetch('http://localhost:3001/api/perfil', {
+          method: 'GET',
+          credentials: 'include',
+        })
+        if (!res.ok) {
+          return
+        }
+        const { id } = await res.json()
+        setUserId(id)
+      }
+
+      loadUserId()
+    }, [])
+
   const handleRegister = async () => {
-    if (!nome || !cpf_cnpj || !tipo || !telefone ||!genero) {
+    if (!nome || !cpf_cnpj || !tipo || !telefone || !genero) {
       setErrorMessage('Por favor, preencha todos os campos.')
       return
     }
@@ -35,9 +52,25 @@ export default function NovaPessoaPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ nome, cpf_cnpj, tipo, nascimento, genero,telefone,email,endereco,endereco_num, endereco_comp,endereco_bairro, cidade,estado,pais,cep }),
+        body: JSON.stringify({
+          nome,
+          cpf_cnpj,
+          tipo,
+          nascimento,
+          genero,
+          telefone,
+          email,
+          endereco,
+          endereco_num,
+          endereco_comp,
+          endereco_bairro,
+          cidade,
+          estado,
+          pais,
+          cep,
+          user_id: userId,
+        }),
       })
-      
 
       if (response.ok) {
         window.location.href = '/cadastroPessoa'
@@ -48,7 +81,13 @@ export default function NovaPessoaPage() {
       setErrorMessage('Erro ao tentar realizar cadastro. Tente novamente mais tarde.')
     }
   }
-
+  if (!userId) {
+    return (
+      <YStack f={1} jc="center" ai="center">
+        <Text>Carregando...</Text>
+      </YStack>
+    )
+  }
   return (
     <YStack
       f={1}
@@ -104,12 +143,7 @@ export default function NovaPessoaPage() {
               </XGroup.Item>
             </XGroup>
 
-            <DatePickerExample
-            value={nascimento}
-            onChange={setNascimento}
-            />
-
-            
+            <DatePickerExample value={nascimento} onChange={setNascimento} />
 
             <XGroup>
               <XGroup.Item>
@@ -144,7 +178,6 @@ export default function NovaPessoaPage() {
               autoCapitalize="none"
               flex={1}
             />
-            
           </XStack>
 
           <XStack space="$3" flexWrap="wrap">
@@ -185,7 +218,6 @@ export default function NovaPessoaPage() {
               autoCapitalize="none"
               flex={1}
             />
-
           </XStack>
 
           <XStack space="$3" flexWrap="wrap">
@@ -218,7 +250,6 @@ export default function NovaPessoaPage() {
               autoCapitalize="none"
               flex={1}
             />
-
           </XStack>
 
           <YStack h={32} jc="center" ai="center">

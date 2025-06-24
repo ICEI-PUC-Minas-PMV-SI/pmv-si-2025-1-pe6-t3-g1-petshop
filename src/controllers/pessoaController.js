@@ -36,10 +36,9 @@ const findAll = async (req, res) => {
   const create = async (req, res) => {
     try {
       console.log(req)
-      const { nome, cpf_cnpj, tipo, nascimento, genero, telefone, email, endereco, endereco_num, endereco_bairro, cidade, estado, pais, cep } = req.body;
+      const { nome, cpf_cnpj, tipo, nascimento, genero, telefone, email, endereco, endereco_num, endereco_bairro, cidade, estado, pais, cep, user_id } = req.body;
 
-      var user_id = 1,
-      status = 1,
+      var status = 1,
       created_at = Date.now(),
       updated_at = created_at;
 

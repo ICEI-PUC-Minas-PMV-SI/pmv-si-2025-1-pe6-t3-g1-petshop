@@ -67,7 +67,7 @@ export default function UserEditScreen() {
     const [dia, mes, ano] = dataParte.split('/')
     const dataFormatada = `${ano}-${mes}-${dia}T${horaParte}:00`
     try {
-      const response = await fetch(`http://localhost:3001/api/schedule/update/${userId}`, { //schedule/update/{id} ou users/${userId}/update
+      const response = await fetch(`http://10.0.2.2:3001/api/schedule/update/${userId}`, { //schedule/update/{id} ou users/${userId}/update
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
