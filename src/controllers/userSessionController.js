@@ -35,12 +35,10 @@ const loginUser = async (req, res) => {
       expires: expiresAt,
     });
 
-    res
-      .status(200)
-      .json({
-        message: "Login bem-sucedido",
-        "Sua sessão expira em:": userSession.expiresAt,
-      });
+    res.status(200).json({
+      message: "Login bem-sucedido",
+      "Sua sessão expira em:": userSession.expiresAt,
+    });
   } catch (error) {
     console.error("Erro ao autenticar usuário:", error);
     res.status(500).json({ error: "Erro ao autenticar usuário" });
@@ -49,34 +47,44 @@ const loginUser = async (req, res) => {
 
 const logoutUser = async (req, res) => {
   try {
-    const token = req.cookies.token
-    if (!token) return res.status(400).json({ error: "Token não encontrado" })
+    const token = req.cookies.token;
+    if (!token) return res.status(400).json({ error: "Token não encontrado" });
 
-    await UserSession.destroy({ where: { token } })
+    await UserSession.destroy({ where: { token } });
 
-    res.clearCookie('token', {
+    res.clearCookie("token", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: 'strict',
-    })
+      sameSite: "strict",
+    });
 
-    res.status(200).json({ message: "Logout realizado com sucesso" })
+    res.status(200).json({ message: "Logout realizado com sucesso" });
   } catch (error) {
-    console.error("Erro no logout:", error)
-    res.status(500).json({ error: "Erro ao fazer logout" })
+    console.error("Erro no logout:", error);
+    res.status(500).json({ error: "Erro ao fazer logout" });
   }
-}
+};
 
 const getMe = async (req, res) => {
   try {
-    const userId = req.user.id
-    res.status(200).json({ id: userId })
+    const userId = req.user.id;
+    res.status(200).json({ id: userId });
   } catch (error) {
-    console.error("Erro em getMe:", error)
-    res.status(500).json({ error: "Erro ao recuperar usuário autenticado" })
+    console.error("Erro em getMe:", error);
+    res.status(500).json({ error: "Erro ao recuperar usuário autenticado" });
   }
-}
+};
 
+const getProfile = async (req, res) => {
+  try {
+    const token = req.cookies.token;
+    if (!token) return res.status(401).end();
 
+    const { id } = jwt.verify(token, process.env.JWT_SECRET);
+    return res.json({ id });
+  } catch {
+    return res.status(401).end();
+  }
+};
 
-module.exports = { loginUser, logoutUser, getMe };
+module.exports = { loginUser, logoutUser, getMe, getProfile };

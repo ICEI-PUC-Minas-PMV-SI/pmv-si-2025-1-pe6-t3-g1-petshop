@@ -1,5 +1,5 @@
 const express = require("express");
-const { loginUser, logoutUser, getMe } = require("../controllers/userSessionController");
+const { loginUser, logoutUser, getMe, getProfile } = require("../controllers/userSessionController");
 const router = express.Router();
 const tokenVerify = require("../middleware/tokenVerify")
 
@@ -81,7 +81,8 @@ const tokenVerify = require("../middleware/tokenVerify")
 
 router.post("/login", loginUser);
 router.post("/logout", tokenVerify, logoutUser);
-router.get('/me', tokenVerify, getMe)
+router.get('/me', tokenVerify, getMe);
+router.get('/perfil', tokenVerify, getProfile);
 
 
 module.exports = router;

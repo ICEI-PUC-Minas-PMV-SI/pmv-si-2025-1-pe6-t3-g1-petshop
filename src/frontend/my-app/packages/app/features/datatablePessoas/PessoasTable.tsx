@@ -108,11 +108,6 @@ export function SortableTable() {
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include',
             })
-<<<<<<< HEAD
-            res.ok
-              ? alert('Pessoa deletada com sucesso!')
-              : alert('Erro ao deletar pessoa.')
-=======
 
             if (res.ok) {
               const updatedRes = await fetch('http://localhost:3001/api/pessoas', {
@@ -126,7 +121,6 @@ export function SortableTable() {
             } else {
               alert('Erro ao deletar pessoa.')
             }
->>>>>>> dev
           } catch (error) {
             console.error(error)
             alert('Erro de rede ao tentar deletar.')
@@ -175,7 +169,7 @@ export function SortableTable() {
   const rowCounter = React.useRef(-1)
   rowCounter.current = -1
 
-  const CELL_WIDTH = '$17'
+  const CELL_WIDTH = '$19'
   const TABLE_WIDTH = getTokenValue(CELL_WIDTH) * columns.length
   const { sm } = isWeb ? useMedia() : { sm: true }
   const screenWidth = windowWidth - 15

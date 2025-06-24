@@ -1,5 +1,11 @@
 const express = require("express");
-const { findAll, create, findSingle, updateSingle, deleteSingle } = require("../controllers/pessoaController");
+const {
+  findAll,
+  create,
+  findSingle,
+  updateSingle,
+  deleteSingle,
+} = require("../controllers/pessoaController");
 const router = express.Router();
 const tokenVerify = require("../middleware/tokenVerify");
 
@@ -268,9 +274,9 @@ const tokenVerify = require("../middleware/tokenVerify");
  */
 
 router.get("/", tokenVerify, findAll);
-router.post("/", tokenVerify,  create);
+router.post("/", tokenVerify, create);
 router.get("/:id", tokenVerify, findSingle);
-router.put("/:id/update", tokenVerify, updateSingle);
-router.delete("/:id/delete", tokenVerify, deleteSingle);
+router.put("/:id", tokenVerify, updateSingle);
+router.delete("/:id", tokenVerify, deleteSingle);
 
 module.exports = router;
